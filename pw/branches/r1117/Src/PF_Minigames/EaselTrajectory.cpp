@@ -107,8 +107,8 @@ int64 CBSplineTrajectory::GetLenght()
 int CBSplineTrajectory::GetCoordsByLenght(int64 length,
                                           /*out*/SVector &refCoords)
 {
-    // [@Pavel <GnoM> Cherniavski@] TODO: Данный метод будет вызываться чаще всего
-    // его нужно однозначно оптимизировать .....
+    // [@Pavel <GnoM> Cherniavski@] TODO: Р”Р°РЅРЅС‹Р№ РјРµС‚РѕРґ Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‡Р°С‰Рµ РІСЃРµРіРѕ
+    // РµРіРѕ РЅСѓР¶РЅРѕ РѕРґРЅРѕР·РЅР°С‡РЅРѕ РѕРїС‚РёРјРёР·РёСЂРѕРІР°С‚СЊ .....
     
     if ( splinePointsMap.empty()  )
         return LUX_ERROR;
@@ -160,8 +160,8 @@ int CBSplineTrajectory::GetCoordsByLenght(int64 length,
 
 int CBSplineTrajectory::GetTangentByLenght(int64 length, /*out*/SVector &refTangent)
 {
-  // [@Pavel <GnoM> Cherniavski@] TODO: Данный метод будет вызываться чаще всего
-  // его нужно однозначно оптимизировать .....
+  // [@Pavel <GnoM> Cherniavski@] TODO: Р”Р°РЅРЅС‹Р№ РјРµС‚РѕРґ Р±СѓРґРµС‚ РІС‹Р·С‹РІР°С‚СЊСЃСЏ С‡Р°С‰Рµ РІСЃРµРіРѕ
+  // РµРіРѕ РЅСѓР¶РЅРѕ РѕРґРЅРѕР·РЅР°С‡РЅРѕ РѕРїС‚РёРјРёР·РёСЂРѕРІР°С‚СЊ .....
 
   if(splinePointsMap.size() < 2)
     return LUX_ERROR;
@@ -208,7 +208,7 @@ void CBSplineTrajectory::InitInternalPointContainer()
 
   int64 lenghtComplete = 0;    // complete spline lenght
 
-  for(double i=0; i<nodeVector[curveDegree+numControlPoints];i+=0.01)   // точность прохода 
+  for(double i=0; i<nodeVector[curveDegree+numControlPoints];i+=0.01)   // С‚РѕС‡РЅРѕСЃС‚СЊ РїСЂРѕС…РѕРґР° 
   {
     coordSecond = CalculateDeBoor(curveDegree, floor(i), i);
 

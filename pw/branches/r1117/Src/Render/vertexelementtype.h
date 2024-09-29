@@ -2,7 +2,7 @@
 
 namespace Render
 {
-	/// Тип элемента вершины
+	/// РўРёРї СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 	enum EVertexElementType
 	{
 		VERTEXELEMENTTYPE_FLOAT1,

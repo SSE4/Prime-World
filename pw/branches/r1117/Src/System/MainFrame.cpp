@@ -312,7 +312,7 @@ static void SetClipCursorRect( HWND _hWnd )
 	
   if ( !s_fullscreen )
 	{
-    //NUM_TASK Сессия в оконном режиме - курсор не должен покидать пределы окна
+    //NUM_TASK РЎРµСЃСЃРёСЏ РІ РѕРєРѕРЅРЅРѕРј СЂРµР¶РёРјРµ - РєСѓСЂСЃРѕСЂ РЅРµ РґРѕР»Р¶РµРЅ РїРѕРєРёРґР°С‚СЊ РїСЂРµРґРµР»С‹ РѕРєРЅР°
     if (s_clipCursorInWindowedMode && !cursorClipDisabled)
     {
       r.top += wndCaptionSize;
@@ -464,11 +464,11 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
           {
              SetClipCursorRect( hWnd );
               
-              //Мак, при закрытии модального окна, не присылает WM_ACTIVATEAPP и
-              //поэтому, например, после ассерта приложение игнорирует 
-              //клавиатуру и мышь.
-              //Не очень понятно почему здесь не вызывается SetActive, но,
-              //на всякий случай, будем делать это только под Mac
+              //РњР°Рє, РїСЂРё Р·Р°РєСЂС‹С‚РёРё РјРѕРґР°Р»СЊРЅРѕРіРѕ РѕРєРЅР°, РЅРµ РїСЂРёСЃС‹Р»Р°РµС‚ WM_ACTIVATEAPP Рё
+              //РїРѕСЌС‚РѕРјСѓ, РЅР°РїСЂРёРјРµСЂ, РїРѕСЃР»Рµ Р°СЃСЃРµСЂС‚Р° РїСЂРёР»РѕР¶РµРЅРёРµ РёРіРЅРѕСЂРёСЂСѓРµС‚ 
+              //РєР»Р°РІРёР°С‚СѓСЂСѓ Рё РјС‹С€СЊ.
+              //РќРµ РѕС‡РµРЅСЊ РїРѕРЅСЏС‚РЅРѕ РїРѕС‡РµРјСѓ Р·РґРµСЃСЊ РЅРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ SetActive, РЅРѕ,
+              //РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№, Р±СѓРґРµРј РґРµР»Р°С‚СЊ СЌС‚Рѕ С‚РѕР»СЊРєРѕ РїРѕРґ Mac
               if( Compatibility::IsRunnedUnderWine() )
                 SetActive( true );  
           }
@@ -590,7 +590,7 @@ bool NMainFrame::InitApplication( HINSTANCE hInstance, const char *pszAppName, c
 //     ::hWnd = hUseWindow;
 // 
 //     s_OldWindowProc = (WNDPROC)GetWindowLong( hWnd, GWL_WNDPROC );
-//     // Устанавливаем наш PW'шный
+//     // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅР°С€ PW'С€РЅС‹Р№
 //     SetWindowLong( hWnd, GWL_WNDPROC, (LONG)WndProc );
 // 
 //     hCursor = LoadCursor( hInstance, IDC_ARROW );
@@ -687,7 +687,7 @@ void AddMsgCursor()
 {
   NI_PROFILE_FUNCTION
 
-  //@iA@TODO: сделать отправку сообщения только при изменении координат
+  //@iA@TODO: СЃРґРµР»Р°С‚СЊ РѕС‚РїСЂР°РІРєСѓ СЃРѕРѕР±С‰РµРЅРёСЏ С‚РѕР»СЊРєРѕ РїСЂРё РёР·РјРµРЅРµРЅРёРё РєРѕРѕСЂРґРёРЅР°С‚
 	int x,y;
 
   const NMainFrame::SWindowsMsg::EMsg msg = GetLocalCursorPos( x, y );
@@ -736,7 +736,7 @@ static RECT GetVirtualScreenRect()
 
 static RECT GetMonitorRect( const RECT &windowRect )
 {
-  //Находим координаты и размер монитора на котором находится окно
+  //РќР°С…РѕРґРёРј РєРѕРѕСЂРґРёРЅР°С‚С‹ Рё СЂР°Р·РјРµСЂ РјРѕРЅРёС‚РѕСЂР° РЅР° РєРѕС‚РѕСЂРѕРј РЅР°С…РѕРґРёС‚СЃСЏ РѕРєРЅРѕ
   HMONITOR hMon = ::MonitorFromRect( &windowRect, MONITOR_DEFAULTTOPRIMARY );
 
   if( hMon == NULL )
@@ -748,9 +748,9 @@ static RECT GetMonitorRect( const RECT &windowRect )
   if( !::GetMonitorInfo(hMon, &monInfo) )
     return GetVirtualScreenRect();  
     
-  //Монитор может находиться в полноэкранном режиме и тогда его разрешение не соответствуют
-  //разрешению оконного режима. В этом случае находим разрешение монитора в реестре и  
-  //корректируем значения
+  //РњРѕРЅРёС‚РѕСЂ РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРј СЂРµР¶РёРјРµ Рё С‚РѕРіРґР° РµРіРѕ СЂР°Р·СЂРµС€РµРЅРёРµ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‚
+  //СЂР°Р·СЂРµС€РµРЅРёСЋ РѕРєРѕРЅРЅРѕРіРѕ СЂРµР¶РёРјР°. Р’ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ РЅР°С…РѕРґРёРј СЂР°Р·СЂРµС€РµРЅРёРµ РјРѕРЅРёС‚РѕСЂР° РІ СЂРµРµСЃС‚СЂРµ Рё  
+  //РєРѕСЂСЂРµРєС‚РёСЂСѓРµРј Р·РЅР°С‡РµРЅРёСЏ
   DEVMODE devMode;
   
   devMode.dmSize = sizeof(devMode);
@@ -759,8 +759,8 @@ static RECT GetMonitorRect( const RECT &windowRect )
   if( !::EnumDisplaySettings(monInfo.szDevice, ENUM_REGISTRY_SETTINGS, &devMode) )
     return monInfo.rcWork;
   
-  //Увеличиваем размер рабочей области монитора на разницу между оригинальным 
-  //разрешением монитора и текущем разрешением
+  //РЈРІРµР»РёС‡РёРІР°РµРј СЂР°Р·РјРµСЂ СЂР°Р±РѕС‡РµР№ РѕР±Р»Р°СЃС‚Рё РјРѕРЅРёС‚РѕСЂР° РЅР° СЂР°Р·РЅРёС†Сѓ РјРµР¶РґСѓ РѕСЂРёРіРёРЅР°Р»СЊРЅС‹Рј 
+  //СЂР°Р·СЂРµС€РµРЅРёРµРј РјРѕРЅРёС‚РѕСЂР° Рё С‚РµРєСѓС‰РµРј СЂР°Р·СЂРµС€РµРЅРёРµРј
   RECT res = { 
     monInfo.rcWork.left, monInfo.rcWork.top, 
     monInfo.rcWork.right + (devMode.dmPelsWidth - Width(monInfo.rcMonitor)), 
@@ -796,7 +796,7 @@ void NMainFrame::ResizeWindow( unsigned long width, unsigned long height, bool i
   }
   else
   {
-    //Центр окна должен остаться в той же позиции
+    //Р¦РµРЅС‚СЂ РѕРєРЅР° РґРѕР»Р¶РµРЅ РѕСЃС‚Р°С‚СЊСЃСЏ РІ С‚РѕР№ Р¶Рµ РїРѕР·РёС†РёРё
     POINT newPos;
 
     newPos.x = g_windowCenterPos.x - (int)width / 2;
@@ -819,7 +819,7 @@ void NMainFrame::ResizeWindow( unsigned long width, unsigned long height, bool i
       ::GetWindowLong(hWindow, GWL_EXSTYLE) 
     );
         
-    //Нужно добиться того чтобы окно всегда влезало в монитор на котором оно находится
+    //РќСѓР¶РЅРѕ РґРѕР±РёС‚СЊСЃСЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РѕРєРЅРѕ РІСЃРµРіРґР° РІР»РµР·Р°Р»Рѕ РІ РјРѕРЅРёС‚РѕСЂ РЅР° РєРѕС‚РѕСЂРѕРј РѕРЅРѕ РЅР°С…РѕРґРёС‚СЃСЏ
     AlignRect( GetMonitorRect(rect), rect );
   }
      

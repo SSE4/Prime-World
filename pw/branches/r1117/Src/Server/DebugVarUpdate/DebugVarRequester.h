@@ -20,7 +20,7 @@ struct SClientVar
   TIMESTAMP lastReceived;
   TIMESTAMP updPeriod; // 0 == once (dont auto-update); 
   wstring   wsValue;
-  bool      isChecked; // используется механизмом GetNextUpdatedVar()
+  bool      isChecked; // РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РјРµС…Р°РЅРёР·РјРѕРј GetNextUpdatedVar()
 
   inline SClientVar() {}
 
@@ -29,7 +29,7 @@ struct SClientVar
 };
 
 const TIMESTAMP DEFAULT_UPDATE_PERIOD = 10.0;
-const TIMESTAMP REMOTE_CMD_PERIOD = -1.0; // период < 0 будем считать признаком "immediate" команды, для интерфейса RunCmd
+const TIMESTAMP REMOTE_CMD_PERIOD = -1.0; // РїРµСЂРёРѕРґ < 0 Р±СѓРґРµРј СЃС‡РёС‚Р°С‚СЊ РїСЂРёР·РЅР°РєРѕРј "immediate" РєРѕРјР°РЅРґС‹, РґР»СЏ РёРЅС‚РµСЂС„РµР№СЃР° RunCmd
 const TIMESTAMP MAX_REMOTE_WAIT_TIME = 1.0;
 
 class DebugVarRequesterMap; // forward
@@ -43,20 +43,20 @@ public:
 
 protected:
   TClientVars vars;
-  TUserId userId; // пригодится для ForEach
+  TUserId userId; // РїСЂРёРіРѕРґРёС‚СЃСЏ РґР»СЏ ForEach
 
-  // не знаю, нужна ли при нашей step-идеологии thread-safety.. на единичном requester пока точно уберу, пусть через Map лезут
+  // РЅРµ Р·РЅР°СЋ, РЅСѓР¶РЅР° Р»Рё РїСЂРё РЅР°С€РµР№ step-РёРґРµРѕР»РѕРіРёРё thread-safety.. РЅР° РµРґРёРЅРёС‡РЅРѕРј requester РїРѕРєР° С‚РѕС‡РЅРѕ СѓР±РµСЂСѓ, РїСѓСЃС‚СЊ С‡РµСЂРµР· Map Р»РµР·СѓС‚
   //threading::Mutex mutex;
 
   StrongMT<RDebugVarReporter> remote;
   TIMESTAMP timeRemoteRequested;
-  bool waitingForRemote;  // "все еще ждем" (на каждом Step поругиваясь в лог)
+  bool waitingForRemote;  // "РІСЃРµ РµС‰Рµ Р¶РґРµРј" (РЅР° РєР°Р¶РґРѕРј Step РїРѕСЂСѓРіРёРІР°СЏСЃСЊ РІ Р»РѕРі)
 
-  TIMESTAMP lastVarsReceived; // когда последний раз получали что-нибудь валидное в CallbackValueReceive
-  TIMESTAMP lastVarsChecked;  // когда у нас последний раз забирали значения переменных
+  TIMESTAMP lastVarsReceived; // РєРѕРіРґР° РїРѕСЃР»РµРґРЅРёР№ СЂР°Р· РїРѕР»СѓС‡Р°Р»Рё С‡С‚Рѕ-РЅРёР±СѓРґСЊ РІР°Р»РёРґРЅРѕРµ РІ CallbackValueReceive
+  TIMESTAMP lastVarsChecked;  // РєРѕРіРґР° Сѓ РЅР°СЃ РїРѕСЃР»РµРґРЅРёР№ СЂР°Р· Р·Р°Р±РёСЂР°Р»Рё Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅС‹С…
 
-  // поскольку mutex убираем, пусть создается строго через DebugVarRequesterMap 
-  // (доступ к указателю и ReqVar оставляем для гибкой настройки списка запрашиваемых переменных)
+  // РїРѕСЃРєРѕР»СЊРєСѓ mutex СѓР±РёСЂР°РµРј, РїСѓСЃС‚СЊ СЃРѕР·РґР°РµС‚СЃСЏ СЃС‚СЂРѕРіРѕ С‡РµСЂРµР· DebugVarRequesterMap 
+  // (РґРѕСЃС‚СѓРї Рє СѓРєР°Р·Р°С‚РµР»СЋ Рё ReqVar РѕСЃС‚Р°РІР»СЏРµРј РґР»СЏ РіРёР±РєРѕР№ РЅР°СЃС‚СЂРѕР№РєРё СЃРїРёСЃРєР° Р·Р°РїСЂР°С€РёРІР°РµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…)
   friend class DebugVarRequesterMap; 
   DebugVarRequester();
   ~DebugVarRequester();
@@ -67,25 +67,25 @@ public:
   void AttachQuery( rpc::Node* node, const char *path );
   void Detach();
 
-  // периодически шлем удаленному Reporter'у пачку запросов: на все переменные, у которых истек период апдейта
+  // РїРµСЂРёРѕРґРёС‡РµСЃРєРё С€Р»РµРј СѓРґР°Р»РµРЅРЅРѕРјСѓ Reporter'Сѓ РїР°С‡РєСѓ Р·Р°РїСЂРѕСЃРѕРІ: РЅР° РІСЃРµ РїРµСЂРµРјРµРЅРЅС‹Рµ, Сѓ РєРѕС‚РѕСЂС‹С… РёСЃС‚РµРє РїРµСЂРёРѕРґ Р°РїРґРµР№С‚Р°
   void UpdateStep();
     void CallbackValueReceive( const wchar_t* reply ); // CALLBACK for remote DebugVar requests
     void CallbackCmdReplyReceive( const wchar_t* reply ); // CALLBACK for remote RunCommand requests
-    void CallbackRemotePtrReceive( RDebugVarReporter* ); // ответ на Query<RDebugVarReporter>
-  bool IsReady(); // есть валидный remote (или пока что ждем его)
+    void CallbackRemotePtrReceive( RDebugVarReporter* ); // РѕС‚РІРµС‚ РЅР° Query<RDebugVarReporter>
+  bool IsReady(); // РµСЃС‚СЊ РІР°Р»РёРґРЅС‹Р№ remote (РёР»Рё РїРѕРєР° С‡С‚Рѕ Р¶РґРµРј РµРіРѕ)
 
   inline bool ReqVarOnce( const wstring &name ) { return ReqVar( name, 0 ); } 
   bool ReqVar( const wstring &name, TIMESTAMP secPeriod = DEFAULT_UPDATE_PERIOD );
   bool RemoveVar( const wstring &name );
   
-  // возвращаем только готовое значение (полученное от удаленного reporter'а), если еще не получали -> false
+  // РІРѕР·РІСЂР°С‰Р°РµРј С‚РѕР»СЊРєРѕ РіРѕС‚РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ (РїРѕР»СѓС‡РµРЅРЅРѕРµ РѕС‚ СѓРґР°Р»РµРЅРЅРѕРіРѕ reporter'Р°), РµСЃР»Рё РµС‰Рµ РЅРµ РїРѕР»СѓС‡Р°Р»Рё -> false
   bool GetValue( const wstring &name, wstring& outValue ) const; 
 
-  // т.к. мутексы убрали, механизм проверки тоже НЕ THREAD-SAFE, разумеется; считаем процесс вызова Callback-ов строго синхронным
-  inline bool IsChecked() { return (lastVarsChecked >= lastVarsReceived); } // true = не было апдейтов за отчетный период
-  inline void SetChecked() { lastVarsChecked = lastVarsReceived; } // переменные проверили, до следующего Receive можно не дергать 
+  // С‚.Рє. РјСѓС‚РµРєСЃС‹ СѓР±СЂР°Р»Рё, РјРµС…Р°РЅРёР·Рј РїСЂРѕРІРµСЂРєРё С‚РѕР¶Рµ РќР• THREAD-SAFE, СЂР°Р·СѓРјРµРµС‚СЃСЏ; СЃС‡РёС‚Р°РµРј РїСЂРѕС†РµСЃСЃ РІС‹Р·РѕРІР° Callback-РѕРІ СЃС‚СЂРѕРіРѕ СЃРёРЅС…СЂРѕРЅРЅС‹Рј
+  inline bool IsChecked() { return (lastVarsChecked >= lastVarsReceived); } // true = РЅРµ Р±С‹Р»Рѕ Р°РїРґРµР№С‚РѕРІ Р·Р° РѕС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ
+  inline void SetChecked() { lastVarsChecked = lastVarsReceived; } // РїРµСЂРµРјРµРЅРЅС‹Рµ РїСЂРѕРІРµСЂРёР»Рё, РґРѕ СЃР»РµРґСѓСЋС‰РµРіРѕ Receive РјРѕР¶РЅРѕ РЅРµ РґРµСЂРіР°С‚СЊ 
 
-  bool GetNextUpdatedVar( wstring &outName, wstring& outValue ); // каждая возвращенная переменная сразу помечается как checked
+  bool GetNextUpdatedVar( wstring &outName, wstring& outValue ); // РєР°Р¶РґР°СЏ РІРѕР·РІСЂР°С‰РµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ СЃСЂР°Р·Сѓ РїРѕРјРµС‡Р°РµС‚СЃСЏ РєР°Рє checked
 };
 
 
@@ -103,11 +103,11 @@ struct SScenarioVar
 
 /// DebugVarRequesterMap.
 ///
-/// Для реального использования часто требуется не единственный DebugVarRequester, 
-/// а целый их набор (индексируемый по некому long connectionId),
-/// чтобы, например, на каждое соединение (клиента) вешать свой "опросчик переменных".
-/// Также желательно, чтобы эти "опросчики" создавались с единым "сценарием опроса", 
-/// т.е. списком запрашиваемых переменных с их соотв. периодичностями.
+/// Р”Р»СЏ СЂРµР°Р»СЊРЅРѕРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С‡Р°СЃС‚Рѕ С‚СЂРµР±СѓРµС‚СЃСЏ РЅРµ РµРґРёРЅСЃС‚РІРµРЅРЅС‹Р№ DebugVarRequester, 
+/// Р° С†РµР»С‹Р№ РёС… РЅР°Р±РѕСЂ (РёРЅРґРµРєСЃРёСЂСѓРµРјС‹Р№ РїРѕ РЅРµРєРѕРјСѓ long connectionId),
+/// С‡С‚РѕР±С‹, РЅР°РїСЂРёРјРµСЂ, РЅР° РєР°Р¶РґРѕРµ СЃРѕРµРґРёРЅРµРЅРёРµ (РєР»РёРµРЅС‚Р°) РІРµС€Р°С‚СЊ СЃРІРѕР№ "РѕРїСЂРѕСЃС‡РёРє РїРµСЂРµРјРµРЅРЅС‹С…".
+/// РўР°РєР¶Рµ Р¶РµР»Р°С‚РµР»СЊРЅРѕ, С‡С‚РѕР±С‹ СЌС‚Рё "РѕРїСЂРѕСЃС‡РёРєРё" СЃРѕР·РґР°РІР°Р»РёСЃСЊ СЃ РµРґРёРЅС‹Рј "СЃС†РµРЅР°СЂРёРµРј РѕРїСЂРѕСЃР°", 
+/// С‚.Рµ. СЃРїРёСЃРєРѕРј Р·Р°РїСЂР°С€РёРІР°РµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С… СЃ РёС… СЃРѕРѕС‚РІ. РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЏРјРё.
 class DebugVarRequesterMap: public NonCopyable
 {
 public:
@@ -118,43 +118,43 @@ protected:
   typedef nstl::map<TUserId, StrongMT<DebugVarRequester> > TRequesters;
   TRequesters requesters;
 
-  // не знаю, нужна ли при нашей step-идеологии thread-safety.. пусть будет
+  // РЅРµ Р·РЅР°СЋ, РЅСѓР¶РЅР° Р»Рё РїСЂРё РЅР°С€РµР№ step-РёРґРµРѕР»РѕРіРёРё thread-safety.. РїСѓСЃС‚СЊ Р±СѓРґРµС‚
   threading::Mutex mutex;
 
 public:  
   DebugVarRequesterMap() {}
   ~DebugVarRequesterMap();
 
-  // возвращаем указатель для того чтобы можно было понавешать дополнительные запросы переменных 
-  // (особенно если не используется дефолт-сценарий)
+  // РІРѕР·РІСЂР°С‰Р°РµРј СѓРєР°Р·Р°С‚РµР»СЊ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РїРѕРЅР°РІРµС€Р°С‚СЊ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ РїРµСЂРµРјРµРЅРЅС‹С… 
+  // (РѕСЃРѕР±РµРЅРЅРѕ РµСЃР»Рё РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґРµС„РѕР»С‚-СЃС†РµРЅР°СЂРёР№)
   DebugVarRequester* AddRequester( TUserId userId, rpc::Node* node, bool bApplyDefaultScenario = true );
   DebugVarRequester* QueryRequester( TUserId userId, rpc::Node* node, const char *path, bool bApplyDefaultScenario = true );
   bool RemoveRequester( TUserId userId );
 
-  // добавляем "одноразовую" переменную/команду, для конкретного реквестера, без добавления к общему сценарию
+  // РґРѕР±Р°РІР»СЏРµРј "РѕРґРЅРѕСЂР°Р·РѕРІСѓСЋ" РїРµСЂРµРјРµРЅРЅСѓСЋ/РєРѕРјР°РЅРґСѓ, РґР»СЏ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ СЂРµРєРІРµСЃС‚РµСЂР°, Р±РµР· РґРѕР±Р°РІР»РµРЅРёСЏ Рє РѕР±С‰РµРјСѓ СЃС†РµРЅР°СЂРёСЋ
   bool AddImmediate( TUserId userId, const wstring &name, TIMESTAMP secPeriod = REMOTE_CMD_PERIOD );
 
-  // добавляем переменную "для немедленного исполнения всем", т.е. ко всем существующим requester'ам (но не к default сценариям)
+  // РґРѕР±Р°РІР»СЏРµРј РїРµСЂРµРјРµРЅРЅСѓСЋ "РґР»СЏ РЅРµРјРµРґР»РµРЅРЅРѕРіРѕ РёСЃРїРѕР»РЅРµРЅРёСЏ РІСЃРµРј", С‚.Рµ. РєРѕ РІСЃРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРј requester'Р°Рј (РЅРѕ РЅРµ Рє default СЃС†РµРЅР°СЂРёСЏРј)
   void AddVarBroadcast( const wstring &name, TIMESTAMP secPeriod );
 
-  // чтобы можно было вызывать цепочкой в одну строчку: req.AddScenario().AddScenario()...
+  // С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РІС‹Р·С‹РІР°С‚СЊ С†РµРїРѕС‡РєРѕР№ РІ РѕРґРЅСѓ СЃС‚СЂРѕС‡РєСѓ: req.AddScenario().AddScenario()...
   DebugVarRequesterMap& AddScenario( const wstring &varName, const TIMESTAMP secUpdatePeriod = 0 );
-  void AddScenarios( const TScenarioVars& vec ); // добавляем сразу вектор (напр. из конфига)
-  bool RemoveScenario( const wstring &varName ); // удаляем переменную из сценария (true если и правда была такая)
-  bool RemoveScenarioByPrefix( const wstring &varName ); // удаляем из сценария все переменные с данным префиксом (true если была хоть одна такая)
+  void AddScenarios( const TScenarioVars& vec ); // РґРѕР±Р°РІР»СЏРµРј СЃСЂР°Р·Сѓ РІРµРєС‚РѕСЂ (РЅР°РїСЂ. РёР· РєРѕРЅС„РёРіР°)
+  bool RemoveScenario( const wstring &varName ); // СѓРґР°Р»СЏРµРј РїРµСЂРµРјРµРЅРЅСѓСЋ РёР· СЃС†РµРЅР°СЂРёСЏ (true РµСЃР»Рё Рё РїСЂР°РІРґР° Р±С‹Р»Р° С‚Р°РєР°СЏ)
+  bool RemoveScenarioByPrefix( const wstring &varName ); // СѓРґР°Р»СЏРµРј РёР· СЃС†РµРЅР°СЂРёСЏ РІСЃРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РґР°РЅРЅС‹Рј РїСЂРµС„РёРєСЃРѕРј (true РµСЃР»Рё Р±С‹Р»Р° С…РѕС‚СЊ РѕРґРЅР° С‚Р°РєР°СЏ)
   void ClearScenarios() { defaultScenario.clear(); }
-  void ListScenarios( wstring& out ); // простой дамп в формате "name:period \n name:period.."
+  void ListScenarios( wstring& out ); // РїСЂРѕСЃС‚РѕР№ РґР°РјРї РІ С„РѕСЂРјР°С‚Рµ "name:period \n name:period.."
  
-  // возвращаем только готовое значение (полученное от удаленного reporter'а), если еще не получали -> false
+  // РІРѕР·РІСЂР°С‰Р°РµРј С‚РѕР»СЊРєРѕ РіРѕС‚РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ (РїРѕР»СѓС‡РµРЅРЅРѕРµ РѕС‚ СѓРґР°Р»РµРЅРЅРѕРіРѕ reporter'Р°), РµСЃР»Рё РµС‰Рµ РЅРµ РїРѕР»СѓС‡Р°Р»Рё -> false
   bool GetValue( const TUserId userId, const wstring &name, wstring& outValue ) const; 
 
-  // пробегаем по коллекции запрашивалок, может кому-то пора тянуть переменные с другого конца
+  // РїСЂРѕР±РµРіР°РµРј РїРѕ РєРѕР»Р»РµРєС†РёРё Р·Р°РїСЂР°С€РёРІР°Р»РѕРє, РјРѕР¶РµС‚ РєРѕРјСѓ-С‚Рѕ РїРѕСЂР° С‚СЏРЅСѓС‚СЊ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РґСЂСѓРіРѕРіРѕ РєРѕРЅС†Р°
   void UpdateStep();
 
-  // следующий "опросчик" (список переменных клиента), в котором что-то изменилось (был Receive) за отчетный период
+  // СЃР»РµРґСѓСЋС‰РёР№ "РѕРїСЂРѕСЃС‡РёРє" (СЃРїРёСЃРѕРє РїРµСЂРµРјРµРЅРЅС‹С… РєР»РёРµРЅС‚Р°), РІ РєРѕС‚РѕСЂРѕРј С‡С‚Рѕ-С‚Рѕ РёР·РјРµРЅРёР»РѕСЃСЊ (Р±С‹Р» Receive) Р·Р° РѕС‚С‡РµС‚РЅС‹Р№ РїРµСЂРёРѕРґ
   DebugVarRequester* GetNextUpdated();
 
-  typedef void (*TCallbackType)(const TUserId&, wstring&, wstring&, void*); // foreach-callback, получит все "свежие" vars
+  typedef void (*TCallbackType)(const TUserId&, wstring&, wstring&, void*); // foreach-callback, РїРѕР»СѓС‡РёС‚ РІСЃРµ "СЃРІРµР¶РёРµ" vars
   int ForEachUpdatedVar( TCallbackType funcCallback, void* param); 
 };
 

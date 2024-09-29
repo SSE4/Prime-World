@@ -56,8 +56,8 @@ CVec3 EaselWorldClientConvertHelper::ConvertWorldToClientCoordinates( const SVec
 {
 	CVec3 result(0, 0, 0);
 
-  // [@Irakly <neko.lich> Archangelsky@] TODO : позагонятся с потерей точности на переводе. EaselConst::Get_LOGIC_FIELD_HEIGHT() и LOGIC_FIELD_WIDTH 
-  // в неправильном порядке случайно
+  // [@Irakly <neko.lich> Archangelsky@] TODO : РїРѕР·Р°РіРѕРЅСЏС‚СЃСЏ СЃ РїРѕС‚РµСЂРµР№ С‚РѕС‡РЅРѕСЃС‚Рё РЅР° РїРµСЂРµРІРѕРґРµ. EaselConst::Get_LOGIC_FIELD_HEIGHT() Рё LOGIC_FIELD_WIDTH 
+  // РІ РЅРµРїСЂР°РІРёР»СЊРЅРѕРј РїРѕСЂСЏРґРєРµ СЃР»СѓС‡Р°Р№РЅРѕ
 	result.x = (float)worldCoords.x / EaselConst::Get_LOGIC_FIELD_HEIGHT();
 	result.y = (float)worldCoords.y / EaselConst::Get_LOGIC_FIELD_WIDTH();
   result.z = z / EaselConst::Get_LOGIC_FIELD_WIDTH();
@@ -79,7 +79,7 @@ SVector EaselWorldClientConvertHelper::ConvertClientToWorldCoordinates( const CV
 
   CVec3 coordsInWorld = Transform( clientCoords, transformInversed );
 
-  // [@Irakly <neko.lich> Archangelsky@] TODO : позагонятся с потерей точности на переводе.
+  // [@Irakly <neko.lich> Archangelsky@] TODO : РїРѕР·Р°РіРѕРЅСЏС‚СЃСЏ СЃ РїРѕС‚РµСЂРµР№ С‚РѕС‡РЅРѕСЃС‚Рё РЅР° РїРµСЂРµРІРѕРґРµ.
   result.x = coordsInWorld.x * EaselConst::Get_LOGIC_FIELD_WIDTH();
   result.y = coordsInWorld.y * EaselConst::Get_LOGIC_FIELD_HEIGHT();
 

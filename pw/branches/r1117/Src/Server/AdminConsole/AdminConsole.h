@@ -31,7 +31,7 @@ namespace AdminConsole
       LOGIN_STARTED,
       LOGIN_FINISHED,
 
-      // отдельный набор стейтов для консольного ввода
+      // РѕС‚РґРµР»СЊРЅС‹Р№ РЅР°Р±РѕСЂ СЃС‚РµР№С‚РѕРІ РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РІРІРѕРґР°
       LOOP,
       WAIT,
       INPUT,
@@ -77,7 +77,7 @@ namespace AdminConsole
     void NoConnectWarning();
 
     void SwitchToInput();
-    bool HandleInput(); // обрабатываем консольную команду пользователя ( input_ ); если что-то не понравилось, вернуть false
+    bool HandleInput(); // РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РєРѕРЅСЃРѕР»СЊРЅСѓСЋ РєРѕРјР°РЅРґСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ ( input_ ); РµСЃР»Рё С‡С‚Рѕ-С‚Рѕ РЅРµ РїРѕРЅСЂР°РІРёР»РѕСЃСЊ, РІРµСЂРЅСѓС‚СЊ false
 
   protected:
     //  rpc::IGateKeeperCallback
@@ -85,8 +85,8 @@ namespace AdminConsole
     virtual void OnChannelClosed( Transport::IChannel* channel,  rpc::Node* node );
     virtual void OnCorruptData( Transport::IChannel* channel, rpc::Node* node );
 
-    void NextInput(); // чистим строку ввода, выводим приглашение "CMD >"
-    void PrintCompletions(); // выводим списки текущих переменных и доступных сервисов
+    void NextInput(); // С‡РёСЃС‚РёРј СЃС‚СЂРѕРєСѓ РІРІРѕРґР°, РІС‹РІРѕРґРёРј РїСЂРёРіР»Р°С€РµРЅРёРµ "CMD >"
+    void PrintCompletions(); // РІС‹РІРѕРґРёРј СЃРїРёСЃРєРё С‚РµРєСѓС‰РёС… РїРµСЂРµРјРµРЅРЅС‹С… Рё РґРѕСЃС‚СѓРїРЅС‹С… СЃРµСЂРІРёСЃРѕРІ
   
     StrongMT<Network::INetworkDriver> netdriver_;
     StrongMT<TransportLayer::TransportModule> sptm_;
@@ -104,7 +104,7 @@ namespace AdminConsole
     bool bexit_;
 
     nstl::string input_; // user console input
-    bool need_stage_reset_;  // ставится после любых изменений service/varlist, чтобы при запуске loop создать заново connect и реквестеры
+    bool need_stage_reset_;  // СЃС‚Р°РІРёС‚СЃСЏ РїРѕСЃР»Рµ Р»СЋР±С‹С… РёР·РјРµРЅРµРЅРёР№ service/varlist, С‡С‚РѕР±С‹ РїСЂРё Р·Р°РїСѓСЃРєРµ loop СЃРѕР·РґР°С‚СЊ Р·Р°РЅРѕРІРѕ connect Рё СЂРµРєРІРµСЃС‚РµСЂС‹
   };
 
   inline int Client::stage() const

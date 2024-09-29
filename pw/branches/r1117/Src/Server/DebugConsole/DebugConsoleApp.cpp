@@ -63,7 +63,7 @@ struct Cfg
   nstl::string service_;
   
   nstl::string vars_;
-  NDebug::DebugVarRequesterMap::TScenarioVars vars_vector_; // сразу в готовом виде для скармливания requester'у
+  NDebug::DebugVarRequesterMap::TScenarioVars vars_vector_; // СЃСЂР°Р·Сѓ РІ РіРѕС‚РѕРІРѕРј РІРёРґРµ РґР»СЏ СЃРєР°СЂРјР»РёРІР°РЅРёСЏ requester'Сѓ
 
   void print();
   int parse_vars();
@@ -165,7 +165,7 @@ bool parse_args(int argc, char* argv[], Cfg & cfg)
 
     case 's':
       cfg.service_ = get_opt.optarg;
-      cfg.statisticAddr_ = ""; // если задано имя service, надо зачистить "имя для прямого коннекта к статистике"
+      cfg.statisticAddr_ = ""; // РµСЃР»Рё Р·Р°РґР°РЅРѕ РёРјСЏ service, РЅР°РґРѕ Р·Р°С‡РёСЃС‚РёС‚СЊ "РёРјСЏ РґР»СЏ РїСЂСЏРјРѕРіРѕ РєРѕРЅРЅРµРєС‚Р° Рє СЃС‚Р°С‚РёСЃС‚РёРєРµ"
       res = true;
       break;
 
@@ -251,9 +251,9 @@ int ACE_TMAIN(int argc, char* argv[])
 
   if ( TRANSPORT_COORDINATOR == cfg.transportVersion_ )
   {
-    // Network initialization (server way: передрано из ServerFactory::Startup)
+    // Network initialization (server way: РїРµСЂРµРґСЂР°РЅРѕ РёР· ServerFactory::Startup)
     StrongMT<Network::INetworkDriver> netDriver = Network::Initialize();
-    //? думаю, в нашем случае heavy это перебор //netDriver->SetTrafficType( Network::EDriverTrafficType::Heavy ); 
+    //? РґСѓРјР°СЋ, РІ РЅР°С€РµРј СЃР»СѓС‡Р°Рµ heavy СЌС‚Рѕ РїРµСЂРµР±РѕСЂ //netDriver->SetTrafficType( Network::EDriverTrafficType::Heavy ); 
 
     Network::InitFreePortsFinder( Network::GetFirstServerPort() );
     string myAddr = Network::GetHostIPByName( "localhost" );
@@ -274,7 +274,7 @@ int ACE_TMAIN(int argc, char* argv[])
     }
     else
     {
-      // автоматически регистрируем внешний сервис "сервер статистики" (по умолчанию - на нашем собственном localhost:40002)
+      // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РІРЅРµС€РЅРёР№ СЃРµСЂРІРёСЃ "СЃРµСЂРІРµСЂ СЃС‚Р°С‚РёСЃС‚РёРєРё" (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - РЅР° РЅР°С€РµРј СЃРѕР±СЃС‚РІРµРЅРЅРѕРј localhost:40002)
       string coordAddr = cfg.loginaddr_;
       if (!coordAddr.empty())
       {

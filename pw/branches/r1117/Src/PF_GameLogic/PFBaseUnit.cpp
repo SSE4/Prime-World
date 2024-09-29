@@ -420,7 +420,7 @@ int PFBaseUnit::RemoveSummons( const int unsummonCount, const NDb::SummonType ty
 void PFBaseUnit::OnDestroyContents()
 {
   DestroyAbilities();
-  CleanupHistoryApplicators(); // Чиним асинк NUM_TASK
+  CleanupHistoryApplicators(); // Р§РёРЅРёРј Р°СЃРёРЅРє NUM_TASK
   PFLogicObject::OnDestroyContents();
 }
 
@@ -1047,15 +1047,15 @@ float PFBaseUnit::GetTargetWeight(const CPtr<PFBaseUnit>& pTarget, const NDb::Un
   // Targeting by Master
   if ( IsUnitValid(pMaster) )
   {
-    // NUM_TASK не проверяем дистанцию до мастера, если саммон спущен с поводка
+    // NUM_TASK РЅРµ РїСЂРѕРІРµСЂСЏРµРј РґРёСЃС‚Р°РЅС†РёСЋ РґРѕ РјР°СЃС‚РµСЂР°, РµСЃР»Рё СЃР°РјРјРѕРЅ СЃРїСѓС‰РµРЅ СЃ РїРѕРІРѕРґРєР°
     if (!Local::IsUnleashedSummon(this))
     {
       const float distanceToMasterThreshold2 = fabs2(GetChaseRange() + GetAttackRange());
       const float distanceToMaster2 = fabs2(GetPosition() - pMaster->GetPosition());
 
       // Check distance to Master
-      // NOTE: благодаря этой проверке возможно избежать реальной оценки. например, цель, которая не должна быть атакована вообще,
-      // может просто стать целью с очень низким приоритетом и будет атакована, если рядом нет ничего более интересного.
+      // NOTE: Р±Р»Р°РіРѕРґР°СЂСЏ СЌС‚РѕР№ РїСЂРѕРІРµСЂРєРµ РІРѕР·РјРѕР¶РЅРѕ РёР·Р±РµР¶Р°С‚СЊ СЂРµР°Р»СЊРЅРѕР№ РѕС†РµРЅРєРё. РЅР°РїСЂРёРјРµСЂ, С†РµР»СЊ, РєРѕС‚РѕСЂР°СЏ РЅРµ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ Р°С‚Р°РєРѕРІР°РЅР° РІРѕРѕР±С‰Рµ,
+      // РјРѕР¶РµС‚ РїСЂРѕСЃС‚Рѕ СЃС‚Р°С‚СЊ С†РµР»СЊСЋ СЃ РѕС‡РµРЅСЊ РЅРёР·РєРёРј РїСЂРёРѕСЂРёС‚РµС‚РѕРј Рё Р±СѓРґРµС‚ Р°С‚Р°РєРѕРІР°РЅР°, РµСЃР»Рё СЂСЏРґРѕРј РЅРµС‚ РЅРёС‡РµРіРѕ Р±РѕР»РµРµ РёРЅС‚РµСЂРµСЃРЅРѕРіРѕ.
       if ( distanceToMaster2 > distanceToMasterThreshold2 )
         return 0.f; // too far away from master
     }
@@ -1121,7 +1121,7 @@ float PFBaseUnit::GetTargetWeight(const CPtr<PFBaseUnit>& pTarget, const NDb::Un
     const AttackData* const pAttackData = Local::GetLastAttackData(pTargetNew);
     const CPtr<PFBaseUnit>& pTargetOfTarget = Local::GetAttackedUnit(pAttackData);
 
-    // TODO: IsLikeHero() может вернуть true только для alpha-summon'ов. Условие избыточно.
+    // TODO: IsLikeHero() РјРѕР¶РµС‚ РІРµСЂРЅСѓС‚СЊ true С‚РѕР»СЊРєРѕ РґР»СЏ alpha-summon'РѕРІ. РЈСЃР»РѕРІРёРµ РёР·Р±С‹С‚РѕС‡РЅРѕ.
     const bool isLikeHero =
       pTargetOfTarget->IsTrueHero() ||
       pTargetOfTarget->IsLikeHero() ||
@@ -1333,8 +1333,8 @@ CPtr<PFBaseUnit> PFBaseUnit::FindTarget( float range, bool checkScreams, int tar
   NI_ASSERT( GetWorld() && GetWorld()->GetAIWorld(), "Invalid world" );
   PFAIWorld* pAIWorld = GetWorld()->GetAIWorld();
 
-  // Радиус поиска увеличен на макс. размер юнита для того, чтобы учесть размеры юнитов при вычислении дистанции между ними.
-  // А при проверке целей, из результатов поиска отсекаются те, до которых слишком далеко (IsInAttackRange)
+  // Р Р°РґРёСѓСЃ РїРѕРёСЃРєР° СѓРІРµР»РёС‡РµРЅ РЅР° РјР°РєСЃ. СЂР°Р·РјРµСЂ СЋРЅРёС‚Р° РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ СѓС‡РµСЃС‚СЊ СЂР°Р·РјРµСЂС‹ СЋРЅРёС‚РѕРІ РїСЂРё РІС‹С‡РёСЃР»РµРЅРёРё РґРёСЃС‚Р°РЅС†РёРё РјРµР¶РґСѓ РЅРёРјРё.
+  // Рђ РїСЂРё РїСЂРѕРІРµСЂРєРµ С†РµР»РµР№, РёР· СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РїРѕРёСЃРєР° РѕС‚СЃРµРєР°СЋС‚СЃСЏ С‚Рµ, РґРѕ РєРѕС‚РѕСЂС‹С… СЃР»РёС€РєРѕРј РґР°Р»РµРєРѕ (IsInAttackRange)
   float searchRadius = range + ( GetObjectSize() + pAIWorld->GetMaxObjectSize() ) * 0.5f;
   
   TargetFinder targetFinder( *this, GetTargetingParams(), range );
@@ -2188,7 +2188,7 @@ float PFBaseUnit::OnDamage(const DamageDesc &desc)
   NI_VERIFY(0 <= desc.damageType && desc.damageType < NDb::KnownEnum<NDb::EApplicatorDamageType>::SizeOf(),
 		"Invalid damage type", return 0.f);
 
-  // Тут не должно приходить нативного дамага! Если он пришёл, ругаемся верифаем и хаком подставляем правильный тип..
+  // РўСѓС‚ РЅРµ РґРѕР»Р¶РЅРѕ РїСЂРёС…РѕРґРёС‚СЊ РЅР°С‚РёРІРЅРѕРіРѕ РґР°РјР°РіР°! Р•СЃР»Рё РѕРЅ РїСЂРёС€С‘Р», СЂСѓРіР°РµРјСЃСЏ РІРµСЂРёС„Р°РµРј Рё С…Р°РєРѕРј РїРѕРґСЃС‚Р°РІР»СЏРµРј РїСЂР°РІРёР»СЊРЅС‹Р№ С‚РёРї..
   NI_VERIFY( desc.damageType != NDb::APPLICATORDAMAGETYPE_NATIVE, "Wrong damage type: NATIVE (internal PFBaseUnit::OnDamage() usage error!). Will be used sender native damage instead",
     const_cast<DamageDesc&>(desc).damageType = desc.pSender ? desc.pSender->GetNativeDamageType() : NDb::APPLICATORDAMAGETYPE_MATERIAL );
 
@@ -3701,7 +3701,7 @@ void PFBaseUnit::OnSerialize(IBinSaver& f)
 {
   if (f.IsReading())
   {
-    // NOTE: десериализация контейнера переменных не уничтожает элементы
+    // NOTE: РґРµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР° РїРµСЂРµРјРµРЅРЅС‹С… РЅРµ СѓРЅРёС‡С‚РѕР¶Р°РµС‚ СЌР»РµРјРµРЅС‚С‹
     variablesRing.clear(ring::DeleteEraser<Variable>());
   }
 }
@@ -3785,8 +3785,8 @@ bool PFBaseUnitDebug::Process(Render::IDebugRender* pRender)
   {
     float range = pOwner->GetTargetingRange();
 
-    // Радиус поиска увеличен на макс. размер юнита для того, чтобы учесть размеры юнитов при вычислении дистанции между ними.
-    // А при проверке целей, из результатов поиска отсекаются те, до которых слишком далеко (IsInAttackRange)
+    // Р Р°РґРёСѓСЃ РїРѕРёСЃРєР° СѓРІРµР»РёС‡РµРЅ РЅР° РјР°РєСЃ. СЂР°Р·РјРµСЂ СЋРЅРёС‚Р° РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ СѓС‡РµСЃС‚СЊ СЂР°Р·РјРµСЂС‹ СЋРЅРёС‚РѕРІ РїСЂРё РІС‹С‡РёСЃР»РµРЅРёРё РґРёСЃС‚Р°РЅС†РёРё РјРµР¶РґСѓ РЅРёРјРё.
+    // Рђ РїСЂРё РїСЂРѕРІРµСЂРєРµ С†РµР»РµР№, РёР· СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РїРѕРёСЃРєР° РѕС‚СЃРµРєР°СЋС‚СЃСЏ С‚Рµ, РґРѕ РєРѕС‚РѕСЂС‹С… СЃР»РёС€РєРѕРј РґР°Р»РµРєРѕ (IsInAttackRange)
     float searchRadius = range + ( pOwner->GetObjectSize() + pAIWorld->GetMaxObjectSize() ) / 2;
 
     ShowTarget targetFinder(*pOwner.GetPtr(), pRender);

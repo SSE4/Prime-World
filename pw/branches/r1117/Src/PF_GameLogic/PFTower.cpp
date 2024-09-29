@@ -183,7 +183,7 @@ float PFControllableTower::OnDamage(const DamageDesc &desc)
 void PFControllableTower::OnUnitDie( CPtr<PFBaseUnit> pKiller, int flags, PFBaseUnitDamageDesc const* pDamageDesc /*= 0*/ )
 {
   PFTower::OnUnitDie(pKiller, flags, pDamageDesc);
-  //Здесь было оповещение об окончании игры
+  //Р—РґРµСЃСЊ Р±С‹Р»Рѕ РѕРїРѕРІРµС‰РµРЅРёРµ РѕР± РѕРєРѕРЅС‡Р°РЅРёРё РёРіСЂС‹
 }
 
 bool  PFControllableTower::Step( float dtInSeconds )

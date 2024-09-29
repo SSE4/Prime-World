@@ -70,7 +70,7 @@ bool EaselLuxViewPath::InitStartPos(const CPtr<Easel>& _easel, LuxPath* _path)
   NScene::AnimatedPlacement offset;
   offset.Init(_path->GetStartOffset(),0);
 
-  // [@Irakly <neko.lich> Archangelsky@] TODO: заменить в данных, а не менять x и y через код
+  // [@Irakly <neko.lich> Archangelsky@] TODO: Р·Р°РјРµРЅРёС‚СЊ РІ РґР°РЅРЅС‹С…, Р° РЅРµ РјРµРЅСЏС‚СЊ x Рё y С‡РµСЂРµР· РєРѕРґ
   Placement offsetPlacement = offset.GetPlacement();
   offsetPlacement.pos = CVec3(-offsetPlacement.pos.y, -offsetPlacement.pos.x, offsetPlacement.pos.z);
   placement += offsetPlacement;
@@ -105,7 +105,7 @@ bool EaselLuxViewPath::InitEndPos(const CPtr<Easel>& _easel, LuxPath* _path)
   NScene::AnimatedPlacement offset;
   offset.Init(_path->GetEndOffset(),0);
 
-  // [@Irakly <neko.lich> Archangelsky@] TODO: заменить в данных, а не менять x и y через код
+  // [@Irakly <neko.lich> Archangelsky@] TODO: Р·Р°РјРµРЅРёС‚СЊ РІ РґР°РЅРЅС‹С…, Р° РЅРµ РјРµРЅСЏС‚СЊ x Рё y С‡РµСЂРµР· РєРѕРґ
   Placement offsetPlacement = offset.GetPlacement();
   offsetPlacement.pos = CVec3(-offsetPlacement.pos.y, -offsetPlacement.pos.x, offsetPlacement.pos.z);
   placement += offsetPlacement;

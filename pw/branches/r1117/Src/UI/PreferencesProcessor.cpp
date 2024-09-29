@@ -213,7 +213,7 @@ public:
 private:
   virtual int convertValueToUI( const VariantValue &val ) const
   {
-    //Минимальное значение, представимое на интервале, используем для округления
+    //РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ, РїСЂРµРґСЃС‚Р°РІРёРјРѕРµ РЅР° РёРЅС‚РµСЂРІР°Р»Рµ, РёСЃРїРѕР»СЊР·СѓРµРј РґР»СЏ РѕРєСЂСѓРіР»РµРЅРёСЏ
     const float discrValue = 1.0f / (valuesCount - 1);
     return static_cast<int>( val.GetFloat() * (valuesCount - 1) + discrValue / 2 );
   }
@@ -415,7 +415,7 @@ void PreferencesProcessor::StoreAllValues()
 
 bool PreferencesProcessor::CanBeCanceled( const VarData &var )
 {
-  //Настройки, которые применяются мгновенно, нельзя отменить по диздоку
+  //РќР°СЃС‚СЂРѕР№РєРё, РєРѕС‚РѕСЂС‹Рµ РїСЂРёРјРµРЅСЏСЋС‚СЃСЏ РјРіРЅРѕРІРµРЅРЅРѕ, РЅРµР»СЊР·СЏ РѕС‚РјРµРЅРёС‚СЊ РїРѕ РґРёР·РґРѕРєСѓ
   return !var.pDesc->applyCommandName.empty();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

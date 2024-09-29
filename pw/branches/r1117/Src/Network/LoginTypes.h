@@ -60,7 +60,7 @@ struct LoginRequestMessage
   ushort protocolVersion; //  here for compatibility with old unversioned clients
   string login;
   string password;
-  string sessionKey; // для SessionLogin
+  string sessionKey; // РґР»СЏ SessionLogin
   ushort majorVer;
   ushort minorVer;
   uint   patchVer;
@@ -80,7 +80,7 @@ struct LoginResultMessage
   int userId;
   string sessionId;
   string relayCertificate;
-  Transport::TServiceId sessionPath; // куда ломиться после SessionLogin
+  Transport::TServiceId sessionPath; // РєСѓРґР° Р»РѕРјРёС‚СЊСЃСЏ РїРѕСЃР»Рµ SessionLogin
   Network::NetAddress secondaryRelayAddress;
   bool partialReconnectSupport;
   unsigned int partialReconnectRetries;

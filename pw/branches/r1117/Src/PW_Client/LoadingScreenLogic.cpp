@@ -485,7 +485,7 @@ void LoadingScreenLogic::SetHeroInfo( int userId, const HeroInfo & heroInfo, con
 
 	flashInterface->SetHeroPremium(userId, heroInfo.isPremium, ConvertToFaction( heroInfo.originalTeam));
 
-  //если изменения рейтинга нету просто его не показываем
+  //РµСЃР»Рё РёР·РјРµРЅРµРЅРёСЏ СЂРµР№С‚РёРЅРіР° РЅРµС‚Сѓ РїСЂРѕСЃС‚Рѕ РµРіРѕ РЅРµ РїРѕРєР°Р·С‹РІР°РµРј
   if ( _clientSettings.showHeroRating )
   {
 

@@ -80,7 +80,7 @@ private:
   float leashRange;
   ZEND int operator&( IBinSaver &f ) { f.Add(1,(PFBaseMovingUnitState*)this); f.Add(2,(PFHFSM*)this); f.Add(3,&pMaster); f.Add(4,&maxChaseDistance); f.Add(5,&bStrongTarget); f.Add(6,&isStationarySummon); f.Add(7,&pTarget); f.Add(8,&leashRange); return 0; }
 };
-/* оказался не нужен, пока что оставляю в коде на какое-то время - а вдруг дизайнеры опять что-то придумают 
+/* РѕРєР°Р·Р°Р»СЃСЏ РЅРµ РЅСѓР¶РµРЅ, РїРѕРєР° С‡С‚Рѕ РѕСЃС‚Р°РІР»СЏСЋ РІ РєРѕРґРµ РЅР° РєР°РєРѕРµ-С‚Рѕ РІСЂРµРјСЏ - Р° РІРґСЂСѓРі РґРёР·Р°Р№РЅРµСЂС‹ РѕРїСЏС‚СЊ С‡С‚Рѕ-С‚Рѕ РїСЂРёРґСѓРјР°СЋС‚ 
 class PFSummonAIResponseState
   : public PFBaseMovingUnitState
   , public PFHFSM

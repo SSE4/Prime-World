@@ -10,7 +10,7 @@ LoginServerSync::LoginServerSync( Network::INetworkDriver* _pDriver, const Netwo
   : LoginServerBase( _pDriver, _loginServerAddress, 0, _secureContext, _clientVer )
 {
   processor = _processor;
-  Start(); // запускаем thread
+  Start(); // Р·Р°РїСѓСЃРєР°РµРј thread
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,11 +18,11 @@ bool LoginServerSync::ProcessNewContext( StrongMT<SLoginContext>& context )
 {
   LoginRequestMessage & req = context->request;
   LoginResultMessage & resp = context->response;
-  // обратимся к нашему виртуальному процессору насчет логина
+  // РѕР±СЂР°С‚РёРјСЃСЏ Рє РЅР°С€РµРјСѓ РІРёСЂС‚СѓР°Р»СЊРЅРѕРјСѓ РїСЂРѕС†РµСЃСЃРѕСЂСѓ РЅР°СЃС‡РµС‚ Р»РѕРіРёРЅР°
   resp.loginResult = processor->CheckLogin( req.login, req.password, context->connection, &resp );
-  // и сразу же отсылаем ответ
+  // Рё СЃСЂР°Р·Сѓ Р¶Рµ РѕС‚СЃС‹Р»Р°РµРј РѕС‚РІРµС‚
   SendReply( context );
-  return false; // не надо сразу дропать клиента, пусть до него дойдет SendReply
+  return false; // РЅРµ РЅР°РґРѕ СЃСЂР°Р·Сѓ РґСЂРѕРїР°С‚СЊ РєР»РёРµРЅС‚Р°, РїСѓСЃС‚СЊ РґРѕ РЅРµРіРѕ РґРѕР№РґРµС‚ SendReply
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

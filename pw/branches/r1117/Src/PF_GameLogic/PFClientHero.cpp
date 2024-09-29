@@ -242,14 +242,14 @@ void PFBaseClientHero::UpdateMinimap() const
       return;
   }
 
-  // TODO: çà÷åì çäåñü IsHero() ?
+  // TODO: Ð·Ð°Ñ‡ÐµÐ¼ Ð·Ð´ÐµÑÑŒ IsHero() ?
   const bool clone = pWorldUnit->IsClone();
   const bool hero = pWorldUnit->IsHero();
   const bool ally = (pWorldUnit->GetFaction() == advScreen->GetPlayerFaction());
 
   // For allies only show clones as creeps
   // Or in case object doesn't pretend to be a hero
-  // TODO: óñëîâèå íå î÷åíü-òî ñîîòâåòñòâóåò êîììåíòàðèþ âûøå
+  // TODO: ÑƒÑÐ»Ð¾Ð²Ð¸Ðµ Ð½Ðµ Ð¾Ñ‡ÐµÐ½ÑŒ-Ñ‚Ð¾ ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸ÑŽ Ð²Ñ‹ÑˆÐµ
   if (clone && (ally || !hero))
     minimap->AddObject(NDb::UNITTYPE_CREEP, pWorldUnit->GetFaction(), GetPosition().pos, -1);
   else

@@ -36,7 +36,7 @@ static struct SRegisterScriptFunction_##fname																																			
 } registerScriptFunction_##fname##;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Регистрация глобальной скриптовой функции без биндинга, вызывается функция такого типа:
+//Р РµРіРёСЃС‚СЂР°С†РёСЏ РіР»РѕР±Р°Р»СЊРЅРѕР№ СЃРєСЂРёРїС‚РѕРІРѕР№ С„СѓРЅРєС†РёРё Р±РµР· Р±РёРЅРґРёРЅРіР°, РІС‹Р·С‹РІР°РµС‚СЃСЏ С„СѓРЅРєС†РёСЏ С‚Р°РєРѕРіРѕ С‚РёРїР°:
 // int CallbackFunction(lua_State * L)
 #define REGISTER_LUA_SFUNCTION_IMMEDIATE( ScriptEngine, fname )																																\
 static struct SRegisterScriptFunction_##__LINE__##_##fname																																		\

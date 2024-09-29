@@ -15,20 +15,20 @@ class InvokerOld;
 
 namespace Login {
   
-// заявка для thread-pool очереди
+// Р·Р°СЏРІРєР° РґР»СЏ thread-pool РѕС‡РµСЂРµРґРё
 struct SZZimaLoginRequest
 {
   enum TStatus {
     NEW = 0,
-    TAKEN, // забрали и начали исполнять over web
-    READY, // web-запрос готов
-    ERASED // обработан, и даже по идее удален (debug)
+    TAKEN, // Р·Р°Р±СЂР°Р»Рё Рё РЅР°С‡Р°Р»Рё РёСЃРїРѕР»РЅСЏС‚СЊ over web
+    READY, // web-Р·Р°РїСЂРѕСЃ РіРѕС‚РѕРІ
+    ERASED // РѕР±СЂР°Р±РѕС‚Р°РЅ, Рё РґР°Р¶Рµ РїРѕ РёРґРµРµ СѓРґР°Р»РµРЅ (debug)
   };
   TStatus status; 
-  unsigned int workerId; // id worker thread, который забрал нашу заявку на исполнение
+  unsigned int workerId; // id worker thread, РєРѕС‚РѕСЂС‹Р№ Р·Р°Р±СЂР°Р» РЅР°С€Сѓ Р·Р°СЏРІРєСѓ РЅР° РёСЃРїРѕР»РЅРµРЅРёРµ
   string login;
   string password;
-  // weak ссылка: пусть себе удаляется, нам понадобится только context->result для вписывания ответа (if still alive)
+  // weak СЃСЃС‹Р»РєР°: РїСѓСЃС‚СЊ СЃРµР±Рµ СѓРґР°Р»СЏРµС‚СЃСЏ, РЅР°Рј РїРѕРЅР°РґРѕР±РёС‚СЃСЏ С‚РѕР»СЊРєРѕ context->result РґР»СЏ РІРїРёСЃС‹РІР°РЅРёСЏ РѕС‚РІРµС‚Р° (if still alive)
   StrongMT<Login::SLoginContext> context; 
   Login::LoginResultData resultData;
 
@@ -38,7 +38,7 @@ struct SZZimaLoginRequest
 typedef nstl::vector<SZZimaLoginRequest*> TWebLoginRequests;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// через этот интерфейс worker threads будут забирать заявки из ZZimaLoginProcessor::requests[]
+// С‡РµСЂРµР· СЌС‚РѕС‚ РёРЅС‚РµСЂС„РµР№СЃ worker threads Р±СѓРґСѓС‚ Р·Р°Р±РёСЂР°С‚СЊ Р·Р°СЏРІРєРё РёР· ZZimaLoginProcessor::requests[]
 struct IRequestQueue
 {
   virtual SZZimaLoginRequest* GetNextRequest( unsigned getterId ) = 0;
@@ -58,10 +58,10 @@ struct ConnectionInfo
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // worker thread:
-// - забирает заявку из requests 
-// - исполняет PerformSynchroLogin( request )
-// ! всегда готовы к тому, что worker прибьется по timeout
-class ZZimaWorkerThread: public threading::AutostopThread // Thread и так NonCopyable
+// - Р·Р°Р±РёСЂР°РµС‚ Р·Р°СЏРІРєСѓ РёР· requests 
+// - РёСЃРїРѕР»РЅСЏРµС‚ PerformSynchroLogin( request )
+// ! РІСЃРµРіРґР° РіРѕС‚РѕРІС‹ Рє С‚РѕРјСѓ, С‡С‚Рѕ worker РїСЂРёР±СЊРµС‚СЃСЏ РїРѕ timeout
+class ZZimaWorkerThread: public threading::AutostopThread // Thread Рё С‚Р°Рє NonCopyable
 {
   IRequestQueue* requestSource;
 
@@ -74,7 +74,7 @@ protected:
   int PerformSynchroLogin( const string & login, const string & _password, Login::LoginResultData & result );
 
 private:
-  // машинерия для выполнения web-XML: (раньше жила в едином zzima login processor)
+  // РјР°С€РёРЅРµСЂРёСЏ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ web-XML: (СЂР°РЅСЊС€Рµ Р¶РёР»Р° РІ РµРґРёРЅРѕРј zzima login processor)
   ZZima::Invoker* invoker;
   ZZima::InvokerOld* invokerOld;
   bool authAutoSubscribe;
@@ -94,17 +94,17 @@ protected:
   // ILoginProcessor
   virtual bool PerformLoginCheck( string const &login, string const &password, Network::IConnection *connection, Login::LoginResultData* result );
   virtual void AsyncLoginRequest( string const & login, string const & pwd, const StrongMT<Login::SLoginContext> & context );
-  virtual void AsyncStep(); // здесь финализируем запросы, выкидываем исполненные, сигналим таймауты, и т.п.
+  virtual void AsyncStep(); // Р·РґРµСЃСЊ С„РёРЅР°Р»РёР·РёСЂСѓРµРј Р·Р°РїСЂРѕСЃС‹, РІС‹РєРёРґС‹РІР°РµРј РёСЃРїРѕР»РЅРµРЅРЅС‹Рµ, СЃРёРіРЅР°Р»РёРј С‚Р°Р№РјР°СѓС‚С‹, Рё С‚.Рї.
 
   // IRequestQueue:
   SZZimaLoginRequest* GetNextRequest( unsigned getterId ); 
 
 private:
-  ConnectionInfo connectionInfo; // если захотим respawn'ить worker threads, им надо будет подпихивать это info
+  ConnectionInfo connectionInfo; // РµСЃР»Рё Р·Р°С…РѕС‚РёРј respawn'РёС‚СЊ worker threads, РёРј РЅР°РґРѕ Р±СѓРґРµС‚ РїРѕРґРїРёС…РёРІР°С‚СЊ СЌС‚Рѕ info
   TZZimaWorkerThreads threads;
 
   threading::Mutex mutexRequests;
-  TWebLoginRequests requests; // заявки на web-логин (обращения к ZZima), сюда будут ломиться worker threads
+  TWebLoginRequests requests; // Р·Р°СЏРІРєРё РЅР° web-Р»РѕРіРёРЅ (РѕР±СЂР°С‰РµРЅРёСЏ Рє ZZima), СЃСЋРґР° Р±СѓРґСѓС‚ Р»РѕРјРёС‚СЊСЃСЏ worker threads
 };
 
 } // namespace Login

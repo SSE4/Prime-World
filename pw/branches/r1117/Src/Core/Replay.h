@@ -76,7 +76,7 @@ enum ReplayBufferError
 
 
 
-//FIXME: Переписать бы весь этот индокитайский кот, да некогда!!! 
+//FIXME: РџРµСЂРµРїРёСЃР°С‚СЊ Р±С‹ РІРµСЃСЊ СЌС‚РѕС‚ РёРЅРґРѕРєРёС‚Р°Р№СЃРєРёР№ РєРѕС‚, РґР° РЅРµРєРѕРіРґР°!!! 
 class ReplayBufferManager : public CObjectBase
 {
   OBJECT_BASIC_METHODS(ReplayBufferManager)
@@ -176,7 +176,7 @@ public:
  int        GetNumberOfSegments()   { return m_buffer.GetNumberOfSegments();  }
  bool       IsEof()                 { return m_buffer.IsEof();                }
 
- ReplayBufferManager * GetManager() { return &m_buffer; } // от псевдо-синглтона при рефакторинге надо будет избавиться 
+ ReplayBufferManager * GetManager() { return &m_buffer; } // РѕС‚ РїСЃРµРІРґРѕ-СЃРёРЅРіР»С‚РѕРЅР° РїСЂРё СЂРµС„Р°РєС‚РѕСЂРёРЅРіРµ РЅР°РґРѕ Р±СѓРґРµС‚ РёР·Р±Р°РІРёС‚СЊСЃСЏ 
   virtual bool IsOk() { return (m_buffer.GetError() == NCore::REPLAY_ERROR_OK); };
 
 private:

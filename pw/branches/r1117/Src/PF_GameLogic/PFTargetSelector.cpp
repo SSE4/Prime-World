@@ -20,7 +20,7 @@ namespace
 
 namespace
 {
-  // @angle в градусах!
+  // @angle РІ РіСЂР°РґСѓСЃР°С…!
   inline void RotateVector(CVec2& v, const float angle)
   {
     struct Local
@@ -544,14 +544,14 @@ void PFSectorTargetSelector::OnForAllTargets(ITargetAction &action, const Reques
 
         const float distToTarget = fabs( vectorToTarget );
 
-        // Цель дальше своего размера
+        // Р¦РµР»СЊ РґР°Р»СЊС€Рµ СЃРІРѕРµРіРѕ СЂР°Р·РјРµСЂР°
         if ( distToTarget > halfSize )
         {
           const float invertDist = 1.0f / distToTarget;
 
           const float angle = acosf( dir.Dot( vectorToTarget ) * invertDist ) - asinf( halfSize * invertDist );
 
-          // Край цели оказывается за сектором
+          // РљСЂР°Р№ С†РµР»Рё РѕРєР°Р·С‹РІР°РµС‚СЃСЏ Р·Р° СЃРµРєС‚РѕСЂРѕРј
           if ( angle > refAngle )
             return;
         }
@@ -1506,7 +1506,7 @@ bool PFPointTargetSelector::FindTarget(const RequestParams &pars, Target &target
           direction.z = 0.0f;
           Normalize(&direction);
 
-          // Ищем позицию в пределах карты по направлению
+          // РС‰РµРј РїРѕР·РёС†РёСЋ РІ РїСЂРµРґРµР»Р°С… РєР°СЂС‚С‹ РїРѕ РЅР°РїСЂР°РІР»РµРЅРёСЋ
           for (int i = 0; i < range; i++)
           {
             CVec3 tempPos = targetPos + direction * (range - i);

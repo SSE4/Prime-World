@@ -119,13 +119,13 @@ namespace NWorld
       {
         if (!pTarget->IsTargetInRange(anchor, maxChaseDistance))
         {
-          return true; // ñëèøêîì äàëåêî îò ìàñòåðà
+          return true; // ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð°Ð»ÐµÐºÐ¾ Ð¾Ñ‚ Ð¼Ð°ÑÑ‚ÐµÑ€Ð°
         }
       }
 
       if (!pOwner->IsTargetInAttackRange(pTarget))
       {
-        return true; // ñëèøêîì äàëåêî îò öåëè
+        return true; // ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð°Ð»ÐµÐºÐ¾ Ð¾Ñ‚ Ñ†ÐµÐ»Ð¸
       }
 
       return pOwner->IsReadyToAttack() && !pOwner->DoAttack();
@@ -266,7 +266,7 @@ namespace NWorld
       }
       else
       {
-        // TODO: èñêàòü öåëè, êîãäà ñàììîí íàõîäèòñÿ â ïðåäåëàõ leashRange îò ÿêîðÿ?
+        // TODO: Ð¸ÑÐºÐ°Ñ‚ÑŒ Ñ†ÐµÐ»Ð¸, ÐºÐ¾Ð³Ð´Ð° ÑÐ°Ð¼Ð¼Ð¾Ð½ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ Ð² Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ñ… leashRange Ð¾Ñ‚ ÑÐºÐ¾Ñ€Ñ?
 
         const bool isStationarySummon = pOwner->GetTargetingParams().isStationarySummon;
 

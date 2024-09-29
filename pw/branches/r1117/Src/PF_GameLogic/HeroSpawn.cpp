@@ -37,7 +37,7 @@ namespace
   {
     string heroIds[5];
     int pet[5];           // PetType
-    string customTS[5];   // xdb с переопределенным TS
+    string customTS[5];   // xdb СЃ РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅРЅС‹Рј TS
   };
 
   BotOverride botOverride[2];
@@ -433,7 +433,7 @@ namespace NWorld
         NI_ASSERT( hero, "" );
 
         /*
-        IM: убрал прелоад героя, т.к. тут он не нужен - все случается чуть позже при создании. Если будут проблемы, вернуть.
+        IM: СѓР±СЂР°Р» РїСЂРµР»РѕР°Рґ РіРµСЂРѕСЏ, С‚.Рє. С‚СѓС‚ РѕРЅ РЅРµ РЅСѓР¶РµРЅ - РІСЃРµ СЃР»СѓС‡Р°РµС‚СЃСЏ С‡СѓС‚СЊ РїРѕР·Р¶Рµ РїСЂРё СЃРѕР·РґР°РЅРёРё. Р•СЃР»Рё Р±СѓРґСѓС‚ РїСЂРѕР±Р»РµРјС‹, РІРµСЂРЅСѓС‚СЊ.
         int precacheDepth = G_GetPrechacheSessionData() ? 20 : 0;
         heroSpawnDesc.pHero NDb::Precache<NDb::BaseHero>( hero->GetDBID(), precacheDepth );
         DebugTrace( "SpawnHeroes:Precache:%d: %2.3f", heroSpawnDesc.playerId, NHPTimer::GetTimePassedAndUpdateTime( time ) );

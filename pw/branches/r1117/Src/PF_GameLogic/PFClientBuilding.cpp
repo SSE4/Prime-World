@@ -22,8 +22,8 @@
 
 namespace
 {
-  static float s_forceBuildingsMinHealthExplosionPercent  = 0.0f; // ìèíèìàëüíîå êîë-âî õï, íà÷èíàÿ ñ êîòîðîãî áóäåì ãîðåòü (â ïðîöåíòàõ)
-  static float s_forceBuildingsFragEffectProbability      = 0.0f; // âåðîÿòíîñòü âûëåòà îñêîëêà èç çäàíèÿ
+  static float s_forceBuildingsMinHealthExplosionPercent  = 0.0f; // Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ ÐºÐ¾Ð»-Ð²Ð¾ Ñ…Ð¿, Ð½Ð°Ñ‡Ð¸Ð½Ð°Ñ Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð±ÑƒÐ´ÐµÐ¼ Ð³Ð¾Ñ€ÐµÑ‚ÑŒ (Ð² Ð¿Ñ€Ð¾Ñ†ÐµÐ½Ñ‚Ð°Ñ…)
+  static float s_forceBuildingsFragEffectProbability      = 0.0f; // Ð²ÐµÑ€Ð¾ÑÑ‚Ð½Ð¾ÑÑ‚ÑŒ Ð²Ñ‹Ð»ÐµÑ‚Ð° Ð¾ÑÐºÐ¾Ð»ÐºÐ° Ð¸Ð· Ð·Ð´Ð°Ð½Ð¸Ñ
 
   #define EXPL_COMPONENT_ID "fire"
   #define FRAG_LOCATOR_ID   "Frag"
@@ -417,7 +417,7 @@ void PFBuilding::ShowFragEffect()
 	if ( !GetWorldObject() || !fragLocatorsCount || (GetRnd(0.0f, 1.0f) > GET_AI_PARAM(buildingsFragEffectProbability, s_forceBuildingsFragEffectProbability)) )
     return;
 
-  int locatorIndex = GetRnd( 1.0f, (float)fragLocatorsCount + 0.99f ); //0.99f äåëàåòñÿ ÷òîáû fragLocatorsCount âûïàäàëî ñ òàêîé æå âåðîÿòíîñòüþ êàê è îñòàëüíûå 
+  int locatorIndex = GetRnd( 1.0f, (float)fragLocatorsCount + 0.99f ); //0.99f Ð´ÐµÐ»Ð°ÐµÑ‚ÑÑ Ñ‡Ñ‚Ð¾Ð±Ñ‹ fragLocatorsCount Ð²Ñ‹Ð¿Ð°Ð´Ð°Ð»Ð¾ Ñ Ñ‚Ð°ÐºÐ¾Ð¹ Ð¶Ðµ Ð²ÐµÑ€Ð¾ÑÑ‚Ð½Ð¾ÑÑ‚ÑŒÑŽ ÐºÐ°Ðº Ð¸ Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ 
   const NScene::Locator* pLocator = GetSceneObject()->FindLocator( NStr::StrFmt( FRAG_LOCATOR_ID"%i", locatorIndex ) );
   NI_VERIFY( pLocator, NStr::StrFmt("Locator "FRAG_LOCATOR_ID"%i should present", locatorIndex), return; );
 

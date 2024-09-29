@@ -84,7 +84,7 @@ namespace TestClientNs
         if( transport_ )
         {
           LOG_M(0) << "Login timeout for client " << transport_->GetUserId();
-          // login timeout: äàâàéòå-êà åùå ðàç ïîïðîáóåì LOGIN
+          // login timeout: Ð´Ð°Ð²Ð°Ð¹Ñ‚Ðµ-ÐºÐ° ÐµÑ‰Ðµ Ñ€Ð°Ð· Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ LOGIN
           transport_->Logout();
           return startLogin();
         }
@@ -103,7 +103,7 @@ namespace TestClientNs
              || Login::ELoginResult::AlreadyIn == result )
     {
       LOG_M(0) << "Login async timeout for client " << transport_->GetUserId();
-      // login timeout: äàâàéòå-êà åùå ðàç ïîïðîáóåì LOGIN
+      // login timeout: Ð´Ð°Ð²Ð°Ð¹Ñ‚Ðµ-ÐºÐ° ÐµÑ‰Ðµ Ñ€Ð°Ð· Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ LOGIN
       transport_->Logout();
       return startLogin();
     }

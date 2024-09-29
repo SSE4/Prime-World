@@ -586,7 +586,7 @@ int CoordinatorServer::RegisterClient_(Coordinator::ServerIdT _srvid, StrongMT<R
   else
   {
     clientContexts.push_back( cctx );
-    routeMap.InitSlave( cctx->client() ); // обновляем клиенту данные, которые он действительно хочет (routes)
+    routeMap.InitSlave( cctx->client() ); // РѕР±РЅРѕРІР»СЏРµРј РєР»РёРµРЅС‚Сѓ РґР°РЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РѕРЅ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‡РµС‚ (routes)
 
     MessageTrace( "%s. New client completely registered(srvid=%d pid=%d machineName=%s)", 
       __FUNCTION__, cctx->srvid_, _serverdef.pid, _serverdef.machineInfo.machineName.c_str() );

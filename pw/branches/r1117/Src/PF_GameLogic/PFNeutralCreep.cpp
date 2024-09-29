@@ -316,7 +316,7 @@ void PFNeutralCreep::OnUnitDie(CPtr<PFBaseUnit> pKiller, int flags /*= UNITDIEFL
 {
   PFBaseCreep::OnUnitDie( pKiller, flags, pDamageDesc );
 
-  // Спаунер может использоваться при получении награды через PFNeutralCreepBehaviour::GetKillerAward, поэтому отцепляем после обработки игромеханической смерти
+  // РЎРїР°СѓРЅРµСЂ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РЅР°РіСЂР°РґС‹ С‡РµСЂРµР· PFNeutralCreepBehaviour::GetKillerAward, РїРѕСЌС‚РѕРјСѓ РѕС‚С†РµРїР»СЏРµРј РїРѕСЃР»Рµ РѕР±СЂР°Р±РѕС‚РєРё РёРіСЂРѕРјРµС…Р°РЅРёС‡РµСЃРєРѕР№ СЃРјРµСЂС‚Рё
   // Note: Hide function relies on this dettach!
   DettachFromSpawner();
 }
@@ -327,7 +327,7 @@ void PFNeutralCreep::OnAfterReset()
 
   if ( GetBaseMoveSpeed() == 0.0f )
   {
-    // востанавливаем ориентацию крипов заданную дизайнерами (в частности ориентацию змея)
+    // РІРѕСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕСЂРёРµРЅС‚Р°С†РёСЋ РєСЂРёРїРѕРІ Р·Р°РґР°РЅРЅСѓСЋ РґРёР·Р°Р№РЅРµСЂР°РјРё (РІ С‡Р°СЃС‚РЅРѕСЃС‚Рё РѕСЂРёРµРЅС‚Р°С†РёСЋ Р·РјРµСЏ)
     CQuat rotation;
     rotation = initialPlacement.rot;
     CALL_CLIENT_1ARGS( SetRotation, rotation );

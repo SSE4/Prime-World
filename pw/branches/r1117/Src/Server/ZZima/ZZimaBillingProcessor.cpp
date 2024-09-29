@@ -18,7 +18,7 @@ namespace Billing
   {
     if (invoker->IsOk())
     {
-      //  TODO: если нужно - переделать на использование UserManagerAgent
+      //  TODO: РµСЃР»Рё РЅСѓР¶РЅРѕ - РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ UserManagerAgent
       return NO_SUCH_USER;
 
       //const Login::LoginResult* info  = database?database->GetUserLoginInfo(userAccountId):0;
@@ -46,7 +46,7 @@ namespace Billing
   {
     if (invoker->IsOk())
     {
-      //  TODO: если нужно - переделать на использование UserManagerAgent
+      //  TODO: РµСЃР»Рё РЅСѓР¶РЅРѕ - РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ UserManagerAgent
       return NO_SUCH_USER;
 
       //const Login::LoginResult* info = database?database->GetUserLoginInfo(userAccountId):0;
@@ -74,7 +74,7 @@ namespace Billing
   {
     if (invoker->IsOk())
     {
-      //  TODO: если нужно - переделать на использование UserManagerAgent
+      //  TODO: РµСЃР»Рё РЅСѓР¶РЅРѕ - РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ UserManagerAgent
       return NO_SUCH_USER;
 
       //const Login::LoginResult* info = database?database->GetUserLoginInfo(userAccountId):0;

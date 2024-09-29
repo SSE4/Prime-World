@@ -715,13 +715,13 @@ namespace NWorld
       pOwner->EventHappened( PFBaseUnitEvent( NDb::BASEUNITEVENT_CHANNELINGCANCELED ) );
   }
 
-  // Есть в PFBaseUseState
+  // Р•СЃС‚СЊ РІ PFBaseUseState
   bool PFInteractObjectState::IsActionFinished() const
   {
     return pActionInstance ? pActionInstance->IsActivated() && !pOwner->IsInChannelling() : true;
   }
 
-  // Нужно?
+  // РќСѓР¶РЅРѕ?
   bool PFInteractObjectState::CanBeInterrupted() const
   {
     if ( pActionInstance )

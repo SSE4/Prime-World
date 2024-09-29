@@ -46,8 +46,8 @@ inline bool Test()
       wstring( L"test fuck test" ),
       wstring( L"Quick brown fouck jumped over the lazy dog" ),
       wstring( L"The Content Item service provides a single API that performs all content handling functionality. This includes filtering (for emails, URLs, and all entries on the white and black lists in the database), content storage and search indexing, content moderation, and content updating." ),
-      wstring( L"Удали игру днище! Встань блядь под башней читай тултипы на xуй!" ),
-      wstring( L"А вот и наши кавычки: \" И наши амперсанды: & И кое-что в апострофах: '<>'" ),
+      wstring( L"РЈРґР°Р»Рё РёРіСЂСѓ РґРЅРёС‰Рµ! Р’СЃС‚Р°РЅСЊ Р±Р»СЏРґСЊ РїРѕРґ Р±Р°С€РЅРµР№ С‡РёС‚Р°Р№ С‚СѓР»С‚РёРїС‹ РЅР° xСѓР№!" ),
+      wstring( L"Рђ РІРѕС‚ Рё РЅР°С€Рё РєР°РІС‹С‡РєРё: \" Р РЅР°С€Рё Р°РјРїРµСЂСЃР°РЅРґС‹: & Р РєРѕРµ-С‡С‚Рѕ РІ Р°РїРѕСЃС‚СЂРѕС„Р°С…: '<>'" ),
       wstring( L"XML escape: &apos &quot &lt &amp &gt." )
     };
   const size_t checkTextsNum = sizeof( checkTexts ) / sizeof( wstring );

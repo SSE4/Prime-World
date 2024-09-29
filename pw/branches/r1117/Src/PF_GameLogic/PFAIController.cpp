@@ -781,7 +781,7 @@ void PFAIController::Step( float timeDelta )
     findFlagDelay = 0;
   }
 
-  // Åñëè íå ôîðïîñò - òî àòàêóåì áàøíþ
+  // Ð•ÑÐ»Ð¸ Ð½Ðµ Ñ„Ð¾Ñ€Ð¿Ð¾ÑÑ‚ - Ñ‚Ð¾ Ð°Ñ‚Ð°ÐºÑƒÐµÐ¼ Ð±Ð°ÑˆÐ½ÑŽ
   if ( !GetHelper().pDBBots->midOnly )
     AttackTower();
   else

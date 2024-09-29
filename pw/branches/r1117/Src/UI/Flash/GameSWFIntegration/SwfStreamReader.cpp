@@ -318,8 +318,8 @@ void SwfStreamReader::readGradient( SWF_GRADIENT& _gradient, EGradientType::Enum
   _gradient.SpreadMode = readUBits(2);
   _gradient.InterpolationMode = readUBits(2);
 
-  _gradient.SpreadMode = 0; // чтобы было меньше вариаций в кеше градиентных текстур 
-  _gradient.InterpolationMode = 0; // чтобы было меньше вариаций в кеше градиентных текстур
+  _gradient.SpreadMode = 0; // С‡С‚РѕР±С‹ Р±С‹Р»Рѕ РјРµРЅСЊС€Рµ РІР°СЂРёР°С†РёР№ РІ РєРµС€Рµ РіСЂР°РґРёРµРЅС‚РЅС‹С… С‚РµРєСЃС‚СѓСЂ 
+  _gradient.InterpolationMode = 0; // С‡С‚РѕР±С‹ Р±С‹Р»Рѕ РјРµРЅСЊС€Рµ РІР°СЂРёР°С†РёР№ РІ РєРµС€Рµ РіСЂР°РґРёРµРЅС‚РЅС‹С… С‚РµРєСЃС‚СѓСЂ
 
   _gradient.NumGradient = readUBits(4);
   _gradient.type = type;

@@ -98,9 +98,9 @@ void DumpScreenshots()
 {
 	if (s_screenshotFire)
 	{
-	  //Поддержка D3DXSaveSurfaceToFile появилась в wine 1.5.6
-	  //(коммит ec70b67b8d908d1ee11708d18a75774cb9a9bdf8). Пока мы не перейдём на 
-	  //эту, или более позднюю версию, скриншоты можно отключить
+	  //РџРѕРґРґРµСЂР¶РєР° D3DXSaveSurfaceToFile РїРѕСЏРІРёР»Р°СЃСЊ РІ wine 1.5.6
+	  //(РєРѕРјРјРёС‚ ec70b67b8d908d1ee11708d18a75774cb9a9bdf8). РџРѕРєР° РјС‹ РЅРµ РїРµСЂРµР№РґС‘Рј РЅР° 
+	  //СЌС‚Сѓ, РёР»Рё Р±РѕР»РµРµ РїРѕР·РґРЅСЋСЋ РІРµСЂСЃРёСЋ, СЃРєСЂРёРЅС€РѕС‚С‹ РјРѕР¶РЅРѕ РѕС‚РєР»СЋС‡РёС‚СЊ
     if( !Compatibility::IsRunnedUnderWine() )  
       Render::SmartRenderer::DumpScreenshot(s_screenshotName, s_screenshotAsIs);
       

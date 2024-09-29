@@ -2,6 +2,6 @@
 
 namespace Render
 {
-	// все удалено
+	// РІСЃРµ СѓРґР°Р»РµРЅРѕ
 
 }; // namespace Render

@@ -2,7 +2,7 @@
 
 namespace Render
 {
-	/// Интерфейс запросов
+	/// РРЅС‚РµСЂС„РµР№СЃ Р·Р°РїСЂРѕСЃРѕРІ
 	class IQuery
 	{
 	public:

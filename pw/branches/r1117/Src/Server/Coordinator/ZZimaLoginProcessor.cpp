@@ -8,11 +8,11 @@
 #include "System/sleep.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// UGLY: лог-каналы (пока не хочется тащить в log-header'ы с ребилдом всего)
+// UGLY: Р»РѕРі-РєР°РЅР°Р»С‹ (РїРѕРєР° РЅРµ С…РѕС‡РµС‚СЃСЏ С‚Р°С‰РёС‚СЊ РІ log-header'С‹ СЃ СЂРµР±РёР»РґРѕРј РІСЃРµРіРѕ)
 
 namespace Login {
 
-static int g_ZZima_Worker_Threads = 8; // количество рабочих ниток в пуле ZZima-логина
+static int g_ZZima_Worker_Threads = 8; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р±РѕС‡РёС… РЅРёС‚РѕРє РІ РїСѓР»Рµ ZZima-Р»РѕРіРёРЅР°
 REGISTER_VAR( "login_zzima_worker_threads", g_ZZima_Worker_Threads, STORAGE_NONE );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,14 +20,14 @@ ZZimaLoginProcessor::ZZimaLoginProcessor( const ConnectionInfo& connectionInfo_ 
 ServerLoginProcessorBase(),
 connectionInfo( connectionInfo_ )
 {
-  // заводим worker threads
+  // Р·Р°РІРѕРґРёРј worker threads
   for( int i=0; i<max(1, g_ZZima_Worker_Threads); i++ )
   {
     ZZimaWorkerThread* thread = new ZZimaWorkerThread( (IRequestQueue*)this, connectionInfo_ );
     if( thread )
     {
-      threads[ thread->Id() ] = thread; // если что, можно будет найти "виноватый" thread по id и прибить (and/or spawn new)
-      thread->Resume(); // побежали
+      threads[ thread->Id() ] = thread; // РµСЃР»Рё С‡С‚Рѕ, РјРѕР¶РЅРѕ Р±СѓРґРµС‚ РЅР°Р№С‚Рё "РІРёРЅРѕРІР°С‚С‹Р№" thread РїРѕ id Рё РїСЂРёР±РёС‚СЊ (and/or spawn new)
+      thread->Resume(); // РїРѕР±РµР¶Р°Р»Рё
     }
   }
 }
@@ -35,7 +35,7 @@ connectionInfo( connectionInfo_ )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZZimaLoginProcessor::~ZZimaLoginProcessor()
 { 
-  // сделать что-нибудь такое graceful с нашим thread pool? ...да ну, сами помрут
+  // СЃРґРµР»Р°С‚СЊ С‡С‚Рѕ-РЅРёР±СѓРґСЊ С‚Р°РєРѕРµ graceful СЃ РЅР°С€РёРј thread pool? ...РґР° РЅСѓ, СЃР°РјРё РїРѕРјСЂСѓС‚
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ ZZimaWorkerThread::ZZimaWorkerThread( IRequestQueue* requestSource_, const Conne
 {
   NI_ASSERT( requestSource, "ZZimaWorkerThread: bad request source" );
 
-  // машинерия для выполнения web-XML (раньше жила в едином zzima login processor)
+  // РјР°С€РёРЅРµСЂРёСЏ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ web-XML (СЂР°РЅСЊС€Рµ Р¶РёР»Р° РІ РµРґРёРЅРѕРј zzima login processor)
   invoker = new ZZima::Invoker(connectionInfo.authServer.c_str(), connectionInfo.serviceName.c_str(), connectionInfo.servicePassword.c_str(), false);
   invokerOld = new ZZima::InvokerOld(connectionInfo.socNetServer.c_str(), connectionInfo.socNetKey.c_str(), connectionInfo.socNetSecret.c_str());
   authAutoSubscribe = connectionInfo.authAutoSubscribe;
@@ -55,7 +55,7 @@ ZZimaWorkerThread::ZZimaWorkerThread( IRequestQueue* requestSource_, const Conne
   if (!invoker->IsOk())
     LOG_C( 0 ) << "ZZimaWorkerThread: Invoker is not OK!" << endl;
 
-  // здесь логаем в global, потому что канал ZZima создается вместе с Login (и вместе с LoginServer*, на шаг позже нас)
+  // Р·РґРµСЃСЊ Р»РѕРіР°РµРј РІ global, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РєР°РЅР°Р» ZZima СЃРѕР·РґР°РµС‚СЃСЏ РІРјРµСЃС‚Рµ СЃ Login (Рё РІРјРµСЃС‚Рµ СЃ LoginServer*, РЅР° С€Р°Рі РїРѕР·Р¶Рµ РЅР°СЃ)
   LOG_M( 0 ).Trace("ZZima auth \"%s\" \"%s\" \"%s\" %d", connectionInfo.authServer.c_str(), connectionInfo.serviceName.c_str(), connectionInfo.servicePassword.c_str(), connectionInfo.authAutoSubscribe);
   LOG_M( 0 ).Trace("ZZima socnet \"%s\" \"%s\" \"%s\"", connectionInfo.socNetServer.c_str(), connectionInfo.socNetKey.c_str(), connectionInfo.socNetSecret.c_str());
 }
@@ -84,10 +84,10 @@ unsigned ZZimaWorkerThread::Work()
         if ( PerformSynchroLogin( request->login, request->password, request->context->resultData ) > 0 )
           request->context->response.loginResult = ELoginResult::AsyncSuccess;
       }
-      catch(...) { // в случае любых ошибок, надо все равно вернуть наружу результат (типа "unknown fail")
+      catch(...) { // РІ СЃР»СѓС‡Р°Рµ Р»СЋР±С‹С… РѕС€РёР±РѕРє, РЅР°РґРѕ РІСЃРµ СЂР°РІРЅРѕ РІРµСЂРЅСѓС‚СЊ РЅР°СЂСѓР¶Сѓ СЂРµР·СѓР»СЊС‚Р°С‚ (С‚РёРїР° "unknown fail")
         LOG_A( LOGIN_CHNL ) << "web login EXCEPTION, login=" << request->login;
       }
-      request->context->isLoginChecked = true; // снаружи SynchroLogin, когда все изменения resultData уже финализированы
+      request->context->isLoginChecked = true; // СЃРЅР°СЂСѓР¶Рё SynchroLogin, РєРѕРіРґР° РІСЃРµ РёР·РјРµРЅРµРЅРёСЏ resultData СѓР¶Рµ С„РёРЅР°Р»РёР·РёСЂРѕРІР°РЅС‹
       request->status = SZZimaLoginRequest::READY; 
     }
     else
@@ -126,14 +126,14 @@ int ZZimaWorkerThread::PerformSynchroLogin( const string & login, const string &
   }
   if (code == ZZima::E_OK || code == ZZima::E_ALREADY_SUBSCRIBED)
   {
-    if( result.nUserID == 0 ) // ненулевой nUserID == признак SessionLogin
-    {// авторизуем только при нулевом nUserID (при ненулевом подразумеваем SessionLogin)
+    if( result.nUserID == 0 ) // РЅРµРЅСѓР»РµРІРѕР№ nUserID == РїСЂРёР·РЅР°Рє SessionLogin
+    {// Р°РІС‚РѕСЂРёР·СѓРµРј С‚РѕР»СЊРєРѕ РїСЂРё РЅСѓР»РµРІРѕРј nUserID (РїСЂРё РЅРµРЅСѓР»РµРІРѕРј РїРѕРґСЂР°Р·СѓРјРµРІР°РµРј SessionLogin)
       code = ZZima::Authorize(*invoker, login.c_str(), _password.c_str(), userId);
     }
     else
     {
       LOG_M( LOGIN_CHNL ).Trace("skipping ZZima::Authorize for user %s: nUserID=%d (must be ServiceLogin)", login.c_str(), result.nUserID);
-      code = ZZima::E_OK; // уже прошли SessionLogin, не надо лезть в ZZima authorize
+      code = ZZima::E_OK; // СѓР¶Рµ РїСЂРѕС€Р»Рё SessionLogin, РЅРµ РЅР°РґРѕ Р»РµР·С‚СЊ РІ ZZima authorize
       userId = result.nUserID;
     }
   } else
@@ -173,7 +173,7 @@ int ZZimaWorkerThread::PerformSynchroLogin( const string & login, const string &
   }
   socnetTime = NHPTimer::Time2Milliseconds(socnetStats.Stop());
 
-  if( result.nUserID == 0 ) // ненулевой nUserID == признак того, что трогать его не надо (SessionLogin)
+  if( result.nUserID == 0 ) // РЅРµРЅСѓР»РµРІРѕР№ nUserID == РїСЂРёР·РЅР°Рє С‚РѕРіРѕ, С‡С‚Рѕ С‚СЂРѕРіР°С‚СЊ РµРіРѕ РЅРµ РЅР°РґРѕ (SessionLogin)
     result.nUserID = userId;
 
   result.nErrorCode = int(code);
@@ -196,7 +196,7 @@ SZZimaLoginRequest::SZZimaLoginRequest( string const & login_, string const & pw
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ZZimaLoginProcessor::AsyncLoginRequest( string const & login, string const & pwd, const StrongMT<Login::SLoginContext> & context )
-{// добавляем заявку в requests
+{// РґРѕР±Р°РІР»СЏРµРј Р·Р°СЏРІРєСѓ РІ requests
   threading::MutexLock lock( mutexRequests );
   SZZimaLoginRequest *request = new SZZimaLoginRequest( login, pwd, context );
   if( request )
@@ -206,21 +206,21 @@ void ZZimaLoginProcessor::AsyncLoginRequest( string const & login, string const 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ZZimaLoginProcessor::AsyncStep()
 {
-  // здесь будем удалять заявки из очереди (пусть это будет синхронный момент: 
-  //  именно здесь могут удаляться неотработанные context-ы, для которых например web-операция завершилась рассыпанием или timeout)
+  // Р·РґРµСЃСЊ Р±СѓРґРµРј СѓРґР°Р»СЏС‚СЊ Р·Р°СЏРІРєРё РёР· РѕС‡РµСЂРµРґРё (РїСѓСЃС‚СЊ СЌС‚Рѕ Р±СѓРґРµС‚ СЃРёРЅС…СЂРѕРЅРЅС‹Р№ РјРѕРјРµРЅС‚: 
+  //  РёРјРµРЅРЅРѕ Р·РґРµСЃСЊ РјРѕРіСѓС‚ СѓРґР°Р»СЏС‚СЊСЃСЏ РЅРµРѕС‚СЂР°Р±РѕС‚Р°РЅРЅС‹Рµ context-С‹, РґР»СЏ РєРѕС‚РѕСЂС‹С… РЅР°РїСЂРёРјРµСЂ web-РѕРїРµСЂР°С†РёСЏ Р·Р°РІРµСЂС€РёР»Р°СЃСЊ СЂР°СЃСЃС‹РїР°РЅРёРµРј РёР»Рё timeout)
   threading::MutexLock lock( mutexRequests );
 
-  // выкидываем из очереди обработанные запросы
+  // РІС‹РєРёРґС‹РІР°РµРј РёР· РѕС‡РµСЂРµРґРё РѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹
   for ( TWebLoginRequests::iterator it = requests.begin(); it != requests.end(); )
   {
     SZZimaLoginRequest *request = *it;
 
-    // только здесь будем "забывать context" на уже исполненных заявках (что, в принципе, может привести к удалению context) 
-    //  чтобы исключить какие-либо проблемы с асинхронностью удаления login-context'ов
+    // С‚РѕР»СЊРєРѕ Р·РґРµСЃСЊ Р±СѓРґРµРј "Р·Р°Р±С‹РІР°С‚СЊ context" РЅР° СѓР¶Рµ РёСЃРїРѕР»РЅРµРЅРЅС‹С… Р·Р°СЏРІРєР°С… (С‡С‚Рѕ, РІ РїСЂРёРЅС†РёРїРµ, РјРѕР¶РµС‚ РїСЂРёРІРµСЃС‚Рё Рє СѓРґР°Р»РµРЅРёСЋ context) 
+    //  С‡С‚РѕР±С‹ РёСЃРєР»СЋС‡РёС‚СЊ РєР°РєРёРµ-Р»РёР±Рѕ РїСЂРѕР±Р»РµРјС‹ СЃ Р°СЃРёРЅС…СЂРѕРЅРЅРѕСЃС‚СЊСЋ СѓРґР°Р»РµРЅРёСЏ login-context'РѕРІ
     if ( request->status == SZZimaLoginRequest::READY )
     {
-      request->context = 0; // сразу отвязываемся от логин-контекста, можете его удалять
-      request->status = SZZimaLoginRequest::ERASED; // для дебаггера, в случае чего
+      request->context = 0; // СЃСЂР°Р·Сѓ РѕС‚РІСЏР·С‹РІР°РµРјСЃСЏ РѕС‚ Р»РѕРіРёРЅ-РєРѕРЅС‚РµРєСЃС‚Р°, РјРѕР¶РµС‚Рµ РµРіРѕ СѓРґР°Р»СЏС‚СЊ
+      request->status = SZZimaLoginRequest::ERASED; // РґР»СЏ РґРµР±Р°РіРіРµСЂР°, РІ СЃР»СѓС‡Р°Рµ С‡РµРіРѕ
 
       delete request;
       it = requests.erase( it );
@@ -233,7 +233,7 @@ void ZZimaLoginProcessor::AsyncStep()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool ZZimaLoginProcessor::PerformLoginCheck( string const &, string const &, Network::IConnection *, Login::LoginResultData * result )
 {
-  // связываемся асинхронно, поэтому только добавляем себе таск, и сразу же возвращаем error code "ждите ответа"
+  // СЃРІСЏР·С‹РІР°РµРјСЃСЏ Р°СЃРёРЅС…СЂРѕРЅРЅРѕ, РїРѕСЌС‚РѕРјСѓ С‚РѕР»СЊРєРѕ РґРѕР±Р°РІР»СЏРµРј СЃРµР±Рµ С‚Р°СЃРє, Рё СЃСЂР°Р·Сѓ Р¶Рµ РІРѕР·РІСЂР°С‰Р°РµРј error code "Р¶РґРёС‚Рµ РѕС‚РІРµС‚Р°"
   result->nErrorCode = ZZima::E_ASYNC_WAIT;
   return false;
 }
@@ -242,8 +242,8 @@ SZZimaLoginRequest* ZZimaLoginProcessor::GetNextRequest( unsigned getterId )
 {
   threading::MutexLock lock( mutexRequests );
 
-  // берем следующий необработанный request из очереди; 
-  //  сразу ставим туда threadId и status=TAKEN
+  // Р±РµСЂРµРј СЃР»РµРґСѓСЋС‰РёР№ РЅРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹Р№ request РёР· РѕС‡РµСЂРµРґРё; 
+  //  СЃСЂР°Р·Сѓ СЃС‚Р°РІРёРј С‚СѓРґР° threadId Рё status=TAKEN
   for ( TWebLoginRequests::iterator it = requests.begin(); it != requests.end(); ++it )
     if ( (*it)->status == SZZimaLoginRequest::NEW )
     {

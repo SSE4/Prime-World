@@ -525,11 +525,11 @@ bool Game::SetupGameForPvx( PvxGameDetails & _pvxDetails )
   _pvxDetails.preGameLobby = hadPreGameLobby;
   _pvxDetails.customGame = customGame;
   
-  // map->minimalGuildFightTeam = -1, âñåãäà íå ãèëüäèéñêèé 
-  // map->minimalGuildFightTeam = 0,  âñåãäà ãèëüäèéñêèé 
+  // map->minimalGuildFightTeam = -1, Ð²ÑÐµÐ³Ð´Ð° Ð½Ðµ Ð³Ð¸Ð»ÑŒÐ´Ð¸Ð¹ÑÐºÐ¸Ð¹ 
+  // map->minimalGuildFightTeam = 0,  Ð²ÑÐµÐ³Ð´Ð° Ð³Ð¸Ð»ÑŒÐ´Ð¸Ð¹ÑÐºÐ¸Ð¹ 
 
-  // ïî çàäà÷å https://SITE/browse/NUM_TASK
-  // îòêëþ÷àåì (â äàííûõ) ñòàðóþ ëîãèêó îïðåäåëåíèÿ ãèëüäèéñêîãî áîÿ, à òàê æå âñå íàãðàäû äëÿ ãèëüäèè íàñûïàåì âñåì, ó êîãî åñòü áèëåò â êëàíâûé èâåíò (GuildWarEventPass) â áàôôàõ
+  // Ð¿Ð¾ Ð·Ð°Ð´Ð°Ñ‡Ðµ https://SITE/browse/NUM_TASK
+  // Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼ (Ð² Ð´Ð°Ð½Ð½Ñ‹Ñ…) ÑÑ‚Ð°Ñ€ÑƒÑŽ Ð»Ð¾Ð³Ð¸ÐºÑƒ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ Ð³Ð¸Ð»ÑŒÐ´Ð¸Ð¹ÑÐºÐ¾Ð³Ð¾ Ð±Ð¾Ñ, Ð° Ñ‚Ð°Ðº Ð¶Ðµ Ð²ÑÐµ Ð½Ð°Ð³Ñ€Ð°Ð´Ñ‹ Ð´Ð»Ñ Ð³Ð¸Ð»ÑŒÐ´Ð¸Ð¸ Ð½Ð°ÑÑ‹Ð¿Ð°ÐµÐ¼ Ð²ÑÐµÐ¼, Ñƒ ÐºÐ¾Ð³Ð¾ ÐµÑÑ‚ÑŒ Ð±Ð¸Ð»ÐµÑ‚ Ð² ÐºÐ»Ð°Ð½Ð²Ñ‹Ð¹ Ð¸Ð²ÐµÐ½Ñ‚ (GuildWarEventPass) Ð² Ð±Ð°Ñ„Ñ„Ð°Ñ…
   guildFightCalc.PrepareGuildData(_pvxDetails.guildData);
   if ( map->minimalGuildFightTeam != -1 && guildFightCalc.IsGuildFight( map->minimalGuildFightTeam) )
     _pvxDetails.sessiontype = lobby::ETypeOfSession::SESSIONTYPE_GUILDBATTLE;

@@ -20,9 +20,9 @@ public:
   virtual bool ClientStep( SLoginContext * context );
   virtual unsigned GetAsyncOpCount() { return asyncOpCount; }
   
-  bool IsServerTimeout( const Timestamp timeout ); // не истек ли timeout со времен последнего SetMainStage
+  bool IsServerTimeout( const Timestamp timeout ); // РЅРµ РёСЃС‚РµРє Р»Рё timeout СЃРѕ РІСЂРµРјРµРЅ РїРѕСЃР»РµРґРЅРµРіРѕ SetMainStage
 
-  // helper: заодно считаем кол-во асинхронных операций за степ (для которых isAsync == true)
+  // helper: Р·Р°РѕРґРЅРѕ СЃС‡РёС‚Р°РµРј РєРѕР»-РІРѕ Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№ Р·Р° СЃС‚РµРї (РґР»СЏ РєРѕС‚РѕСЂС‹С… isAsync == true)
   void SetClientStage( SLoginContext * context, const SLoginContext::TStage stage, const bool isAsync=false);
 
 protected:
@@ -30,8 +30,8 @@ protected:
 
 private:
   // async
-  Timestamp    timeServerNow; // сервер засекает время 1 раз, в своем MainStep
-  int          asyncOpCount; // кол-во асинхронных операций за степ (можем попробовать ограничить это дело)
+  Timestamp    timeServerNow; // СЃРµСЂРІРµСЂ Р·Р°СЃРµРєР°РµС‚ РІСЂРµРјСЏ 1 СЂР°Р·, РІ СЃРІРѕРµРј MainStep
+  int          asyncOpCount; // РєРѕР»-РІРѕ Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№ Р·Р° СЃС‚РµРї (РјРѕР¶РµРј РїРѕРїСЂРѕР±РѕРІР°С‚СЊ РѕРіСЂР°РЅРёС‡РёС‚СЊ СЌС‚Рѕ РґРµР»Рѕ)
 };
 
 } // namespace Login

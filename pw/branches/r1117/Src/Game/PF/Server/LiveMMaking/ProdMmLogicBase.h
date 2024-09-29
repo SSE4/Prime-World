@@ -59,7 +59,7 @@ public:
   virtual bool PopReconnectSlot( SReconnectSlot & _slot );
   virtual string GetDebugStatus();
   virtual void GetLineStatistics( unsigned & team1, unsigned & team2 );
-  //Внимание! Ввиду асинхронности процесса даже _после_ вызова RemoveRequest(N) игрок N может быть возвращен из функции PopGame() !
+  //Р’РЅРёРјР°РЅРёРµ! Р’РІРёРґСѓ Р°СЃРёРЅС…СЂРѕРЅРЅРѕСЃС‚Рё РїСЂРѕС†РµСЃСЃР° РґР°Р¶Рµ _РїРѕСЃР»Рµ_ РІС‹Р·РѕРІР° RemoveRequest(N) РёРіСЂРѕРє N РјРѕР¶РµС‚ Р±С‹С‚СЊ РІРѕР·РІСЂР°С‰РµРЅ РёР· С„СѓРЅРєС†РёРё PopGame() !
 
   void TestPoll() { bool isRunning = true; ParallelPoll( isRunning ); }
 

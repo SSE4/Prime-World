@@ -79,18 +79,18 @@ protected:
 
   void SwitchModel();
   void ShowOnDestructionEffect();
-  int explCompsCount;       // общее количество эффектов горения
-  int turnedOnExplEffects;  // количество включённых эффектов горения
+  int explCompsCount;       // РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌС„С„РµРєС‚РѕРІ РіРѕСЂРµРЅРёСЏ
+  int turnedOnExplEffects;  // РєРѕР»РёС‡РµСЃС‚РІРѕ РІРєР»СЋС‡С‘РЅРЅС‹С… СЌС„С„РµРєС‚РѕРІ РіРѕСЂРµРЅРёСЏ
 
   int fragLocatorsCount;
   NDb::Ptr<NDb::EffectBase> onDamageFragEffect;
   NDb::Ptr<NDb::BasicEffectStandalone> onDestructionEffect;
   
   enum State {
-    State_Normal = 0, // обычное здание
-    State_Dying,      // умершее, но ещё не пропавшее здание
-    State_Died,       // умершее (пропала модель здания), но ещё не превратившееся в руины
-    State_Ruin,       // руины
+    State_Normal = 0, // РѕР±С‹С‡РЅРѕРµ Р·РґР°РЅРёРµ
+    State_Dying,      // СѓРјРµСЂС€РµРµ, РЅРѕ РµС‰С‘ РЅРµ РїСЂРѕРїР°РІС€РµРµ Р·РґР°РЅРёРµ
+    State_Died,       // СѓРјРµСЂС€РµРµ (РїСЂРѕРїР°Р»Р° РјРѕРґРµР»СЊ Р·РґР°РЅРёСЏ), РЅРѕ РµС‰С‘ РЅРµ РїСЂРµРІСЂР°С‚РёРІС€РµРµСЃСЏ РІ СЂСѓРёРЅС‹
+    State_Ruin,       // СЂСѓРёРЅС‹
   };
   State state;
   float showRuinDelay;

@@ -234,7 +234,7 @@ public:
 
   virtual void                  Update(float timeDelta);
   
-  static int GetStepCountDelay() { return 4; } //возвращаем номер степа, на котором варфог уже полностью сформирован - подобран эмпирическим путем.
+  static int GetStepCountDelay() { return 4; } //РІРѕР·РІСЂР°С‰Р°РµРј РЅРѕРјРµСЂ СЃС‚РµРїР°, РЅР° РєРѕС‚РѕСЂРѕРј РІР°СЂС„РѕРі СѓР¶Рµ РїРѕР»РЅРѕСЃС‚СЊСЋ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ - РїРѕРґРѕР±СЂР°РЅ СЌРјРїРёСЂРёС‡РµСЃРєРёРј РїСѓС‚РµРј.
   const Render::Texture2DRef&   GetTextureSrc()     { return m_texSource; }
   const Render::Texture2DRef&   GetTexture()        { return m_texBlended; }
   const Render::Texture2DRef&   GetTexture(int i)   { return m_texStep[i == m_texIndex]; }

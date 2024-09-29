@@ -35,7 +35,7 @@ void PeeredStatistics::LogTraffic( StatisticService::RPC::SessionTrafficInfo & i
 
 void PeeredStatistics::LogClientStatus( StatisticService::RPC::UserStatusEvent & evt )
 {
-  // NUM_TASK âûÿñíèëîñü, ÷òî ıòî ñîáûòèå ñòàòèñòèêîé íèêàê íå ó÷èòûâàåòñÿ; íåò ñìûñëà åãî îòïğàâëÿòü
+  // NUM_TASK Ğ²Ñ‹ÑÑĞ½Ğ¸Ğ»Ğ¾ÑÑŒ, Ñ‡Ñ‚Ğ¾ ÑÑ‚Ğ¾ ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ğµ ÑÑ‚Ğ°Ñ‚Ğ¸ÑÑ‚Ğ¸ĞºĞ¾Ğ¹ Ğ½Ğ¸ĞºĞ°Ğº Ğ½Ğµ ÑƒÑ‡Ğ¸Ñ‚Ñ‹Ğ²Ğ°ĞµÑ‚ÑÑ; Ğ½ĞµÑ‚ ÑĞ¼Ñ‹ÑĞ»Ğ° ĞµĞ³Ğ¾ Ğ¾Ñ‚Ğ¿Ñ€Ğ°Ğ²Ğ»ÑÑ‚ÑŒ
 #if 0
   if ( statistics )
     statistics->Message( evt );

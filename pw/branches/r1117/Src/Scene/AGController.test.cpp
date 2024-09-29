@@ -214,7 +214,7 @@ struct Test_AnimGraphController : public CxxTest::TestSuite
       TS_ASSERT_DELTA(0.98f, info.progresses[0], 1e-3f);
     }
     g->Update(0.1f);
-    g->Update(0.0f); //TODO: Потому что Restart не обновляет sequence
+    g->Update(0.0f); //TODO: РџРѕС‚РѕРјСѓ С‡С‚Рѕ Restart РЅРµ РѕР±РЅРѕРІР»СЏРµС‚ sequence
     {
       const SkeletonInfo& info = blender->GetLastFrame();
       TS_ASSERT_EQUALS(0, info.animations[0]);
@@ -281,7 +281,7 @@ struct Test_AnimGraphController : public CxxTest::TestSuite
       TS_ASSERT_DELTA(0.98f, info.progresses[0], 1e-3f);
     }
     g->Update(0.1f);
-    g->Update(0.0f); //TODO: Потому что Restart не обновляет sequence
+    g->Update(0.0f); //TODO: РџРѕС‚РѕРјСѓ С‡С‚Рѕ Restart РЅРµ РѕР±РЅРѕРІР»СЏРµС‚ sequence
     {
       const SkeletonInfo& info = blender->GetLastFrame();
       TS_ASSERT_EQUALS(0, info.animations[0]);

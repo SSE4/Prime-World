@@ -330,7 +330,7 @@ bool LuxBall::GetCollisionTime( ICollidable* _other, double& collisionTime )
 
   const double eps = EaselConst::Get_LOGIC_FIELD_WIDTH() * 1e-6;
 
-  //Случай точного пересечения траекторий
+  //РЎР»СѓС‡Р°Р№ С‚РѕС‡РЅРѕРіРѕ РїРµСЂРµСЃРµС‡РµРЅРёСЏ С‚СЂР°РµРєС‚РѕСЂРёР№
   if ( fabs( A ) < eps )
   {
     if ( fabs( B ) < eps )

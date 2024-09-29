@@ -54,7 +54,7 @@ NMainLoop::IScreenBase* FindScreen(const string& name)
   return 0;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//стеки команд на добавление/удаление интерфейсов
+//СЃС‚РµРєРё РєРѕРјР°РЅРґ РЅР° РґРѕР±Р°РІР»РµРЅРёРµ/СѓРґР°Р»РµРЅРёРµ РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 static TScreenCommandsList g_commandsOdd;
 static TScreenCommandsList g_commandsEven;
 static bool g_bUseOddCommands = true;
@@ -65,7 +65,7 @@ void ClearCommands()
   g_commandsEven.clear();
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Возвращение текущего стека команд
+//Р’РѕР·РІСЂР°С‰РµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СЃС‚РµРєР° РєРѕРјР°РЅРґ
 TScreenCommandsList &GetScreenCmds()
 {
   if ( g_bUseOddCommands )
@@ -75,7 +75,7 @@ TScreenCommandsList &GetScreenCmds()
   return g_commandsOdd;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Возвращение следующего стека команд
+//Р’РѕР·РІСЂР°С‰РµРЅРёРµ СЃР»РµРґСѓСЋС‰РµРіРѕ СЃС‚РµРєР° РєРѕРјР°РЅРґ
 TScreenCommandsList &GetNextScreenCmds()
 {
   if ( !g_bUseOddCommands )
@@ -284,7 +284,7 @@ bool AnalizeScreenCmds()
 {
   NI_PROFILE_FUNCTION
 
-  //Переключение стека команд
+  //РџРµСЂРµРєР»СЋС‡РµРЅРёРµ СЃС‚РµРєР° РєРѕРјР°РЅРґ
   g_bUseOddCommands = !g_bUseOddCommands;
   for ( TScreenCommandsList::iterator it = GetScreenCmds().begin(); it !=GetScreenCmds().end(); )
   {

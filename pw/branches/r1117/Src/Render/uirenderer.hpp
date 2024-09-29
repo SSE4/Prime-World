@@ -184,7 +184,7 @@ private:
     firstPart(_firstPart), size(_size), transform(_transform), forcedZ(0.0f), forcedW(1.0f) {}
   };
 
-  //У нас нету мультимапы, поэтому сколхозим свою при помощи ключа
+  //РЈ РЅР°СЃ РЅРµС‚Сѓ РјСѓР»СЊС‚РёРјР°РїС‹, РїРѕСЌС‚РѕРјСѓ СЃРєРѕР»С…РѕР·РёРј СЃРІРѕСЋ РїСЂРё РїРѕРјРѕС‰Рё РєР»СЋС‡Р°
   struct SBlockKey
   {
     friend bool operator < (const SBlockKey & lhv, const SBlockKey & rhv);

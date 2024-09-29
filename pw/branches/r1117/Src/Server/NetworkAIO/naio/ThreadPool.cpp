@@ -21,8 +21,8 @@ namespace naio
 
     NI_PROFILE_THREAD;
 
-    //  log callback íå íàñëåäóåòñÿ instance'àìè ACE_log_msg
-    //  ïîýòîìó âûñòàâëÿåì åãî äëÿ êàæäîãî èíñòàíñà (â êàæäîì ïîòîêå)
+    //  log callback Ð½Ðµ Ð½Ð°ÑÐ»ÐµÐ´ÑƒÐµÑ‚ÑÑ instance'Ð°Ð¼Ð¸ ACE_log_msg
+    //  Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð²Ñ‹ÑÑ‚Ð°Ð²Ð»ÑÐµÐ¼ ÐµÐ³Ð¾ Ð´Ð»Ñ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ð¸Ð½ÑÑ‚Ð°Ð½ÑÐ° (Ð² ÐºÐ°Ð¶Ð´Ð¾Ð¼ Ð¿Ð¾Ñ‚Ð¾ÐºÐµ)
     if (logcb_)
     {
       ACE_LOG_MSG->set_flags (ACE_Log_Msg::MSG_CALLBACK);

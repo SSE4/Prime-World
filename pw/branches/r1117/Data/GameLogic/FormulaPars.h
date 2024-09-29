@@ -120,14 +120,14 @@ inline int f2l_nosse(float f)
   int nI;
    __asm
   {
-    fld         dword ptr[f]            // загрузка значения float
-    fnstcw      word ptr[cwOld]         // сохранение FPUCW
+    fld         dword ptr[f]            // Р·Р°РіСЂСѓР·РєР° Р·РЅР°С‡РµРЅРёСЏ float
+    fnstcw      word ptr[cwOld]         // СЃРѕС…СЂР°РЅРµРЅРёРµ FPUCW
     movzx       eax, word ptr[cwOld]
-    or          eax, 0x0c00             // установка режима округления в сторону нуля (truncate)
+    or          eax, 0x0c00             // СѓСЃС‚Р°РЅРѕРІРєР° СЂРµР¶РёРјР° РѕРєСЂСѓРіР»РµРЅРёСЏ РІ СЃС‚РѕСЂРѕРЅСѓ РЅСѓР»СЏ (truncate)
     mov         dword ptr[cwNew], eax
-    fldcw       word ptr[cwNew]         // загрузка нового значения FPUCW
-    fistp       dword ptr[nI]           // сохранение значения int
-    fldcw       word ptr[cwOld]         // восстановление FPUCW
+    fldcw       word ptr[cwNew]         // Р·Р°РіСЂСѓР·РєР° РЅРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ FPUCW
+    fistp       dword ptr[nI]           // СЃРѕС…СЂР°РЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ int
+    fldcw       word ptr[cwOld]         // РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ FPUCW
   }
   return nI;
 }
@@ -137,8 +137,8 @@ inline int f2l_sse3(float f)
   int nI;
   __asm
   {
-    fld         dword ptr[f] // загрузка значения float
-    fisttp      dword ptr[nI] // сохранение значения int в режиме truncate
+    fld         dword ptr[f] // Р·Р°РіСЂСѓР·РєР° Р·РЅР°С‡РµРЅРёСЏ float
+    fisttp      dword ptr[nI] // СЃРѕС…СЂР°РЅРµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ int РІ СЂРµР¶РёРјРµ truncate
   }
   return nI;
 }

@@ -15,7 +15,7 @@
 #include <Core/Scheduler.h>
 #include "System/InlineProfiler.h"
 
-static unsigned g_maxAllowedLoginTime = 60.0; // если за столько секунд не залогинились, ассертим
+static unsigned g_maxAllowedLoginTime = 60.0; // РµСЃР»Рё Р·Р° СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ РЅРµ Р·Р°Р»РѕРіРёРЅРёР»РёСЃСЊ, Р°СЃСЃРµСЂС‚РёРј
 
 
 namespace gtc
@@ -222,13 +222,13 @@ bool TestClientBase::checkTransportStatus()
     switch( transport_->GetStatus() )
     {
     case Transport::EStatus::CRITICAL_FAIL:
-      // если транспорт признал окончательное поражение, можно и нам сдаваться
+      // РµСЃР»Рё С‚СЂР°РЅСЃРїРѕСЂС‚ РїСЂРёР·РЅР°Р» РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕРµ РїРѕСЂР°Р¶РµРЅРёРµ, РјРѕР¶РЅРѕ Рё РЅР°Рј СЃРґР°РІР°С‚СЊСЃСЏ
       WarningTrace( "TRANSPORT HAS FAILED, stopping test client (%d), total failed=%d", transport_->GetUserId(), ++failedClientCount );
       transport_ = 0;
       return false;
     
     case Transport::EStatus::FAIL:
-      // если просто дисконнект, можно retry
+      // РµСЃР»Рё РїСЂРѕСЃС‚Рѕ РґРёСЃРєРѕРЅРЅРµРєС‚, РјРѕР¶РЅРѕ retry
       WarningTrace( "Transport failed, Logging out. userId=%d", transport_->GetUserId() );
       transport_->Logout();
       stage_ = Stage::NONE;

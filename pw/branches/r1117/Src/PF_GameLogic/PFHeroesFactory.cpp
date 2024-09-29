@@ -136,7 +136,7 @@ PFBaseHero* CreateHero(PFWorld* pWorld, PFBaseHero::SpawnInfo const& info)
   case NDb::Hero::typeId:
     {
 #ifdef _SHIPPING
-      // "смещает" объект героя в памяти - таким образом, оффсеты для чита будет сложнее подобрать
+      // "СЃРјРµС‰Р°РµС‚" РѕР±СЉРµРєС‚ РіРµСЂРѕСЏ РІ РїР°РјСЏС‚Рё - С‚Р°РєРёРј РѕР±СЂР°Р·РѕРј, РѕС„С„СЃРµС‚С‹ РґР»СЏ С‡РёС‚Р° Р±СѓРґРµС‚ СЃР»РѕР¶РЅРµРµ РїРѕРґРѕР±СЂР°С‚СЊ
       const RandomMemoryAllocator m(sizeof(PFGenericHero));
 #endif
       pHero = new PFGenericHero( pWorld, info, faction, originalFaction );

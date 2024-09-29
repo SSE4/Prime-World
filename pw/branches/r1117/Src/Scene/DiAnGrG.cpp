@@ -1759,7 +1759,7 @@ DiBool  DiAnimGraph::Restart( DiUInt32 nStartNodeID, bool needCallbacks )
 		//DebugTrace( "Restart: %f %s \n", NHPTimer::GetScalarTime(), GetNodeNameByID(nStartNodeID) );
   //}
 
-  // При рестарте AG вызываем callback'и на OnNodeLeave NUM_TASK
+  // РџСЂРё СЂРµСЃС‚Р°СЂС‚Рµ AG РІС‹Р·С‹РІР°РµРј callback'Рё РЅР° OnNodeLeave NUM_TASK
   if ( needCallbacks && GetCurNodeUnsafe() < GetNumNodes() )
   {
     ForceLeaveNodeCallbacks( GetCurNode() );

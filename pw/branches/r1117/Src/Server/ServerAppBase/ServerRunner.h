@@ -46,10 +46,10 @@ class IServerRunner : public IBaseInterfaceMT
 public:
   virtual const Coordinator::TServiceRole & GetRole() const  { return Coordinator::defaultServiceRole; } //ATTENTION: This is called BEFORE 'StartInstance()'
 
-  // В этой функции надо создать ChannelListener'ы для всех интерфейсов сервиса (CreateChannelListener() ДОЛЖЕН отработать до 
-  // выхода из функции) и запустить тред сервера. serviceId содержит имя конкретного инстанса сервиса, не класса сервисов 
-  // (напр. "location/1", а не "location"). В CreateChannelListener надо использовать именно это имя. В _coordClient можно 
-  // вызывать функцию GetCoordinatorInterface() - она вернёт интерфейс сервера
+  // Р’ СЌС‚РѕР№ С„СѓРЅРєС†РёРё РЅР°РґРѕ СЃРѕР·РґР°С‚СЊ ChannelListener'С‹ РґР»СЏ РІСЃРµС… РёРЅС‚РµСЂС„РµР№СЃРѕРІ СЃРµСЂРІРёСЃР° (CreateChannelListener() Р”РћР›Р–Р•Рќ РѕС‚СЂР°Р±РѕС‚Р°С‚СЊ РґРѕ 
+  // РІС‹С…РѕРґР° РёР· С„СѓРЅРєС†РёРё) Рё Р·Р°РїСѓСЃС‚РёС‚СЊ С‚СЂРµРґ СЃРµСЂРІРµСЂР°. serviceId СЃРѕРґРµСЂР¶РёС‚ РёРјСЏ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РёРЅСЃС‚Р°РЅСЃР° СЃРµСЂРІРёСЃР°, РЅРµ РєР»Р°СЃСЃР° СЃРµСЂРІРёСЃРѕРІ 
+  // (РЅР°РїСЂ. "location/1", Р° РЅРµ "location"). Р’ CreateChannelListener РЅР°РґРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РёРјРµРЅРЅРѕ СЌС‚Рѕ РёРјСЏ. Р’ _coordClient РјРѕР¶РЅРѕ 
+  // РІС‹Р·С‹РІР°С‚СЊ С„СѓРЅРєС†РёСЋ GetCoordinatorInterface() - РѕРЅР° РІРµСЂРЅС‘С‚ РёРЅС‚РµСЂС„РµР№СЃ СЃРµСЂРІРµСЂР°
   virtual void StartInstance( const ServiceParams & _params ) = 0;
 
   virtual void StopInstance( const TServiceId & serviceId ) = 0;

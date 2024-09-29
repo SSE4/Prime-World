@@ -35,7 +35,7 @@ namespace DebugConsole
       LOGIN_STARTED,
       LOGIN_FINISHED,
 
-      // отдельный набор стейтов для консольного ввода
+      // РѕС‚РґРµР»СЊРЅС‹Р№ РЅР°Р±РѕСЂ СЃС‚РµР№С‚РѕРІ РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РІРІРѕРґР°
       LOOP,
       WAIT,
       INPUT,
@@ -61,7 +61,7 @@ namespace DebugConsole
   public:
     Client();
 
-    // для нового транспорта (серверного, через CoordinatorClient)
+    // РґР»СЏ РЅРѕРІРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р° (СЃРµСЂРІРµСЂРЅРѕРіРѕ, С‡РµСЂРµР· CoordinatorClient)
     Client( int localId, 
       StrongMT<Transport::ITransportSystem> clusterTransport, 
       StrongMT<Coordinator::CoordinatorClient> coord,
@@ -89,14 +89,14 @@ namespace DebugConsole
     virtual void OnChannelClosed( StrongMT<Transport::IChannel> const & channel, StrongMT<rpc::Node> const & node );
     virtual void OnCorruptData( StrongMT<Transport::IChannel> const & channel, StrongMT<rpc::Node> const & node );
 
-    void NextInput(); // чистим строку ввода, выводим приглашение "CMD >"
-    void PrintCompletions(); // выводим списки текущих переменных и доступных сервисов
+    void NextInput(); // С‡РёСЃС‚РёРј СЃС‚СЂРѕРєСѓ РІРІРѕРґР°, РІС‹РІРѕРґРёРј РїСЂРёРіР»Р°С€РµРЅРёРµ "CMD >"
+    void PrintCompletions(); // РІС‹РІРѕРґРёРј СЃРїРёСЃРєРё С‚РµРєСѓС‰РёС… РїРµСЂРµРјРµРЅРЅС‹С… Рё РґРѕСЃС‚СѓРїРЅС‹С… СЃРµСЂРІРёСЃРѕРІ
   
   private:
     StrongMT<Network::INetworkDriver> netdriver_;
     StrongMT<TransportLayer::TransportModule> sptm_;
     Transport::TServiceId svcname_;
-    StrongMT<Transport::IClientTransportSystem>  transport_; // старый, клиентский
+    StrongMT<Transport::IClientTransportSystem>  transport_; // СЃС‚Р°СЂС‹Р№, РєР»РёРµРЅС‚СЃРєРёР№
     StrongMT<Coordinator::CoordinatorClient> coordClient_;
     int userid_;
     StrongMT<rpc::GateKeeperClient> gateKeeper_;
@@ -120,13 +120,13 @@ namespace DebugConsole
     
     nstl::string input_; // user console input
     
-    Transport::TServiceId varService_; // имя сервиса, к которому будем коннектиться (Requester/Reporter добавляют к нему ".var")
-    nstl::string varImmediateIP_; // прямой адрес (IP:port) куда будем коннектиться, минуя нормальный кластерный AddressTranslator
+    Transport::TServiceId varService_; // РёРјСЏ СЃРµСЂРІРёСЃР°, Рє РєРѕС‚РѕСЂРѕРјСѓ Р±СѓРґРµРј РєРѕРЅРЅРµРєС‚РёС‚СЊСЃСЏ (Requester/Reporter РґРѕР±Р°РІР»СЏСЋС‚ Рє РЅРµРјСѓ ".var")
+    nstl::string varImmediateIP_; // РїСЂСЏРјРѕР№ Р°РґСЂРµСЃ (IP:port) РєСѓРґР° Р±СѓРґРµРј РєРѕРЅРЅРµРєС‚РёС‚СЊСЃСЏ, РјРёРЅСѓСЏ РЅРѕСЂРјР°Р»СЊРЅС‹Р№ РєР»Р°СЃС‚РµСЂРЅС‹Р№ AddressTranslator
 
-    // ставится после любых изменений service/varlist, чтобы при запуске loop создать заново connect и реквестеры
+    // СЃС‚Р°РІРёС‚СЃСЏ РїРѕСЃР»Рµ Р»СЋР±С‹С… РёР·РјРµРЅРµРЅРёР№ service/varlist, С‡С‚РѕР±С‹ РїСЂРё Р·Р°РїСѓСЃРєРµ loop СЃРѕР·РґР°С‚СЊ Р·Р°РЅРѕРІРѕ connect Рё СЂРµРєРІРµСЃС‚РµСЂС‹
     bool need_stage_reset_; 
 
-    // новый транспорт, через CoordinatorClient
+    // РЅРѕРІС‹Р№ С‚СЂР°РЅСЃРїРѕСЂС‚, С‡РµСЂРµР· CoordinatorClient
     StrongMT<Transport::ITransportSystem> transportCluster_; 
     StrongMT<rpc::GateKeeper> gateKeeperCluster_;
 

@@ -27,11 +27,11 @@ protected:
 
  // IConnectionProcessor
   virtual bool ProcessPacket(Stream* stream, Network::IConnection *connection);
-  virtual void OnDropConnection(Network::IConnection* connection) {} // // найти у себя соотв. context и пометить для удаления?..  
+  virtual void OnDropConnection(Network::IConnection* connection) {} // // РЅР°Р№С‚Рё Сѓ СЃРµР±СЏ СЃРѕРѕС‚РІ. context Рё РїРѕРјРµС‚РёС‚СЊ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ?..  
 
   // Own: 
   virtual void OnNewLoginSuccess( LoginResultMessage & resp ) {}
-  virtual bool ProcessNewContext( SLoginContext * context ) { return true; } // "всё обработали, сразу дропайте клиента"
+  virtual bool ProcessNewContext( SLoginContext * context ) { return true; } // "РІСЃС‘ РѕР±СЂР°Р±РѕС‚Р°Р»Рё, СЃСЂР°Р·Сѓ РґСЂРѕРїР°Р№С‚Рµ РєР»РёРµРЅС‚Р°"
 
   void SendReply( SLoginContext * context );
 

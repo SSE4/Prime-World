@@ -320,8 +320,8 @@ void EditorScene::Draw( System::IntPtr hWnd, float time, float delta )
 
 void EditorScene::ReplaceAllObjectsOnTerrain()
 {
-  ReplaceAllObjectsOnTerrain( true );   //сначала перосчитываем heightObjects
-  ReplaceAllObjectsOnTerrain( false );  //потом все остальные
+  ReplaceAllObjectsOnTerrain( true );   //СЃРЅР°С‡Р°Р»Р° РїРµСЂРѕСЃС‡РёС‚С‹РІР°РµРј heightObjects
+  ReplaceAllObjectsOnTerrain( false );  //РїРѕС‚РѕРј РІСЃРµ РѕСЃС‚Р°Р»СЊРЅС‹Рµ
 }
 
 void EditorScene::ReplaceAllObjectsOnTerrain( bool heightObjects )
@@ -342,7 +342,7 @@ void EditorScene::ReplaceAllObjectsOnTerrain( bool heightObjects )
 
 void EditorNative::EditorScene::CalcObjectHeightMap()
 {
-  ClearHeightMapLayer( 1 ); // зануляем слой height объектов
+  ClearHeightMapLayer( 1 ); // Р·Р°РЅСѓР»СЏРµРј СЃР»РѕР№ height РѕР±СЉРµРєС‚РѕРІ
 
   for each( SceneElement^ element in sceneElements )
   {
@@ -416,7 +416,7 @@ System::Drawing::Bitmap^ EditorScene::CreateMinimapTexture()
 
   const float maxSize = Max(newPos.vAnchor.x, newPos.vAnchor.y);
   newPos.fRod = rodScale * maxSize;
-  // Не спрашивайте меня, при чём здесь pi/2 - умом это понять нэвозможно. Вообще-то здесь должна быть двойка.
+  // РќРµ СЃРїСЂР°С€РёРІР°Р№С‚Рµ РјРµРЅСЏ, РїСЂРё С‡С‘Рј Р·РґРµСЃСЊ pi/2 - СѓРјРѕРј СЌС‚Рѕ РїРѕРЅСЏС‚СЊ РЅСЌРІРѕР·РјРѕР¶РЅРѕ. Р’РѕРѕР±С‰Рµ-С‚Рѕ Р·РґРµСЃСЊ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РґРІРѕР№РєР°.
   const float fov = pi_2 * ToDegree( atan(newPos.vAnchor.x / newPos.fRod) );
 
   const uint e_width  = EditorRender::GetWidth();
@@ -761,7 +761,7 @@ PickResult^ EditorScene::Pick( Vector2^ cursorPosition )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int EditorScene::ComparePickedElements( KeyValuePair<SceneElement^, Vector3^> left, KeyValuePair<SceneElement^, Vector3^> right )
 {
-  //маркеры всегда вверху списка
+  //РјР°СЂРєРµСЂС‹ РІСЃРµРіРґР° РІРІРµСЂС…Сѓ СЃРїРёСЃРєР°
   bool leftIsMarker = TcvMarker::typeid->IsInstanceOfType( left.Key );
   bool rightIsMarker = TcvMarker::typeid->IsInstanceOfType( right.Key );
 
@@ -827,7 +827,7 @@ void EditorScene::Remove( SceneElement^ element )
   element->IsSelected = false;
   element->Scene = nullptr;
 
-  //дешевый remove, не надо перестраивать весь список
+  //РґРµС€РµРІС‹Р№ remove, РЅРµ РЅР°РґРѕ РїРµСЂРµСЃС‚СЂР°РёРІР°С‚СЊ РІРµСЃСЊ СЃРїРёСЃРѕРє
   sceneElements[index] = sceneElements[sceneElements.Count - 1];
   sceneElements[index]->SetOwnerId( index );//it needs for optimize Pick
   sceneElements.RemoveAt( sceneElements.Count - 1 );

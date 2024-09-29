@@ -114,8 +114,8 @@ bool PFPlayer::Step(float dtInSeconds)
   }
 
   // NOTE: NUM_TASK
-  // в рамках NUM_TASK было внесено исправление в PlayerBehaviourTracker. с тех пор он не является "настоящим" WorldObject'ом, соответственно,
-  // его Step() не вызывается автоматически
+  // РІ СЂР°РјРєР°С… NUM_TASK Р±С‹Р»Рѕ РІРЅРµСЃРµРЅРѕ РёСЃРїСЂР°РІР»РµРЅРёРµ РІ PlayerBehaviourTracker. СЃ С‚РµС… РїРѕСЂ РѕРЅ РЅРµ СЏРІР»СЏРµС‚СЃСЏ "РЅР°СЃС‚РѕСЏС‰РёРј" WorldObject'РѕРј, СЃРѕРѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕ,
+  // РµРіРѕ Step() РЅРµ РІС‹Р·С‹РІР°РµС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё
   if (IsValid(behaviourTracker))
     behaviourTracker->Step(dtInSeconds);
 
@@ -177,7 +177,7 @@ void PFPlayer::SetDisconnected(const bool _disconnected, const bool _leaver)
       timeWhenDisconnected = timer::Now();
   }
 
-  // NOTE: игрок не может перестать быть ливером
+  // NOTE: РёРіСЂРѕРє РЅРµ РјРѕР¶РµС‚ РїРµСЂРµСЃС‚Р°С‚СЊ Р±С‹С‚СЊ Р»РёРІРµСЂРѕРј
   if (_leaver)
     leaver = true;
 }

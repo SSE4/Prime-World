@@ -13,21 +13,21 @@
 
 int main(int argc, char* argv[])
 {
-  std::string путь = "..\\Src\\_Debug\\" EXE;
-  //std::string путь = "..\\Src\\_Release\\" EXE;
+  std::string РїСѓС‚СЊ = "..\\Src\\_Debug\\" EXE;
+  //std::string РїСѓС‚СЊ = "..\\Src\\_Release\\" EXE;
 
-  std::string аргументы;
+  std::string Р°СЂРіСѓРјРµРЅС‚С‹;
   for ( int i = 0; i < argc; ++i ) {
-    if ( !аргументы.empty() )
-      аргументы += " ";
-    аргументы += argv[i];
+    if ( !Р°СЂРіСѓРјРµРЅС‚С‹.empty() )
+      Р°СЂРіСѓРјРµРЅС‚С‹ += " ";
+    Р°СЂРіСѓРјРµРЅС‚С‹ += argv[i];
   }
 
   system( "echo %CD%" );
 
-  printf( "Starting '%s' + '%s'\n", путь.c_str(), аргументы.c_str() );
+  printf( "Starting '%s' + '%s'\n", РїСѓС‚СЊ.c_str(), Р°СЂРіСѓРјРµРЅС‚С‹.c_str() );
 
-  ShellExecute( NULL, "open", путь.c_str(), аргументы.c_str(), NULL, SW_SHOW );
+  ShellExecute( NULL, "open", РїСѓС‚СЊ.c_str(), Р°СЂРіСѓРјРµРЅС‚С‹.c_str(), NULL, SW_SHOW );
   return 0;
 }
 

@@ -207,7 +207,7 @@ public:
   void SetChildrenShift( LinearCoord dx, LinearCoord dy );
   const Point & GetChildrenShift() const { return childrenShift; }
   bool Is3D() const { return mode3d != E3DWindowMode::Nope; }
-  //align обозначает точку на окне (в долях окна), которой оно будет "прикреплено" к точке в 3D
+  //align РѕР±РѕР·РЅР°С‡Р°РµС‚ С‚РѕС‡РєСѓ РЅР° РѕРєРЅРµ (РІ РґРѕР»СЏС… РѕРєРЅР°), РєРѕС‚РѕСЂРѕР№ РѕРЅРѕ Р±СѓРґРµС‚ "РїСЂРёРєСЂРµРїР»РµРЅРѕ" Рє С‚РѕС‡РєРµ РІ 3D
   void SetWorldPosition( const SHMatrix & position, const CVec2 & worldSize, const CVec2 & align = CVec2(0.5f, 0.5f), float _depthBias = 0.0f, E3DWindowMode::Enum mode = E3DWindowMode::World );
   void Stop3D();
 
@@ -348,7 +348,7 @@ protected:
   virtual void OnInitAfterChildrenCreated();
   virtual void OnEnable( bool _enable ) {}
   virtual void OnShow( bool _show ) {}
-  virtual bool OnMouseMove( const Point & mouse ); //Внимание! Если окно возвращает false из OnMouseMove(), то оно не получит OnMouseOver()
+  virtual bool OnMouseMove( const Point & mouse ); //Р’РЅРёРјР°РЅРёРµ! Р•СЃР»Рё РѕРєРЅРѕ РІРѕР·РІСЂР°С‰Р°РµС‚ false РёР· OnMouseMove(), С‚Рѕ РѕРЅРѕ РЅРµ РїРѕР»СѓС‡РёС‚ OnMouseOver()
   virtual void OnMouseOver( bool over, const Point & mouse );
   virtual bool OnMouseDown( EMButton::Enum mbutton, const Point & point );
   virtual bool OnMouseUp( EMButton::Enum mbutton );
@@ -361,7 +361,7 @@ protected:
   virtual bool OnBind( const string & bind, float fDelta, bool *pResult ) { return false; }
   virtual bool OnActivationBind( const string & commandName ) { return false; }
   virtual void OnTimeTrigger() {}
-  virtual void OnScreenFocus( bool focus ) {} //Вызывается только для базового окна экрана
+  virtual void OnScreenFocus( bool focus ) {} //Р’С‹Р·С‹РІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ Р±Р°Р·РѕРІРѕРіРѕ РѕРєРЅР° СЌРєСЂР°РЅР°
   virtual void OnAction( EMButton::Enum mbutton ) {}
 
   virtual bool OnStartDrag( const char * id ) { return true; }

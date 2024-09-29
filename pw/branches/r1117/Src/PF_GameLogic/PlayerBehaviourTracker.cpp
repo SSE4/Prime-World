@@ -37,7 +37,7 @@ namespace
     if (!IsValid(params))
       return 1;
 
-    // 25 ñìåðòåé - ýòî äàæå ñëèøêîì
+    // 25 ÑÐ¼ÐµÑ€Ñ‚ÐµÐ¹ - ÑÑ‚Ð¾ Ð´Ð°Ð¶Ðµ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼
     return Clamp(params->feederDeathCount, 0, 25);
   }
 

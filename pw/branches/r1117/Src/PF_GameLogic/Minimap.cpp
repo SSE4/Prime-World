@@ -1206,9 +1206,9 @@ int  Minimap::AddHeroIcon( const NDb::Texture * icon )
   if (!icon)
     return -1;
 
-  //Во время реконнека идентификатор возвращаемый из данной функции никак не освобождается
-  //и, что хуже, непонятно как вытаскивать текстуру после того, как она оказалась в IUITextureCache
-  //или освобождать весь IUITextureCache, поэтому будем просто возвращать старый идентификатор
+  //Р’Рѕ РІСЂРµРјСЏ СЂРµРєРѕРЅРЅРµРєР° РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІРѕР·РІСЂР°С‰Р°РµРјС‹Р№ РёР· РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё РЅРёРєР°Рє РЅРµ РѕСЃРІРѕР±РѕР¶РґР°РµС‚СЃСЏ
+  //Рё, С‡С‚Рѕ С…СѓР¶Рµ, РЅРµРїРѕРЅСЏС‚РЅРѕ РєР°Рє РІС‹С‚Р°СЃРєРёРІР°С‚СЊ С‚РµРєСЃС‚СѓСЂСѓ РїРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє РѕРЅР° РѕРєР°Р·Р°Р»Р°СЃСЊ РІ IUITextureCache
+  //РёР»Рё РѕСЃРІРѕР±РѕР¶РґР°С‚СЊ РІРµСЃСЊ IUITextureCache, РїРѕСЌС‚РѕРјСѓ Р±СѓРґРµРј РїСЂРѕСЃС‚Рѕ РІРѕР·РІСЂР°С‰Р°С‚СЊ СЃС‚Р°СЂС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ
   for (int i = 0; i < heroIcons.size(); ++i)
   {
     HeroIconDesc const& desc = heroIcons[i];
@@ -1264,7 +1264,7 @@ void Minimap::_RenderMinimap()
   rsManager.SetStateDirect( D3DRS_SRCBLENDALPHA, D3DBLEND_ZERO );
   rsManager.SetStateDirect( D3DRS_DESTBLENDALPHA, D3DBLEND_ONE );
 
-  // пока варфог еще полностью не сформирован, не будем рисовать объекты миникарты (иконки, камеру и тп)
+  // РїРѕРєР° РІР°СЂС„РѕРі РµС‰Рµ РїРѕР»РЅРѕСЃС‚СЊСЋ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ, РЅРµ Р±СѓРґРµРј СЂРёСЃРѕРІР°С‚СЊ РѕР±СЉРµРєС‚С‹ РјРёРЅРёРєР°СЂС‚С‹ (РёРєРѕРЅРєРё, РєР°РјРµСЂСѓ Рё С‚Рї)
   if (world->GetStepNumber() < NGameX::VisibilityMapClient::GetStepCountDelay())
   {
     /* placeholder */
@@ -1316,7 +1316,7 @@ void Minimap::_RenderNatureMap()
   rsManager.SetSampler( 1, m_natureSampler, m_natureTextureB );
   rsManager.SetSampler( 2, m_natureSampler, m_natureTextureN );
   rsManager.SetSampler( 3, m_natureSampler, natMapClient->GetTexture() );
-  // пока варфог еще полностью не сформирован, используем исходную текстуру, на которой по началу вся карта под варфогом
+  // РїРѕРєР° РІР°СЂС„РѕРі РµС‰Рµ РїРѕР»РЅРѕСЃС‚СЊСЋ РЅРµ СЃС„РѕСЂРјРёСЂРѕРІР°РЅ, РёСЃРїРѕР»СЊР·СѓРµРј РёСЃС…РѕРґРЅСѓСЋ С‚РµРєСЃС‚СѓСЂСѓ, РЅР° РєРѕС‚РѕСЂРѕР№ РїРѕ РЅР°С‡Р°Р»Сѓ РІСЃСЏ РєР°СЂС‚Р° РїРѕРґ РІР°СЂС„РѕРіРѕРј
   if (world->GetStepNumber() < NGameX::VisibilityMapClient::GetStepCountDelay())
     rsManager.SetSampler( 4, m_natureSampler, visMapClient->GetTextureSrc() );
   else  

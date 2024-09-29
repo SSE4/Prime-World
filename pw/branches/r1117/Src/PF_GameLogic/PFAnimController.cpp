@@ -11,9 +11,9 @@
 namespace 
 {
 
-static const float MAX_ANIM_DURATION_IN_GAME = 10.0f; // Максимальная длина анимации в игре
-static const int MAX_COMMANDS_IN_QUEUE_ASSERT = 100; // Ассертить, если накопилось столько команд для AG
-static int s_ag_commands_check_size = 99; // Количество команд, после которого начинаются попытки чистки очереди команд
+static const float MAX_ANIM_DURATION_IN_GAME = 10.0f; // РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° Р°РЅРёРјР°С†РёРё РІ РёРіСЂРµ
+static const int MAX_COMMANDS_IN_QUEUE_ASSERT = 100; // РђСЃСЃРµСЂС‚РёС‚СЊ, РµСЃР»Рё РЅР°РєРѕРїРёР»РѕСЃСЊ СЃС‚РѕР»СЊРєРѕ РєРѕРјР°РЅРґ РґР»СЏ AG
+static int s_ag_commands_check_size = 99; // РљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРјР°РЅРґ, РїРѕСЃР»Рµ РєРѕС‚РѕСЂРѕРіРѕ РЅР°С‡РёРЅР°СЋС‚СЃСЏ РїРѕРїС‹С‚РєРё С‡РёСЃС‚РєРё РѕС‡РµСЂРµРґРё РєРѕРјР°РЅРґ
 
 DiAnimGraph* FindAnimGraph( NScene::SceneComponent* pRoot )
 {

@@ -253,7 +253,7 @@ void CCommonPathFinder::CheckCyclesInPath( int const starttPosition )
   {
     SVector &stop = stopPoints[i];
 
-    // проверка на цикл
+    // РїСЂРѕРІРµСЂРєР° РЅР° С†РёРєР»
     if ( mapBuf[stop.x][stop.y] == mapBufIndex )
       cyclePoints[nCyclePoints++] = i;
     else
@@ -278,7 +278,7 @@ const SVector CCommonPathFinder::CalculateHandPath( const SVector &blockPoint, c
 	SVector dirLeft = dir, dirRight = dir;
 	SVector curRightPoint = blockPoint, curLeftPoint = blockPoint;
 
-  // крутимся влево и вправо, пока не сможем шагнуть вперёд
+  // РєСЂСѓС‚РёРјСЃСЏ РІР»РµРІРѕ Рё РІРїСЂР°РІРѕ, РїРѕРєР° РЅРµ СЃРјРѕР¶РµРј С€Р°РіРЅСѓС‚СЊ РІРїРµСЂС‘Рґ
 
   if (!TurnLeft(blockPoint, dirRight) || !TurnRight(blockPoint, dirLeft))
     return NOWAY_POINT;
@@ -332,7 +332,7 @@ const SVector CCommonPathFinder::CalculateHandPath( const SVector &blockPoint, c
   }
 
   nLength = startLen;
-	return NOWAY_POINT;			// путь переполнен
+	return NOWAY_POINT;			// РїСѓС‚СЊ РїРµСЂРµРїРѕР»РЅРµРЅ
 }
 
 
@@ -508,7 +508,7 @@ bool CCommonPathFinder::CalculatePath( int numSteps )
 {
   NI_PROFILE_FUNCTION
   
-  nBestDist = 0x7FFFFFFF;				// просто большое число
+  nBestDist = 0x7FFFFFFF;				// РїСЂРѕСЃС‚Рѕ Р±РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ
 	vBestPoint = SVector( -1, -1 );
 
 	nLength = 0;
@@ -517,7 +517,7 @@ bool CCommonPathFinder::CalculatePath( int numSteps )
 	minPointNum = 0;
 	bFinished = false;
 
-	// проверим первую точку - может дальше идти и не надо (благодаря pChecking); меняет bFinished
+	// РїСЂРѕРІРµСЂРёРј РїРµСЂРІСѓСЋ С‚РѕС‡РєСѓ - РјРѕР¶РµС‚ РґР°Р»СЊС€Рµ РёРґС‚Рё Рё РЅРµ РЅР°РґРѕ (Р±Р»Р°РіРѕРґР°СЂСЏ pChecking); РјРµРЅСЏРµС‚ bFinished
 	AnalyzePoint( startPoint, 0 );
 	if ( bFinished )
 		return true;
@@ -569,18 +569,18 @@ bool CCommonPathFinder::CalculatePath( int numSteps )
 
 	SVector curPoint(startSearchPoint);
 
-	// строим путь по брезенхейму
+	// СЃС‚СЂРѕРёРј РїСѓС‚СЊ РїРѕ Р±СЂРµР·РµРЅС…РµР№РјСѓ
 	CBres bres;
 	bres.Init( startSearchPoint, finishPoint );
 
 	while ( curPoint != finishPoint && upperLimit >= 0 )
 	{
-		// идём по прямой
+		// РёРґС‘Рј РїРѕ РїСЂСЏРјРѕР№
 		bres.MakeStep();
 
 		if ( !CanUnitGoByDir( curPoint, bres.GetDirection() ) )
 		{
-			// клетка занята
+			// РєР»РµС‚РєР° Р·Р°РЅСЏС‚Р°
 			if ( curPoint + bres.GetDirection() == finishPoint )
 			{
 				CheckBestPoint( curPoint );
@@ -590,7 +590,7 @@ bool CCommonPathFinder::CalculatePath( int numSteps )
 
 			if ( mapBuf[curPoint.x][curPoint.y] != mapBufIndex )
 			{
-				// точка ещё не проверялась на данном вызове CreatePath()
+				// С‚РѕС‡РєР° РµС‰С‘ РЅРµ РїСЂРѕРІРµСЂСЏР»Р°СЃСЊ РЅР° РґР°РЅРЅРѕРј РІС‹Р·РѕРІРµ CreatePath()
 
         SVector point;
         
@@ -637,20 +637,20 @@ bool CCommonPathFinder::CalculatePath( int numSteps )
 		}
 		else
 		{
-			// клетка свободна
+			// РєР»РµС‚РєР° СЃРІРѕР±РѕРґРЅР°
 			mapBuf[curPoint.x][curPoint.y] = mapBufIndex;
 			AnalyzePoint( curPoint, nLength );
 			stopPoints[nLength++] = curPoint;
 			curPoint += bres.GetDirection();
 		}
 
-		// дошли до точки, откуда можно производить нужные действия
+		// РґРѕС€Р»Рё РґРѕ С‚РѕС‡РєРё, РѕС‚РєСѓРґР° РјРѕР¶РЅРѕ РїСЂРѕРёР·РІРѕРґРёС‚СЊ РЅСѓР¶РЅС‹Рµ РґРµР№СЃС‚РІРёСЏ
 		if ( bFinished )
 		{
 			finishPoint = curPoint;
 			return true;
 		}
-		// путь не найден
+		// РїСѓС‚СЊ РЅРµ РЅР°Р№РґРµРЅ
 		if ( curPoint.x == -1 )
 		{
 			finishPoint = stopPoints[nLength];
@@ -675,31 +675,31 @@ void CCommonPathFinder::EraseCycles()
 	int i = nLength - 1;
 	int cycleNum = nCyclePoints - 1;
 
-	// ищем конец ближайшего цикла
+	// РёС‰РµРј РєРѕРЅРµС† Р±Р»РёР¶Р°Р№С€РµРіРѕ С†РёРєР»Р°
 	while ( cycleNum > 0 && cyclePoints[cycleNum] > i - nStart )
 		--cycleNum;
 
 	while ( i - nStart >= 0  && cycleNum > 0 )
 	{
-		// сдвигаемся до конца цикла
+		// СЃРґРІРёРіР°РµРјСЃСЏ РґРѕ РєРѕРЅС†Р° С†РёРєР»Р°
 		while ( i - nStart >= cyclePoints[cycleNum] )
 		{
 			stopPoints[i] = stopPoints[i - nStart];
-			// очистка буфера карты
+			// РѕС‡РёСЃС‚РєР° Р±СѓС„РµСЂР° РєР°СЂС‚С‹
 			// mapBuf[stopPoints[i - nStart].x][stopPoints[i - nStart].y] = 0;
 			--i;
 		}
 
-		// пропуск цикла
+		// РїСЂРѕРїСѓСЃРє С†РёРєР»Р°
 		while ( i - nStart >= 0 && stopPoints[i + 1] != stopPoints[i - nStart] )
 		{
-			// очистка буфера карты
+			// РѕС‡РёСЃС‚РєР° Р±СѓС„РµСЂР° РєР°СЂС‚С‹
 			// mapBuf[stopPoints[i - nStart].x][stopPoints[i - nStart].y] = 0;
 			++nStart;
 		}
 		++nStart;
 
-		// ищем конец ближайшего цикла
+		// РёС‰РµРј РєРѕРЅРµС† Р±Р»РёР¶Р°Р№С€РµРіРѕ С†РёРєР»Р°
 		while ( cycleNum > 0 && cyclePoints[cycleNum] > i - nStart )
 			--cycleNum;
 	}
@@ -784,7 +784,7 @@ const int CCommonPathFinder::SavePathBack( const SVector &start, const SVector &
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// "Срезание" углов по возможности
+// "РЎСЂРµР·Р°РЅРёРµ" СѓРіР»РѕРІ РїРѕ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё
 void CCommonPathFinder::LineSmoothing( const int STEP_LENGTH_THERE, const int MAX_NUM_OF_ATTEMPTS_THERE,
 																			const int STEP_LENGTH_BACK, const int MAX_NUM_OF_ATTEMPTS_BACK )
 {
@@ -803,7 +803,7 @@ void CCommonPathFinder::LineSmoothing( const int STEP_LENGTH_THERE, const int MA
 	//for (int ii = 0; ii < nLength; ii++)
 	//	addPoints[ii] = stopPoints[nStart + ii];
 
-  // вперёд
+  // РІРїРµСЂС‘Рґ
 	int curNum = 1, i = 1;
 	int checkNum = 0, numOfAttempts = 0, addLen = 0;
 
@@ -831,7 +831,7 @@ void CCommonPathFinder::LineSmoothing( const int STEP_LENGTH_THERE, const int MA
 	addPoints[addLen] = finishPoint;
 	nLength = addLen+1;
 
-	// назад
+	// РЅР°Р·Р°Рґ
 	i = nLength-2;
 	checkNum = nLength-1;
 	curNum = nLength-2;
@@ -857,7 +857,7 @@ void CCommonPathFinder::LineSmoothing( const int STEP_LENGTH_THERE, const int MA
 		}
 	}
 
-	// по сегментам
+	// РїРѕ СЃРµРіРјРµРЅС‚Р°Рј
 	segmBegin[nSegm++] = addLen;
 	addLen += SavePathBack( addPoints[0], addPoints[checkNum], addLen );
 	segmBegin[nSegm] = addLen;

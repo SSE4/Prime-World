@@ -56,11 +56,11 @@ namespace NGameX
       if (!flags.enemy || flags.sharedVision)
         return false;
 
-      // объект либо полностью невидим (под туманом), либо полностью видим
+      // РѕР±СЉРµРєС‚ Р»РёР±Рѕ РїРѕР»РЅРѕСЃС‚СЊСЋ РЅРµРІРёРґРёРј (РїРѕРґ С‚СѓРјР°РЅРѕРј), Р»РёР±Рѕ РїРѕР»РЅРѕСЃС‚СЊСЋ РІРёРґРёРј
       if (!flags.placementVisible || flags.objectVisible)
         return false;
 
-      // объект не является невидимкой
+      // РѕР±СЉРµРєС‚ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РЅРµРІРёРґРёРјРєРѕР№
       if (!flags.hasInvisibility || flags.hasIgnoreInvisibility)
         return false;
 

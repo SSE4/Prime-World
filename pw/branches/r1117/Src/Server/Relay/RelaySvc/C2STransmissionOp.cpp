@@ -21,7 +21,7 @@ C2STransmissionOp::C2STransmissionOp(ClientContextSP const & spsrc, Transport::T
 {
   NI_PROFILE_FUNCTION;
 
-  //  FIXME: â êîíñòðóêòîðå ìû íèêîãäà íå óçíàåì ÷òî ïàìÿòü íå âûäåëèëàñü
+  //  FIXME: Ð² ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ðµ Ð¼Ñ‹ Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ ÑƒÐ·Ð½Ð°ÐµÐ¼ Ñ‡Ñ‚Ð¾ Ð¿Ð°Ð¼ÑÑ‚ÑŒ Ð½Ðµ Ð²Ñ‹Ð´ÐµÐ»Ð¸Ð»Ð°ÑÑŒ
   pmb_ = spDstCtx_->allocMsg(size);
   if (pmb_)
     pmb_->copy(data, size);

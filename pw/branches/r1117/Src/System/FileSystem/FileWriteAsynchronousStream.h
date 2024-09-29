@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // This is an asynchronous, unbuffered stream (ubuffered here = no OS intermediate buffer), 
 // which purpose is fast periodical dump of information. The information is collected in internal 
-// dynamic buffer and when it is flushed – only sector aligned part is dumped asynchronously to 
+// dynamic buffer and when it is flushed â€“ only sector aligned part is dumped asynchronously to 
 // the disk. Any subsequent operation on stream must be performed after call to the FinishFlush method,
 // otherwise data may be lost. Preallocating of the file is essential for this stream to perform well.
 class FileWriteAsynchronousStream : public FileWriteBufferedStream

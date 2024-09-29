@@ -86,7 +86,7 @@ private:
 	CRingBuffer<N_STREAM_BUFFER> channelOutBuf;
 	
 	// streaming data control structures
-	// текущее смещение отсылаемых и принимаемых данных
+	// С‚РµРєСѓС‰РµРµ СЃРјРµС‰РµРЅРёРµ РѕС‚СЃС‹Р»Р°РµРјС‹С… Рё РїСЂРёРЅРёРјР°РµРјС‹С… РґР°РЅРЅС‹С…
 	CHANNEL_DATA_OFFSET nChannelOutputOffset, nChannelInputOffset;
 	typedef list<SChannelBlock> SChannelBlockList;
 	SChannelBlockList channelOutFlyList, channelOutList, channelInList;

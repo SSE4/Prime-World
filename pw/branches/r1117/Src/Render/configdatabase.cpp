@@ -4,7 +4,7 @@
 // Implementation of configuration database object.
 //
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// P.S.: Я к этому мусору отношения не имею. Не виноватый я. Аслан.
+// P.S.: РЇ Рє СЌС‚РѕРјСѓ РјСѓСЃРѕСЂСѓ РѕС‚РЅРѕС€РµРЅРёСЏ РЅРµ РёРјРµСЋ. РќРµ РІРёРЅРѕРІР°С‚С‹Р№ СЏ. РђСЃР»Р°РЅ.
 //--------------------------------------------------------------------------------------
 #include "StdAfx.h"
 #include <tchar.h>

@@ -10,7 +10,7 @@ class PFWorldRealProtection
 {
   enum
   {
-    // NOTE: этот диапазон не проверяется! убедитесь, что checkIntervalMin строго меньше checkIntervalMax.
+    // NOTE: СЌС‚РѕС‚ РґРёР°РїР°Р·РѕРЅ РЅРµ РїСЂРѕРІРµСЂСЏРµС‚СЃСЏ! СѓР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ checkIntervalMin СЃС‚СЂРѕРіРѕ РјРµРЅСЊС€Рµ checkIntervalMax.
     checkIntervalMin = 3000,
     checkIntervalMax = 10000,
   };
@@ -255,7 +255,7 @@ private:
   {
     DebugTrace("P: start");
 
-    // NOTE: эти значения должны быть больше 0 перед началом работы
+    // NOTE: СЌС‚Рё Р·РЅР°С‡РµРЅРёСЏ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 0 РїРµСЂРµРґ РЅР°С‡Р°Р»РѕРј СЂР°Р±РѕС‚С‹
     unsigned chances = 3U;
     unsigned stepsUntilFailure = 50U;
     unsigned stepsUntilTerminate = 10U;
@@ -461,7 +461,7 @@ private:
   ObjectVector                    objectsToCheckVisibility;
   Visibility::ObjectInfo::Vector  visibilityData;
 public:
-  // NOTE: сериализатор сделан вручную. стандартная реализация, генерируемая с помощью макроса, здесь не годится из-за сложности объекта
+  // NOTE: СЃРµСЂРёР°Р»РёР·Р°С‚РѕСЂ СЃРґРµР»Р°РЅ РІСЂСѓС‡РЅСѓСЋ. СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ СЂРµР°Р»РёР·Р°С†РёСЏ, РіРµРЅРµСЂРёСЂСѓРµРјР°СЏ СЃ РїРѕРјРѕС‰СЊСЋ РјР°РєСЂРѕСЃР°, Р·РґРµСЃСЊ РЅРµ РіРѕРґРёС‚СЃСЏ РёР·-Р·Р° СЃР»РѕР¶РЅРѕСЃС‚Рё РѕР±СЉРµРєС‚Р°
   int operator&( IBinSaver &f );
 
 };

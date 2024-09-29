@@ -6,65 +6,65 @@ namespace StatisticService
 //
 //
 // !!! AHTUNG AHTUNG !!! 
-// Структура десериализируется в ToolsServer (C Sharp)
-// Любые изменения полей согласовать с разработчиками ToolServer:
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґРµСЃРµСЂРёР°Р»РёР·РёСЂСѓРµС‚СЃСЏ РІ ToolsServer (C Sharp)
+// Р›СЋР±С‹Рµ РёР·РјРµРЅРµРЅРёСЏ РїРѕР»РµР№ СЃРѕРіР»Р°СЃРѕРІР°С‚СЊ СЃ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР°РјРё ToolServer:
 //
 //
 
-// Структура в которой передаём разного рода очки полученные в сессии и счётчики. Здесь может быть например прогресс квестов.
-// Если вдруг доп.счётчиков станет больше 1, то имеет смысл заводить контейнер с соответствиями string-int или enum-int
+// РЎС‚СЂСѓРєС‚СѓСЂР° РІ РєРѕС‚РѕСЂРѕР№ РїРµСЂРµРґР°С‘Рј СЂР°Р·РЅРѕРіРѕ СЂРѕРґР° РѕС‡РєРё РїРѕР»СѓС‡РµРЅРЅС‹Рµ РІ СЃРµСЃСЃРёРё Рё СЃС‡С‘С‚С‡РёРєРё. Р—РґРµСЃСЊ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°РїСЂРёРјРµСЂ РїСЂРѕРіСЂРµСЃСЃ РєРІРµСЃС‚РѕРІ.
+// Р•СЃР»Рё РІРґСЂСѓРі РґРѕРї.СЃС‡С‘С‚С‡РёРєРѕРІ СЃС‚Р°РЅРµС‚ Р±РѕР»СЊС€Рµ 1, С‚Рѕ РёРјРµРµС‚ СЃРјС‹СЃР» Р·Р°РІРѕРґРёС‚СЊ РєРѕРЅС‚РµР№РЅРµСЂ СЃ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏРјРё string-int РёР»Рё enum-int
 
 struct SessionPlayerScoring
 {
   ZDATA
-    //количество набранных очков GetScore()
-    int score; // Обычные generic сессионные очки
-    //специальные очки для испытаний GetSpecialPoints()
-    int specialPoints; // Используется для режима "Испытания"
-    //уровень героя к концу сессии по нафте GetNaftaLevel()
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°Р±СЂР°РЅРЅС‹С… РѕС‡РєРѕРІ GetScore()
+    int score; // РћР±С‹С‡РЅС‹Рµ generic СЃРµСЃСЃРёРѕРЅРЅС‹Рµ РѕС‡РєРё
+    //СЃРїРµС†РёР°Р»СЊРЅС‹Рµ РѕС‡РєРё РґР»СЏ РёСЃРїС‹С‚Р°РЅРёР№ GetSpecialPoints()
+    int specialPoints; // РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЂРµР¶РёРјР° "РСЃРїС‹С‚Р°РЅРёСЏ"
+    //СѓСЂРѕРІРµРЅСЊ РіРµСЂРѕСЏ Рє РєРѕРЅС†Сѓ СЃРµСЃСЃРёРё РїРѕ РЅР°С„С‚Рµ GetNaftaLevel()
     int finalLevel;
-    //количество убийств вражеских героев GetTotalNumHeroKills
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СѓР±РёР№СЃС‚РІ РІСЂР°Р¶РµСЃРєРёС… РіРµСЂРѕРµРІ GetTotalNumHeroKills
     int kills;
-    //количество смертей GetNumDeaths()
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРјРµСЂС‚РµР№ GetNumDeaths()
     int deaths;
-    //количество поддержек GetTotalNumHeroAssists()
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґРґРµСЂР¶РµРє GetTotalNumHeroAssists()
     int assists;
-    //количество убийств вражеских солдат GetCreepsKilled()
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СѓР±РёР№СЃС‚РІ РІСЂР°Р¶РµСЃРєРёС… СЃРѕР»РґР°С‚ GetCreepsKilled()
     int enemyCreepsKilled;
-    //количество убийств нейтральных монстров GetNeutralCreepsKilled()
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СѓР±РёР№СЃС‚РІ РЅРµР№С‚СЂР°Р»СЊРЅС‹С… РјРѕРЅСЃС‚СЂРѕРІ GetNeutralCreepsKilled()
     int neutralCreepsKilled;
-    //количество разрушенных башен GetTotalNumTowersKilled
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р·СЂСѓС€РµРЅРЅС‹С… Р±Р°С€РµРЅ GetTotalNumTowersKilled
     int totalNumTowersKilled;
-    //количество отказанных башен GetTotalNumTowersAssisted
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РєР°Р·Р°РЅРЅС‹С… Р±Р°С€РµРЅ GetTotalNumTowersAssisted
     int totalNumTowersAssisted;
-    //количество поднятых флагов GetFlagsRaised
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґРЅСЏС‚С‹С… С„Р»Р°РіРѕРІ GetFlagsRaised
     int flagsRaised;
-    //количество уничтоженных флагов GetFlagsDestroyed
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СѓРЅРёС‡С‚РѕР¶РµРЅРЅС‹С… С„Р»Р°РіРѕРІ GetFlagsDestroyed
     int flagsDestroyed;
-    //?количество выигранных уровней мини игры GetTotalMedalsCount (Failed = 1, Done, Silver, Gold)
+    //?РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РёРіСЂР°РЅРЅС‹С… СѓСЂРѕРІРЅРµР№ РјРёРЅРё РёРіСЂС‹ GetTotalMedalsCount (Failed = 1, Done, Silver, Gold)
     int totalMedalsCountFailed;
     int totalMedalsCountDone;
     int totalMedalsCountSilver;
     int totalMedalsCountGold;
-    //количество времени (в секундах), проведенного в смерти GetTimeInDeath
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РІСЂРµРјРµРЅРё (РІ СЃРµРєСѓРЅРґР°С…), РїСЂРѕРІРµРґРµРЅРЅРѕРіРѕ РІ СЃРјРµСЂС‚Рё GetTimeInDeath
     float timeInDeath;
-    //количество нанесенного урона
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РЅРµСЃРµРЅРЅРѕРіРѕ СѓСЂРѕРЅР°
     float damageDealedMagic;
     float damageDealedMaterial;
     float damageDealedPure;
-    //общее количество нанесенного урона
+    //РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РЅРµСЃРµРЅРЅРѕРіРѕ СѓСЂРѕРЅР°
     float damageDealedTotal;
-    //количество полученного урона
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СѓС‡РµРЅРЅРѕРіРѕ СѓСЂРѕРЅР°
     float damageReceivedMagic;
     float damageReceivedMaterial;
     float damageReceivedPure;
-    //общее количество полученного урона
+    //РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СѓС‡РµРЅРЅРѕРіРѕ СѓСЂРѕРЅР°
     float damageReceivedTotal;
-    //?количество раз, когда был оказана помощь героям противоположного пола с помощью Gender-талантов GetSexHelp
+    //?РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р·, РєРѕРіРґР° Р±С‹Р» РѕРєР°Р·Р°РЅР° РїРѕРјРѕС‰СЊ РіРµСЂРѕСЏРј РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРіРѕ РїРѕР»Р° СЃ РїРѕРјРѕС‰СЊСЋ Gender-С‚Р°Р»Р°РЅС‚РѕРІ GetSexHelp
     int sexHelp;
-    //количество вылеченного за сессию своего Здоровья GetHealedAmount
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹Р»РµС‡РµРЅРЅРѕРіРѕ Р·Р° СЃРµСЃСЃРёСЋ СЃРІРѕРµРіРѕ Р—РґРѕСЂРѕРІСЊСЏ GetHealedAmount
     float healedAmount;
-    //количество разрушенных арсеналов GetTotalNumQuartersDestroyed
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р·СЂСѓС€РµРЅРЅС‹С… Р°СЂСЃРµРЅР°Р»РѕРІ GetTotalNumQuartersDestroyed
     int totalNumQuartersDestroyed;
 
     //additional fields

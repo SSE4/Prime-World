@@ -492,7 +492,7 @@ namespace NWorld
 
     if ( pTargetUnit != pOwner && pTargetUnit->GetMasterUnit() != pOwner )
     {
-      // Ñòðåìíîå ìåñòî, òóò ïðîñòî Pop'àåòñÿ ñòåéò áåç OnLeave. Ïîñòîÿííûé èñòî÷íèê áàãîâ :( Ïîäïèðàåòñÿ êàñòîìíûìè if'àìè
+      // Ð¡Ñ‚Ñ€ÐµÐ¼Ð½Ð¾Ðµ Ð¼ÐµÑÑ‚Ð¾, Ñ‚ÑƒÑ‚ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Pop'Ð°ÐµÑ‚ÑÑ ÑÑ‚ÐµÐ¹Ñ‚ Ð±ÐµÐ· OnLeave. ÐŸÐ¾ÑÑ‚Ð¾ÑÐ½Ð½Ñ‹Ð¹ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð±Ð°Ð³Ð¾Ð² :( ÐŸÐ¾Ð´Ð¿Ð¸Ñ€Ð°ÐµÑ‚ÑÑ ÐºÐ°ÑÑ‚Ð¾Ð¼Ð½Ñ‹Ð¼Ð¸ if'Ð°Ð¼Ð¸
       lastTargetState = pTargetUnit->PopState();
       lastTargetTarget = pTargetUnit->GetCurrentTarget();
       pTargetUnit->DropTarget();
@@ -1191,7 +1191,7 @@ namespace NWorld
       return false;
     }
 
-    // Åñëè íà ìîìåíò ïðèìåíåíèÿ àïïëèêàòîðà öåëü - ñîþçíèê, òî ñ÷èòàåì, ÷òî ìû ìîæåì àòàêîâàòü ñîþçíèêà.
+    // Ð•ÑÐ»Ð¸ Ð½Ð° Ð¼Ð¾Ð¼ÐµÐ½Ñ‚ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð°Ð¿Ð¿Ð»Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð° Ñ†ÐµÐ»ÑŒ - ÑÐ¾ÑŽÐ·Ð½Ð¸Ðº, Ñ‚Ð¾ ÑÑ‡Ð¸Ñ‚Ð°ÐµÐ¼, Ñ‡Ñ‚Ð¾ Ð¼Ñ‹ Ð¼Ð¾Ð¶ÐµÐ¼ Ð°Ñ‚Ð°ÐºÐ¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾ÑŽÐ·Ð½Ð¸ÐºÐ°.
     const bool canAttackAlly = pReceiver->GetFaction() == pTarget2Attack->GetFaction();
 
     if ( (pReceiver->IsIdle() || pReceiver->GetCurrentTarget() != pTarget2Attack) && pReceiver->CanAttackTarget( pTarget2Attack, canAttackAlly ) )

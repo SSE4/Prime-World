@@ -436,7 +436,7 @@ void PFClientLogicObject::ProcessColorModifications( vector<CObj<PF_Core::ColorM
 
       const bool recolorable = ((flags & flagEffectRecolorable) == flagRecolorable);
 
-      // TODO: äåéñòâèòåëüíî òàê? ïîëó÷àåòñÿ, ÷òî fullCM äåëàåò âûáîð ìåæäó 2 íåïåðåñåêàþùèìèñÿ íàáîðàìè.
+      // TODO: Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ‚Ð°Ðº? Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÑ‚ÑÑ, Ñ‡Ñ‚Ð¾ fullCM Ð´ÐµÐ»Ð°ÐµÑ‚ Ð²Ñ‹Ð±Ð¾Ñ€ Ð¼ÐµÐ¶Ð´Ñƒ 2 Ð½ÐµÐ¿ÐµÑ€ÐµÑÐµÐºÐ°ÑŽÑ‰Ð¸Ð¼Ð¸ÑÑ Ð½Ð°Ð±Ð¾Ñ€Ð°Ð¼Ð¸.
       return fullCM ? !recolorable : recolorable;
     }
     

@@ -8,8 +8,8 @@ namespace TransportLayer
 
   class MessageBlockAllocator : public Terabit::MessageBlockFactory
   {
-    static const unsigned int INDEX_BASE = 6;  //  2 в 6й -> 64байта -> блок минимального размера в фабрике
-    static const unsigned int CHAIN_NUMBER = 22 - INDEX_BASE; //  последняя цепочка содержит блоки 2Мб
+    static const unsigned int INDEX_BASE = 6;  //  2 РІ 6Р№ -> 64Р±Р°Р№С‚Р° -> Р±Р»РѕРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЂР°Р·РјРµСЂР° РІ С„Р°Р±СЂРёРєРµ
+    static const unsigned int CHAIN_NUMBER = 22 - INDEX_BASE; //  РїРѕСЃР»РµРґРЅСЏСЏ С†РµРїРѕС‡РєР° СЃРѕРґРµСЂР¶РёС‚ Р±Р»РѕРєРё 2РњР±
 
   public:
     MessageBlockAllocator(char const * _name);
@@ -77,7 +77,7 @@ namespace TransportLayer
       unsigned long long noZeroUseCount_;
       unsigned long long allocCount_;
       unsigned long long freeCount_;
-      ThresholdData thresholdsData[MBType::NUMBER_OF_BLOCK_TYPE];  //  для подсчета threshold'ов времени использования блоков разного типа
+      ThresholdData thresholdsData[MBType::NUMBER_OF_BLOCK_TYPE];  //  РґР»СЏ РїРѕРґСЃС‡РµС‚Р° threshold'РѕРІ РІСЂРµРјРµРЅРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Р±Р»РѕРєРѕРІ СЂР°Р·РЅРѕРіРѕ С‚РёРїР°
 
       void calcStatistic(int blockUseTime);
     };
@@ -116,7 +116,7 @@ namespace TransportLayer
     void dump_block_use_thresholds(nstl::string& s, int tag, MBType::Enum _type);
 
   private:
-    msgchain chains[CHAIN_NUMBER];  //  2 в степени INDEX_BASE+index - размер блока в цепочке
+    msgchain chains[CHAIN_NUMBER];  //  2 РІ СЃС‚РµРїРµРЅРё INDEX_BASE+index - СЂР°Р·РјРµСЂ Р±Р»РѕРєР° РІ С†РµРїРѕС‡РєРµ
     ThresholdInfo thresholdInfo[MBType::NUMBER_OF_BLOCK_TYPE];
     nstl::string name_;
   };

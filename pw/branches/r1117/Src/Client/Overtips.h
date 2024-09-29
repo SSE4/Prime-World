@@ -74,7 +74,7 @@ _interface IManager : public IBaseInterfaceST
   virtual int CreateOvertip( const NDb::UIObjectOvertips * pOvertips, ITarget * pTarget = 0 ) = 0;
   virtual bool RemoveOvertip( int id ) = 0;
 
-  //Эти функции дублируют функционал колбеков:
+  //Р­С‚Рё С„СѓРЅРєС†РёРё РґСѓР±Р»РёСЂСѓСЋС‚ С„СѓРЅРєС†РёРѕРЅР°Р» РєРѕР»Р±РµРєРѕРІ:
   virtual UI::Window * GetOvertipWindow( int id, const SOvertipId & overtipId ) = 0;
   virtual bool UpdateOvertipWorldPosition( int id, const SHMatrix & matrix ) = 0;
   virtual bool UpdateOvertipAabb( int id, const CVec3 & center, const CVec3 & halfsize ) = 0;

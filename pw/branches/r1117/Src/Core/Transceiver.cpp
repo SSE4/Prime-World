@@ -918,7 +918,7 @@ void Transceiver::SendCommand( WorldCommand *_command, bool isPlayerCommand )
 
 void Transceiver::SetWorld( IWorldBase * _world )
 {
-  //FIXME: Ìû èñïîëíÿåì ïåðâóþ êîìàíäó â ðó÷íîì ðåæèìå, òàê êàê îíà ÿâëÿåòñÿ ñâîåãî ðîäà õèäåðîì äëÿ ðåïëåÿ
+  //FIXME: ÐœÑ‹ Ð¸ÑÐ¿Ð¾Ð»Ð½ÑÐµÐ¼ Ð¿ÐµÑ€Ð²ÑƒÑŽ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ Ð² Ñ€ÑƒÑ‡Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð¾Ð½Ð° ÑÐ²Ð»ÑÐµÑ‚ÑÑ ÑÐ²Ð¾ÐµÐ³Ð¾ Ñ€Ð¾Ð´Ð° Ñ…Ð¸Ð´ÐµÑ€Ð¾Ð¼ Ð´Ð»Ñ Ñ€ÐµÐ¿Ð»ÐµÑ
   world = _world;
   ptrHolder = world->GetPointerSerialization();
 }
@@ -964,7 +964,7 @@ void StepsBufferLimit::Init( const StepsDelaySettings& settings, int _stepLength
     --curLevel;
   }
 
-  //áóäåì ðåãèñòðèðîâàòü òîëüêî òå ëàãè, ÷òî ïðèõîäÿò íå áîëåå ÷åì ÷åðåç âðåìÿ äåéñòâèÿ ïîâûøåííîãî áóôåðà (â ñòåïàõ, îò ïîñëåäíåãî ëàãà)
+  //Ð±ÑƒÐ´ÐµÐ¼ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ‚Ðµ Ð»Ð°Ð³Ð¸, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¸Ñ…Ð¾Ð´ÑÑ‚ Ð½Ðµ Ð±Ð¾Ð»ÐµÐµ Ñ‡ÐµÐ¼ Ñ‡ÐµÑ€ÐµÐ· Ð²Ñ€ÐµÐ¼Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð¿Ð¾Ð²Ñ‹ÑˆÐµÐ½Ð½Ð¾Ð³Ð¾ Ð±ÑƒÑ„ÐµÑ€Ð° (Ð² ÑÑ‚ÐµÐ¿Ð°Ñ…, Ð¾Ñ‚ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ³Ð¾ Ð»Ð°Ð³Ð°)
   lagsHistory.SetMinLagDistance( bufferLimitSettings.stepsDelayFrame * levels );
 }
 
@@ -972,7 +972,7 @@ void StepsBufferLimit::AdjustByLag( int newLagTime, int trascieverStep )
 {
   lagsHistory.Update(trascieverStep);
 
-  // ðåãèñòðèðóåì íîâûé ëàã è â ñëó÷àå íåîáõîäèìîñòè ïîâûøàåì/îáíîâëÿåì âðåìÿ òåêóùåãî ëèìèòà áóôåðà  
+  // Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€ÑƒÐµÐ¼ Ð½Ð¾Ð²Ñ‹Ð¹ Ð»Ð°Ð³ Ð¸ Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¿Ð¾Ð²Ñ‹ÑˆÐ°ÐµÐ¼/Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÐ¼ Ð²Ñ€ÐµÐ¼Ñ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð»Ð¸Ð¼Ð¸Ñ‚Ð° Ð±ÑƒÑ„ÐµÑ€Ð°  
   int newBufferLimit = min( (int)newLagTime / stepLength, 
     (g_enableAdaptiveBuffer)?(bufferLimitSettings.stepsDelayMax):(bufferLimitSettings.stepsDelayMin) );
 
@@ -991,7 +991,7 @@ void StepsBufferLimit::Update( int trascieverStep )
 {
   lagsHistory.Update( trascieverStep );
 
-  //ñî âðåìåíåì ïîíèæàåì ëèìèò
+  //ÑÐ¾ Ð²Ñ€ÐµÐ¼ÐµÐ½ÐµÐ¼ Ð¿Ð¾Ð½Ð¸Ð¶Ð°ÐµÐ¼ Ð»Ð¸Ð¼Ð¸Ñ‚
   if (bufferLimitTimer > 0)
   {
     --bufferLimitTimer;
@@ -1008,8 +1008,8 @@ void StepsBufferLimit::Update( int trascieverStep )
 
 int StepsBufferLimit::GetBufferLimitTime( int bufferLimit )
 {
-  //äëÿ òåêóùåãî ëèìèòà âû÷èñëÿåì íàäî ëè óâåëè÷èâàòü åãî äëèòåëüíîñòü, íà îñíîâàíèè òîãî, 
-  //êàêèå ëàãè ñëó÷àëèñü çà ïîñëåäíåå âðåìÿ
+  //Ð´Ð»Ñ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð»Ð¸Ð¼Ð¸Ñ‚Ð° Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ Ð½Ð°Ð´Ð¾ Ð»Ð¸ ÑƒÐ²ÐµÐ»Ð¸Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ ÐµÐ³Ð¾ Ð´Ð»Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ, Ð½Ð° Ð¾ÑÐ½Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ñ‚Ð¾Ð³Ð¾, 
+  //ÐºÐ°ÐºÐ¸Ðµ Ð»Ð°Ð³Ð¸ ÑÐ»ÑƒÑ‡Ð°Ð»Ð¸ÑÑŒ Ð·Ð° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐµ Ð²Ñ€ÐµÐ¼Ñ
   int idx = bufferLimit - bufferLimitSettings.stepsDelayMin;
   NI_ASSERT( idx >=0 && idx < bufferLimitsTimes.size(), "invalid delay level" )
   int adaptiveTime = bufferLimitsTimes[idx];
@@ -1023,7 +1023,7 @@ int StepsBufferLimit::GetBufferLimitTime( int bufferLimit )
 
 int StepsBufferLimit::CalcBaseTimeForBufferLimit(int bufferLimit )
 {
-  //âû÷èñëÿåì äëèòåëüíîñòü êàæäîãî ëèìèòà â èäåàëüíûõ óñëîâèÿõ - ðàçîâûé ëàã
+  //Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ Ð´Ð»Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ð»Ð¸Ð¼Ð¸Ñ‚Ð° Ð² Ð¸Ð´ÐµÐ°Ð»ÑŒÐ½Ñ‹Ñ… ÑƒÑÐ»Ð¾Ð²Ð¸ÑÑ… - Ñ€Ð°Ð·Ð¾Ð²Ñ‹Ð¹ Ð»Ð°Ð³
   if (bufferLimit <= bufferLimitSettings.stepsDelayMin)
     return bufferLimitSettings.stepsDelayFrame;
 

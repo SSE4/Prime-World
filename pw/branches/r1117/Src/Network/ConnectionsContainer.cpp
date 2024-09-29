@@ -68,22 +68,22 @@ REGISTER_VAR( "login_conn_timeout2", s_connectionTimeout, STORAGE_GLOBAL);
     FD_ZERO( &exceptSet );
 
     NI_VERIFY( num <= FD_SETSIZE, "too many connections for one select call", /* nothing to do */ );
-    // добавляем в множества
+    // РґРѕР±Р°РІР»СЏРµРј РІ РјРЅРѕР¶РµСЃС‚РІР°
     for ( int i = first; i < first + num && i < first + FD_SETSIZE; i++ )
       connections[i].conn->AddSelf( &readSet, &writeSet, &exceptSet );
-    // выбираем сокеты с событиями
+    // РІС‹Р±РёСЂР°РµРј СЃРѕРєРµС‚С‹ СЃ СЃРѕР±С‹С‚РёСЏРјРё
     select( num, &readSet, &writeSet, &exceptSet, &timeout );
 
     for ( int j = first; j < first + num && j < first + FD_SETSIZE; j++ )
     {
       StrongMT<Connection> conn = connections[j].conn;
-      // обрабатываем события
+      // РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј СЃРѕР±С‹С‚РёСЏ
       conn->DoIO( &readSet, &writeSet, &exceptSet );
 
       if ( conn->WantAsyncClose() )
         conn->Close();
 
-      // если закрыт, то обнуляем и удаляем
+      // РµСЃР»Рё Р·Р°РєСЂС‹С‚, С‚Рѕ РѕР±РЅСѓР»СЏРµРј Рё СѓРґР°Р»СЏРµРј
       if ( conn->GetStatus() == ConnectionState::Closed )
       {
         connections[j].conn = 0;

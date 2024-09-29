@@ -4,7 +4,7 @@
 
 namespace NLogg
 {
-/// Используется для контроля времени жизни Logger'а и его dumper'ов
+/// РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РєРѕРЅС‚СЂРѕР»СЏ РІСЂРµРјРµРЅРё Р¶РёР·РЅРё Logger'Р° Рё РµРіРѕ dumper'РѕРІ
 class StreamHolder : public BaseObjectMT
 {
   NI_DECLARE_REFCOUNT_CLASS_1( StreamHolder, BaseObjectMT );

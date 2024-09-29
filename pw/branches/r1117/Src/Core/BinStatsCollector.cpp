@@ -159,8 +159,8 @@ const char* GetWorldObjectId( int worldId )
 {
   static char buffer[4][16];
   
-  //Правильней было бы, конечно, возвращать string или передавать буфер, 
-  //но решил сделать так, для поддержания единообразия
+  //РџСЂР°РІРёР»СЊРЅРµР№ Р±С‹Р»Рѕ Р±С‹, РєРѕРЅРµС‡РЅРѕ, РІРѕР·РІСЂР°С‰Р°С‚СЊ string РёР»Рё РїРµСЂРµРґР°РІР°С‚СЊ Р±СѓС„РµСЂ, 
+  //РЅРѕ СЂРµС€РёР» СЃРґРµР»Р°С‚СЊ С‚Р°Рє, РґР»СЏ РїРѕРґРґРµСЂР¶Р°РЅРёСЏ РµРґРёРЅРѕРѕР±СЂР°Р·РёСЏ
   static int nextBuff = 0;
   const int curBuff = nextBuff;
   nextBuff = (nextBuff + 1) % ARRAY_SIZE(buffer);
@@ -974,7 +974,7 @@ bool CompareCRC( const char *name, const vector<wstring> &params )
 	for( list<string>::const_iterator it = fileNames.begin(); it != fileNames.end(); ++it )
 		files.push_back().Load( *it );
 
-  //Оставим старый вариант, как самый простой и надёжный
+  //РћСЃС‚Р°РІРёРј СЃС‚Р°СЂС‹Р№ РІР°СЂРёР°РЅС‚, РєР°Рє СЃР°РјС‹Р№ РїСЂРѕСЃС‚РѕР№ Рё РЅР°РґС‘Р¶РЅС‹Р№
   if( convertToText && all && history )
   {
     int fileNum = 1;
@@ -1551,7 +1551,7 @@ void BinStatsCollector::ParseBuff( const BuffersStack &buffStack, T &obj )
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       
-//Создаём новый файл, если файл с таким именем уже есть, то возвращаем 0
+//РЎРѕР·РґР°С‘Рј РЅРѕРІС‹Р№ С„Р°Р№Р», РµСЃР»Рё С„Р°Р№Р» СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ РµСЃС‚СЊ, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј 0
 static FILE *CreateNewFileForWriteImpl( const char *szPath )
 {
   FILE* pFile = fopen(szPath, "a+");
@@ -1559,7 +1559,7 @@ static FILE *CreateNewFileForWriteImpl( const char *szPath )
   if( pFile == NULL )
     return NULL;
   
-  //Если файл только что создан, то позиция будет стоять на нуле  
+  //Р•СЃР»Рё С„Р°Р№Р» С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃРѕР·РґР°РЅ, С‚Рѕ РїРѕР·РёС†РёСЏ Р±СѓРґРµС‚ СЃС‚РѕСЏС‚СЊ РЅР° РЅСѓР»Рµ  
   fpos_t pos;
   fgetpos( pFile, &pos );
  
@@ -1594,20 +1594,20 @@ static FILE *CreateNewFileForWrite( const void *buffer, const char *szSuffix )
 
 void BinStatsCollector::writeToFile( const void *buffer, size_t size, Stream &stream )
 {
-  //После того как был написан код сравнения дампов, поменялся формат их хранения на
-  //более эффективный и для того, чтобы не переписывать код сравнения, переконвертируем 
-	//в старый формат во время записи
+  //РџРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє Р±С‹Р» РЅР°РїРёСЃР°РЅ РєРѕРґ СЃСЂР°РІРЅРµРЅРёСЏ РґР°РјРїРѕРІ, РїРѕРјРµРЅСЏР»СЃСЏ С„РѕСЂРјР°С‚ РёС… С…СЂР°РЅРµРЅРёСЏ РЅР°
+  //Р±РѕР»РµРµ СЌС„С„РµРєС‚РёРІРЅС‹Р№ Рё РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РЅРµ РїРµСЂРµРїРёСЃС‹РІР°С‚СЊ РєРѕРґ СЃСЂР°РІРЅРµРЅРёСЏ, РїРµСЂРµРєРѕРЅРІРµСЂС‚РёСЂСѓРµРј 
+	//РІ СЃС‚Р°СЂС‹Р№ С„РѕСЂРјР°С‚ РІРѕ РІСЂРµРјСЏ Р·Р°РїРёСЃРё
   const char *pBeg = static_cast<const char *>(buffer);
   const char * const pEnd = pBeg + size;
      
-  //Отладочная печать
+  //РћС‚Р»Р°РґРѕС‡РЅР°СЏ РїРµС‡Р°С‚СЊ
   if( false )
   {    
     ObjectsParser<DebugPrintData> printer( CreateNewFileForWrite(buffer, "raw_async") );
     ParseBuff( pBeg, pEnd, printer );  
   }
   
-  //Собираем информацию по объектам исходя из информации об указателях
+  //РЎРѕР±РёСЂР°РµРј РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕ РѕР±СЉРµРєС‚Р°Рј РёСЃС…РѕРґСЏ РёР· РёРЅС„РѕСЂРјР°С†РёРё РѕР± СѓРєР°Р·Р°С‚РµР»СЏС…
   PointersData ptrsData;
   ObjectsParser<CollectPointerData> collector( ( CollectPointerData(ptrsData) ) );
   ParseBuff( pBeg, pEnd, collector );
@@ -1619,12 +1619,12 @@ void BinStatsCollector::writeToFile( const void *buffer, size_t size, Stream &st
     ParseBuff( pBeg, pEnd, printer );  
   }
   
-  //Преобразовываем вложенную структуру нового формата в плоскую структуру старого 
+  //РџСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°РµРј РІР»РѕР¶РµРЅРЅСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ РЅРѕРІРѕРіРѕ С„РѕСЂРјР°С‚Р° РІ РїР»РѕСЃРєСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃС‚Р°СЂРѕРіРѕ 
   BuffersStack buffStack;
   ObjectsParser<LinearizeData> linealizer( ( LinearizeData(buffStack) ) );
   ParseBuff( pBeg, pEnd, linealizer );
   
-  //Снова отладочная печать
+  //РЎРЅРѕРІР° РѕС‚Р»Р°РґРѕС‡РЅР°СЏ РїРµС‡Р°С‚СЊ
   if( false )
   {
     ObjectsParser<DebugPrintData> printer( CreateNewFileForWrite(buffer, "raw_async_linear") );
@@ -1632,7 +1632,7 @@ void BinStatsCollector::writeToFile( const void *buffer, size_t size, Stream &st
     ParseBuff( buffStack, printer ); 
   }
   
-  //Окончательный вывод в поток
+  //РћРєРѕРЅС‡Р°С‚РµР»СЊРЅС‹Р№ РІС‹РІРѕРґ РІ РїРѕС‚РѕРє
   ObjectsParser<WriteObjectsToFile> writer( WriteObjectsToFile(ptrsData, stream) );
   ParseBuff( buffStack, writer );
 }

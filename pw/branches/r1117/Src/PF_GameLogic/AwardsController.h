@@ -77,7 +77,7 @@ namespace NGameX
       wstring tooltip;
       float count;
       int vendorConst;
-			bool isTasty; //значит мы получили эту награду благодоря FWOD или еще какой фигне
+			bool isTasty; //Р·РЅР°С‡РёС‚ РјС‹ РїРѕР»СѓС‡РёР»Рё СЌС‚Сѓ РЅР°РіСЂР°РґСѓ Р±Р»Р°РіРѕРґРѕСЂСЏ FWOD РёР»Рё РµС‰Рµ РєР°РєРѕР№ С„РёРіРЅРµ
 			UserId giverUser;
     };
 

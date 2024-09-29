@@ -25,7 +25,7 @@ D3DFORMAT ConvertRenderFormat(ERenderFormat format)
     case FORMAT_RAWZ : return FOURCC_RAWZ;
     case FORMAT_DF16 : return FOURCC_DF16;
     case FORMAT_D24S8 : return D3DFMT_D24S8;
-		default: NI_ALWAYS_ASSERT("Неправильный формат render target!"); return D3DFMT_UNKNOWN;
+		default: NI_ALWAYS_ASSERT("РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ С„РѕСЂРјР°С‚ render target!"); return D3DFMT_UNKNOWN;
 	}
 }
 
@@ -70,7 +70,7 @@ const char* D3DPool2Str(D3DPOOL _pool)
 }
 
 
-/// Конвертирование типа примитивов рендера в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РїСЂРёРјРёС‚РёРІРѕРІ СЂРµРЅРґРµСЂР° РІ d3d9
 D3DPRIMITIVETYPE ConvertPrimitiveType(ERenderPrimitiveType type)
 {
 	switch (type)
@@ -84,7 +84,7 @@ D3DPRIMITIVETYPE ConvertPrimitiveType(ERenderPrimitiveType type)
 		default: NI_ALWAYS_ASSERT("Invalid render primitive type!"); return D3DPT_TRIANGLELIST;
 	}
 }
-/// Конвертирование типа использования элемента вершины в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ d3d9
 BYTE ConvertVertexElementUsage(EVertexElementUsage usage)
 {
 	switch (usage)
@@ -107,7 +107,7 @@ BYTE ConvertVertexElementUsage(EVertexElementUsage usage)
 	}
 }
 
-/// Конвертирование типа элемента вершины в его размер
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ РµРіРѕ СЂР°Р·РјРµСЂ
 UINT GetVertexElementSize(EVertexElementType type)
 {
 	switch (type)
@@ -134,7 +134,7 @@ UINT GetVertexElementSize(EVertexElementType type)
 	}
 }
 
-/// Конвертирование типа элемента вершины в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ d3d9
 BYTE ConvertVertexElementType(EVertexElementType type)
 {
 	switch (type)
@@ -175,7 +175,7 @@ DWORD ConvertRenderLockType(ERenderLockType type)
 	}
 }
 
-/// Конвертирование типа использования элемента вершины из d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РёР· d3d9
 EVertexElementUsage Convert2VertexElementUsage(BYTE usage)
 {
   switch (usage)
@@ -198,7 +198,7 @@ EVertexElementUsage Convert2VertexElementUsage(BYTE usage)
   }
 }
 
-/// Конвертирование типа элемента вершины из d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РёР· d3d9
 EVertexElementType Convert2VertexElementType(BYTE type)
 {
   switch (type)

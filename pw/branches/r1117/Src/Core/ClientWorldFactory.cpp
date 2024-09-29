@@ -32,7 +32,7 @@ void RegisterClientType( int clientID, int worldID )
 	GetRegistry()[worldID] = clientID;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// создать объект по его typeID
+// СЃРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РїРѕ РµРіРѕ typeID
 CObjectBase *MakeObject( int worldID )
 {
 	TClientToWorldHash::iterator it = GetRegistry().find( worldID );

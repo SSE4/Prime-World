@@ -641,7 +641,7 @@ namespace Network
     NI_ASSERT( socket != BAD_SOCKET, "Can't create socket for url." );
     if( socket != BAD_SOCKET )
     {
-      nival::sleep(5); // иначе такое впечатление, что быстрый bind/listen что-то ломает в WinSock при запуске серверных сервисов
+      nival::sleep(5); // РёРЅР°С‡Рµ С‚Р°РєРѕРµ РІРїРµС‡Р°С‚Р»РµРЅРёРµ, С‡С‚Рѕ Р±С‹СЃС‚СЂС‹Р№ bind/listen С‡С‚Рѕ-С‚Рѕ Р»РѕРјР°РµС‚ РІ WinSock РїСЂРё Р·Р°РїСѓСЃРєРµ СЃРµСЂРІРµСЂРЅС‹С… СЃРµСЂРІРёСЃРѕРІ
 
       state = ConnectionState::Connecting;
       SetSocketOptions( socket );

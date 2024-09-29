@@ -414,7 +414,7 @@ void SimpleEditorScene::Draw( System::IntPtr hWnd, float time, float delta )
     pIface->Present( (HWND)hWnd.ToPointer(), rect, rect_dest );
   }
 
-  // ÕÀÊ! NUM_TASK
+  // Ð¥ÐÐš! NUM_TASK
   if ( NativeScene && framesCounter )
   {
     if ( framesCounter->GetResultComponent() )

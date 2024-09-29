@@ -100,7 +100,7 @@ namespace
 
       TLines lines;
 
-      NStr::SplitString(szBuffer.c_str() + 1, &lines, L"\r\n"); // пропускаем один wchar_t с BOM
+      NStr::SplitString(szBuffer.c_str() + 1, &lines, L"\r\n"); // РїСЂРѕРїСѓСЃРєР°РµРј РѕРґРёРЅ wchar_t СЃ BOM
 
       TLines::const_iterator it = lines.begin();
       TLines::const_iterator it_end = lines.end();
@@ -482,7 +482,7 @@ namespace NGameX
     if (!listener)
       return;
 
-    // TODO: не добавлять listener'а, если он уже зарегистрирован
+    // TODO: РЅРµ РґРѕР±Р°РІР»СЏС‚СЊ listener'Р°, РµСЃР»Рё РѕРЅ СѓР¶Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ
 
     listeners.push_back(listener);
   }

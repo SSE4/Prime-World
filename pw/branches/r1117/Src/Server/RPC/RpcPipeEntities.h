@@ -74,8 +74,8 @@ private:
 class PipeEntities
 {
 public:
-  /// Короткое описание заканчивается на этой точке. 
-  /// Дальше - развёрнутое описание конструктора.
+  /// РљРѕСЂРѕС‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РЅР° СЌС‚РѕР№ С‚РѕС‡РєРµ. 
+  /// Р”Р°Р»СЊС€Рµ - СЂР°Р·РІС‘СЂРЅСѓС‚РѕРµ РѕРїРёСЃР°РЅРёРµ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
   PipeEntities(
   rpc::IPacketPipe * pipe, 
   EntityMap* _entityMap,
@@ -98,7 +98,7 @@ public:
     logTrace = entityMap->GetLogTrace();
   }
 
-  /// Деструктор
+  /// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
   ~PipeEntities();
 
   /// hack method only for internal use, could be eliminated by retrieving local pointers from factories
@@ -108,20 +108,20 @@ public:
     return entities.get(entityId, id);
   }
 
-  /// Принимает пакеты из канала, собирает их и исполняет
+  /// РџСЂРёРЅРёРјР°РµС‚ РїР°РєРµС‚С‹ РёР· РєР°РЅР°Р»Р°, СЃРѕР±РёСЂР°РµС‚ РёС… Рё РёСЃРїРѕР»РЅСЏРµС‚
   bool Poll(rpc::Node* originNode);
 
-  /// Обрабатывает пакет
+  /// РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ РїР°РєРµС‚
   bool ProcessPacket( const byte* data, uint size, bool delayedPacket, rpc::Node* originNode, const Transport::MessageMiscInfo & _miscInfo );
 
-  /// Бриф для SetHandler
+  /// Р‘СЂРёС„ РґР»СЏ SetHandler
   template <typename H>
   bool SetHandler(const void* value, H* object, void (H::*func)())
   {
     return entities.SetHandler<H>(value, object, func);
   }
 
-  /// Бриф для RemoveHandler
+  /// Р‘СЂРёС„ РґР»СЏ RemoveHandler
   bool RemoveHandler(const void* value) { return entities.RemoveHandler(value); }
 
   /// hack method only for internal use

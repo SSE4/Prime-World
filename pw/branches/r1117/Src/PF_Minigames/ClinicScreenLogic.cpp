@@ -320,8 +320,8 @@ void ClinicScreenLogic::GameMenuClosed()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ClinicScreenLogic::AbortMinigameLevel()
 {
-  //ýòîò ìåõàíèçì â Êëèíèêå íåäîäåëàí
-  //TODO: âîîáùå ëó÷øå ðåàëèçîâàòü èíòåðôåéñ NGameX::IGameMenuMinigameActions â îáúåêòå Clinic
+  //ÑÑ‚Ð¾Ñ‚ Ð¼ÐµÑ…Ð°Ð½Ð¸Ð·Ð¼ Ð² ÐšÐ»Ð¸Ð½Ð¸ÐºÐµ Ð½ÐµÐ´Ð¾Ð´ÐµÐ»Ð°Ð½
+  //TODO: Ð²Ð¾Ð¾Ð±Ñ‰Ðµ Ð»ÑƒÑ‡ÑˆÐµ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹Ñ NGameX::IGameMenuMinigameActions Ð² Ð¾Ð±ÑŠÐµÐºÑ‚Ðµ Clinic
 
   if( IsValid( clinic ) )
     clinic->InitiatePause(false);

@@ -552,9 +552,9 @@ template <class T, const bool = boost::is_base_of<NWorld::PFBaseHero, T>::value>
 struct ObjectNameMap
   : public NonCopyable
 {
-  // NOTE: необходимость подмены типов обусловлена особенностями NameMap'а для PFBaseHero.
-  // а именно, в нем нет submap'а под именем unit, который нужен для получения левела.
-  // тем не менее, эту проблему определенно следует решать другим способом.
+  // NOTE: РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РїРѕРґРјРµРЅС‹ С‚РёРїРѕРІ РѕР±СѓСЃР»РѕРІР»РµРЅР° РѕСЃРѕР±РµРЅРЅРѕСЃС‚СЏРјРё NameMap'Р° РґР»СЏ PFBaseHero.
+  // Р° РёРјРµРЅРЅРѕ, РІ РЅРµРј РЅРµС‚ submap'Р° РїРѕРґ РёРјРµРЅРµРј unit, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РµРЅ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ Р»РµРІРµР»Р°.
+  // С‚РµРј РЅРµ РјРµРЅРµРµ, СЌС‚Сѓ РїСЂРѕР±Р»РµРјСѓ РѕРїСЂРµРґРµР»РµРЅРЅРѕ СЃР»РµРґСѓРµС‚ СЂРµС€Р°С‚СЊ РґСЂСѓРіРёРј СЃРїРѕСЃРѕР±РѕРј.
 
   typedef NWorld::PFBaseUnit ObjectType;
 
@@ -633,9 +633,9 @@ void ObjectsInfo2dLogic::UpdateOvertipTextImpl( SOvertip & overtip, const T * ob
 
   const ObjectNameMap<T> nameMap(object);
 
-  //Поскольку nameMap не постоянно привязан к контролу, данные в 
-  //окне пропадают после того как контролл решает их обновить. 
-  //Поэтому здесь, в качестве костыля, напрямую устанавливается текст 
+  //РџРѕСЃРєРѕР»СЊРєСѓ nameMap РЅРµ РїРѕСЃС‚РѕСЏРЅРЅРѕ РїСЂРёРІСЏР·Р°РЅ Рє РєРѕРЅС‚СЂРѕР»Сѓ, РґР°РЅРЅС‹Рµ РІ 
+  //РѕРєРЅРµ РїСЂРѕРїР°РґР°СЋС‚ РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РєРѕРЅС‚СЂРѕР»Р» СЂРµС€Р°РµС‚ РёС… РѕР±РЅРѕРІРёС‚СЊ. 
+  //РџРѕСЌС‚РѕРјСѓ Р·РґРµСЃСЊ, РІ РєР°С‡РµСЃС‚РІРµ РєРѕСЃС‚С‹Р»СЏ, РЅР°РїСЂСЏРјСѓСЋ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ С‚РµРєСЃС‚ 
 
   PrecompiledTooltip pctt;
 
@@ -832,7 +832,7 @@ void ObjectsInfo2dLogic::SetupOvertip( SOvertip & overtip, const SOvertipCustomE
 
 		const NDb::BaseHero* const dbHero = hero->GetDbHero();
 
-		// NUM_TASK Дополнительные проверки на наличие uniqueResource
+		// NUM_TASK Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїСЂРѕРІРµСЂРєРё РЅР° РЅР°Р»РёС‡РёРµ uniqueResource
 		NI_VERIFY(!!dbHero, "Invalid DB hero!", return);
 
 		if (dbHero->uniqueResource != NULL && !dbHero->uniqueResource.IsEmpty())
@@ -851,7 +851,7 @@ void ObjectsInfo2dLogic::SetupOvertip( SOvertip & overtip, const SOvertipCustomE
       }
       else
       {
-        // TODO: вернуть оригинальный материал?
+        // TODO: РІРµСЂРЅСѓС‚СЊ РѕСЂРёРіРёРЅР°Р»СЊРЅС‹Р№ РјР°С‚РµСЂРёР°Р»?
       }
     }
   };
@@ -859,7 +859,7 @@ void ObjectsInfo2dLogic::SetupOvertip( SOvertip & overtip, const SOvertipCustomE
   NI_PROFILE_FUNCTION;
 
   //Main tooltip window
-  // TODO: избавиться от двойной проверки. NeedUpdateCustomEnergy() вызывается уровнем выше.
+  // TODO: РёР·Р±Р°РІРёС‚СЊСЃСЏ РѕС‚ РґРІРѕР№РЅРѕР№ РїСЂРѕРІРµСЂРєРё. NeedUpdateCustomEnergy() РІС‹Р·С‹РІР°РµС‚СЃСЏ СѓСЂРѕРІРЅРµРј РІС‹С€Рµ.
   if (overtip.NeedWindow() || overtip.NeedUpdateCustomEnergy(customEnergy))
   {
     AddWindowToPool(overtip);

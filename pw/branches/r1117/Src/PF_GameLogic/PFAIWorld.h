@@ -165,11 +165,11 @@ public:
     };
 
     ZDATA;
-    NDb::EFaction       faction;          // фракция
-    NDb::ERoute         routeID;          // линия
-    int                 spawnerObjectID;  // спавнер
-    bool                quarterDestroyed; // барак на этой линии разрушен
-    vector<RouteLevel>  levels;           // здания по уровням цепи
+    NDb::EFaction       faction;          // С„СЂР°РєС†РёСЏ
+    NDb::ERoute         routeID;          // Р»РёРЅРёСЏ
+    int                 spawnerObjectID;  // СЃРїР°РІРЅРµСЂ
+    bool                quarterDestroyed; // Р±Р°СЂР°Рє РЅР° СЌС‚РѕР№ Р»РёРЅРёРё СЂР°Р·СЂСѓС€РµРЅ
+    vector<RouteLevel>  levels;           // Р·РґР°РЅРёСЏ РїРѕ СѓСЂРѕРІРЅСЏРј С†РµРїРё
     CVec2               borderPoint;      // position of farthest tower(s) in the route
     ZEND int operator&( IBinSaver &f ) { f.Add(2,&faction); f.Add(3,&routeID); f.Add(4,&spawnerObjectID); f.Add(5,&quarterDestroyed); f.Add(6,&levels); f.Add(7,&borderPoint); return 0; }
 

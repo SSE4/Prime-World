@@ -198,7 +198,7 @@ namespace Relay
         ++lit;
     }
 
-    //  при необходимости переносим сервисы из резервного набора в нагружаемый
+    //  РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РїРµСЂРµРЅРѕСЃРёРј СЃРµСЂРІРёСЃС‹ РёР· СЂРµР·РµСЂРІРЅРѕРіРѕ РЅР°Р±РѕСЂР° РІ РЅР°РіСЂСѓР¶Р°РµРјС‹Р№
     for(SvcContextListT::iterator lit = svcReserveList_.begin(); lit != svcReserveList_.end(); )
     {
       bool elemErased = false;
@@ -225,7 +225,7 @@ namespace Relay
         ++lit;
     }
 
-    //  решаем в какой набор класть сервисы изъятые из нагрузочного набора
+    //  СЂРµС€Р°РµРј РІ РєР°РєРѕР№ РЅР°Р±РѕСЂ РєР»Р°СЃС‚СЊ СЃРµСЂРІРёСЃС‹ РёР·СЉСЏС‚С‹Рµ РёР· РЅР°РіСЂСѓР·РѕС‡РЅРѕРіРѕ РЅР°Р±РѕСЂР°
     for(SvcContextListT::iterator lit = tmplist.begin(); lit != tmplist.end(); ++lit)
     {
       SvcContextPtr const & svctx = *lit;

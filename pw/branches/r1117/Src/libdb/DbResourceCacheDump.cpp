@@ -67,7 +67,7 @@ bool DbResourceCache::VerifyLeakedResource( DbResource* resource, int internalLi
 
 void DbResourceCache::DumpResources()
 {
-  // Этот код не нужен, тк после появления циклических ссылок у нас все ресурсы "текут" и тут выводится полотно информации
+  // Р­С‚РѕС‚ РєРѕРґ РЅРµ РЅСѓР¶РµРЅ, С‚Рє РїРѕСЃР»Рµ РїРѕСЏРІР»РµРЅРёСЏ С†РёРєР»РёС‡РµСЃРєРёС… СЃСЃС‹Р»РѕРє Сѓ РЅР°СЃ РІСЃРµ СЂРµСЃСѓСЂСЃС‹ "С‚РµРєСѓС‚" Рё С‚СѓС‚ РІС‹РІРѕРґРёС‚СЃСЏ РїРѕР»РѕС‚РЅРѕ РёРЅС„РѕСЂРјР°С†РёРё
   /*threading::MutexLock lock( mutex );
 
 	if ( resources.empty() )

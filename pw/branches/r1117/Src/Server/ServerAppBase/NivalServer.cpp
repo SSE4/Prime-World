@@ -90,7 +90,7 @@ bool NivalServer::Startup( int argc, char* argv[] )
       //nothing
     }
     else if ( arg.substr(0, 2) == "--" ) {
-      currentCustomOption = arg.substr( 2 ); // пропускаем все ключики вида "--option" вместе со следующими за ними значениями (это ключики для CCmdStr или чего-нибудь подобного)
+      currentCustomOption = arg.substr( 2 ); // РїСЂРѕРїСѓСЃРєР°РµРј РІСЃРµ РєР»СЋС‡РёРєРё РІРёРґР° "--option" РІРјРµСЃС‚Рµ СЃРѕ СЃР»РµРґСѓСЋС‰РёРјРё Р·Р° РЅРёРјРё Р·РЅР°С‡РµРЅРёСЏРјРё (СЌС‚Рѕ РєР»СЋС‡РёРєРё РґР»СЏ CCmdStr РёР»Рё С‡РµРіРѕ-РЅРёР±СѓРґСЊ РїРѕРґРѕР±РЅРѕРіРѕ)
       serverCmdLine[currentCustomOption] = string();
     }
     else if( !currentCustomOption.empty() ) {
@@ -130,7 +130,7 @@ bool NivalServer::Startup( int argc, char* argv[] )
   for ( TStartList::const_iterator it = serversToStart.begin(); it != serversToStart.end(); ++it )
     servicesStr += string( it->spawner->ServiceClass().c_str() ) + " ";
 
-  // вырезаем номер порта координатора
+  // РІС‹СЂРµР·Р°РµРј РЅРѕРјРµСЂ РїРѕСЂС‚Р° РєРѕРѕСЂРґРёРЅР°С‚РѕСЂР°
   string ca = Network::GetCoordinatorAddress();
   if ( ca.find( ':' ) != string::npos )
     ca.erase( 0, ca.find( ':') + 1 );

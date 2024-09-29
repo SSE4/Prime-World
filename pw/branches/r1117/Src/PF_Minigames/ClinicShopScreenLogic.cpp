@@ -139,7 +139,7 @@ bool ClinicShopScreenLogic::SetupItem( UI::Window * pItemWnd, PF_Minigames::Clin
   {
     wstring coinText = pItemWnd->GetRelatedText("Coin");
     wstring priceText = NStr::StrFmtW(L"%i%s", item.item->GetCost(), coinText.c_str());
-    //Если /пока/ денег на шмот не хватает, то возможно мы сможем их накопить
+    //Р•СЃР»Рё /РїРѕРєР°/ РґРµРЅРµРі РЅР° С€РјРѕС‚ РЅРµ С…РІР°С‚Р°РµС‚, С‚Рѕ РІРѕР·РјРѕР¶РЅРѕ РјС‹ СЃРјРѕР¶РµРј РёС… РЅР°РєРѕРїРёС‚СЊ
     item.pPriceWnd->SetCaptionTextW(priceText);
     item.pGrayPriceWnd->SetCaptionTextW(priceText);
 
@@ -205,10 +205,10 @@ void ClinicShopScreenLogic::Step( float deltaTime )
 
   UI::ImageLabel * pPanel = UI::GetChildChecked<UI::ImageLabel>(pBaseWindow, "DescPanel", true);
 
-  //Во время работы магазина предмет может стать:
-  // - купленным, тогда его надо удалить
-  // - стать недоступным по цене, тогда надо поправить плашку с денгами
-  // - стать доступным по цене, тогда тоже надо поправить плашку с денгами
+  //Р’Рѕ РІСЂРµРјСЏ СЂР°Р±РѕС‚С‹ РјР°РіР°Р·РёРЅР° РїСЂРµРґРјРµС‚ РјРѕР¶РµС‚ СЃС‚Р°С‚СЊ:
+  // - РєСѓРїР»РµРЅРЅС‹Рј, С‚РѕРіРґР° РµРіРѕ РЅР°РґРѕ СѓРґР°Р»РёС‚СЊ
+  // - СЃС‚Р°С‚СЊ РЅРµРґРѕСЃС‚СѓРїРЅС‹Рј РїРѕ С†РµРЅРµ, С‚РѕРіРґР° РЅР°РґРѕ РїРѕРїСЂР°РІРёС‚СЊ РїР»Р°С€РєСѓ СЃ РґРµРЅРіР°РјРё
+  // - СЃС‚Р°С‚СЊ РґРѕСЃС‚СѓРїРЅС‹Рј РїРѕ С†РµРЅРµ, С‚РѕРіРґР° С‚РѕР¶Рµ РЅР°РґРѕ РїРѕРїСЂР°РІРёС‚СЊ РїР»Р°С€РєСѓ СЃ РґРµРЅРіР°РјРё
   int gold = clinic->GetGold();
   for(TWindowsItems::iterator it = itemsWindows.begin(); it != itemsWindows.end(); )
   {

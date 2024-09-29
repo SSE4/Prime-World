@@ -63,7 +63,7 @@ private:
   CVec3 CalcMiddlePos( const CVec3 &pos1, const CVec3 &pos2 ) const;
   void UpdateFlashEffectPos();
   
-private: //Состояния NextStepFnc
+private: //РЎРѕСЃС‚РѕСЏРЅРёСЏ NextStepFnc
   void StartEffectFromHeroesToMiddle();
   void StartEffectFromMiddleToHeroes();
   void StartEffectInMiddle();
@@ -195,8 +195,8 @@ void FemaleMaleAssistEffect::ClientObject::Update( float timeDelta )
     if( curTime < states[curState].startTime )
       break;
   
-    //Вызов stepFnc может сделать delete this, а после этого к curState
-    //запрещено получать доступ 
+    //Р’С‹Р·РѕРІ stepFnc РјРѕР¶РµС‚ СЃРґРµР»Р°С‚СЊ delete this, Р° РїРѕСЃР»Рµ СЌС‚РѕРіРѕ Рє curState
+    //Р·Р°РїСЂРµС‰РµРЅРѕ РїРѕР»СѓС‡Р°С‚СЊ РґРѕСЃС‚СѓРї 
     const bool isFinishState = curState + 1 == states.size();
   
     (this->*states[curState].stepFnc)();
@@ -368,33 +368,33 @@ static float DistanceSquared( const CVec3 &v1, const CVec3 &v2 )
                                                                   
 void FemaleMaleAssistEffect::OnUnitDie( CPtr<PFBaseUnit> pVictim, CPtr<PFBaseUnit> pKiller, const HeroesCont &assistants ) const
 {
-  //Убили героя или башню
+  //РЈР±РёР»Рё РіРµСЂРѕСЏ РёР»Рё Р±Р°С€РЅСЋ
   if( !IsValid(pVictim) || 
       !( dynamic_cast<PFTower *>(pVictim.GetPtr()) != 0 || pVictim->IsTrueHero() ) )
     return;
     
-  //Герой убийца жив на момент начала визуализации
+  //Р“РµСЂРѕР№ СѓР±РёР№С†Р° Р¶РёРІ РЅР° РјРѕРјРµРЅС‚ РЅР°С‡Р°Р»Р° РІРёР·СѓР°Р»РёР·Р°С†РёРё
   if( !IsValid(pKiller) || pKiller->IsDead() || !pKiller->IsHero() )
     return;
      
   float maxDistanceSquared = NDb::SessionRoot::GetRoot()->visualRoot->femaleMaleAssistEffect.minDistanceBetweenHeroes;
   maxDistanceSquared = maxDistanceSquared * maxDistanceSquared;
   
-  //Выбираем наиболее близкую друг к другу пару
+  //Р’С‹Р±РёСЂР°РµРј РЅР°РёР±РѕР»РµРµ Р±Р»РёР·РєСѓСЋ РґСЂСѓРі Рє РґСЂСѓРіСѓ РїР°СЂСѓ
   float bestDistance = FLT_MAX;
   PFBaseHero *pPairForKiller = 0;
                                          
   for( HeroesCont::const_iterator it = assistants.begin(); it != assistants.end(); ++it )
   {
-    //Герой поддержки жив на момент начала визуализации
+    //Р“РµСЂРѕР№ РїРѕРґРґРµСЂР¶РєРё Р¶РёРІ РЅР° РјРѕРјРµРЅС‚ РЅР°С‡Р°Р»Р° РІРёР·СѓР°Р»РёР·Р°С†РёРё
     if( !IsValid(*it) || (*it)->IsDead() || !(*it)->IsHero() )
       continue;
     
-    //Герой убийца и герой поддержки разного пола
+    //Р“РµСЂРѕР№ СѓР±РёР№С†Р° Рё РіРµСЂРѕР№ РїРѕРґРґРµСЂР¶РєРё СЂР°Р·РЅРѕРіРѕ РїРѕР»Р°
     if( !isHeterosexuals( *pKiller, **it ) )
       continue;   
       
-    //Расстояние между героями при совершении убийства не более чем N метра
+    //Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ РіРµСЂРѕСЏРјРё РїСЂРё СЃРѕРІРµСЂС€РµРЅРёРё СѓР±РёР№СЃС‚РІР° РЅРµ Р±РѕР»РµРµ С‡РµРј N РјРµС‚СЂР°
     const float distance = DistanceSquared( pKiller->GetPosition(), (*it)->GetPosition() );
     
     if( distance > maxDistanceSquared )
@@ -415,7 +415,7 @@ void FemaleMaleAssistEffect::OnUnitDie( CPtr<PFBaseUnit> pVictim, CPtr<PFBaseUni
 void FemaleMaleAssistEffect::PlayEffect( CPtr<PFBaseUnit> pKiller, CPtr<PFBaseUnit> pAssistant ) const
 {
   #ifndef VISUAL_CUTTED
-    //Играем эффект только для локальных игроков
+    //РРіСЂР°РµРј СЌС„С„РµРєС‚ С‚РѕР»СЊРєРѕ РґР»СЏ Р»РѕРєР°Р»СЊРЅС‹С… РёРіСЂРѕРєРѕРІ
     PFBaseHero * const pLocalHero = NGameX::AdventureScreen::Instance()->GetHero();
     
     if( pLocalHero == pKiller || pLocalHero == pAssistant )   

@@ -23,7 +23,7 @@ namespace Transport
 		if ( it != messages.end() )
 			return it->second.first();
 
-		systemLog(NLogg::LEVEL_WARNING) << "Unknown type of message: " << type; // áûë NI_ALWAYS_ASSERT
+		systemLog(NLogg::LEVEL_WARNING) << "Unknown type of message: " << type; // Ð±Ñ‹Ð» NI_ALWAYS_ASSERT
 		return 0;
 	}
 

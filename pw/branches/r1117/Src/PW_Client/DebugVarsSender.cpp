@@ -145,7 +145,7 @@ bool DebugVarsSender::CommandSendVar( const char * name, const vector<wstring> &
     }
   }
 
-  DebugTrace( "usage: sendvar <var_name> <period_seconds>" ); // шлите нам переменную var_name раз в столько секунд (float)
+  DebugTrace( "usage: sendvar <var_name> <period_seconds>" ); // С€Р»РёС‚Рµ РЅР°Рј РїРµСЂРµРјРµРЅРЅСѓСЋ var_name СЂР°Р· РІ СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ (float)
   return true;
 }
 
@@ -177,7 +177,7 @@ bool DebugVarsSender::CommandStopVar( const char * name, const vector<wstring> &
       }
     return true;
   }
-  DebugTrace( "usage: stopvar <var_name | ALL>" ); // шлите нам переменную var_name раз в столько секунд (float)
+  DebugTrace( "usage: stopvar <var_name | ALL>" ); // С€Р»РёС‚Рµ РЅР°Рј РїРµСЂРµРјРµРЅРЅСѓСЋ var_name СЂР°Р· РІ СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ (float)
   return true;
 }
 

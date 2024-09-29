@@ -411,7 +411,7 @@ int ClientContext::CloseUnicastPipe_(UnicastPipeSP const & svcpipe)
   int cpid = svcpipe->cpipeid();
   if (svcpipe->close())
   {
-    //  åñëè çàêðûâàåì ìû, òî îòñûëàåì ñîîáùåíèå íà çàêðûòèå êàíàëà
+    //  ÐµÑÐ»Ð¸ Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÐµÐ¼ Ð¼Ñ‹, Ñ‚Ð¾ Ð¾Ñ‚ÑÑ‹Ð»Ð°ÐµÐ¼ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð½Ð° Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ ÐºÐ°Ð½Ð°Ð»Ð°
     BackendContextSP spb =  svcpipe->svctx();
     if (!spb.null())
     {

@@ -34,17 +34,17 @@ public:
   {
   }
 
-  REMOTE int  BlockMoney( int userId, int serviceId );  // пытается заблокировать количество денег необходимое для покупки указанного сервиса, возвращает идентификатор блокировки
-  REMOTE void UnblockMoney( int userId, int blockId ); // разблокирует указанную блокировку
-  REMOTE int  GetServicePrice( int serviceId ); // возвращает цену указанного сервиса
-  REMOTE bool BuyBlockedService( int userId, int blockId, int serviceId );  // пытается приобрести указанный сервис из заблокированной суммы, возвращает true/false в случае успеха/неуспеха операции
-  REMOTE Lobby::BuyResult BuyService( int userId, int serviceId );  // пытается приобрести указанный сервис, возвращает true/false в случае успеха/неуспеха операции
-  REMOTE int  GetMoney( int userId ); // возвращает текущее состояние счета 
+  REMOTE int  BlockMoney( int userId, int serviceId );  // РїС‹С‚Р°РµС‚СЃСЏ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРµРЅРµРі РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ РїРѕРєСѓРїРєРё СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЃРµСЂРІРёСЃР°, РІРѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р±Р»РѕРєРёСЂРѕРІРєРё
+  REMOTE void UnblockMoney( int userId, int blockId ); // СЂР°Р·Р±Р»РѕРєРёСЂСѓРµС‚ СѓРєР°Р·Р°РЅРЅСѓСЋ Р±Р»РѕРєРёСЂРѕРІРєСѓ
+  REMOTE int  GetServicePrice( int serviceId ); // РІРѕР·РІСЂР°С‰Р°РµС‚ С†РµРЅСѓ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЃРµСЂРІРёСЃР°
+  REMOTE bool BuyBlockedService( int userId, int blockId, int serviceId );  // РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРѕР±СЂРµСЃС‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ СЃРµСЂРІРёСЃ РёР· Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРЅРѕР№ СЃСѓРјРјС‹, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
+  REMOTE Lobby::BuyResult BuyService( int userId, int serviceId );  // РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРѕР±СЂРµСЃС‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ СЃРµСЂРІРёСЃ, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
+  REMOTE int  GetMoney( int userId ); // РІРѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‡РµС‚Р° 
   
   REMOTE bool GiveMoneyToUser( int userId, int userDstId, int serviceId); // allows to transfer possession of service serviceId between users
   REMOTE const nstl::vector<Lobby::ServiceInfo>& GetServices();
 
-  bool RewardUser( int userId, int rewardId ); // пытается наградить юзера наградой rewardId, возвращает true/false в случае успеха/неуспеха операции
+  bool RewardUser( int userId, int rewardId ); // РїС‹С‚Р°РµС‚СЃСЏ РЅР°РіСЂР°РґРёС‚СЊ СЋР·РµСЂР° РЅР°РіСЂР°РґРѕР№ rewardId, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
 
   void SetPrice( int serviceId, int price );
   void SetupReward( int rewardId, int billingRewardId, int size );

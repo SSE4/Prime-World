@@ -87,8 +87,8 @@ namespace Render
 		void ProjectPoint( CVec2 *pRes, const CVec3& point, int screenW, int screenH );
 
 		//////////////////////////////////////////////////////////////////////////
-		//	- для инициализации использует const vector<CVec3>& points, const vector<int>& indices, const Render::Color color, const bool useZTest
-		//	- не работает с ResourceManager'ом, умирает сам - убивает свои ресурсы
+		//	- РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РёСЃРїРѕР»СЊР·СѓРµС‚ const vector<CVec3>& points, const vector<int>& indices, const Render::Color color, const bool useZTest
+		//	- РЅРµ СЂР°Р±РѕС‚Р°РµС‚ СЃ ResourceManager'РѕРј, СѓРјРёСЂР°РµС‚ СЃР°Рј - СѓР±РёРІР°РµС‚ СЃРІРѕРё СЂРµСЃСѓСЂСЃС‹
 
 		//  
 

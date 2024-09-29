@@ -27,16 +27,16 @@ bool SimpleLoginProcessor::PerformLoginCheck( const string & login, const string
     LoggedUsersT::iterator it = loggedUsers.find( login );
     if ( it != loggedUsers.end() )
     {
-      if( result->nUserID == 0 ) // ненулевой nUserID == признак того, что трогать его не надо (SessionLogin)
+      if( result->nUserID == 0 ) // РЅРµРЅСѓР»РµРІРѕР№ nUserID == РїСЂРёР·РЅР°Рє С‚РѕРіРѕ, С‡С‚Рѕ С‚СЂРѕРіР°С‚СЊ РµРіРѕ РЅРµ РЅР°РґРѕ (SessionLogin)
         result->nUserID = it->second;
       result->username = NStr::ToUnicode( login );
       return true;
     }
   }
 
-  if( result->nUserID == 0 ) // ненулевой nUserID == признак того, что трогать его не надо (SessionLogin)
+  if( result->nUserID == 0 ) // РЅРµРЅСѓР»РµРІРѕР№ nUserID == РїСЂРёР·РЅР°Рє С‚РѕРіРѕ, С‡С‚Рѕ С‚СЂРѕРіР°С‚СЊ РµРіРѕ РЅРµ РЅР°РґРѕ (SessionLogin)
   {
-    result->nUserID = nextId | maskUserId; // ставим бит-признак "userId, авто-генеренного внутри кластера" 
+    result->nUserID = nextId | maskUserId; // СЃС‚Р°РІРёРј Р±РёС‚-РїСЂРёР·РЅР°Рє "userId, Р°РІС‚Рѕ-РіРµРЅРµСЂРµРЅРЅРѕРіРѕ РІРЅСѓС‚СЂРё РєР»Р°СЃС‚РµСЂР°" 
     ++nextId;
   }
   loggedUsers[ login ] = result->nUserID;

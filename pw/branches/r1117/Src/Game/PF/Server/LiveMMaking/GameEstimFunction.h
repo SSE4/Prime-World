@@ -27,11 +27,11 @@ struct SGameEstimDetails
 
   //source values
   int     genderPairsDelta;
-  int     teamRating[2]; //средний рейтинг команд
+  int     teamRating[2]; //СЃСЂРµРґРЅРёР№ СЂРµР№С‚РёРЅРі РєРѕРјР°РЅРґ
   int     avgForce; //PVE only, single team
-  int     ratingSpan; //Разброс (макс - мин) рейтингов игроков в игре
+  int     ratingSpan; //Р Р°Р·Р±СЂРѕСЃ (РјР°РєСЃ - РјРёРЅ) СЂРµР№С‚РёРЅРіРѕРІ РёРіСЂРѕРєРѕРІ РІ РёРіСЂРµ
   int     ratingPatternDelta;
-  int     ratingTeamAvgDelta; // Разброс среднего рейтинга команд
+  int     ratingTeamAvgDelta; // Р Р°Р·Р±СЂРѕСЃ СЃСЂРµРґРЅРµРіРѕ СЂРµР№С‚РёРЅРіР° РєРѕРјР°РЅРґ
   int     forceSpan;
   //int     loseStreakCorrectionLevel;
   int     waitTimeAvg;

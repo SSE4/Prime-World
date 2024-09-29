@@ -82,7 +82,7 @@ int main( int argc, char **argv )
       "\n"
       "FilePileCompilerApp.exe -output NoXdbAndTxt -excl_masks \"*.xdb;*.txt\" -comp_size 64 -max_comp_ratio 75\n"
       "\n"
-      "FilePileCompilerApp.exe -packdir Ò:\\work\\trunk c:\\work\\trunklist.txt -masks *.xdb\n"
+      "FilePileCompilerApp.exe -packdir —Å:\\work\\trunk c:\\work\\trunklist.txt -masks *.xdb\n"
       "\n"
       );
     return 1;

@@ -20,18 +20,18 @@ void test_Case1()
 {
   wstring value;
 
-  ReqVarOnce( L"var1" ); // эту спросим 1 раз
-  ReqVar( L"var2", 0.1 ); // эту будем спрашивать 10 раз в секунду
+  ReqVarOnce( L"var1" ); // СЌС‚Сѓ СЃРїСЂРѕСЃРёРј 1 СЂР°Р·
+  ReqVar( L"var2", 0.1 ); // СЌС‚Сѓ Р±СѓРґРµРј СЃРїСЂР°С€РёРІР°С‚СЊ 10 СЂР°Р· РІ СЃРµРєСѓРЅРґСѓ
 
-  ReqVar( L"var3", 0.2 ); // эту будем спрашивать 5 раз в секунду
-  RemoveVar( L"var3" ); // нет, лучше не будем
+  ReqVar( L"var3", 0.2 ); // СЌС‚Сѓ Р±СѓРґРµРј СЃРїСЂР°С€РёРІР°С‚СЊ 5 СЂР°Р· РІ СЃРµРєСѓРЅРґСѓ
+  RemoveVar( L"var3" ); // РЅРµС‚, Р»СѓС‡С€Рµ РЅРµ Р±СѓРґРµРј
 
   NI_ASSERT( vars.size() == 2, "bad vars count" ); 
-  NI_ASSERT( false == GetValue( L"var1", value ), "var1 returned w/o request" ); // lastReceived не инициализировано
+  NI_ASSERT( false == GetValue( L"var1", value ), "var1 returned w/o request" ); // lastReceived РЅРµ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅРѕ
     
   TIMESTAMP t1 = NHPTimer::GetScalarTime();
 
-  // бегаем пару секунд 
+  // Р±РµРіР°РµРј РїР°СЂСѓ СЃРµРєСѓРЅРґ 
   while( NHPTimer::GetScalarTime() - t1 < 0.5 )
   {
     UpdateStep();
@@ -44,13 +44,13 @@ void test_Case1()
   
   TClientVars::iterator it = vars.find( L"var1" );
   NI_ASSERT( it != vars.end(), "no var1" );
-  NI_ASSERT( it->second.lastRequested > 0, "var1 not requested" ); // запрос вызывался  
-  NI_ASSERT( it->second.lastRequested - t1 < 0.2, "bad var1 request time" ); // вызывался достаточно давно, т.е. вероятно однократно
+  NI_ASSERT( it->second.lastRequested > 0, "var1 not requested" ); // Р·Р°РїСЂРѕСЃ РІС‹Р·С‹РІР°Р»СЃСЏ  
+  NI_ASSERT( it->second.lastRequested - t1 < 0.2, "bad var1 request time" ); // РІС‹Р·С‹РІР°Р»СЃСЏ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР°РІРЅРѕ, С‚.Рµ. РІРµСЂРѕСЏС‚РЅРѕ РѕРґРЅРѕРєСЂР°С‚РЅРѕ
 
   it = vars.find( L"var2" );
   NI_ASSERT( it != vars.end(), "no var2" );
-  NI_ASSERT( it->second.lastRequested > 0, "var2 not requested" ); // запрос вызывался  
-  NI_ASSERT( t2 - it->second.lastRequested < 0.2, "bad var2 request time" ); // вызывался недавно, т.е. периодически
+  NI_ASSERT( it->second.lastRequested > 0, "var2 not requested" ); // Р·Р°РїСЂРѕСЃ РІС‹Р·С‹РІР°Р»СЃСЏ  
+  NI_ASSERT( t2 - it->second.lastRequested < 0.2, "bad var2 request time" ); // РІС‹Р·С‹РІР°Р»СЃСЏ РЅРµРґР°РІРЅРѕ, С‚.Рµ. РїРµСЂРёРѕРґРёС‡РµСЃРєРё
 
   CallbackValueReceive( L"var1|value1" );
   bool ok = GetValue( L"var1", value );
@@ -78,7 +78,7 @@ static void OnVarChanged(TUserId& userId, wstring& name, wstring& value, void*)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Test_DebugVarRequesterMap::test_Case1()
-{// тест всего Map
+{// С‚РµСЃС‚ РІСЃРµРіРѕ Map
   AddScenario( L"var1" ).AddScenario( L"var2", 1.0 );
 
   DebugVarRequester *req1 = AddRequester( 1, NULL );
@@ -95,7 +95,7 @@ void Test_DebugVarRequesterMap::test_Case1()
 
   NI_ASSERT( GetNextUpdated() == NULL, "GetNextUpdated returns with no updates" ); 
 
-  // теперь якобы вернем что-нибудь
+  // С‚РµРїРµСЂСЊ СЏРєРѕР±С‹ РІРµСЂРЅРµРј С‡С‚Рѕ-РЅРёР±СѓРґСЊ
   req2->CallbackValueReceive( L"var1|some_val" );
 
   DebugVarRequester *updated = GetNextUpdated();
@@ -114,11 +114,11 @@ void Test_DebugVarRequesterMap::test_Case1()
   updated->SetChecked();
   NI_ASSERT( GetNextUpdated() == NULL, "GetNextUpdated returns after SetChecked" ); 
 
-  // якобы вернем 2 переменных
+  // СЏРєРѕР±С‹ РІРµСЂРЅРµРј 2 РїРµСЂРµРјРµРЅРЅС‹С…
   req1->CallbackValueReceive( L"var2|some_val2" );
   req2->CallbackValueReceive( L"var1|some_val1" );
   
-  // и натравим ForEach, с подсчетом кол-ва изменившихся
+  // Рё РЅР°С‚СЂР°РІРёРј ForEach, СЃ РїРѕРґСЃС‡РµС‚РѕРј РєРѕР»-РІР° РёР·РјРµРЅРёРІС€РёС…СЃСЏ
   g_ForEach_CallCount = 0;
   int retCount = ForEachUpdatedVar( &OnVarChanged, NULL );
 

@@ -14,7 +14,7 @@ public:
 public:
 	CBSpline() : x( VNULL2 ), dx( VNULL2 ), d2x( VNULL2 ), d3x( VNULL2 ) {}
 
-	// для просмотра вперёд на предмет залоканных тайлов на пути
+	// РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РІРїРµСЂС‘Рґ РЅР° РїСЂРµРґРјРµС‚ Р·Р°Р»РѕРєР°РЅРЅС‹С… С‚Р°Р№Р»РѕРІ РЅР° РїСѓС‚Рё
 	const static int   N_OF_ITERATONS;
 
   void Init( const CVec2 &p3, const CVec2 &p2, const CVec2 &p1, const CVec2 &p0 );

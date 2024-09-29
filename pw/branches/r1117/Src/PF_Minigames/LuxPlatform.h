@@ -37,7 +37,7 @@ public:
 
   Balls& GetBalls() { return balls; }
   
-  // [AZ] здесь нужна копия 
+  // [AZ] Р·РґРµСЃСЊ РЅСѓР¶РЅР° РєРѕРїРёСЏ 
   CObj<LuxBall> FireBulletBall();
   
 	// platform positioning

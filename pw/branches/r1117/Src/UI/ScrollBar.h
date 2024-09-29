@@ -36,7 +36,7 @@ private:
   const NDb::UIScrollBarLayout * GetScrollBarLayout() const { return GetLayoutClone<NDb::UIScrollBarLayout>(); }
 
   // Images
-  //@iA@TODO: сделать динамическое обновление стилей ImageComponent по Layout
+  //@iA@TODO: СЃРґРµР»Р°С‚СЊ РґРёРЅР°РјРёС‡РµСЃРєРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ СЃС‚РёР»РµР№ ImageComponent РїРѕ Layout
   ImageComponent FirstButton;
   ImageComponent LeverArea;
   ImageComponent Lever;

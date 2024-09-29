@@ -88,7 +88,7 @@ _guardReadyGameId( 0 )
   */
 
   /*
-  playerData.friends.resize( 500 + req.uid % 200 ); //TODO: раздуем данные; В жизни за раздувание данных отвечает поле .talentRollData
+  playerData.friends.resize( 500 + req.uid % 200 ); //TODO: СЂР°Р·РґСѓРµРј РґР°РЅРЅС‹Рµ; Р’ Р¶РёР·РЅРё Р·Р° СЂР°Р·РґСѓРІР°РЅРёРµ РґР°РЅРЅС‹С… РѕС‚РІРµС‡Р°РµС‚ РїРѕР»Рµ .talentRollData
   for ( int i = 0; i < playerData.friends.size(); ++i )
     playerData.friends[i] = ( i * 3571 ) % 2797;
   */

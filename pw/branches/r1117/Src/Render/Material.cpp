@@ -638,7 +638,7 @@ bool MaterialManager::ResetSortIDs(const char*, const vector<wstring>&)
 
 UINT MaterialManager::GetShadersID(const Material *_pMat)
 {
-  static const UINT shaderIdBits = 22; // Волюнтаризм чистой воды
+  static const UINT shaderIdBits = 22; // Р’РѕР»СЋРЅС‚Р°СЂРёР·Рј С‡РёСЃС‚РѕР№ РІРѕРґС‹
   static const UINT shaderIdMask = (1 << shaderIdBits) - 1;
 
   const int  idMulti = _pMat->GetResourceManagerShaderIndex();

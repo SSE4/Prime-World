@@ -159,7 +159,7 @@ void GameContext::Cleanup()
   debugVarsSender = 0;
   if ( chatClient )
   {
-    // Разрываем кольцо NUM_TASK
+    // Р Р°Р·СЂС‹РІР°РµРј РєРѕР»СЊС†Рѕ NUM_TASK
     chatClient->Shutdown();
   }
   chatClient = 0;
@@ -737,7 +737,7 @@ void GameContext::AcquireGameStat()
 {
   gameStat = 0;
 
-  //UGLY: Объект создается здесь, инициализируется и поллится из SessionRunnerPW
+  //UGLY: РћР±СЉРµРєС‚ СЃРѕР·РґР°РµС‚СЃСЏ Р·РґРµСЃСЊ, РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚СЃСЏ Рё РїРѕР»Р»РёС‚СЃСЏ РёР· SessionRunnerPW
   debugVarsSender = new DebugVarsSender;
 
   StrongMT<StatisticService::IStatDataDispatcher> statDispatcher = s_stat_immidiate ? 

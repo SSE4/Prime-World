@@ -271,7 +271,7 @@ void AdventurepreferencesProcessor::Cancel()
 {
   PreferencesProcessor::Cancel();
 
-  //так как при закрытии окна настроек без сохранения/подтверждения сбрасываются только настройки графики, то остальные изменнения тоже должны сохранятся в файл 
+  //С‚Р°Рє РєР°Рє РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РЅР°СЃС‚СЂРѕРµРє Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ/РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ СЃР±СЂР°СЃС‹РІР°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РЅР°СЃС‚СЂРѕР№РєРё РіСЂР°С„РёРєРё, С‚Рѕ РѕСЃС‚Р°Р»СЊРЅС‹Рµ РёР·РјРµРЅРЅРµРЅРёСЏ С‚РѕР¶Рµ РґРѕР»Р¶РЅС‹ СЃРѕС…СЂР°РЅСЏС‚СЃСЏ РІ С„Р°Р№Р» 
   if(!NGameX::AdventureScreen::Instance()->IsInReplayMode())
   {
     NGlobal::SaveConfig( NProfile::GetFullFilePath( "user.cfg", NProfile::FOLDER_USER ), STORAGE_USER );
@@ -286,10 +286,10 @@ void AdventurepreferencesProcessor::ApplyShortcuts()
 {
   PreferencesProcessor::ApplyShortcuts();
 
-  //так как при закрытии окна настроек без сохранения/подтверждения сбрасываются только настройки графики, то остальные изменнения тоже должны сохранятся в файл 
+  //С‚Р°Рє РєР°Рє РїСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РЅР°СЃС‚СЂРѕРµРє Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ/РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ СЃР±СЂР°СЃС‹РІР°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РЅР°СЃС‚СЂРѕР№РєРё РіСЂР°С„РёРєРё, С‚Рѕ РѕСЃС‚Р°Р»СЊРЅС‹Рµ РёР·РјРµРЅРЅРµРЅРёСЏ С‚РѕР¶Рµ РґРѕР»Р¶РЅС‹ СЃРѕС…СЂР°РЅСЏС‚СЃСЏ РІ С„Р°Р№Р» 
   if(!NGameX::AdventureScreen::Instance()->IsInReplayMode())
   {
-    // отправка изменённых биндов в интерфейс
+    // РѕС‚РїСЂР°РІРєР° РёР·РјРµРЅС‘РЅРЅС‹С… Р±РёРЅРґРѕРІ РІ РёРЅС‚РµСЂС„РµР№СЃ
     AdventureScreenLogic* advLogic = dynamic_cast<AdventureScreenLogic*>(AdventureScreen::Instance()->GetLogic());
     Input::Binds* binds = Input::BindsManager::Instance()->GetBinds();
 
@@ -518,7 +518,7 @@ void AdventureScreenLogic::OnMapLoaded( const NDb::AdvMapDescription * advMapDes
   mapType = advMapDescription->mapType;
 	fwodVisualInfo = advMapDescription->FirstWinVisualInfo;
 
-  //кастомные обработчики карт
+  //РєР°СЃС‚РѕРјРЅС‹Рµ РѕР±СЂР°Р±РѕС‚С‡РёРєРё РєР°СЂС‚
   if ( flashInterface )
   {
     if ( mapType == NDb::MAPTYPE_CTE )
@@ -1148,8 +1148,8 @@ bool AdventureScreenLogic::ProcessUIEvent(const Input::Event& event)
 
 void AdventureScreenLogic::ConfigurePlaySameTeamFeature(const NDb::AdvMapDescription* const advMapDescription, const bool available, const bool enabled)
 {
-  // available: может ли локальный игрок принимать решение
-  // enabled: доступна ли фича
+  // available: РјРѕР¶РµС‚ Р»Рё Р»РѕРєР°Р»СЊРЅС‹Р№ РёРіСЂРѕРє РїСЂРёРЅРёРјР°С‚СЊ СЂРµС€РµРЅРёРµ
+  // enabled: РґРѕСЃС‚СѓРїРЅР° Р»Рё С„РёС‡Р°
 
   if (!enabled)
   {
@@ -1170,7 +1170,7 @@ void AdventureScreenLogic::HandlePlaySameTeamDecision(const NWorld::PFPlayer* co
   NI_VERIFY(!!localPlayer, "Invalid local player!", return);
   NI_VERIFY(!!player, "Invalid player!", return);
 
-  // не показывать решения команды соперников
+  // РЅРµ РїРѕРєР°Р·С‹РІР°С‚СЊ СЂРµС€РµРЅРёСЏ РєРѕРјР°РЅРґС‹ СЃРѕРїРµСЂРЅРёРєРѕРІ
   if (localPlayer->GetTeamID() != player->GetTeamID())
     return;
 

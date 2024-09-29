@@ -21,14 +21,14 @@ class User : public BaseObjectST
 public:
   User();
 
-  //Обработка EventMouseOver() и тултипов
+  //РћР±СЂР°Р±РѕС‚РєР° EventMouseOver() Рё С‚СѓР»С‚РёРїРѕРІ
   void UpdateMouseMove( const Point & mouseCoords );
   void UpdateMouseOver( Window * newOverWindow, const Point & mousePos );
   Weak<Window> GetMouseOverWindow() const { return mouseOverWindow; }
 
   const Point & LastMouseCoords() const { return lastMouseCoords; }
 
-  //Клавиатурный фокус
+  //РљР»Р°РІРёР°С‚СѓСЂРЅС‹Р№ С„РѕРєСѓСЃ
   void SetKeyboardFocus( Window * newFocusWindow );
   Weak<Window> GetKeyboardFocus() const { return keyboardFocus; }
 
@@ -36,7 +36,7 @@ public:
   void StartEvent( const Input::Event & event );
   void EndEvent( const Input::Event & event );
 
-  //Принудительно показать тултип
+  //РџСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ РїРѕРєР°Р·Р°С‚СЊ С‚СѓР»С‚РёРї
   void ForceTooltip( const Point & mouseCoords );
 
   void SetMouseCapture( Window * target );

@@ -8,7 +8,7 @@
 #include "ClientControl/ClientControlInterface.h"
 #include "System/InlineProfiler.h"
 #include "NewLoginLog.h"
-#define SMAX_SIZE 300 //ограничение на количество символов в строке логина 
+#define SMAX_SIZE 300 //РѕРіСЂР°РЅРёС‡РµРЅРёРµ РЅР° РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РІ СЃС‚СЂРѕРєРµ Р»РѕРіРёРЅР° 
 
 
 namespace newLogin
@@ -30,7 +30,7 @@ usid( 0 ),
 timeout( _config->Cfg()->helloWaitTimeout, this, &UserCtx::OnTimeout ),
 emptyLinksTimeout( _config->Cfg()->emptyLinksTimeout, this, &UserCtx::OnEmptyLinksTimeout )
 {
-  //NUM_TASK добавил ограничители аллокации 
+  //NUM_TASK РґРѕР±Р°РІРёР» РѕРіСЂР°РЅРёС‡РёС‚РµР»Рё Р°Р»Р»РѕРєР°С†РёРё 
   containerSizeLimit = sizeof(char) * SMAX_SIZE;
   totalSizeLimit = 2 * sizeof(int) + 3 * containerSizeLimit;;
   

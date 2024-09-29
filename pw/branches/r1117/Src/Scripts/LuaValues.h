@@ -25,7 +25,7 @@ namespace Lua
     static int         put(lua_State *L, bool value);
   };
 
-  // Осторожно: в LUA есть только double. Здесь он приводится к int
+  // РћСЃС‚РѕСЂРѕР¶РЅРѕ: РІ LUA РµСЃС‚СЊ С‚РѕР»СЊРєРѕ double. Р—РґРµСЃСЊ РѕРЅ РїСЂРёРІРѕРґРёС‚СЃСЏ Рє int
   template<> struct lua_values<int>
   {
     static int         get(lua_State *L, int idx);

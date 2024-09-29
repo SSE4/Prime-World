@@ -45,13 +45,13 @@ StageObject::~StageObject(void)
 
 void StageObject::Stage_swapChildrenAt( int index1, int index2 )
 {
-  // [TODO] разобраться зачем у StageObject переопределен этот  метод 
+  // [TODO] СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ Р·Р°С‡РµРј Сѓ StageObject РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅ СЌС‚РѕС‚  РјРµС‚РѕРґ 
   DisplayObjectContainerObject::swapChildrenAt( index1, index2 );
 }
 
 DisplayObjectObject* StageObject::Stage_removeChildAt( int index )
 {
-  // [TODO] разобраться зачем у StageObject переопределен этот  метод 
+  // [TODO] СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ Р·Р°С‡РµРј Сѓ StageObject РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅ СЌС‚РѕС‚  РјРµС‚РѕРґ 
   return DisplayObjectContainerObject::removeChildAt( index );
 }
 

@@ -30,7 +30,7 @@ class ObjectView : public Window
   string objectID;
 
   Strong<CObjectViewProviderBase> provider;
-  //@iA@TODO: динамически обновлять стиль ImageComponent по pViewLayout->maskStyle
+  //@iA@TODO: РґРёРЅР°РјРёС‡РµСЃРєРё РѕР±РЅРѕРІР»СЏС‚СЊ СЃС‚РёР»СЊ ImageComponent РїРѕ pViewLayout->maskStyle
   ImageComponent view;
 
   bool needUpdate;

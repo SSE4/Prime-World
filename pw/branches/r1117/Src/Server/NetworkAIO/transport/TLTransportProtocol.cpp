@@ -309,7 +309,7 @@ TransportProtocolHandler::HandleOutput(TransportMsg const * sctm, unsigned int& 
   unsigned int msgOffset = 0;
   do
   {
-    //  вычисляем кол-во сообщений помещающихся в сетевой пакет
+    //  РІС‹С‡РёСЃР»СЏРµРј РєРѕР»-РІРѕ СЃРѕРѕР±С‰РµРЅРёР№ РїРѕРјРµС‰Р°СЋС‰РёС…СЃСЏ РІ СЃРµС‚РµРІРѕР№ РїР°РєРµС‚
     size_t total_mb_len = 0;
     unsigned int msgCount = msgOffset;
     while (msgCount < count && total_mb_len <= NetworkProtocolHandler::MAX_DATA_SIZE)
@@ -323,11 +323,11 @@ TransportProtocolHandler::HandleOutput(TransportMsg const * sctm, unsigned int& 
       --msgCount;
     }
 
-    //  вычисляем размер и выделяем память под body
+    //  РІС‹С‡РёСЃР»СЏРµРј СЂР°Р·РјРµСЂ Рё РІС‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ РїРѕРґ body
     unsigned int bodySize = Transport::GetAddressSize(sctm[0].caddr_, packaddr_)*msgCount + total_mb_len;
     ACE_Message_Block* pmb = network_handler_.AllocBuffer(channel, bodySize);
 
-    //  сериализуем сообщения в body
+    //  СЃРµСЂРёР°Р»РёР·СѓРµРј СЃРѕРѕР±С‰РµРЅРёСЏ РІ body
     unsigned int j = msgOffset;
     while (j < msgCount)
     {

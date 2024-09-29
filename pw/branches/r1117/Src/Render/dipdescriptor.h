@@ -5,7 +5,7 @@
 namespace Render
 {
 
-/// Описание DIP
+/// РћРїРёСЃР°РЅРёРµ DIP
 struct DipDescriptor
 {
 	DipDescriptor() : minIndex(0) {}
@@ -15,16 +15,16 @@ struct DipDescriptor
     , numVertices(_numVertices), startIndex(_startIndex), primitiveCount(_primCount)
   {}
 
-	/// Тип примитивов
+	/// РўРёРї РїСЂРёРјРёС‚РёРІРѕРІ
 	ERenderPrimitiveType primitiveType;
-	/// Смещение индексов
+	/// РЎРјРµС‰РµРЅРёРµ РёРЅРґРµРєСЃРѕРІ
 	int baseVertexIndex;
 	unsigned int minIndex;
-	/// Количество вершин
+	/// РљРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ
 	unsigned int numVertices;
-	/// Номер индекса, начиная с которого начинается вывод
+	/// РќРѕРјРµСЂ РёРЅРґРµРєСЃР°, РЅР°С‡РёРЅР°СЏ СЃ РєРѕС‚РѕСЂРѕРіРѕ РЅР°С‡РёРЅР°РµС‚СЃСЏ РІС‹РІРѕРґ
 	unsigned int startIndex;
-	/// Количество примитивов
+	/// РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРёРјРёС‚РёРІРѕРІ
 	unsigned int primitiveCount;
 };
 

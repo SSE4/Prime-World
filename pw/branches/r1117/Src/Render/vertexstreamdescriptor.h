@@ -9,13 +9,13 @@ namespace Render
 		VERTEX_STREAM_COMMONINSTANCEDATA
 	};
 
-	/// Описание формата потока вершинного буфера
+	/// РћРїРёСЃР°РЅРёРµ С„РѕСЂРјР°С‚Р° РїРѕС‚РѕРєР° РІРµСЂС€РёРЅРЅРѕРіРѕ Р±СѓС„РµСЂР°
 	struct VertexStreamDescriptor
 	{
 	public:
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		VertexStreamDescriptor(): offset(0), stride(0), type(VERTEX_STREAM_DEFAULT), instancesCount(0) {}
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		VertexStreamDescriptor(unsigned int _offset, unsigned int _stride, EVertexStreamType _type = VERTEX_STREAM_DEFAULT, unsigned int _instancesCount = 0): 
 			offset(_offset), stride(_stride), type(_type), instancesCount(_instancesCount) {}
 
@@ -40,13 +40,13 @@ namespace Render
 		///
 		bool operator != (const VertexStreamDescriptor& other) const { return !operator == (other); }
 
-		/// Тип
+		/// РўРёРї
 		EVertexStreamType type;
-		/// Смещение
+		/// РЎРјРµС‰РµРЅРёРµ
 		unsigned int offset;
-		/// Страйд
+		/// РЎС‚СЂР°Р№Рґ
 		unsigned int stride;
-		/// Количество инстансов
+		/// РљРѕР»РёС‡РµСЃС‚РІРѕ РёРЅСЃС‚Р°РЅСЃРѕРІ
 		unsigned int instancesCount;
 	};
 }; // namespace Render

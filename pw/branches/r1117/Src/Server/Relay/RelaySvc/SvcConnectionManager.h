@@ -49,7 +49,7 @@ public:
 public:
   bool IsKnownService(Transport::TServiceId const & svcid);
   int Connect(ICallback* cb, BackendContextWeakPtr & wpbc);
-  /// вызывается когда соединение успешно установлено
+  /// РІС‹Р·С‹РІР°РµС‚СЃСЏ РєРѕРіРґР° СЃРѕРµРґРёРЅРµРЅРёРµ СѓСЃРїРµС€РЅРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ
   void OnConnectionCompleted(ICallback* pcb, BackendContextWeakPtr wpctx);
 
 private:

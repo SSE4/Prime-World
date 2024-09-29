@@ -79,7 +79,7 @@ void CUpdater::Push( CObjectBase *pUpdate, const bool bDelayed )
 {
 	NI_VERIFY( pUpdate, "Invalid update", return );
 	
-	CObj<CObjectBase> pGarbage = pUpdate; // чтобы не мучаться удалением pUpdate, наверняка нас позовут как Push( new .... )
+	CObj<CObjectBase> pGarbage = pUpdate; // С‡С‚РѕР±С‹ РЅРµ РјСѓС‡Р°С‚СЊСЃСЏ СѓРґР°Р»РµРЅРёРµРј pUpdate, РЅР°РІРµСЂРЅСЏРєР° РЅР°СЃ РїРѕР·РѕРІСѓС‚ РєР°Рє Push( new .... )
 	if ( bDelayed )
 		updates.push_back( pUpdate );
 	else

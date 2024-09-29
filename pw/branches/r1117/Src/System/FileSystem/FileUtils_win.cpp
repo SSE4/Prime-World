@@ -38,7 +38,7 @@ void CFileIterator::Close()
 
 const CFileIterator & CFileIterator::Next()
 {
-  // Если это итератор на end - просто ничего не делать
+  // Р•СЃР»Рё СЌС‚Рѕ РёС‚РµСЂР°С‚РѕСЂ РЅР° end - РїСЂРѕСЃС‚Рѕ РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°С‚СЊ
   if ( IsValid() )
   {
     if ( ::FindNextFileA( find_, &findinfo_ ) == FALSE )
@@ -61,10 +61,10 @@ const SWin32Time CFileIterator::GetLastWriteTime() const
 
 void CFileIterator::FirstFile()
 {
-  // Разделить маску на базовый путь и саму маску
-  // Пример: Data\*.*
-  //   Data\ - это путь
-  //   *.* - это маска
+  // Р Р°Р·РґРµР»РёС‚СЊ РјР°СЃРєСѓ РЅР° Р±Р°Р·РѕРІС‹Р№ РїСѓС‚СЊ Рё СЃР°РјСѓ РјР°СЃРєСѓ
+  // РџСЂРёРјРµСЂ: Data\*.*
+  //   Data\ - СЌС‚Рѕ РїСѓС‚СЊ
+  //   *.* - СЌС‚Рѕ РјР°СЃРєР°
   CFileIterator::filename_type origMask = mask_;
   path_ = mask_;
   std::replace( path_.begin(), path_.end(), '/', '\\' );
@@ -81,7 +81,7 @@ void CFileIterator::FirstFile()
   // create absolute path from the relative one
   NFile::GetFullName( &path_, path_ );
 
-  // Зачем нужно делать это до и после GetFullName - разобраться
+  // Р—Р°С‡РµРј РЅСѓР¶РЅРѕ РґРµР»Р°С‚СЊ СЌС‚Рѕ РґРѕ Рё РїРѕСЃР»Рµ GetFullName - СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ
   if ( ( !path_.empty() ) && ( path_[ path_.length() - 1 ] != '\\' ) ) { path_ += "\\"; }
 
   ::ZeroMemory( &findinfo_, sizeof( findinfo_ ) );

@@ -1674,7 +1674,7 @@ void Interface::SetDefaultStates()
 
   IDirect3DDevice9* const pDevice = GetDevice();
   // GetStatesManagerOld()->SetMipMapBias( miplodbias );
-  //CRAP{ Перенести в SamplerState
+  //CRAP{ РџРµСЂРµРЅРµСЃС‚Рё РІ SamplerState
   for(size_t samplerIdx = 0; samplerIdx < 16; ++samplerIdx)
   {
     pDevice->SetSamplerState(samplerIdx, D3DSAMP_MIPMAPLODBIAS, (DWORD&)miplodbias);

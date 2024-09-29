@@ -493,7 +493,7 @@ void PFApplAbilityUpgrade::Enable()
 {
   if ( GetDB().flags & NDb::ABILITYUPGRADEMODE_CHANGEICON )
   {
-    //TODO: Поменять иконку на глиф NUM_TASK
+    //TODO: РџРѕРјРµРЅСЏС‚СЊ РёРєРѕРЅРєСѓ РЅР° РіР»РёС„ NUM_TASK
   }
 
   if ( IsValid(pReceiver) )
@@ -506,7 +506,7 @@ void PFApplAbilityUpgrade::Disable()
 {
   if ( GetDB().flags & NDb::ABILITYUPGRADEMODE_CHANGEICON )
   {
-    //TODO: Поменять иконку на обычный талант NUM_TASK
+    //TODO: РџРѕРјРµРЅСЏС‚СЊ РёРєРѕРЅРєСѓ РЅР° РѕР±С‹С‡РЅС‹Р№ С‚Р°Р»Р°РЅС‚ NUM_TASK
   }
 
   if ( IsValid(pReceiver) )

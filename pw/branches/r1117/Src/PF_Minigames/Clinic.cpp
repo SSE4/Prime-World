@@ -1190,7 +1190,7 @@ void Clinic::OnLevelIsWon( bool giveOutAwards )
 
   GetStatistics()->MinigameLevelEnded( pDBClinic->GetDBID(), GetPriestessId(), levelID, pfMgLevelStatus, lastLevel );
 
-  //Ïðîâåðèì, íå ïîáåäèëè ëè ìû âñþ êëèíèêó
+  //ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ð¼, Ð½Ðµ Ð¿Ð¾Ð±ÐµÐ´Ð¸Ð»Ð¸ Ð»Ð¸ Ð¼Ñ‹ Ð²ÑÑŽ ÐºÐ»Ð¸Ð½Ð¸ÐºÑƒ
   if( levelID == levelCompletion.size() - 1 )
     if( ( levelInfo.bestStatus == EClinicLevelStatus::Incomplete ) && ( levelInfo.lastStatus != EClinicLevelStatus::Incomplete ) )
       GetStatistics()->MinigameComplete( pDBClinic->GetDBID(), GetPriestessId() );

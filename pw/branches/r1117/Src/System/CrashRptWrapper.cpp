@@ -38,7 +38,7 @@ void InstallForProcess( const char * uploadUrl, bool useBinaryEncoding, bool noG
   info.uPriorities[CR_SMAPI] = CR_NEGATIVE_PRIORITY;
   info.uPriorities[CR_HTTP] = 1;
   info.dwFlags = 0;
-  //  выставляем обработчики флагов так чтобы работал перехват Ctrl+C в консоли через SetConsoleCtrlHandler
+  //  РІС‹СЃС‚Р°РІР»СЏРµРј РѕР±СЂР°Р±РѕС‚С‡РёРєРё С„Р»Р°РіРѕРІ С‚Р°Рє С‡С‚РѕР±С‹ СЂР°Р±РѕС‚Р°Р» РїРµСЂРµС…РІР°С‚ Ctrl+C РІ РєРѕРЅСЃРѕР»Рё С‡РµСЂРµР· SetConsoleCtrlHandler
   info.dwFlags |= CR_INST_SEH_EXCEPTION_HANDLER
     | CR_INST_TERMINATE_HANDLER
     | CR_INST_UNEXPECTED_HANDLER

@@ -17,7 +17,7 @@ struct StaticMeshFileHeader
 };
 
 /*
-// вер, инд
+// РІРµСЂ, РёРЅРґ
 struct StaticMeshVertex
 {
 	float posX;

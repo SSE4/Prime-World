@@ -799,7 +799,7 @@ void CNetDriver::StepConnecting()
 		case CLoginSupport::ACCEPTED:
 			{
 				netTraffic( NLogg::LEVEL_MESSAGE, NStr::StrFmt( "*** LOGIN accepted by: %s, add new p2p connection...", login.GetLoginTarget().GetFastName().c_str() ) );
-				// ставим 0, т.к. id server == 0
+				// СЃС‚Р°РІРёРј 0, С‚.Рє. id server == 0
 				const int clientId = 0;
 				AddNewP2PClient( SClientAddressInfo( login.GetLoginTarget(), login.GetTargetLocalAddr() ), clientId );
 				state = ACTIVE;

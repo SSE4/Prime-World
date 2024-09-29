@@ -486,14 +486,14 @@ SPerGameHistograms & Statistics::GetThatHistosByRating( int rating, mmaking::EBa
 
 void Statistics::OutputBasketHistos( const SPerGameHistograms & histos, const string & rangeTitle, TReport & report ) const
 {
-  OutputHistogram( histos.estimFun, "estim_fun", rangeTitle, rangeTitle, "Значение оценочной функции", 2, report );
-  OutputHistogram( histos.ratingSpan, "rating_span", rangeTitle, rangeTitle, "Разброс рейтинга игроков, макс-мин", 0, report );
-  OutputHistogram( histos.ratingPatternDelta, "rating_pattern_delta", rangeTitle, rangeTitle, "Разница сортированного рейтинга", 0, report );
-  OutputHistogram( histos.ratingTeamAvgDelta, "rating_team_avg_delta", rangeTitle, rangeTitle, "Разброс среднего рейтинга игроков обеих команд", 0, report );
-  OutputHistogram( histos.forceSpan, "force_span", rangeTitle, rangeTitle, "Разброс форса игроков, макс-мин", 0, report );
-  OutputHistogram( histos.avgForceDelta, "avg_force_delta", rangeTitle, rangeTitle, "Разница среднего форса команд", 0, report );
+  OutputHistogram( histos.estimFun, "estim_fun", rangeTitle, rangeTitle, "Р—РЅР°С‡РµРЅРёРµ РѕС†РµРЅРѕС‡РЅРѕР№ С„СѓРЅРєС†РёРё", 2, report );
+  OutputHistogram( histos.ratingSpan, "rating_span", rangeTitle, rangeTitle, "Р Р°Р·Р±СЂРѕСЃ СЂРµР№С‚РёРЅРіР° РёРіСЂРѕРєРѕРІ, РјР°РєСЃ-РјРёРЅ", 0, report );
+  OutputHistogram( histos.ratingPatternDelta, "rating_pattern_delta", rangeTitle, rangeTitle, "Р Р°Р·РЅРёС†Р° СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРіРѕ СЂРµР№С‚РёРЅРіР°", 0, report );
+  OutputHistogram( histos.ratingTeamAvgDelta, "rating_team_avg_delta", rangeTitle, rangeTitle, "Р Р°Р·Р±СЂРѕСЃ СЃСЂРµРґРЅРµРіРѕ СЂРµР№С‚РёРЅРіР° РёРіСЂРѕРєРѕРІ РѕР±РµРёС… РєРѕРјР°РЅРґ", 0, report );
+  OutputHistogram( histos.forceSpan, "force_span", rangeTitle, rangeTitle, "Р Р°Р·Р±СЂРѕСЃ С„РѕСЂСЃР° РёРіСЂРѕРєРѕРІ, РјР°РєСЃ-РјРёРЅ", 0, report );
+  OutputHistogram( histos.avgForceDelta, "avg_force_delta", rangeTitle, rangeTitle, "Р Р°Р·РЅРёС†Р° СЃСЂРµРґРЅРµРіРѕ С„РѕСЂСЃР° РєРѕРјР°РЅРґ", 0, report );
 
-  OutputHistogram( histos.waitTimeAvg, "wait_game_avg", rangeTitle, rangeTitle, "Среднее геометрическое времени ожидания", 0, report );
+  OutputHistogram( histos.waitTimeAvg, "wait_game_avg", rangeTitle, rangeTitle, "РЎСЂРµРґРЅРµРµ РіРµРѕРјРµС‚СЂРёС‡РµСЃРєРѕРµ РІСЂРµРјРµРЅРё РѕР¶РёРґР°РЅРёСЏ", 0, report );
 
   for ( int ti = 0; ti < 2; ++ti ) {
     const char * fact = ti ? "B" : "A";
@@ -504,7 +504,7 @@ void Statistics::OutputBasketHistos( const SPerGameHistograms & histos, const st
       nutils::DataHistogram::THistogramsPack histoPack;
       for ( std::map<string, Strong<nutils::DataHistogram>>::const_iterator it = histos.waitByHero[ti].begin(); it != histos.waitByHero[ti].end(); ++it ) {
         string id = NI_STRFMT( "wait%d_hero_%s", ti + 1, it->first );
-        string descr = NI_STRFMT( "Время ожидания, фракция %s, герой %s", fact, it->first );
+        string descr = NI_STRFMT( "Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ, С„СЂР°РєС†РёСЏ %s, РіРµСЂРѕР№ %s", fact, it->first );
         ReportHistogram( it->second, id, rangeTitle, descr, 0, report );
         histoPack.push_back( pair<string, Strong<nutils::DataHistogram>>( it->first, it->second ) );
       }
@@ -513,31 +513,31 @@ void Statistics::OutputBasketHistos( const SPerGameHistograms & histos, const st
 
     {
       string id = NI_STRFMT( "wait%d_removed", ti + 1 );
-      string descr = NI_STRFMT( "Время ожидания перед отменой, фракция %s", fact );
+      string descr = NI_STRFMT( "Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ РїРµСЂРµРґ РѕС‚РјРµРЅРѕР№, С„СЂР°РєС†РёСЏ %s", fact );
       OutputHistogram( histos.removedWait[ti], id, rangeTitle, rangeTitle, descr, 0, report );
     }
 
     {
       string id = NI_STRFMT( "wait%d_removed_no_man", ti + 1 );
-      string descr = NI_STRFMT( "Время ожидания перед отменой, фракция %s, с отключенными маневрами", fact );
+      string descr = NI_STRFMT( "Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ РїРµСЂРµРґ РѕС‚РјРµРЅРѕР№, С„СЂР°РєС†РёСЏ %s, СЃ РѕС‚РєР»СЋС‡РµРЅРЅС‹РјРё РјР°РЅРµРІСЂР°РјРё", fact );
       OutputHistogram( histos.removedWaitNoManoeuvres[ti], id, rangeTitle, rangeTitle, descr, 0, report );
     }
 
     {
       string id = NI_STRFMT( "wait%d", ti + 1 );
-      string descr = NI_STRFMT( "Время ожидания, фракция %s", fact );
+      string descr = NI_STRFMT( "Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ, С„СЂР°РєС†РёСЏ %s", fact );
       OutputHistogram( histos.wait[ti], id, rangeTitle, rangeTitle, descr, 0, report );
     }
 
     {
       string id = NI_STRFMT( "wait%d_serge", ti + 1 );
-      string descr = NI_STRFMT( "Время ожидания, фракция %s", fact );
+      string descr = NI_STRFMT( "Р’СЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ, С„СЂР°РєС†РёСЏ %s", fact );
       OutputHistogram( histos.waitSerge[ti], id, rangeTitle, rangeTitle, descr, 0, report );
     }
   }
 
-  OutputHistogram( histos.wins, "wins", rangeTitle, rangeTitle, "Общее количество побед", 0, report );
-  OutputHistogram( histos.winsSpan, "wins_span", rangeTitle, rangeTitle, "Разброс количество побед в игре", 0, report );
+  OutputHistogram( histos.wins, "wins", rangeTitle, rangeTitle, "РћР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР±РµРґ", 0, report );
+  OutputHistogram( histos.winsSpan, "wins_span", rangeTitle, rangeTitle, "Р Р°Р·Р±СЂРѕСЃ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР±РµРґ РІ РёРіСЂРµ", 0, report );
 }
 
 
@@ -987,28 +987,28 @@ void Statistics::Output() const
   _mkdir( "results" );
   _mkdir( "total" );
 
-  report.push_back( ReportItem( nutils::DataHistogram::SInfo( mixedNoobGames, 0, 0, 0 ), "mixed_noob_games", "", "Количество смешанных нубоигр" ) );
+  report.push_back( ReportItem( nutils::DataHistogram::SInfo( mixedNoobGames, 0, 0, 0 ), "mixed_noob_games", "", "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРјРµС€Р°РЅРЅС‹С… РЅСѓР±РѕРёРіСЂ" ) );
 
   for ( int i = 0; i < 2; ++i ) {
     string idx = NI_STRFMT( "%d", i + 1 );
-    OutputHistogram( heroRatingHisto[i], "rating" + idx, "", "results", "Рейтинг героя игроков фракции " + idx, 0, report );
-    OutputHistogram( heroRatingCanceledHisto[i], "canceled_rating" + idx, "", "results", "Рейтинг героя игроков фракции " + idx + "(отмененные запросы)", 0, report );
-    OutputHistogram( playerRatingHisto[i], "player_rating" + idx, "", "results", "Рейтинг аккаунта игроков фракции " + idx, 0, report );
-    OutputHistogram( playerRatingCanceledHisto[i], "canceled_player_rating" + idx, "", "results", "Рейтинг аккаунта игроков фракции " + idx + "(отмененные запросы)", 0, report );
-    OutputHistogram( forceHisto[i], "force" + idx, "", "results", "Форс игроков фракции " + idx, 0, report );
+    OutputHistogram( heroRatingHisto[i], "rating" + idx, "", "results", "Р РµР№С‚РёРЅРі РіРµСЂРѕСЏ РёРіСЂРѕРєРѕРІ С„СЂР°РєС†РёРё " + idx, 0, report );
+    OutputHistogram( heroRatingCanceledHisto[i], "canceled_rating" + idx, "", "results", "Р РµР№С‚РёРЅРі РіРµСЂРѕСЏ РёРіСЂРѕРєРѕРІ С„СЂР°РєС†РёРё " + idx + "(РѕС‚РјРµРЅРµРЅРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹)", 0, report );
+    OutputHistogram( playerRatingHisto[i], "player_rating" + idx, "", "results", "Р РµР№С‚РёРЅРі Р°РєРєР°СѓРЅС‚Р° РёРіСЂРѕРєРѕРІ С„СЂР°РєС†РёРё " + idx, 0, report );
+    OutputHistogram( playerRatingCanceledHisto[i], "canceled_player_rating" + idx, "", "results", "Р РµР№С‚РёРЅРі Р°РєРєР°СѓРЅС‚Р° РёРіСЂРѕРєРѕРІ С„СЂР°РєС†РёРё " + idx + "(РѕС‚РјРµРЅРµРЅРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹)", 0, report );
+    OutputHistogram( forceHisto[i], "force" + idx, "", "results", "Р¤РѕСЂСЃ РёРіСЂРѕРєРѕРІ С„СЂР°РєС†РёРё " + idx, 0, report );
   }
 
   heroRatingByHourHisto->DumpFreq( "rating_by_hour", "results" );
   ratingSpanByHeroRating->DumpFreq( "rating_span_by_rating", "results" );
 
-  OutputHistogram( avgForceDelta, "avg_force_abs_delta", "", "results", "Разница форса команд", 0, report );
+  OutputHistogram( avgForceDelta, "avg_force_abs_delta", "", "results", "Р Р°Р·РЅРёС†Р° С„РѕСЂСЃР° РєРѕРјР°РЅРґ", 0, report );
   for ( AvgForceDeltaByForce::const_iterator it = avgForceDeltaByForce.begin(); it != avgForceDeltaByForce.end(); ++it ) {
     string id = NI_STRFMT( "avg_force_abs_delta_%d", (int)it->force0 );
-    string descr = NI_STRFMT( "Разница форса команд: f=%d...%d", (int)it->force0, (int)it->force1 );
+    string descr = NI_STRFMT( "Р Р°Р·РЅРёС†Р° С„РѕСЂСЃР° РєРѕРјР°РЅРґ: f=%d...%d", (int)it->force0, (int)it->force1 );
     OutputHistogram( it->histo, id, "", "results", descr, 0, report );
   }
 
-  OutputHistogram( timeoutRatingHisto, "timed_out_rating", "", "results", "Рейтинг игроков, не дождавшихся ММ", 0, report );
+  OutputHistogram( timeoutRatingHisto, "timed_out_rating", "", "results", "Р РµР№С‚РёРЅРі РёРіСЂРѕРєРѕРІ, РЅРµ РґРѕР¶РґР°РІС€РёС…СЃСЏ РњРњ", 0, report );
 
   OutputBasketHistos( totalHistograms, "total", report );
   for( std::map<int, SPerGameHistograms>::const_iterator it = rankedHistograms.begin(); it != rankedHistograms.end(); ++it )

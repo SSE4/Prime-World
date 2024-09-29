@@ -377,8 +377,8 @@ StrongMT<TransportPipe> GateKeeperBase::CreatePipe( Transport::IChannel * chan, 
   }
   else
   { //  creation another pipe with the same name is requested
-    //  çäåñü ñ÷èòàåì òåêóùèé pipe çàêðûâàåòñÿ è ÷òîáû ïî íåìó çàâåðøèòü îïåðàöèè - 
-    //  ïðîñòî õðàíèì åãî äî òåõ ïîð ïîêà îí íå ñòàíåò closed
+    //  Ð·Ð´ÐµÑÑŒ ÑÑ‡Ð¸Ñ‚Ð°ÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ pipe Ð·Ð°ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð¸ Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾ Ð½ÐµÐ¼Ñƒ Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚ÑŒ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ - 
+    //  Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ñ…Ñ€Ð°Ð½Ð¸Ð¼ ÐµÐ³Ð¾ Ð´Ð¾ Ñ‚ÐµÑ… Ð¿Ð¾Ñ€ Ð¿Ð¾ÐºÐ° Ð¾Ð½ Ð½Ðµ ÑÑ‚Ð°Ð½ÐµÑ‚ closed
 
     WarningTrace("GateKeeper: Race pipe detected. name=%s", Transport::AddressToString(chan->GetAddress()));
 
@@ -475,7 +475,7 @@ transport( _transport )
     DebugTrace( "GateKeeper: Created direct service listener. svcid=%s, ptr=%d, ip=%s", _serviceId.c_str(), (void*)listener.Get(), listenAddress );
   }
   else
-  if (!_serviceId.empty() && _serviceId.At(0) != '_') // èìåíà, íà÷èíàþùèåñÿ ñ "_", áóäåì ñ÷èòàòü ñëóæåáíûìè (ïðîñòî äëÿ ñîîáùåíèÿ àäðåñàòó, êòî ê íåìó ïðèø¸ë)
+  if (!_serviceId.empty() && _serviceId.At(0) != '_') // Ð¸Ð¼ÐµÐ½Ð°, Ð½Ð°Ñ‡Ð¸Ð½Ð°ÑŽÑ‰Ð¸ÐµÑÑ Ñ "_", Ð±ÑƒÐ´ÐµÐ¼ ÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ ÑÐ»ÑƒÐ¶ÐµÐ±Ð½Ñ‹Ð¼Ð¸ (Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð´Ð»Ñ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð°Ð´Ñ€ÐµÑÐ°Ñ‚Ñƒ, ÐºÑ‚Ð¾ Ðº Ð½ÐµÐ¼Ñƒ Ð¿Ñ€Ð¸ÑˆÑ‘Ð»)
   {
     serviceId = transport->GetAddressTranslator()->GetLastServiceInstance( _serviceId );
     listener = transport->CreateChannelListener( serviceId );

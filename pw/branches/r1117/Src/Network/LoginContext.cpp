@@ -10,16 +10,16 @@ NI_DEFINE_REFCOUNT(Login::SLoginContext);
 namespace Login
 {
 
-unsigned int g_LoginRequestTimeoutSeconds = 60; // столько секунд login context может находиться в одной стадии (напр. ждать ответа на RPC-запрос)
+unsigned int g_LoginRequestTimeoutSeconds = 60; // СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ login context РјРѕР¶РµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РѕРґРЅРѕР№ СЃС‚Р°РґРёРё (РЅР°РїСЂ. Р¶РґР°С‚СЊ РѕС‚РІРµС‚Р° РЅР° RPC-Р·Р°РїСЂРѕСЃ)
 REGISTER_VAR( "login_stage_timeout_seconds", g_LoginRequestTimeoutSeconds, STORAGE_NONE );
 
-// UGLY: quick & dirty механизм подсчета вызовов
+// UGLY: quick & dirty РјРµС…Р°РЅРёР·Рј РїРѕРґСЃС‡РµС‚Р° РІС‹Р·РѕРІРѕРІ
 volatile LONG g_loginContextCtorCount = 0;
 volatile LONG g_loginContextDtorCount = 0;
 
 
 const char* SLoginContext::StageNames[] = {
-  #define EnUm( x ) #x // для .h -- значение, для .cpp -- строчное представление
+  #define EnUm( x ) #x // РґР»СЏ .h -- Р·РЅР°С‡РµРЅРёРµ, РґР»СЏ .cpp -- СЃС‚СЂРѕС‡РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ
       EnUm( STAGE_NEW ),
       EnUm( _TIME_LOGIN_CHECK_START ),
       EnUm( STAGE_ASYNC_LOGIN_WAIT ),
@@ -33,8 +33,8 @@ const char* SLoginContext::StageNames[] = {
       EnUm( _RELAY_CLIENT_ALLOCATION_CONFIRMED ),
       EnUm( _TIME_REMOVE_USER_START ),
       EnUm( STAGE_REMOVE_USER_WAIT ),
-      EnUm( _TIME_FAIL ), // обломались (ошибка или таймаут)
-      EnUm( _TIME_SUCCESS ), // закончили с логином; после ответа клиенту прибьем
+      EnUm( _TIME_FAIL ), // РѕР±Р»РѕРјР°Р»РёСЃСЊ (РѕС€РёР±РєР° РёР»Рё С‚Р°Р№РјР°СѓС‚)
+      EnUm( _TIME_SUCCESS ), // Р·Р°РєРѕРЅС‡РёР»Рё СЃ Р»РѕРіРёРЅРѕРј; РїРѕСЃР»Рµ РѕС‚РІРµС‚Р° РєР»РёРµРЅС‚Сѓ РїСЂРёР±СЊРµРј
       EnUm( _TIME_REPLY_SENT ),
   //--
   #undef EnUm
@@ -48,7 +48,7 @@ SLoginContext::SLoginContext( Network::IConnection* conn_ )
   , isLoginChecked( false )
   , rcUserEnvPrep(UserManager::Result::FAIL)
   , gameid(Cluster::INVALID_GAME_ID)
-{// будем слегка тестировать новые strong/weak
+{// Р±СѓРґРµРј СЃР»РµРіРєР° С‚РµСЃС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІС‹Рµ strong/weak
   nival::interlocked_increment( g_loginContextCtorCount );
 #if defined( NV_WIN_PLATFORM )
   ZeroMemory( stageTimes, sizeof(stageTimes) );
@@ -60,7 +60,7 @@ SLoginContext::SLoginContext( Network::IConnection* conn_ )
 
 
 SLoginContext::~SLoginContext()
-{// будем слегка тестировать новые strong/weak
+{// Р±СѓРґРµРј СЃР»РµРіРєР° С‚РµСЃС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІС‹Рµ strong/weak
   nival::interlocked_increment( g_loginContextDtorCount );
 }
 

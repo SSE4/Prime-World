@@ -107,7 +107,7 @@ std::wstring CommandLine::GetStringPart(const std::wstring& prmString, size_t& p
   {
     if(quotPos < spacePos)
     {
-      // îòðàáàòûâàåì êàâû÷êè
+      // Ð¾Ñ‚Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ ÐºÐ°Ð²Ñ‹Ñ‡ÐºÐ¸
       result = prmString.substr(position, quotPos - position);
       bool needQuot = (quotPos != position);
       if(needQuot)
@@ -142,7 +142,7 @@ std::wstring CommandLine::GetStringPart(const std::wstring& prmString, size_t& p
     }
     else
     {
-      // ðåæåì ïî ïðîáåëó
+      // Ñ€ÐµÐ¶ÐµÐ¼ Ð¿Ð¾ Ð¿Ñ€Ð¾Ð±ÐµÐ»Ñƒ
       result = prmString.substr(position, spacePos - position);
       position = spacePos + 1;
     }

@@ -171,7 +171,7 @@ void EaselScreenLogicLobby::ExitGame()
   if ( IsValid( easelMinigame ) )
     easelMinigame->OnExitImmediate();
 
-  //Ìû ïîêà íå óáèâàåì ýêðàí èçåëà, ò.ê. â íåì ëåæèò êàìåðà, îíà äîëæíà äîèíòåðïîëèðîâàòüñÿ
+  //ÐœÑ‹ Ð¿Ð¾ÐºÐ° Ð½Ðµ ÑƒÐ±Ð¸Ð²Ð°ÐµÐ¼ ÑÐºÑ€Ð°Ð½ Ð¸Ð·ÐµÐ»Ð°, Ñ‚.Ðº. Ð² Ð½ÐµÐ¼ Ð»ÐµÐ¶Ð¸Ñ‚ ÐºÐ°Ð¼ÐµÑ€Ð°, Ð¾Ð½Ð° Ð´Ð¾Ð»Ð¶Ð½Ð° Ð´Ð¾Ð¸Ð½Ñ‚ÐµÑ€Ð¿Ð¾Ð»Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒÑÑ
   MinigameLobbyScreenLogic::ExitLobby();
 }
 
@@ -217,7 +217,7 @@ void EaselScreenLogicLobby::OnRegenerateClicked()
   if( !IsCanBuyBoostsRegen() )
     return;
 
-  // ìåòîä äîëæåí âûçûâàòüñÿ ó EaselMinigame (äëÿ òðàíñïîðòà ïî ñåòè)
+  // Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ Ñƒ EaselMinigame (Ð´Ð»Ñ Ñ‚Ñ€Ð°Ð½ÑÐ¿Ð¾Ñ€Ñ‚Ð° Ð¿Ð¾ ÑÐµÑ‚Ð¸)
   if ( easelMinigame->RegenerateBoosts( true, currentLevel - 1 ) )
     UpdateBoostsImages();
 }

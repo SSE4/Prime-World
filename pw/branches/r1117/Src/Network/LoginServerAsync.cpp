@@ -16,9 +16,9 @@ namespace Login
 static unsigned int s_nozzimaFirstUserId = 1000;
 static unsigned int s_nozzimaUserIdMask = 0x40000000;
 
-unsigned int g_MaxAsyncOpsPerStep = 100; // макс. кол-во асинхронных операций (rpc) за 1 степ Login Server 
-unsigned int g_LoginContextDumpFreq = 100; // один раз на столько логинов выводим полный тайминг операций с логин-контекстом
-unsigned int g_CtorCountDumpFreq = 1000; // раз в столько тиков выводим отладочные счетчики конструкторов/деструкторов логин-контекстов
+unsigned int g_MaxAsyncOpsPerStep = 100; // РјР°РєСЃ. РєРѕР»-РІРѕ Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№ (rpc) Р·Р° 1 СЃС‚РµРї Login Server 
+unsigned int g_LoginContextDumpFreq = 100; // РѕРґРёРЅ СЂР°Р· РЅР° СЃС‚РѕР»СЊРєРѕ Р»РѕРіРёРЅРѕРІ РІС‹РІРѕРґРёРј РїРѕР»РЅС‹Р№ С‚Р°Р№РјРёРЅРі РѕРїРµСЂР°С†РёР№ СЃ Р»РѕРіРёРЅ-РєРѕРЅС‚РµРєСЃС‚РѕРј
+unsigned int g_CtorCountDumpFreq = 1000; // СЂР°Р· РІ СЃС‚РѕР»СЊРєРѕ С‚РёРєРѕРІ РІС‹РІРѕРґРёРј РѕС‚Р»Р°РґРѕС‡РЅС‹Рµ СЃС‡РµС‚С‡РёРєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ/РґРµСЃС‚СЂСѓРєС‚РѕСЂРѕРІ Р»РѕРіРёРЅ-РєРѕРЅС‚РµРєСЃС‚РѕРІ
 
 REGISTER_VAR( "nozzima_first_user_id", s_nozzimaFirstUserId, STORAGE_GLOBAL);
 REGISTER_VAR( "nozzima_user_id_mask", s_nozzimaUserIdMask, STORAGE_GLOBAL);
@@ -28,7 +28,7 @@ REGISTER_VAR( "login_ctors_dump_freq", g_CtorCountDumpFreq, STORAGE_NONE );
 
 
 
-REGISTER_CMD(login_add_session_key, &LoginServerAsync::onCmdAddSessionKey); //  добавления sessionKey для тестов
+REGISTER_CMD(login_add_session_key, &LoginServerAsync::onCmdAddSessionKey); //  РґРѕР±Р°РІР»РµРЅРёСЏ sessionKey РґР»СЏ С‚РµСЃС‚РѕРІ
 
 TSessionContextMap LoginServerAsync::predefinedSessionMap;
 
@@ -109,9 +109,9 @@ sessionLogin( SESSION_LOGIN_NONE )
 ESessionLoginMode LoginServerAsync::ParseLoginMode( const Transport::TServiceOptions & _options )
 {
   if ( _options.find( "session_login_only" ) != _options.end() )
-    return SESSION_LOGIN_ONLY;  // разрешаем ТОЛЬКО login через session key (обычный вход через login/пароль НЕВОЗМОЖЕН)
+    return SESSION_LOGIN_ONLY;  // СЂР°Р·СЂРµС€Р°РµРј РўРћР›Р¬РљРћ login С‡РµСЂРµР· session key (РѕР±С‹С‡РЅС‹Р№ РІС…РѕРґ С‡РµСЂРµР· login/РїР°СЂРѕР»СЊ РќР•Р’РћР—РњРћР–Р•Рќ)
   else if ( _options.find( "session_login" ) != _options.end() )
-    return SESSION_LOGIN_CHECK; // разрешаем login через session key и через login/пароль
+    return SESSION_LOGIN_CHECK; // СЂР°Р·СЂРµС€Р°РµРј login С‡РµСЂРµР· session key Рё С‡РµСЂРµР· login/РїР°СЂРѕР»СЊ
   else
     return SESSION_LOGIN_NONE;
 }
@@ -177,15 +177,15 @@ void LoginServerAsync::AddSessionKey( nstl::string const & _sessionKey, Transpor
 
 void LoginServerAsync::Poll( timer::Time _now )
 {
-  LoginServerBase::StepLogin(); // step connection handler: получили новые connections, дропнули старые
+  LoginServerBase::StepLogin(); // step connection handler: РїРѕР»СѓС‡РёР»Рё РЅРѕРІС‹Рµ connections, РґСЂРѕРїРЅСѓР»Рё СЃС‚Р°СЂС‹Рµ
 
   userMngrIface_->step();
 
   //Timestamp t1 = NHPTimer::GetScalarTime();
 
-  if ( asyncProcessor && asyncProcessor->MainStep() ) // true == можем обслуживать клиентов
+  if ( asyncProcessor && asyncProcessor->MainStep() ) // true == РјРѕР¶РµРј РѕР±СЃР»СѓР¶РёРІР°С‚СЊ РєР»РёРµРЅС‚РѕРІ
   {
-    asyncProcessor->AsyncStep(); // обновляем очередь web-заявок (переключаем статус выполненных запросов, отвязываемся от context-ов и т.п.)
+    asyncProcessor->AsyncStep(); // РѕР±РЅРѕРІР»СЏРµРј РѕС‡РµСЂРµРґСЊ web-Р·Р°СЏРІРѕРє (РїРµСЂРµРєР»СЋС‡Р°РµРј СЃС‚Р°С‚СѓСЃ РІС‹РїРѕР»РЅРµРЅРЅС‹С… Р·Р°РїСЂРѕСЃРѕРІ, РѕС‚РІСЏР·С‹РІР°РµРјСЃСЏ РѕС‚ context-РѕРІ Рё С‚.Рї.)
 
     StrongMT<SLoginContext> context;
     TLoginContexts::iterator it;
@@ -203,9 +203,9 @@ void LoginServerAsync::Poll( timer::Time _now )
       int userIdAfter = -1;
 
       try
-      { // закроем операции с отдельным клиентским контекстом (бросает исключение - удаляем)
+      { // Р·Р°РєСЂРѕРµРј РѕРїРµСЂР°С†РёРё СЃ РѕС‚РґРµР»СЊРЅС‹Рј РєР»РёРµРЅС‚СЃРєРёРј РєРѕРЅС‚РµРєСЃС‚РѕРј (Р±СЂРѕСЃР°РµС‚ РёСЃРєР»СЋС‡РµРЅРёРµ - СѓРґР°Р»СЏРµРј)
         userIdBefore = context->response.userId;
-        client_ok = asyncProcessor->ClientStep(context); // false == клиента можно удалять
+        client_ok = asyncProcessor->ClientStep(context); // false == РєР»РёРµРЅС‚Р° РјРѕР¶РЅРѕ СѓРґР°Р»СЏС‚СЊ
         userIdAfter = context->response.userId;
       } 
       catch(...)
@@ -214,7 +214,7 @@ void LoginServerAsync::Poll( timer::Time _now )
       }
 
       if( client_ok && ( userIdAfter != userIdBefore ) && ( userIdAfter > 0 ) )
-      {// нам присвоили userId; надо добавить в map
+      {// РЅР°Рј РїСЂРёСЃРІРѕРёР»Рё userId; РЅР°РґРѕ РґРѕР±Р°РІРёС‚СЊ РІ map
         threading::MutexLock lock( mutexContextMap );
         contextMap[userIdAfter] = context;
       }
@@ -230,13 +230,13 @@ void LoginServerAsync::Poll( timer::Time _now )
         int userId = 0;
 
         try
-        { // закроем операции с отдельным клиентским контекстом (бросает исключение - удаляем)
+        { // Р·Р°РєСЂРѕРµРј РѕРїРµСЂР°С†РёРё СЃ РѕС‚РґРµР»СЊРЅС‹Рј РєР»РёРµРЅС‚СЃРєРёРј РєРѕРЅС‚РµРєСЃС‚РѕРј (Р±СЂРѕСЃР°РµС‚ РёСЃРєР»СЋС‡РµРЅРёРµ - СѓРґР°Р»СЏРµРј)
           userId = context->GetUserId();
           SendReply( context );
           context->SetStage( SLoginContext::_TIME_REPLY_SENT );
           if ( g_LoginContextDumpFreq )
             if ( ( context->response.userId % g_LoginContextDumpFreq ) == 0 )
-              context->DumpStageTimes(); // подробности по каждому N-ному клиенту в лог
+              context->DumpStageTimes(); // РїРѕРґСЂРѕР±РЅРѕСЃС‚Рё РїРѕ РєР°Р¶РґРѕРјСѓ N-РЅРѕРјСѓ РєР»РёРµРЅС‚Сѓ РІ Р»РѕРі
         }
         catch(...)
         {
@@ -244,7 +244,7 @@ void LoginServerAsync::Poll( timer::Time _now )
         }
 
         try
-        {// если у нас был валидный userId, значит надо удаляться и из mapContext
+        {// РµСЃР»Рё Сѓ РЅР°СЃ Р±С‹Р» РІР°Р»РёРґРЅС‹Р№ userId, Р·РЅР°С‡РёС‚ РЅР°РґРѕ СѓРґР°Р»СЏС‚СЊСЃСЏ Рё РёР· mapContext
           if(userId > 0)
             contextMap.erase( userId );
         } 
@@ -260,12 +260,12 @@ void LoginServerAsync::Poll( timer::Time _now )
           context = (it != contexts.end()) ? (*it) : 0;
         }
         catch(...) 
-        {// здесь будет удаляться StrongMT<SLoginContext> context
+        {// Р·РґРµСЃСЊ Р±СѓРґРµС‚ СѓРґР°Р»СЏС‚СЊСЃСЏ StrongMT<SLoginContext> context
           LOG_A( LOGIN_CHNL ) << "context delete failed, skip";
         }
       }
 
-      // не разрешаем более чем N асинхр. операций с логин-контекстами за 1 степ (чтобы не заспамить кластер новыми логинами)
+      // РЅРµ СЂР°Р·СЂРµС€Р°РµРј Р±РѕР»РµРµ С‡РµРј N Р°СЃРёРЅС…СЂ. РѕРїРµСЂР°С†РёР№ СЃ Р»РѕРіРёРЅ-РєРѕРЅС‚РµРєСЃС‚Р°РјРё Р·Р° 1 СЃС‚РµРї (С‡С‚РѕР±С‹ РЅРµ Р·Р°СЃРїР°РјРёС‚СЊ РєР»Р°СЃС‚РµСЂ РЅРѕРІС‹РјРё Р»РѕРіРёРЅР°РјРё)
       if ( asyncProcessor->GetAsyncOpCount() >= g_MaxAsyncOpsPerStep )
       {
         LOG_D( LOGIN_CHNL ) << "too many async ops per step, breaking";
@@ -275,7 +275,7 @@ void LoginServerAsync::Poll( timer::Time _now )
   }
 
   if ( g_CtorCountDumpFreq )
-    if ( ( ++debug_stepCount % g_CtorCountDumpFreq ) == 0 ) // раз в сотню тиков (~раз в секунду)
+    if ( ( ++debug_stepCount % g_CtorCountDumpFreq ) == 0 ) // СЂР°Р· РІ СЃРѕС‚РЅСЋ С‚РёРєРѕРІ (~СЂР°Р· РІ СЃРµРєСѓРЅРґСѓ)
       SLoginContext::DumpCtorCounters(); 
 }
 
@@ -290,7 +290,7 @@ bool LoginServerAsync::ProcessNewContext( SLoginContext * context )
 
   if (LoginType::ORDINARY == context->request.loginType)
   {
-    // во-первых, проверим, есть ли у клиента sessionKey (жестокость проверки зависит от sessionLogin-режима)
+    // РІРѕ-РїРµСЂРІС‹С…, РїСЂРѕРІРµСЂРёРј, РµСЃС‚СЊ Р»Рё Сѓ РєР»РёРµРЅС‚Р° sessionKey (Р¶РµСЃС‚РѕРєРѕСЃС‚СЊ РїСЂРѕРІРµСЂРєРё Р·Р°РІРёСЃРёС‚ РѕС‚ sessionLogin-СЂРµР¶РёРјР°)
     if( sessionLogin != SESSION_LOGIN_NONE)
     {
       bool mustHaveSessionKey = (sessionLogin == SESSION_LOGIN_ONLY);
@@ -300,21 +300,21 @@ bool LoginServerAsync::ProcessNewContext( SLoginContext * context )
         threading::MutexLock lock( mutexSessionMap );
         TSessionContextMap::iterator it = sessionMap.find( context->request.sessionKey );
         if( it != sessionMap.end() )
-        {// ок, у нас есть такой сессионный ключ, пускаем
+        {// РѕРє, Сѓ РЅР°СЃ РµСЃС‚СЊ С‚Р°РєРѕР№ СЃРµСЃСЃРёРѕРЅРЅС‹Р№ РєР»СЋС‡, РїСѓСЃРєР°РµРј
           if( context->request.login == it->second->zz_login )
           {
             sessionLoginResult = true;
             context->response.sessionPath = it->second->sessionPath;
             //context->resultData.sessionPath = it->second->sessionPath;
 
-            context->request.password.clear(); // пароль для ZZima-логина оставляем пустым
-            context->resultData.nUserID = it->second->zz_uid; // ZZima login не тронет nUserID при ненулевом resultData.nUserID
+            context->request.password.clear(); // РїР°СЂРѕР»СЊ РґР»СЏ ZZima-Р»РѕРіРёРЅР° РѕСЃС‚Р°РІР»СЏРµРј РїСѓСЃС‚С‹Рј
+            context->resultData.nUserID = it->second->zz_uid; // ZZima login РЅРµ С‚СЂРѕРЅРµС‚ nUserID РїСЂРё РЅРµРЅСѓР»РµРІРѕРј resultData.nUserID
             context->gameid = it->second->gameid_;
 
             LOG_M(LOGIN_CHNL) << "found sessionKey:" << context->request.sessionKey 
               << ", login=" << context->request.login << ", zz_uid=" << context->resultData.nUserID << ", loginMode=" << sessionLogin;
 
-            // одноразовый "уже использованный юзером" sessionKey?..
+            // РѕРґРЅРѕСЂР°Р·РѕРІС‹Р№ "СѓР¶Рµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅС‹Р№ СЋР·РµСЂРѕРј" sessionKey?..
             if( it->second->useOnce )
             {
               LOG_M(LOGIN_CHNL) << "removing a useOnce sessionKey:" << context->request.sessionKey;
@@ -343,7 +343,7 @@ bool LoginServerAsync::ProcessNewContext( SLoginContext * context )
       }
 
       if( (!sessionLoginResult) && (mustHaveSessionKey || hasSessionKey) && SLoginContext::STAGE_RECONNECT_CHECK_START != context->stage ) 
-      {// если клиент 1) обязан иметь валидный sessionKey или 2) явно указал sessionKey, и при этом не прошел проверку => не пускаем
+      {// РµСЃР»Рё РєР»РёРµРЅС‚ 1) РѕР±СЏР·Р°РЅ РёРјРµС‚СЊ РІР°Р»РёРґРЅС‹Р№ sessionKey РёР»Рё 2) СЏРІРЅРѕ СѓРєР°Р·Р°Р» sessionKey, Рё РїСЂРё СЌС‚РѕРј РЅРµ РїСЂРѕС€РµР» РїСЂРѕРІРµСЂРєСѓ => РЅРµ РїСѓСЃРєР°РµРј
         LOG_W(LOGIN_CHNL) << "sessionLogin FAILED, login=" << context->request.login << ", loginMode=" << sessionLogin;
         context->response.loginResult = ELoginResult::Refused;
         context->SetStage( SLoginContext::_TIME_FAIL ); // debug timing
@@ -386,12 +386,12 @@ bool LoginServerAsync::ProcessNewContext( SLoginContext * context )
     }
   }
 
-  {// имеем дело с серверным (асинхронным) процессором: регистрируем новую логин-запись, и дальше двигаемся по процессу Step()
+  {// РёРјРµРµРј РґРµР»Рѕ СЃ СЃРµСЂРІРµСЂРЅС‹Рј (Р°СЃРёРЅС…СЂРѕРЅРЅС‹Рј) РїСЂРѕС†РµСЃСЃРѕСЂРѕРј: СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РЅРѕРІСѓСЋ Р»РѕРіРёРЅ-Р·Р°РїРёСЃСЊ, Рё РґР°Р»СЊС€Рµ РґРІРёРіР°РµРјСЃСЏ РїРѕ РїСЂРѕС†РµСЃСЃСѓ Step()
     threading::MutexLock lock( mutexContexts );
     contexts.push_back( context );
   }
 
-  return false; // в любом случае: не надо сразу дропать connection (как минимум, должен дойти SendReply)
+  return false; // РІ Р»СЋР±РѕРј СЃР»СѓС‡Р°Рµ: РЅРµ РЅР°РґРѕ СЃСЂР°Р·Сѓ РґСЂРѕРїР°С‚СЊ connection (РєР°Рє РјРёРЅРёРјСѓРј, РґРѕР»Р¶РµРЅ РґРѕР№С‚Рё SendReply)
 }
 
 } // namespace Login

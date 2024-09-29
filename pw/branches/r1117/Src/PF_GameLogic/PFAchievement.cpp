@@ -905,7 +905,7 @@ void PFAchievDragonSlayer::OnKill( const CPtr<PFBaseUnit>& pVictim, const CPtr<P
       return;
 
 
-    // Проверяем, что мы не убийца
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РјС‹ РЅРµ СѓР±РёР№С†Р°
     if ( IsValid(pEvent) && IsValid(NGameX::AdventureScreen::Instance()->GetPlayer()) )
     {
       CPtr<NWorld::PFBaseUnit> pMyHero(NULL);
@@ -930,7 +930,7 @@ void PFAchievDragonSlayer::OnKill( const CPtr<PFBaseUnit>& pVictim, const CPtr<P
               }
             }
 
-            // Проверяем, что мы и не ассистили
+            // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РјС‹ Рё РЅРµ Р°СЃСЃРёСЃС‚РёР»Рё
             if ( !isAssist && pKiller->GetTeamId() == NGameX::AdventureScreen::Instance()->GetPlayer()->GetTeamID() )
             {
               // send UI message
@@ -967,7 +967,7 @@ void PFAchievDragonSlayer::OnAssist( const CPtr<PFBaseUnit>& pVictim, const CPtr
   if (was)
     return;
 
-  // Если мы убийца, то не показываем ачивку - тк показали уже в OnKill
+  // Р•СЃР»Рё РјС‹ СѓР±РёР№С†Р°, С‚Рѕ РЅРµ РїРѕРєР°Р·С‹РІР°РµРј Р°С‡РёРІРєСѓ - С‚Рє РїРѕРєР°Р·Р°Р»Рё СѓР¶Рµ РІ OnKill
   if ( pKiller == pOwner )
   {
     was = true;
@@ -1000,7 +1000,7 @@ void PFAchievKittySlayer::OnKill( const CPtr<PFBaseUnit>& pVictim, const CPtr<PF
 
   if (IsKitty(pVictim.GetPtr()))
   {
-    // Проверяем, что мы не убийца
+    // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РјС‹ РЅРµ СѓР±РёР№С†Р°
     if ( IsValid(pEvent) && IsValid(NGameX::AdventureScreen::Instance()->GetPlayer()) )
     {
       CPtr<NWorld::PFBaseUnit> pMyHero(NULL);
@@ -1025,7 +1025,7 @@ void PFAchievKittySlayer::OnKill( const CPtr<PFBaseUnit>& pVictim, const CPtr<PF
               }
             }
 
-            // Проверяем, что мы и не ассистили
+            // РџСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ РјС‹ Рё РЅРµ Р°СЃСЃРёСЃС‚РёР»Рё
             if ( !isAssist && pKiller->GetTeamId() == NGameX::AdventureScreen::Instance()->GetPlayer()->GetTeamID() )
             {
               // send UI message
@@ -1059,7 +1059,7 @@ void PFAchievKittySlayer::OnAssist( const CPtr<PFBaseUnit>& pVictim, const CPtr<
   if ( pDB->limit && pDB->perAchievementScore && killCount + assistCount >= pDB->limit/pDB->perAchievementScore )
     return;
 
-  // Если мы убийца, то не показываем ачивку - тк показали уже в OnKill
+  // Р•СЃР»Рё РјС‹ СѓР±РёР№С†Р°, С‚Рѕ РЅРµ РїРѕРєР°Р·С‹РІР°РµРј Р°С‡РёРІРєСѓ - С‚Рє РїРѕРєР°Р·Р°Р»Рё СѓР¶Рµ РІ OnKill
   if ( pKiller == pOwner )
   {
     return;
@@ -1599,7 +1599,7 @@ void PFAchievAscension::OnMinigameLevelEnd( const NDb::DBID &game, int levelInde
   if ( newStatus < status )
     return;
 
-  //Улучшили результат, продвинем ачивменты
+  //РЈР»СѓС‡С€РёР»Рё СЂРµР·СѓР»СЊС‚Р°С‚, РїСЂРѕРґРІРёРЅРµРј Р°С‡РёРІРјРµРЅС‚С‹
   switch ( newStatus )
   {
     //Fall through is OK here
@@ -1631,7 +1631,7 @@ void PFAchievNecklaceOfGlory::OnMinigameLevelEnd ( const NDb::DBID &game, int le
   if ( newStatus < status )
     return;
 
-  //Улучшили результат, продвинем ачивменты
+  //РЈР»СѓС‡С€РёР»Рё СЂРµР·СѓР»СЊС‚Р°С‚, РїСЂРѕРґРІРёРЅРµРј Р°С‡РёРІРјРµРЅС‚С‹
   switch ( newStatus )
   {
     //Fall through is OK here
@@ -1663,7 +1663,7 @@ void PFAchievGoldRite::OnMinigameLevelEnd ( const NDb::DBID &game, int levelInde
   if ( newStatus < status )
     return;
 
-  //Улучшили результат, продвинем ачивменты
+  //РЈР»СѓС‡С€РёР»Рё СЂРµР·СѓР»СЊС‚Р°С‚, РїСЂРѕРґРІРёРЅРµРј Р°С‡РёРІРјРµРЅС‚С‹
   switch ( newStatus )
   {
     //Fall through is OK here

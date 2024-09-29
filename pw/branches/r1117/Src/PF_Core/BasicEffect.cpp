@@ -88,9 +88,9 @@ void BasicEffect::Update(float timeDelta)
           DebugTrace("DEATH ASSERT DIAG. Not ready to die.");
         }
         // NUM_TASK
-        // Òàêèå ñëó÷àè áûëè ðàíüøå íå ðåäêè, èç-çà îøèáîê êàê â êîäå, òàê è â ñáîðêå ýôôåêòîâ/àïëèêàòîðîâ.
-        // Íî ïîõîæå, âñå òàêèå ïðîáëåìû áûëè ðåøåíû.
-        // Òàê æå ýòà ôóíêöèÿ ñèëüíî ñïàìèò, åñëè âûçûâàåòñÿ. Áóäåò íóæíà - ðàñêîììåíòèì.
+        // Ð¢Ð°ÐºÐ¸Ðµ ÑÐ»ÑƒÑ‡Ð°Ð¸ Ð±Ñ‹Ð»Ð¸ Ñ€Ð°Ð½ÑŒÑˆÐµ Ð½Ðµ Ñ€ÐµÐ´ÐºÐ¸, Ð¸Ð·-Ð·Ð° Ð¾ÑˆÐ¸Ð±Ð¾Ðº ÐºÐ°Ðº Ð² ÐºÐ¾Ð´Ðµ, Ñ‚Ð°Ðº Ð¸ Ð² ÑÐ±Ð¾Ñ€ÐºÐµ ÑÑ„Ñ„ÐµÐºÑ‚Ð¾Ð²/Ð°Ð¿Ð»Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð².
+        // ÐÐ¾ Ð¿Ð¾Ñ…Ð¾Ð¶Ðµ, Ð²ÑÐµ Ñ‚Ð°ÐºÐ¸Ðµ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ð±Ñ‹Ð»Ð¸ Ñ€ÐµÑˆÐµÐ½Ñ‹.
+        // Ð¢Ð°Ðº Ð¶Ðµ ÑÑ‚Ð° Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ ÑÐ¸Ð»ÑŒÐ½Ð¾ ÑÐ¿Ð°Ð¼Ð¸Ñ‚, ÐµÑÐ»Ð¸ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ. Ð‘ÑƒÐ´ÐµÑ‚ Ð½ÑƒÐ¶Ð½Ð° - Ñ€Ð°ÑÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð¸Ð¼.
 				//OnUncontrolledDyingEvent();
 				NI_DATA_ALWAYS_ASSERT(NStr::StrFmt("Effect (%s) has manual deathType and is dying uncontrolled for too long (%f sec). Ask data manager to check %p", 
 															    					NDb::GetFormattedDbId(pDBObj->GetDBID()).c_str(), s_uncontrolledEffectMaxDyingTime, (void*)this) );

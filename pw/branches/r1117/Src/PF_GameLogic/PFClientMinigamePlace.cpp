@@ -18,8 +18,8 @@ PFClientMinigamePlace::PFClientMinigamePlace(PF_Core::WorldObjectRef pWO, const 
 , pEffect(0)
 , locked(false)
 {
-  //NOTICE: Ìîäåëü ïëîùàäêè, îáùàÿ äëÿ âñåõ ÌÃ - ýòî êëèåíòñêèé îáúåêò PFClientMinigamePlace
-  //À âîò /ãðàôè÷åñêàÿ/ ñöåíà, ñïåöèôè÷íàÿ äëÿ êàæäîé ÌÃ - ýòî ìåíåäæàò ñàìè ìèíèèãðû
+  //NOTICE: ÐœÐ¾Ð´ÐµÐ»ÑŒ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐºÐ¸, Ð¾Ð±Ñ‰Ð°Ñ Ð´Ð»Ñ Ð²ÑÐµÑ… ÐœÐ“ - ÑÑ‚Ð¾ ÐºÐ»Ð¸ÐµÐ½Ñ‚ÑÐºÐ¸Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚ PFClientMinigamePlace
+  //Ð Ð²Ð¾Ñ‚ /Ð³Ñ€Ð°Ñ„Ð¸Ñ‡ÐµÑÐºÐ°Ñ/ ÑÑ†ÐµÐ½Ð°, ÑÐ¿ÐµÑ†Ð¸Ñ„Ð¸Ñ‡Ð½Ð°Ñ Ð´Ð»Ñ ÐºÐ°Ð¶Ð´Ð¾Ð¹ ÐœÐ“ - ÑÑ‚Ð¾ Ð¼ÐµÐ½ÐµÐ´Ð¶Ð°Ñ‚ ÑÐ°Ð¼Ð¸ Ð¼Ð¸Ð½Ð¸Ð¸Ð³Ñ€Ñ‹
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ void PFClientMinigamePlace::Update( float timeDiff )
 
   float opa = 1.0f;
 
-  //Ìèíèèãðû ìîãóò ôýéäèòü ñâîþ ñöåíó; Ìû äîëæíû ñèíõðîííî ôýéäèòü ñâîþ ìîäåëü
+  //ÐœÐ¸Ð½Ð¸Ð¸Ð³Ñ€Ñ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ñ„ÑÐ¹Ð´Ð¸Ñ‚ÑŒ ÑÐ²Ð¾ÑŽ ÑÑ†ÐµÐ½Ñƒ; ÐœÑ‹ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð½Ð¾ Ñ„ÑÐ¹Ð´Ð¸Ñ‚ÑŒ ÑÐ²Ð¾ÑŽ Ð¼Ð¾Ð´ÐµÐ»ÑŒ
   NWorld::PFEaselPlayer * easelPlayer = WorldObject()->CurrentEaselPlayer();
   if ( easelPlayer &&  easelPlayer->GetMinigames()->DoFade() )
     opa = easelPlayer->GetMinigames()->GetMinigamePlaceOpacity();

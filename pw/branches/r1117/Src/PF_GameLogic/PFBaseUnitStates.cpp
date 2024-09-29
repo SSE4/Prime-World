@@ -639,9 +639,9 @@ namespace NWorld
    
     if ( !GetCurrentState() )
     {
-      // Ïðîâåðÿåì çäåñü â ò.÷. íà ñîþçíèêîâ â êà÷åñòâå öåëè, ïîòîìó ÷òî ñòåéò ìîæåò ïèõàòüñÿ ÷åðåç EnqueueState (íàïðèìåð àïïëèêàòîð òàóíòà ãåðîþ).
-      // Íàäî áûòü ãîòîâûì ê òîìó, ÷òî ê ñëåäóþùåìó ñòåïó öåëü ìîæåò îêàçàòüñÿ ñîþçíîé,
-      // à ìû íå õîòèì àòàêîâàòü ñîþçíèêà (òîëüêî åñëè íå óêàçûâàåì ÿâíî, íàïðèìåð, â àïïëèêàòîðå AttackTarget).
+      // ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð·Ð´ÐµÑÑŒ Ð² Ñ‚.Ñ‡. Ð½Ð° ÑÐ¾ÑŽÐ·Ð½Ð¸ÐºÐ¾Ð² Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ñ†ÐµÐ»Ð¸, Ð¿Ð¾Ñ‚Ð¾Ð¼Ñƒ Ñ‡Ñ‚Ð¾ ÑÑ‚ÐµÐ¹Ñ‚ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¸Ñ…Ð°Ñ‚ÑŒÑÑ Ñ‡ÐµÑ€ÐµÐ· EnqueueState (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€ Ð°Ð¿Ð¿Ð»Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ñ‚Ð°ÑƒÐ½Ñ‚Ð° Ð³ÐµÑ€Ð¾ÑŽ).
+      // ÐÐ°Ð´Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð³Ð¾Ñ‚Ð¾Ð²Ñ‹Ð¼ Ðº Ñ‚Ð¾Ð¼Ñƒ, Ñ‡Ñ‚Ð¾ Ðº ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¼Ñƒ ÑÑ‚ÐµÐ¿Ñƒ Ñ†ÐµÐ»ÑŒ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¾ÐºÐ°Ð·Ð°Ñ‚ÑŒÑÑ ÑÐ¾ÑŽÐ·Ð½Ð¾Ð¹,
+      // Ð° Ð¼Ñ‹ Ð½Ðµ Ñ…Ð¾Ñ‚Ð¸Ð¼ Ð°Ñ‚Ð°ÐºÐ¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾ÑŽÐ·Ð½Ð¸ÐºÐ° (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐµÑÐ»Ð¸ Ð½Ðµ ÑƒÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ ÑÐ²Ð½Ð¾, Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ð² Ð°Ð¿Ð¿Ð»Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ðµ AttackTarget).
       if ( !pOwner->CanAttackTarget( pTarget ) || ( !allowAllies && pOwner->GetFaction() == pTarget->GetFaction() ) )
       {
         pOwner->Stop( false );
@@ -690,7 +690,7 @@ namespace NWorld
             const int tileAttackRange = pOwner->GetWorld()->GetTileMap()->GetLenghtInTiles(pOwner->GetAttackRange());
             IPointChecking* const pointChecking = new RegionPointChecker(pWorld, building->GetOccupiedTiles(), tileAttackRange);
 
-            // NOTE: ñïåöèàëüíûé ñëó÷àé
+            // NOTE: ÑÐ¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÑƒÑ‡Ð°Ð¹
             const bool combatMove =
               pOwner->GetUnitType() == NDb::UNITTYPE_SIEGECREEP ||
               pOwner->GetUnitType() == NDb::UNITTYPE_FACTIONCHAMPION;

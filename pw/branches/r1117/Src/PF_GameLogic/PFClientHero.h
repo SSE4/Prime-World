@@ -203,7 +203,7 @@ private:
         {
           if( const NWorld::PFBaseUnit* baseUnit = dynamic_cast<NWorld::PFBaseUnit*>(&unit) )
           {
-            if( IsValid( baseUnit->GetCurrentTarget() ) ) // потому что нейтралы могут ещё и просто спать
+            if( IsValid( baseUnit->GetCurrentTarget() ) ) // РїРѕС‚РѕРјСѓ С‡С‚Рѕ РЅРµР№С‚СЂР°Р»С‹ РјРѕРіСѓС‚ РµС‰С‘ Рё РїСЂРѕСЃС‚Рѕ СЃРїР°С‚СЊ
             {
               battle = true;
               return;

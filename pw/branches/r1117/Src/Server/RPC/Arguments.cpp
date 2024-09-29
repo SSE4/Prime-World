@@ -289,7 +289,7 @@ const uint maxVectorContentSize = 64*1024;
 
 uint GetVectorContentSize(uint elementsCount, uint elementSize)
 {
-  if (elementSize == 0 ) //видимо получили какой-то левый тип данных
+  if (elementSize == 0 ) //РІРёРґРёРјРѕ РїРѕР»СѓС‡РёР»Рё РєР°РєРѕР№-С‚Рѕ Р»РµРІС‹Р№ С‚РёРї РґР°РЅРЅС‹С…
     return 0;
 
   uint desiredElementsCount = maxVectorContentSize/elementSize;

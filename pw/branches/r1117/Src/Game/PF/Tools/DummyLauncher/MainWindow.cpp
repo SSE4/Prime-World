@@ -199,7 +199,7 @@ void MainWindow::ShowErrorMessage(const wchar_t* text)
     g_App->GetConsole().ShowWindow(SW_SHOW);
     ShowWindow(SW_SHOW);
   }
-  MessageBox(text, L"Ошибка", MB_OK | MB_ICONERROR);
+  MessageBox(text, L"РћС€РёР±РєР°", MB_OK | MB_ICONERROR);
 }
 
 LRESULT MainWindow::OnStartClick(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
@@ -450,13 +450,13 @@ void MainWindow::UpdateSocNetStatus(CWindow& labelWnd, SocNetStates state)
   switch(state)
   {
     case STATE_AUTH:
-      txt = L"Авторизован";
+      txt = L"РђРІС‚РѕСЂРёР·РѕРІР°РЅ";
       break;
     case STATE_NOT_AUTH:
-      txt = L"Не авторизован";
+      txt = L"РќРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ";
       break;
     case STATE_ERROR_REFRESH:
-      txt = L"Не удалось получить токен";
+      txt = L"РќРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ С‚РѕРєРµРЅ";
       break;
   }
   labelWnd.SetWindowLongPtr(GWLP_USERDATA, state);

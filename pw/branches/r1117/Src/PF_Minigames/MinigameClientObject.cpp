@@ -262,7 +262,7 @@ void MinigameClientObject::SetComponentPosition( const char * _componentID, cons
 void MinigameClientObject::PlayAnimation(const nstl::string& _name,bool _fCyclic)
 {
   //
-  // UNDONE !!! реализовать ....
+  // UNDONE !!! СЂРµР°Р»РёР·РѕРІР°С‚СЊ ....
   //
 }
 

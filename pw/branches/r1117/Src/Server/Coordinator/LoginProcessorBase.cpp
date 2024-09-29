@@ -18,7 +18,7 @@ ServerLoginProcessorBase::ServerLoginProcessorBase()
 
 
 
-// helper: заодно считаем кол-во асинхронных операций за степ (для которых isAsync == true)
+// helper: Р·Р°РѕРґРЅРѕ СЃС‡РёС‚Р°РµРј РєРѕР»-РІРѕ Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№ Р·Р° СЃС‚РµРї (РґР»СЏ РєРѕС‚РѕСЂС‹С… isAsync == true)
 void ServerLoginProcessorBase::SetClientStage( SLoginContext * context, const SLoginContext::TStage stage, const bool isAsync )
 { 
   context->SetStage( stage ); 
@@ -31,7 +31,7 @@ void ServerLoginProcessorBase::SetClientStage( SLoginContext * context, const SL
 bool ServerLoginProcessorBase::MainStep()
 {
   timeServerNow = NHPTimer::GetScalarTime();
-  asyncOpCount = 0; // счетчик "асинхронных операций в течение step-а", в начале степа (mainStep) как раз обнуляем
+  asyncOpCount = 0; // СЃС‡РµС‚С‡РёРє "Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№ РІ С‚РµС‡РµРЅРёРµ step-Р°", РІ РЅР°С‡Р°Р»Рµ СЃС‚РµРїР° (mainStep) РєР°Рє СЂР°Р· РѕР±РЅСѓР»СЏРµРј
   return true;
 }
 
@@ -47,7 +47,7 @@ bool ServerLoginProcessorBase::ClientStep( SLoginContext * context )
   LoginResultData & result = context->resultData;
 
   if ( Network::ConnectionState::Closed == context->connection->GetStatus() )
-  {// коннект, увы, успел закрыться
+  {// РєРѕРЅРЅРµРєС‚, СѓРІС‹, СѓСЃРїРµР» Р·Р°РєСЂС‹С‚СЊСЃСЏ
     resp.loginResult = ELoginResult::NoConnection; 
     LOG_W(LOGIN_CHNL) << "connection closed: (stage=" << context->stage << ", login=" << req.login << ")";
     return false;
@@ -64,16 +64,16 @@ bool ServerLoginProcessorBase::ClientStep( SLoginContext * context )
   {
   case SLoginContext::STAGE_NEW:
     {
-      resp.loginResult = ELoginResult::ServerError; // если что-нибудь случится и мы развалимся, пусть будет "Server Internal"
+      resp.loginResult = ELoginResult::ServerError; // РµСЃР»Рё С‡С‚Рѕ-РЅРёР±СѓРґСЊ СЃР»СѓС‡РёС‚СЃСЏ Рё РјС‹ СЂР°Р·РІР°Р»РёРјСЃСЏ, РїСѓСЃС‚СЊ Р±СѓРґРµС‚ "Server Internal"
       result.nErrorCode = ZZima::E_OK;
       SetClientStage( context, SLoginContext::_TIME_LOGIN_CHECK_START ); // debug timing
       bool success = PerformLoginCheck(req.login, req.password, context->connection, &result);
       resp.userId = result.nUserID;
    
       if ( result.nErrorCode == ZZima::E_ASYNC_WAIT )
-      {// это не fail, просто у нас async login processor (напр. ZZima), к которому надо ломиться асинхронно, через threads
+      {// СЌС‚Рѕ РЅРµ fail, РїСЂРѕСЃС‚Рѕ Сѓ РЅР°СЃ async login processor (РЅР°РїСЂ. ZZima), Рє РєРѕС‚РѕСЂРѕРјСѓ РЅР°РґРѕ Р»РѕРјРёС‚СЊСЃСЏ Р°СЃРёРЅС…СЂРѕРЅРЅРѕ, С‡РµСЂРµР· threads
         resp.loginResult = ELoginResult::AsyncWait;
-        AsyncLoginRequest(req.login, req.password, context); // для Async проверки нужен ptr на весь наш логин-контекст
+        AsyncLoginRequest(req.login, req.password, context); // РґР»СЏ Async РїСЂРѕРІРµСЂРєРё РЅСѓР¶РµРЅ ptr РЅР° РІРµСЃСЊ РЅР°С€ Р»РѕРіРёРЅ-РєРѕРЅС‚РµРєСЃС‚
         LOG_D(LOGIN_CHNL) << "login check: async_wait, wait for ZZima (login=" << req.login << ")";
         SetClientStage( context, SLoginContext::STAGE_ASYNC_LOGIN_WAIT ); 
         break;
@@ -85,16 +85,16 @@ bool ServerLoginProcessorBase::ClientStep( SLoginContext * context )
       }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // БЕЗ break: если результат не ASYNC_WAIT, проваливаемся сразу дальше, в синхронную обработку Async-результата, 
-    //   без стадии STAGE_ASYNC_LOGIN_WAIT
+    // Р‘Р•Р— break: РµСЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РЅРµ ASYNC_WAIT, РїСЂРѕРІР°Р»РёРІР°РµРјСЃСЏ СЃСЂР°Р·Сѓ РґР°Р»СЊС€Рµ, РІ СЃРёРЅС…СЂРѕРЅРЅСѓСЋ РѕР±СЂР°Р±РѕС‚РєСѓ Async-СЂРµР·СѓР»СЊС‚Р°С‚Р°, 
+    //   Р±РµР· СЃС‚Р°РґРёРё STAGE_ASYNC_LOGIN_WAIT
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  case SLoginContext::STAGE_ASYNC_LOGIN_WAIT: // если пришли нормальным путем, после Login
+  case SLoginContext::STAGE_ASYNC_LOGIN_WAIT: // РµСЃР»Рё РїСЂРёС€Р»Рё РЅРѕСЂРјР°Р»СЊРЅС‹Рј РїСѓС‚РµРј, РїРѕСЃР»Рµ Login
     if ( context->isLoginChecked )
     {
       resp.userId = result.nUserID;
       SetClientStage( context, SLoginContext::_TIME_ASYNC_LOGIN_DONE ); // debug timing
       if ( resp.loginResult != ELoginResult::AsyncSuccess )
-      {// не залогало         
+      {// РЅРµ Р·Р°Р»РѕРіР°Р»Рѕ         
         LOG_W(LOGIN_CHNL) << "login check fail, login=" << req.login << "/" << resp.userId;
         resp.loginResult = ELoginResult::Refused;
         SetClientStage( context, SLoginContext::_TIME_FAIL ); // debug timing
@@ -207,7 +207,7 @@ bool ServerLoginProcessorBase::ClientStep( SLoginContext * context )
     return false;
   }
 
-  return true; // продолжаем работать с клиентом (login context), не удаляйте его
+  return true; // РїСЂРѕРґРѕР»Р¶Р°РµРј СЂР°Р±РѕС‚Р°С‚СЊ СЃ РєР»РёРµРЅС‚РѕРј (login context), РЅРµ СѓРґР°Р»СЏР№С‚Рµ РµРіРѕ
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

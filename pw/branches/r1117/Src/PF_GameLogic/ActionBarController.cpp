@@ -294,7 +294,7 @@ void ActionBarController::OnFSCommand( UI::FlashContainer2* _wnd, const char* li
     }
   }
 
-  //NOTE: ýòîò êîä îòðàáàòûâàåò òîëüêî â ñëó÷àå òóëòèïîâ òê â ïîñëåäíèõ äâóõ ñëó÷àÿõ ñòîèò return
+  //NOTE: ÑÑ‚Ð¾Ñ‚ ÐºÐ¾Ð´ Ð¾Ñ‚Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ Ñ‚ÑƒÐ»Ñ‚Ð¸Ð¿Ð¾Ð² Ñ‚Ðº Ð² Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ñ… Ð´Ð²ÑƒÑ… ÑÐ»ÑƒÑ‡Ð°ÑÑ… ÑÑ‚Ð¾Ð¸Ñ‚ return
   tooltip->Show(show);
   if (!show)
     eventHandler->TargetZoneTooltip(0);

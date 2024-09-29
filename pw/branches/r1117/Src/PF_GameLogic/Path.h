@@ -13,35 +13,35 @@ class PFBaseMovingUnit;
 
 _interface IPathValidator
 {
-	// проверка пути; если вернёт false - путь проверку не прошёл
+	// РїСЂРѕРІРµСЂРєР° РїСѓС‚Рё; РµСЃР»Рё РІРµСЂРЅС‘С‚ false - РїСѓС‚СЊ РїСЂРѕРІРµСЂРєСѓ РЅРµ РїСЂРѕС€С‘Р»
 	virtual bool CheckPath( int prevPathLen, int newPathLen ) = 0;
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//! путь юнита
+//! РїСѓС‚СЊ СЋРЅРёС‚Р°
 _interface IPath
 {
 	virtual bool IsFinished() const = 0;
 
 	virtual bool CanPeek( int nShift ) const = 0;
-	// Проверка точки, отстоящей от "курсора" на nShift тайлов вперёд
+	// РџСЂРѕРІРµСЂРєР° С‚РѕС‡РєРё, РѕС‚СЃС‚РѕСЏС‰РµР№ РѕС‚ "РєСѓСЂСЃРѕСЂР°" РЅР° nShift С‚Р°Р№Р»РѕРІ РІРїРµСЂС‘Рґ
 	virtual const CVec2 PeekPoint( const int nShift ) const = 0;
-	// Смещение "курсора" на _nShift тайлов вперёд
+	// РЎРјРµС‰РµРЅРёРµ "РєСѓСЂСЃРѕСЂР°" РЅР° _nShift С‚Р°Р№Р»РѕРІ РІРїРµСЂС‘Рґ
 	virtual void Shift( const int nShift, int numSteps ) = 0;
 
 	virtual const CVec2& GetFinishPoint() const = 0;
 	virtual const CVec2& GetStartPoint() const = 0;
 
-	//! восстановить путь из новой точки ( vPoint )
+	//! РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РїСѓС‚СЊ РёР· РЅРѕРІРѕР№ С‚РѕС‡РєРё ( vPoint )
 	virtual void RecoverPath( const CVec2 &vPoint, const SVector &vLastKnownGoodTile, int numSteps ) = 0;
-	//! пересчитать путь из новой точки ( vPoint )
+	//! РїРµСЂРµСЃС‡РёС‚Р°С‚СЊ РїСѓС‚СЊ РёР· РЅРѕРІРѕР№ С‚РѕС‡РєРё ( vPoint )
 	virtual bool RecalcPath( const CVec2 &vPoint, const SVector &vLastKnownGoodTile, IPathValidator *pValidator, int numSteps ) = 0;
-	//! добавить тайлы в начало пути
+	//! РґРѕР±Р°РІРёС‚СЊ С‚Р°Р№Р»С‹ РІ РЅР°С‡Р°Р»Рѕ РїСѓС‚Рё
 	virtual void InsertTiles( const list<SVector> &tiles ) = 0;
-	//! можно ли проехать весь путь задом
+	//! РјРѕР¶РЅРѕ Р»Рё РїСЂРѕРµС…Р°С‚СЊ РІРµСЃСЊ РїСѓС‚СЊ Р·Р°РґРѕРј
 //	virtual const bool CanGoBackward( const NWorld::PFBaseMovingUnit *pUnit ) const = 0;
 	virtual const bool ShouldCheckTurn() const = 0;
-	//! можно ли для этого пути построить сложный разворот
+	//! РјРѕР¶РЅРѕ Р»Рё РґР»СЏ СЌС‚РѕРіРѕ РїСѓС‚Рё РїРѕСЃС‚СЂРѕРёС‚СЊ СЃР»РѕР¶РЅС‹Р№ СЂР°Р·РІРѕСЂРѕС‚
 	virtual const bool CanBuildComplexTurn() const = 0;
 //??	virtual void MarkPath( const int nID, const NDebugInfo::EColor color ) const = 0;
 };

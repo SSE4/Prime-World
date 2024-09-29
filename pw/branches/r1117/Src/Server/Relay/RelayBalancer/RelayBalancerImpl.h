@@ -104,8 +104,8 @@ namespace Relay
     StrongMT<Transport::IAddressTranslator> addrResolver;
     UsersT users_;
     StrongMT<rpc::IfaceRequester<UserManager::RIUserManager> > userMngrIface_;
-    SvcContextListT registeredSvcCtxs;  //  список контекстов которые уже имеем
-    SvcContextListT initSvcCtxs;  //  список контекстов находящихся в процессе инициализации, при переходе в OPENED удаляются из списка
+    SvcContextListT registeredSvcCtxs;  //  СЃРїРёСЃРѕРє РєРѕРЅС‚РµРєСЃС‚РѕРІ РєРѕС‚РѕСЂС‹Рµ СѓР¶Рµ РёРјРµРµРј
+    SvcContextListT initSvcCtxs;  //  СЃРїРёСЃРѕРє РєРѕРЅС‚РµРєСЃС‚РѕРІ РЅР°С…РѕРґСЏС‰РёС…СЃСЏ РІ РїСЂРѕС†РµСЃСЃРµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё, РїСЂРё РїРµСЂРµС…РѕРґРµ РІ OPENED СѓРґР°Р»СЏСЋС‚СЃСЏ РёР· СЃРїРёСЃРєР°
 
     StrongMT<rpc::IfaceRequester<Coordinator::RIServiceAppearancePublisher> > svcPublisherIface_;
     Coordinator::SubcriberIdT subscriberId_;

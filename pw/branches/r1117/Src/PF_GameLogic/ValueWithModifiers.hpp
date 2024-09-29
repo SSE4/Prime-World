@@ -160,7 +160,7 @@ public:
 
   void RemoveModifier( int id )
   {
-    // NUM_TASK Проверка на отсутствие модификаторов
+    // NUM_TASK РџСЂРѕРІРµСЂРєР° РЅР° РѕС‚СЃСѓС‚СЃС‚РІРёРµ РјРѕРґРёС„РёРєР°С‚РѕСЂРѕРІ
     if (!modifiers.empty() && modifiers.begin() != NULL)
     {
 		  vector<Modifier>::iterator modifier = find( modifiers.begin(), modifiers.end(), id );

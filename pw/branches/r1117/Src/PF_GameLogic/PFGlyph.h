@@ -119,9 +119,9 @@ protected:
 
   ZDATA_(PFPickupableObjectBase);
   ZNOPARENT(NNameMap::Map)
-    bool                  bVisible;   // видимость глифа (глиф не виден, если он находится в самом конце линии)
-  CPtr<PFBaseMaleHero>  targetHero; // герой-мальчик, который будет видеть глиф
-  NDb::ERoute           routeID;    // ID линии в nature-карте
+    bool                  bVisible;   // РІРёРґРёРјРѕСЃС‚СЊ РіР»РёС„Р° (РіР»РёС„ РЅРµ РІРёРґРµРЅ, РµСЃР»Рё РѕРЅ РЅР°С…РѕРґРёС‚СЃСЏ РІ СЃР°РјРѕРј РєРѕРЅС†Рµ Р»РёРЅРёРё)
+  CPtr<PFBaseMaleHero>  targetHero; // РіРµСЂРѕР№-РјР°Р»СЊС‡РёРє, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ РІРёРґРµС‚СЊ РіР»РёС„
+  NDb::ERoute           routeID;    // ID Р»РёРЅРёРё РІ nature-РєР°СЂС‚Рµ
   int visUnitID;
   NDb::Ptr<NDb::GameObject> gameObject;
 public:

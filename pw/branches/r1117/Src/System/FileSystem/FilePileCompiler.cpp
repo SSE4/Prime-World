@@ -43,7 +43,7 @@ namespace fileSystem
 template<class ContT, class RndIter>
 inline void Assign( ContT &c, RndIter first, size_t size )
 {
-  //nstl не поддерживает range assign
+  //nstl РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ range assign
   c.clear();
   c.insert( c.begin(), first, first + size );
 }
@@ -318,7 +318,7 @@ void FilePileCompiler::ScanDirRecursive( vector<string> & files, const string & 
 	if ( !NFile::DoesFolderExist( fullPath ) )
 		return;
 
-  // В Unix-системах *.* пропустет все файлы и директории без точек в имени
+  // Р’ Unix-СЃРёСЃС‚РµРјР°С… *.* РїСЂРѕРїСѓСЃС‚РµС‚ РІСЃРµ С„Р°Р№Р»С‹ Рё РґРёСЂРµРєС‚РѕСЂРёРё Р±РµР· С‚РѕС‡РµРє РІ РёРјРµРЅРё
   // string searchPath = NFile::Combine( fullPath, "*.*" );
   string searchPath = NFile::Combine( fullPath, "*" );
   for ( NFile::CFileIterator it( searchPath ); !it.IsEnd(); ++it )

@@ -109,7 +109,7 @@ namespace Transport
       tlcfg.mf_ = factory;
       tlcfg.disableNagleAlgorithm_ = Transport::ClientCfg::DisableNagleAlgorithm();
       tlcfg.read_block_size_ = Transport::ClientCfg::GetReadBlockSize();
-      tlcfg.mbHeapDumpFreq_ = 0;  //  отключает дамп в лог message block heap'а
+      tlcfg.mbHeapDumpFreq_ = 0;  //  РѕС‚РєР»СЋС‡Р°РµС‚ РґР°РјРї РІ Р»РѕРі message block heap'Р°
       tlcfg.checkActivityTimeout_ = Transport::ClientCfg::GetCheckConnectionActivityTimeout();
 
       tlcfg.threads_ = Transport::ClientCfg::GetNumberOfThreads();

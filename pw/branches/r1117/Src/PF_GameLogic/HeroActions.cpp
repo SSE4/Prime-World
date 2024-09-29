@@ -2,7 +2,7 @@
 #include "HeroActions.h"
 
 #include "PFBaseUnitStates.h"
-#include "PFBuildings.h"//для доступа к позиции здания
+#include "PFBuildings.h"//РґР»СЏ РґРѕСЃС‚СѓРїР° Рє РїРѕР·РёС†РёРё Р·РґР°РЅРёСЏ
 #include "PFMinigamePlace.h"
 
 #include "Minimap.h"

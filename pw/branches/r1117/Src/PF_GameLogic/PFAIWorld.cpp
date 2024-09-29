@@ -153,7 +153,7 @@ void PFAIWorld::Update(float dtInSeconds)
     }
   }
 
-  if ( towersVulnerabilityDelay >= 0 ) // По умолчанию башни неуязвимы, так что даже при 0 надо обрабатывать
+  if ( towersVulnerabilityDelay >= 0 ) // РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Р±Р°С€РЅРё РЅРµСѓСЏР·РІРёРјС‹, С‚Р°Рє С‡С‚Рѕ РґР°Р¶Рµ РїСЂРё 0 РЅР°РґРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°С‚СЊ
   {
     towersVulnerabilityDelay -= dtInSeconds;
     if ( towersVulnerabilityDelay <= EPS_VALUE )
@@ -301,7 +301,7 @@ void PFAIWorld::RegisterCreepSpawner( NDb::EFaction faction, NDb::ERoute routeID
 {
   NI_VERIFY( (routeID != NDb::ROUTE_UNASSIGNED) && (routeID != NDb::ROUTE_TREE) && (faction != NDb::FACTION_NEUTRAL), "Quarter is neutral or binded to wrong route!", return; );
   
-  // спавнер должен быть привязан к баракам противоположной стороны;
+  // СЃРїР°РІРЅРµСЂ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїСЂРёРІСЏР·Р°РЅ Рє Р±Р°СЂР°РєР°Рј РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕР№ СЃС‚РѕСЂРѕРЅС‹;
   faction = (faction == NDb::FACTION_BURN) ? NDb::FACTION_FREEZE : NDb::FACTION_BURN;
   
   vector<BuildingsRoute>::iterator iRoute = GetRoute( faction, routeID );
@@ -935,7 +935,7 @@ namespace Murder
     bool killerTeam:1;      // teamNaftaForKill
     bool presentTeam:1;     // teamNaftaForPresence
 
-    bool active:1;          // игрок, которому назначен этот герой, в игре и не AFK
+    bool active:1;          // РёРіСЂРѕРє, РєРѕС‚РѕСЂРѕРјСѓ РЅР°Р·РЅР°С‡РµРЅ СЌС‚РѕС‚ РіРµСЂРѕР№, РІ РёРіСЂРµ Рё РЅРµ AFK
 
     UnitRole()
       : victim(false)
@@ -1736,7 +1736,7 @@ void PFAIWorld::OnGameFinished( const NDb::EFaction failedFaction )
 
   ForAllUnits( victoryForCreatures );
 
-  // ForAllUnits собирает только юнитов присутствующих в VoxelMap, мёртвые герои не обработаются. Так что используем ForAllHeroes.
+  // ForAllUnits СЃРѕР±РёСЂР°РµС‚ С‚РѕР»СЊРєРѕ СЋРЅРёС‚РѕРІ РїСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‰РёС… РІ VoxelMap, РјС‘СЂС‚РІС‹Рµ РіРµСЂРѕРё РЅРµ РѕР±СЂР°Р±РѕС‚Р°СЋС‚СЃСЏ. РўР°Рє С‡С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµРј ForAllHeroes.
   victoryForCreatures.heroesMode = true;
   ForAllHeroes( victoryForCreatures, NDb::FACTION_FREEZE );
   ForAllHeroes( victoryForCreatures, NDb::FACTION_BURN );
@@ -2054,7 +2054,7 @@ void PFAIWorld::CalculateStatsCoeffFromForce( float forceOfMap, float _trainingF
 {
   NI_DATA_VERIFY( !GetAIParameters().forceParameters.IsEmpty(), "forceParameters is empty", return );
 
-  // Считаем обычный пвп-шный коэффициент на статы
+  // РЎС‡РёС‚Р°РµРј РѕР±С‹С‡РЅС‹Р№ РїРІРї-С€РЅС‹Р№ РєРѕСЌС„С„РёС†РёРµРЅС‚ РЅР° СЃС‚Р°С‚С‹
   Force::MapStatsCoeffCalculator statsCoeffCalculator( GetAIParameters().forceParameters, forceOfMap, _mapType == NDb::MAPTYPE_TRAINING );
   ForAllHeroes( statsCoeffCalculator, NDb::FACTION_BURN );
   ForAllHeroes( statsCoeffCalculator, NDb::FACTION_FREEZE );

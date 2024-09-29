@@ -121,7 +121,7 @@ struct DamageCalculatorEx
         return;
     }
 
-    // HACKY: óïðîùàåò äàëüíåéøóþ ïðîâåðêó
+    // HACKY: ÑƒÐ¿Ñ€Ð¾Ñ‰Ð°ÐµÑ‚ Ð´Ð°Ð»ÑŒÐ½ÐµÐ¹ÑˆÑƒÑŽ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÑƒ
     unsigned flags = DMG_APPLICATOR_ABILITY;
 
     switch (abilityData->GetAbilityTypeId())

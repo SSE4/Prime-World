@@ -14,7 +14,7 @@ namespace Relay
     unsigned int incomingClientNotifyTimeout = 30;
     REGISTER_VAR( "rb_incoming_client_notify_timeout", incomingClientNotifyTimeout, STORAGE_NONE );
 
-    unsigned int hostUserDistributionAccuracy = 50; //  гранулярность распределения юзеров по хостам с relay'ями
+    unsigned int hostUserDistributionAccuracy = 50; //  РіСЂР°РЅСѓР»СЏСЂРЅРѕСЃС‚СЊ СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ СЋР·РµСЂРѕРІ РїРѕ С…РѕСЃС‚Р°Рј СЃ relay'СЏРјРё
     REGISTER_VAR( "rb_host_user_distribution_accuracy", hostUserDistributionAccuracy, STORAGE_NONE );
 
     unsigned int relayHostUserSoftLimitDefault = 0;

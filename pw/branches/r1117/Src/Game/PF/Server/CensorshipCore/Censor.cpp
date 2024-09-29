@@ -359,33 +359,33 @@ void Censor::AddWordToDict( const wchar_t* pWord, TStringTable& dict, bool isWhi
 
 wchar_t NormailizeChar( wchar_t ch )
 {
-  if (ch == L'@' || ch == L'‡')
+  if (ch == L'@' || ch == L'–∞')
     ch = L'a';
-  else if (ch == L'Û')
+  else if (ch == L'—É')
     ch = L'y';
-  else if (ch == L'Ë' || ch == L'1')
+  else if (ch == L'–∏' || ch == L'1')
     ch = L'i';
-  else if (ch == L'Â' || ch == L'∏')
+  else if (ch == L'–µ' || ch == L'—ë')
     ch = L'e';
-  else if (ch == L'Ó')
+  else if (ch == L'–æ')
     ch = L'o';
-  else if (ch == L'Ú')
+  else if (ch == L'—Ç')
     ch = L't';
-  else if (ch == L'Ï')
+  else if (ch == L'–º')
     ch = L'm';
-  else if (ch == L'')
+  else if (ch == L'—Ä')
     ch = L'p';
-  else if (ch == L'Ô')
+  else if (ch == L'–ø')
     ch = L'n';
-  else if (ch == L'‰')
+  else if (ch == L'–¥')
     ch = L'd';
-  else if (ch == L'Í')
+  else if (ch == L'–∫')
     ch = L'k';
-  else if (ch == L'Ò')
+  else if (ch == L'—Å')
     ch = L'c';
   else if (ch == L'4')
-    ch = L'˜';
-  else if (ch == L'ı')
+    ch = L'—á';
+  else if (ch == L'—Ö')
     ch = L'x';
   else if (issep(ch) || ch == L'_' || ch == L'-')
     ch = 0;

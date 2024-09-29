@@ -128,7 +128,7 @@ diINLINE DiVoid DiV2dSub(const DiV2d *vpA, const DiV2d *vpB, DiV2d *vpC)
 {
   vpC->x = vpA->x - vpB->x;
   vpC->z = vpA->z - vpB->z;
-} // end of DiV2‚Sub
+} // end of DiV2–≤Sub
 
 /**
  * This function is used to scale vector bz the given number

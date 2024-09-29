@@ -58,7 +58,7 @@ SimpleFileCommandsLog::SimpleFileCommandsLog(NLogg::CChannelLogger* _logStream, 
 
   NFile::CreatePath(path);
 
-  // NUM_TASK представление sessionID в имени реплея в 10-чной системе
+  // NUM_TASK РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ sessionID РІ РёРјРµРЅРё СЂРµРїР»РµСЏ РІ 10-С‡РЅРѕР№ СЃРёСЃС‚РµРјРµ
   path = NDebug::GenerateDebugFileName(NI_STRFMT("session_%llu", serverId), "replay", path.c_str());
 
   // Create an asynchronous file writer stream with preallocated buffer and file
@@ -82,7 +82,7 @@ SimpleFileCommandsLog::SimpleFileCommandsLog(NLogg::CChannelLogger* _logStream, 
 
   NFile::CreatePath(path);
 
-  // NUM_TASK представление sessionID в имени реплея в 10-чной системе
+  // NUM_TASK РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ sessionID РІ РёРјРµРЅРё СЂРµРїР»РµСЏ РІ 10-С‡РЅРѕР№ СЃРёСЃС‚РµРјРµ
   path = NDebug::GenerateDebugFileName(NI_STRFMT("session_%llu", serverId), "replay", path.c_str());
 
   // Create an asynchronous file writer stream with preallocated buffer and file

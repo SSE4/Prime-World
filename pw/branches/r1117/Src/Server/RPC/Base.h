@@ -3,8 +3,8 @@
 #include "RpcGate.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-// BOOST_CURRENT_FUNCTION Используется для получения максимально близкой по 
-// формату сигнатуры функции на как MSVC так и на GCC
+// BOOST_CURRENT_FUNCTION РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РјР°РєСЃРёРјР°Р»СЊРЅРѕ Р±Р»РёР·РєРѕР№ РїРѕ 
+// С„РѕСЂРјР°С‚Сѓ СЃРёРіРЅР°С‚СѓСЂС‹ С„СѓРЅРєС†РёРё РЅР° РєР°Рє MSVC С‚Р°Рє Рё РЅР° GCC
 /////////////////////////////////////////////////////////////////////////////// 
 #include <System/current_function.hpp>
 
@@ -40,8 +40,8 @@ uint GetId(T* value, IdType _idType=OriginalType)
     idType = OriginalType;    
   }
   
-  //GetTypeIdName используется вместо typeid(T).name() в связи с тем, что в реализации msvcr90.dll
-  //от Wine метод type_info::name не реализован
+  //GetTypeIdName РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІРјРµСЃС‚Рѕ typeid(T).name() РІ СЃРІСЏР·Рё СЃ С‚РµРј, С‡С‚Рѕ РІ СЂРµР°Р»РёР·Р°С†РёРё msvcr90.dll
+  //РѕС‚ Wine РјРµС‚РѕРґ type_info::name РЅРµ СЂРµР°Р»РёР·РѕРІР°РЅ
   return _GetId( GetTypeIdName(Meta::Type2Type<typename Meta::UnConst<T>::Result>() ), idType);
 }
 

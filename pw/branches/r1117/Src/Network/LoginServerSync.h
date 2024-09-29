@@ -10,7 +10,7 @@ class LoginServerSync : public LoginServerBase
   NI_DECLARE_REFCOUNT_CLASS_1( LoginServerSync, LoginServerBase )
 
 public:
-  // этот вариант создается с синхронным процессором (ILoginProcessor)
+  // СЌС‚РѕС‚ РІР°СЂРёР°РЅС‚ СЃРѕР·РґР°РµС‚СЃСЏ СЃ СЃРёРЅС…СЂРѕРЅРЅС‹Рј РїСЂРѕС†РµСЃСЃРѕСЂРѕРј (ILoginProcessor)
   LoginServerSync( Network::INetworkDriver* _pDriver, const Network::NetAddress& _loginServerAddress, 
     ILoginProcessor* _processor, ::SSL_CTX* secureContext, Login::ClientVersion const & clientVer = Login::ClientVersion());
   

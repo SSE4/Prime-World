@@ -135,7 +135,7 @@ bool PFApplChainLightning::Step(float dtInSeconds)
   return false; // not done. need more steps.
 }
 
-// Посланный этим аппликатором диспатч промахнулся
+// РџРѕСЃР»Р°РЅРЅС‹Р№ СЌС‚РёРј Р°РїРїР»РёРєР°С‚РѕСЂРѕРј РґРёСЃРїР°С‚С‡ РїСЂРѕРјР°С…РЅСѓР»СЃСЏ
 void PFApplChainLightning::OnDispatchMissed( const PFDispatch* _pDispatch )
 {
   if ( !RetrieveParam( GetDB().jumpOnEvade, true ) )

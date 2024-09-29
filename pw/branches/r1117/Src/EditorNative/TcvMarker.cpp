@@ -33,7 +33,7 @@ void TcvMarker::OnPositionChanged()
 	{
 		Matrix43 transform;
 
-		// TODO: модифицировать функцию декомпозиции, для корректной работы с масштабом.
+		// TODO: РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ С„СѓРЅРєС†РёСЋ РґРµРєРѕРјРїРѕР·РёС†РёРё, РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ СЃ РјР°СЃС€С‚Р°Р±РѕРј.
     ComposeMatrix( transform, Location->Native, Rotation->Native, /*Quaternion::Identity->Native,*/ Vector3::Ones->Native );
 
 		Scene->NativeScene->GetTerrain()->SetTCV( column, row, transform );
@@ -52,7 +52,7 @@ void TcvMarker::OnTCVChanged()
 	Location = gcnew Vector3( translation );
 	Rotation = gcnew Quaternion( rotation );
 
-	// TODO: модифицировать функцию декомпозиции, для корректной работы с масштабом.
+	// TODO: РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ С„СѓРЅРєС†РёСЋ РґРµРєРѕРјРїРѕР·РёС†РёРё, РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ СЃ РјР°СЃС€С‚Р°Р±РѕРј.
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void TcvMarker::OnManipulatorChanged()

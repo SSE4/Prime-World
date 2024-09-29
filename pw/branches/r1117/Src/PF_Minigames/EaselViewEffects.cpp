@@ -285,7 +285,7 @@ void EaselViewEffects::BallExplosionHandler(const LuxBallExplodedNotification& n
   NI_VERIFY( IsValid(easel), "EaselViewEffects: something strange happened. easel is dead", return );
   NI_VERIFY( IsValid(notification.ball), "EaselViewEffects: invalid ball passed", return);
 
-  // [@Pavel <GnoM> Cherniavski@] TODO: нужно сделать отдельный эффект взрыва джокера ...
+  // [@Pavel <GnoM> Cherniavski@] TODO: РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ РѕС‚РґРµР»СЊРЅС‹Р№ СЌС„С„РµРєС‚ РІР·СЂС‹РІР° РґР¶РѕРєРµСЂР° ...
   NDb::EColor color = notification.ball->Color();
   if(color == NDb::COLOR_ANY)
     return;
@@ -376,7 +376,7 @@ void EaselViewEffects::PaintFlyInPointHandler( const PaintFlyingInPointNotificat
       fromWorld.y < -EaselConst::Get_LOGIC_FIELD_HEIGHT() || fromWorld.y > EaselConst::Get_LOGIC_FIELD_HEIGHT()
     )
   {
-    // Не нужен тут ассерт NUM_TASK
+    // РќРµ РЅСѓР¶РµРЅ С‚СѓС‚ Р°СЃСЃРµСЂС‚ NUM_TASK
     //NI_ALWAYS_ASSERT( NStr::StrFmt( "Paint flyed off the table: from (%d, %d) to (%d, %d)", fromWorld.x, fromWorld.y, toWorld.x, toWorld.y ) );
     return;
   }

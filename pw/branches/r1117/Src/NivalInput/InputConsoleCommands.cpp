@@ -101,7 +101,7 @@ bool CommandRebind( const char * name, const vector<wstring> & _paramsSet, const
     }
   }
 
-  // перезапись bindStrings
+  // РїРµСЂРµР·Р°РїРёСЃСЊ bindStrings
   if(binds)
   {
     Input::TBinds::const_iterator iter = binds->GetBindStrings().find(_ctx);

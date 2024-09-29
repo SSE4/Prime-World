@@ -138,7 +138,7 @@ void LoadingScreen::InitLoadingUI()
 
   logic->GetLoadingFlashInterface()->SetLoadingState(false);
 
-  //забываем про него. уже все проинициализировали
+  //Р·Р°Р±С‹РІР°РµРј РїСЂРѕ РЅРµРіРѕ. СѓР¶Рµ РІСЃРµ РїСЂРѕРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°Р»Рё
   loadingGameContext = 0;
 }
 

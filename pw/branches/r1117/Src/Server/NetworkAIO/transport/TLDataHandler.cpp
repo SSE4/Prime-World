@@ -146,9 +146,9 @@ namespace TransportLayer
         ACE_ERROR((LM_ERROR, ACE_TEXT("%s. Channel is not found(p=%d c=%d s=%d)"), __FUNCTION__,
           pMsg->clientAddress.pipe, pMsg->clientAddress.client, pMsg->clientAddress.sender));
 
-        sts = naio::status::SUCCESS;  //  QFIX(NUM_TASK) - из-за corrupted data присланных одним клиентом на lobby сервис,
-                                      //  пострадали все клиенты - закрыли коннекшн relay - lobby.
-                                      //  Fix будет делаться по задаче NUM_TASK & NUM_TASK
+        sts = naio::status::SUCCESS;  //  QFIX(NUM_TASK) - РёР·-Р·Р° corrupted data РїСЂРёСЃР»Р°РЅРЅС‹С… РѕРґРЅРёРј РєР»РёРµРЅС‚РѕРј РЅР° lobby СЃРµСЂРІРёСЃ,
+                                      //  РїРѕСЃС‚СЂР°РґР°Р»Рё РІСЃРµ РєР»РёРµРЅС‚С‹ - Р·Р°РєСЂС‹Р»Рё РєРѕРЅРЅРµРєС€РЅ relay - lobby.
+                                      //  Fix Р±СѓРґРµС‚ РґРµР»Р°С‚СЊСЃСЏ РїРѕ Р·Р°РґР°С‡Рµ NUM_TASK & NUM_TASK
       }
     }
     else
@@ -180,7 +180,7 @@ namespace TransportLayer
     {
       ACE_ERROR((LM_ERROR, ACE_TEXT("%s. Channel is not found(p=%d c=%d s=%d ch=%d)"), __FUNCTION__,
         pMsg->requestingChannel.pipe, pMsg->requestingChannel.client, pMsg->requestingChannel.sender, spconnctx->connid()));
-      sts = naio::status::SUCCESS;  //  QFIX(NUM_TASK) - норм фикс NUM_TASK & NUM_TASK
+      sts = naio::status::SUCCESS;  //  QFIX(NUM_TASK) - РЅРѕСЂРј С„РёРєСЃ NUM_TASK & NUM_TASK
       return sts;
     }
 
@@ -417,8 +417,8 @@ namespace TransportLayer
         ACE_ERROR((LM_ERROR, ACE_TEXT("%s. Channel not found (ctx=%d p=%d c=%d s=%d)"), 
           __FUNCTION__, spconnctx->id(), caddr.pipe, caddr.client, caddr.sender));
 
-        //  QFIX(NUM_TASK): на АП3 сразу после команды на закрытие канала с релея приходили данные для этого канала
-        //                  пока непонятно почему, - просто обрабатываем эту ситуацию, чтобы не закрывать соединение к сервису
+        //  QFIX(NUM_TASK): РЅР° РђРџ3 СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ РєРѕРјР°РЅРґС‹ РЅР° Р·Р°РєСЂС‹С‚РёРµ РєР°РЅР°Р»Р° СЃ СЂРµР»РµСЏ РїСЂРёС…РѕРґРёР»Рё РґР°РЅРЅС‹Рµ РґР»СЏ СЌС‚РѕРіРѕ РєР°РЅР°Р»Р°
+        //                  РїРѕРєР° РЅРµРїРѕРЅСЏС‚РЅРѕ РїРѕС‡РµРјСѓ, - РїСЂРѕСЃС‚Рѕ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј СЌС‚Сѓ СЃРёС‚СѓР°С†РёСЋ, С‡С‚РѕР±С‹ РЅРµ Р·Р°РєСЂС‹РІР°С‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ Рє СЃРµСЂРІРёСЃСѓ
         sts = naio::status::SUCCESS;
       }
     }

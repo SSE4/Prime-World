@@ -126,7 +126,7 @@ private:
   bool isEnabled;
 };
 
-/// Управляет созданием удалённых объектов и представляет функционал RPC между двумя гейтами.
+/// РЈРїСЂР°РІР»СЏРµС‚ СЃРѕР·РґР°РЅРёРµРј СѓРґР°Р»С‘РЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ Рё РїСЂРµРґСЃС‚Р°РІР»СЏРµС‚ С„СѓРЅРєС†РёРѕРЅР°Р» RPC РјРµР¶РґСѓ РґРІСѓРјСЏ РіРµР№С‚Р°РјРё.
 class Node : public INode, public BaseObjectMT
 {
   NI_DECLARE_REFCOUNT_CLASS_2(Node, INode, BaseObjectMT);
@@ -136,7 +136,7 @@ public:
   Node( threading::Mutex & section, EntityMap * _entityMap, rpc::IPacketPipe * pipe, const GUID * id, EntityFactoriesContainer & factoriesContainer );
   ~Node();
 
-  /// Для внутреннего использования
+  /// Р”Р»СЏ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
   bool Poll();
 
   RemoteEntityInfo_ PreCreate( unsigned int classId, unsigned int classCrc, IRemoteEntityFactory* factory=0)
@@ -152,8 +152,8 @@ public:
     entity.InvokeConstructor<IRemoteEntity>();
   }
 
-  /// Создание R-объекта.
-  /// На сервер передаётся вызов на создание оригинального объекта.
+  /// РЎРѕР·РґР°РЅРёРµ R-РѕР±СЉРµРєС‚Р°.
+  /// РќР° СЃРµСЂРІРµСЂ РїРµСЂРµРґР°С‘С‚СЃСЏ РІС‹Р·РѕРІ РЅР° СЃРѕР·РґР°РЅРёРµ РѕСЂРёРіРёРЅР°Р»СЊРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°.
   template <typename T>
   T* Create()
   {
@@ -173,7 +173,7 @@ public:
     return 0;
   }
 
-  /// Создание R-объекта с одним параметром.
+  /// РЎРѕР·РґР°РЅРёРµ R-РѕР±СЉРµРєС‚Р° СЃ РѕРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј.
   template <typename T, typename P0>
   T* Create(const P0& p0)
   {
@@ -194,7 +194,7 @@ public:
     return 0;
   }
 
-  /// Создание R-объекта с двумя параметрами.
+  /// РЎРѕР·РґР°РЅРёРµ R-РѕР±СЉРµРєС‚Р° СЃ РґРІСѓРјСЏ РїР°СЂР°РјРµС‚СЂР°РјРё.
   template <typename T, typename P0, typename P1>
   T* Create(const P0& p0, const P1& p1)
   {
@@ -215,7 +215,7 @@ public:
     return 0;
   }
 
-  /// Создание R-объекта с тремя параметрами.
+  /// РЎРѕР·РґР°РЅРёРµ R-РѕР±СЉРµРєС‚Р° СЃ С‚СЂРµРјСЏ РїР°СЂР°РјРµС‚СЂР°РјРё.
   template <typename T, typename P0, typename P1, typename P2>
   T* Create(const P0& p0, const P1& p1, const P2& p2)
   {
@@ -236,7 +236,7 @@ public:
     return 0;
   }
 
-  /// Создание R-объекта с четырьмя параметрами.
+  /// РЎРѕР·РґР°РЅРёРµ R-РѕР±СЉРµРєС‚Р° СЃ С‡РµС‚С‹СЂСЊРјСЏ РїР°СЂР°РјРµС‚СЂР°РјРё.
   template <typename T, typename P0, typename P1, typename P2, typename P3>
   T* Create(const P0& p0, const P1& p1, const P2& p2, const P3& p3)
   {
@@ -315,8 +315,8 @@ public:
     return 0;
   }
 
-  /// Запрашивает объект, зарегистрированный через гейт.
-  /// R-объект возвращается через указанную callback-функцию
+  /// Р—Р°РїСЂР°С€РёРІР°РµС‚ РѕР±СЉРµРєС‚, Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Р№ С‡РµСЂРµР· РіРµР№С‚.
+  /// R-РѕР±СЉРµРєС‚ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‡РµСЂРµР· СѓРєР°Р·Р°РЅРЅСѓСЋ callback-С„СѓРЅРєС†РёСЋ
   template <typename T, typename H, typename P>
   bool Query(const char* path, H* object, void (H::*func)(P result), const char* password=0)
   {

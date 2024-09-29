@@ -81,7 +81,7 @@ StrongMT<mmaking::IHeroesTable> ProdLogicBase::FillHeroesTable( MMConfig * _cfg,
     heroes->Add( descr );
   }
 
-  //второй прогон, чтобы заполнить списки с shortId антогонистов 
+  //РІС‚РѕСЂРѕР№ РїСЂРѕРіРѕРЅ, С‡С‚РѕР±С‹ Р·Р°РїРѕР»РЅРёС‚СЊ СЃРїРёСЃРєРё СЃ shortId Р°РЅС‚РѕРіРѕРЅРёСЃС‚РѕРІ 
   for ( int i = 0; i < dbHeroes->heroes.size(); ++i )
   {
     NDb::Ptr<NDb::Hero> dbHero = dbHeroes->heroes[i];
@@ -228,7 +228,7 @@ void ProdLogicBase::AddGroupRequest( TRequestUId _requestUId, const SRequestComm
   NI_VERIFY( !_members.empty(), "", return );
   NI_ASSERT( ( _commonData.team == lobby::ETeam::Team1 ) || ( _commonData.team == lobby::ETeam::Team2 ), "" );
 
-  //HACK: Мы передаем waitTime вместо startTime; В PickUpNewRequests() будет вычислено 'startTime'
+  //HACK: РњС‹ РїРµСЂРµРґР°РµРј waitTime РІРјРµСЃС‚Рѕ startTime; Р’ PickUpNewRequests() Р±СѓРґРµС‚ РІС‹С‡РёСЃР»РµРЅРѕ 'startTime'
   StrongMT<MmRequest> req = new MmRequest( m_settings, _requestUId, 0, _commonData );
   if ( !req->Init( _members, m_heroes, m_ranks, m_locales, m_locations, m_loger ) ) {
     if ( _callback ) _callback->MmResultAddRequest( _requestUId, false );
@@ -609,12 +609,12 @@ bool ProdLogicBase::CheckHeroesLimit( const THeroCounter & heroCounter, const Mm
       break;
   }
 
-  // подсчитываем количество одинаковых героев в пати из запроса
+  // РїРѕРґСЃС‡РёС‚С‹РІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РѕРґРёРЅР°РєРѕРІС‹С… РіРµСЂРѕРµРІ РІ РїР°С‚Рё РёР· Р·Р°РїСЂРѕСЃР°
   THeroCounter partyHeroesCounter;
   for ( int i = 0; i < req->Size(); ++i )
     partyHeroesCounter[req->Member( i ).shortHeroId] += 1;
 
-  // теперь проверим можно ли добавить всю пати в семпл 
+  // С‚РµРїРµСЂСЊ РїСЂРѕРІРµСЂРёРј РјРѕР¶РЅРѕ Р»Рё РґРѕР±Р°РІРёС‚СЊ РІСЃСЋ РїР°С‚Рё РІ СЃРµРјРїР» 
   for ( THeroCounter::const_iterator it = partyHeroesCounter.begin(); it != partyHeroesCounter.end(); ++it )
   {
     THeroShortId heroId = it->first;
@@ -643,9 +643,9 @@ void ProdLogicBase::CountHeroes( THeroCounter & heroCounter, const MmRequest * r
     const SRequestMemberEx& reqMember = req->Member(i);
     const SHeroDescription* reqMemberDesc = heroes->FindDescr(reqMember.shortHeroId);
 
-    /* при добавлении новых героев в собирающуюся команду будем подсчитывать и антогонистов,
-     * чтобы при следующей попытке добавить в  команду героя, который в скипке антогонистов 
-     * у кого-то из тех, кто уже добавлен, она (попытка) фейлилась 
+    /* РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё РЅРѕРІС‹С… РіРµСЂРѕРµРІ РІ СЃРѕР±РёСЂР°СЋС‰СѓСЋСЃСЏ РєРѕРјР°РЅРґСѓ Р±СѓРґРµРј РїРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ Рё Р°РЅС‚РѕРіРѕРЅРёСЃС‚РѕРІ,
+     * С‡С‚РѕР±С‹ РїСЂРё СЃР»РµРґСѓСЋС‰РµР№ РїРѕРїС‹С‚РєРµ РґРѕР±Р°РІРёС‚СЊ РІ  РєРѕРјР°РЅРґСѓ РіРµСЂРѕСЏ, РєРѕС‚РѕСЂС‹Р№ РІ СЃРєРёРїРєРµ Р°РЅС‚РѕРіРѕРЅРёСЃС‚РѕРІ 
+     * Сѓ РєРѕРіРѕ-С‚Рѕ РёР· С‚РµС…, РєС‚Рѕ СѓР¶Рµ РґРѕР±Р°РІР»РµРЅ, РѕРЅР° (РїРѕРїС‹С‚РєР°) С„РµР№Р»РёР»Р°СЃСЊ 
      */
     for (vector<THeroShortId>::const_iterator it = reqMemberDesc->antagonists.begin(); 
       it != reqMemberDesc->antagonists.end(); ++it )

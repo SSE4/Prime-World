@@ -88,7 +88,7 @@ int ServerAppBase::GetId() const
 }
 
 
-// попробуем сгенерить вменяемое имя для текстового лога (т.е. включить в него инфу по запускаемым сервисам)
+// РїРѕРїСЂРѕР±СѓРµРј СЃРіРµРЅРµСЂРёС‚СЊ РІРјРµРЅСЏРµРјРѕРµ РёРјСЏ РґР»СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ Р»РѕРіР° (С‚.Рµ. РІРєР»СЋС‡РёС‚СЊ РІ РЅРµРіРѕ РёРЅС„Сѓ РїРѕ Р·Р°РїСѓСЃРєР°РµРјС‹Рј СЃРµСЂРІРёСЃР°Рј)
 inline string MakeLogFileNameSuffix( int argc, char * argv[] )
 {
   string logName;
@@ -146,7 +146,7 @@ bool ServerAppBase::OnInit(int argc, char* argv[])
 
   GetSystemLog().SetDefaultMinLevelFilter( NLogg::LEVEL_DEBUG );
 
-  NLogg::LogMover::GetInstance().Init( argc, argv ); // разбираем ком.строку, составляем список лог-файлов (_до_ создания новых)
+  NLogg::LogMover::GetInstance().Init( argc, argv ); // СЂР°Р·Р±РёСЂР°РµРј РєРѕРј.СЃС‚СЂРѕРєСѓ, СЃРѕСЃС‚Р°РІР»СЏРµРј СЃРїРёСЃРѕРє Р»РѕРі-С„Р°Р№Р»РѕРІ (_РґРѕ_ СЃРѕР·РґР°РЅРёСЏ РЅРѕРІС‹С…)
 
   NLogg::BasicTextFileDumper::Setup( CheckForSyncLogger( argc, argv ), 1024 * 1024 );
 
@@ -172,7 +172,7 @@ bool ServerAppBase::OnInit(int argc, char* argv[])
 
   NDb::SessionRoot::InitRoot( NDb::Get<NDb::SessionRoot>( NDb::DBID( "Session.ROOT" ) ) );
 
-  NLogg::LogMover::GetInstance().Move( "" ); // переносим всё подряд; // .Move( NDebug::ClusterName() ) чтобы переносить только логи, СОДЕРЖАЩИЕ НАШЕ ИМЯ КЛАСТЕРА
+  NLogg::LogMover::GetInstance().Move( "" ); // РїРµСЂРµРЅРѕСЃРёРј РІСЃС‘ РїРѕРґСЂСЏРґ; // .Move( NDebug::ClusterName() ) С‡С‚РѕР±С‹ РїРµСЂРµРЅРѕСЃРёС‚СЊ С‚РѕР»СЊРєРѕ Р»РѕРіРё, РЎРћР”Р•Р Р–РђР©РР• РќРђРЁР• РРњРЇ РљР›РђРЎРўР•Р Рђ
 
   stepsCounter = 0;
 

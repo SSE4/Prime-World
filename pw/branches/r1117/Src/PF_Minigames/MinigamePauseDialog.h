@@ -33,9 +33,9 @@ public:
 protected:
   //IMessageScreenCallback
   virtual void SetupMessageWindow( UI::Window * pScreenBaseWindow ) {}
-  virtual void OnYesButton(); //Соответствующая кнопка интерфейса называется "Продолжить"
-  virtual void OnNoButton(); //Соответствующая кнопка интерфейса называется "Выход"
-  virtual bool OnEscapeKey(); //Клавиша "Escape"
+  virtual void OnYesButton(); //РЎРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ РєРЅРѕРїРєР° РёРЅС‚РµСЂС„РµР№СЃР° РЅР°Р·С‹РІР°РµС‚СЃСЏ "РџСЂРѕРґРѕР»Р¶РёС‚СЊ"
+  virtual void OnNoButton(); //РЎРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ РєРЅРѕРїРєР° РёРЅС‚РµСЂС„РµР№СЃР° РЅР°Р·С‹РІР°РµС‚СЃСЏ "Р’С‹С…РѕРґ"
+  virtual bool OnEscapeKey(); //РљР»Р°РІРёС€Р° "Escape"
 
 private:
   CPtr<PF_Minigames::MinigameBase>   game;

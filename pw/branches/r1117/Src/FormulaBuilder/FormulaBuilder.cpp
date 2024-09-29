@@ -250,9 +250,9 @@ bool FormulaBuilder::PrepareCFile(char const *cpFormula, char const *cpReturnTyp
     sConvertedFormula = GetReplaceString(sConvertedFormula.c_str(), "(?:(?<=\\->)|(?<=\\.))c([A-Z][A-Za-z_0-9]*)(?:(?=[\\s\\+\\-\\?\\\\\\/\\*><=\\),])|(?=$))", "GetConstant(\"$1\", pFirst, pSecond)");
   //oName -> GetObject("Name")
   sConvertedFormula = GetReplaceString(sConvertedFormula.c_str(), "(?:(?<=\\->)|(?<=\\.))o([A-Z][A-Za-z_0-9]*)\\.", "GetObject(\"$1\")->");
-  //Name -> GetName() (âàðèàíòû: Life, Energy, LifeRegen, etc)
+  //Name -> GetName() (Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹: Life, Energy, LifeRegen, etc)
   sConvertedFormula = GetReplaceString(sConvertedFormula.c_str(), "(?:(?<=\\->)|(?<=\\.))([A-Z][A-Za-z_0-9]*)(?:(?=[\\s\\+\\-\\?\\\\\\/\\*><=\\),])|(?=$))", "Get$1()");
-  //name -> GetObjectName() (âàðèàíòû: master, favorite, target)
+  //name -> GetObjectName() (Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹: master, favorite, target)
   sConvertedFormula = GetReplaceString(sConvertedFormula.c_str(), "(?:(?<=\\->))([a-z]+?)\\.", gcnew MatchEvaluator( &RegExMatcher::GetObjectNameEvaluator));
 
 

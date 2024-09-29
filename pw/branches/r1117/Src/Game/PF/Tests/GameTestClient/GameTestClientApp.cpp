@@ -87,7 +87,7 @@ struct GtcCfg
   clients_(1),
   user_("_randori"),
   pUserNameFunc_(TestConfig::GetUserName_Hacked),
-  baseUserNumber_(1000), // начиная с такого номера N присваиваются NUMBERED-имена вида "userN"
+  baseUserNumber_(1000), // РЅР°С‡РёРЅР°СЏ СЃ С‚Р°РєРѕРіРѕ РЅРѕРјРµСЂР° N РїСЂРёСЃРІР°РёРІР°СЋС‚СЃСЏ NUMBERED-РёРјРµРЅР° РІРёРґР° "userN"
   transportVersion_(2),
   scenario_(scenarioTestMm),
   scenarioDurationInSec_(30*60),  //  30mins
@@ -409,7 +409,7 @@ bool parse_args(int argc, char* argv[], GtcCfg & cfg, GtcSocial::SSocialConfig &
 
     case 's':
       cfg.scenario_ = get_opt.optarg;
-      // replay умеет исполняться на стадии Stage::GAME обычного hybrid_server_test
+      // replay СѓРјРµРµС‚ РёСЃРїРѕР»РЅСЏС‚СЊСЃСЏ РЅР° СЃС‚Р°РґРёРё Stage::GAME РѕР±С‹С‡РЅРѕРіРѕ hybrid_server_test
       cfg.useTestMm = ( cfg.scenario_ == scenarioTestMm ) || ( cfg.scenario_ == scenarioReplay );
       res = true;
       break;
@@ -1230,8 +1230,8 @@ int main(int argc, char* argv[])
     CrashRptWrapper::AddFileToReport( statusChannelDumper->FileName().c_str(), "GTC Status Log File" );
   }
 
-  //FIXME реализация Replay.cpp никак не годится для параллельного использования; кривой синглтон, жуткая "синхронизация" и т.п.
-  // так что проигрывать replay разрешаем только в режиме "single client"
+  //FIXME СЂРµР°Р»РёР·Р°С†РёСЏ Replay.cpp РЅРёРєР°Рє РЅРµ РіРѕРґРёС‚СЃСЏ РґР»СЏ РїР°СЂР°Р»Р»РµР»СЊРЅРѕРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ; РєСЂРёРІРѕР№ СЃРёРЅРіР»С‚РѕРЅ, Р¶СѓС‚РєР°СЏ "СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ" Рё С‚.Рї.
+  // С‚Р°Рє С‡С‚Рѕ РїСЂРѕРёРіСЂС‹РІР°С‚СЊ replay СЂР°Р·СЂРµС€Р°РµРј С‚РѕР»СЊРєРѕ РІ СЂРµР¶РёРјРµ "single client"
   if ( scenarioReplay == cfg.scenario_ )
   {
     LOG_W(0) << "Replay scenario: forcing single client mode.";
@@ -1270,13 +1270,13 @@ int main(int argc, char* argv[])
       clients->run_common_test( cfg );
     }
     else if ( cfg.scenario_ == scenario_login )
-    {// логин-тест запускает "две волны" юзеров с одинаково генерящимися именами
-      TestClients clients2; // такое же множество клиентов, для второго прохода
+    {// Р»РѕРіРёРЅ-С‚РµСЃС‚ Р·Р°РїСѓСЃРєР°РµС‚ "РґРІРµ РІРѕР»РЅС‹" СЋР·РµСЂРѕРІ СЃ РѕРґРёРЅР°РєРѕРІРѕ РіРµРЅРµСЂСЏС‰РёРјРёСЃСЏ РёРјРµРЅР°РјРё
+      TestClients clients2; // С‚Р°РєРѕРµ Р¶Рµ РјРЅРѕР¶РµСЃС‚РІРѕ РєР»РёРµРЅС‚РѕРІ, РґР»СЏ РІС‚РѕСЂРѕРіРѕ РїСЂРѕС…РѕРґР°
       if ( clients2.Init( cfg, socConfig, pDriver, &phFactory, &msgFactory ))
       {
         clients->run_common_test( cfg );
 
-        ::Sleep( 200 ); // небольшая пауза между 1-й и 2-й волнами логинов
+        ::Sleep( 200 ); // РЅРµР±РѕР»СЊС€Р°СЏ РїР°СѓР·Р° РјРµР¶РґСѓ 1-Р№ Рё 2-Р№ РІРѕР»РЅР°РјРё Р»РѕРіРёРЅРѕРІ
 
         clients2.run_common_test( cfg );
       }

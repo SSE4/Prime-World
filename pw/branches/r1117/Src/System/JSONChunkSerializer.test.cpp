@@ -140,7 +140,7 @@ public:
     pStrongSubST = new SubTestST(-777);
     pWeakSubST = pStrongSubST;
 
-    testStr = "test string тестовая строка";
+    testStr = "test string С‚РµСЃС‚РѕРІР°СЏ СЃС‚СЂРѕРєР°";
 
     for(int i=0; i < 5; i++) 
       ints.push_back(SubTest(i*10 + 2.45));

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "DebugVarReporter.h"
-#include "LDebugVarReporter.auto.h" // локальная обертка для factory::Register
+#include "LDebugVarReporter.auto.h" // Р»РѕРєР°Р»СЊРЅР°СЏ РѕР±РµСЂС‚РєР° РґР»СЏ factory::Register
 
 #include "System/DebugVar.h"
 #include "System/Commands.h"
@@ -27,8 +27,8 @@ DebugVarReporter::~DebugVarReporter()
 }
 
 
-// если хотим зарегистрировать готовый инстанс ответчика (напр. мы уже объявили его полем своего класса),
-// регистрируем готовый объект через этот RegisterObject()
+// РµСЃР»Рё С…РѕС‚РёРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РіРѕС‚РѕРІС‹Р№ РёРЅСЃС‚Р°РЅСЃ РѕС‚РІРµС‚С‡РёРєР° (РЅР°РїСЂ. РјС‹ СѓР¶Рµ РѕР±СЉСЏРІРёР»Рё РµРіРѕ РїРѕР»РµРј СЃРІРѕРµРіРѕ РєР»Р°СЃСЃР°),
+// СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РіРѕС‚РѕРІС‹Р№ РѕР±СЉРµРєС‚ С‡РµСЂРµР· СЌС‚РѕС‚ RegisterObject()
 void DebugVarReporter::RegisterObject( rpc::GateKeeper *gateKeeper, const char* serviceName )
 {
   if ( gateKeeper )
@@ -39,15 +39,15 @@ void DebugVarReporter::RegisterObject( rpc::GateKeeper *gateKeeper, const char* 
   }
 }
 
-// если не хотим создавать ответчик статически, а хотим создавать его по вызову с remote стороны, 
-//  нужно зарегистрировать свою фабрику объектов здесь (желательно сразу после создания gatekeeper и factory)
+// РµСЃР»Рё РЅРµ С…РѕС‚РёРј СЃРѕР·РґР°РІР°С‚СЊ РѕС‚РІРµС‚С‡РёРє СЃС‚Р°С‚РёС‡РµСЃРєРё, Р° С…РѕС‚РёРј СЃРѕР·РґР°РІР°С‚СЊ РµРіРѕ РїРѕ РІС‹Р·РѕРІСѓ СЃ remote СЃС‚РѕСЂРѕРЅС‹, 
+//  РЅСѓР¶РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃРІРѕСЋ С„Р°Р±СЂРёРєСѓ РѕР±СЉРµРєС‚РѕРІ Р·РґРµСЃСЊ (Р¶РµР»Р°С‚РµР»СЊРЅРѕ СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ СЃРѕР·РґР°РЅРёСЏ gatekeeper Рё factory)
 void DebugVarReporter::AttachTo( rpc::LocalEntityFactory* factory )
 {
   if ( factory )
     factory->Register<DebugVarReporter, LDebugVarReporter>();
 
-  // ср. с обычным для клиента: factory_->RegisterAttach<DebugVarUpdater, LDebugVarUpdater>(); 
-  //  RegisterAttach не будет создавать объект, это для связи готового (уже зареганного через RegisterObject?)
+  // СЃСЂ. СЃ РѕР±С‹С‡РЅС‹Рј РґР»СЏ РєР»РёРµРЅС‚Р°: factory_->RegisterAttach<DebugVarUpdater, LDebugVarUpdater>(); 
+  //  RegisterAttach РЅРµ Р±СѓРґРµС‚ СЃРѕР·РґР°РІР°С‚СЊ РѕР±СЉРµРєС‚, СЌС‚Рѕ РґР»СЏ СЃРІСЏР·Рё РіРѕС‚РѕРІРѕРіРѕ (СѓР¶Рµ Р·Р°СЂРµРіР°РЅРЅРѕРіРѕ С‡РµСЂРµР· RegisterObject?)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -55,7 +55,7 @@ const wchar_t* DebugVarReporter::GetDebugVar(const wstring& sVarName)
 {
   LOG_M(0) << "GetDebugVar(" << sVarName << ")";
 
-  NStr::SWPrintf(buf, 128, L"%ls|", sVarName.c_str()); // сразу заливаем имя переменной (в любом случае отвечать)
+  NStr::SWPrintf(buf, 128, L"%ls|", sVarName.c_str()); // СЃСЂР°Р·Сѓ Р·Р°Р»РёРІР°РµРј РёРјСЏ РїРµСЂРµРјРµРЅРЅРѕР№ (РІ Р»СЋР±РѕРј СЃР»СѓС‡Р°Рµ РѕС‚РІРµС‡Р°С‚СЊ)
   int nextPos = sVarName.size()+1;
   
   IDebugVar* var = FindDebugVar( sVarName.c_str() );
@@ -65,7 +65,7 @@ const wchar_t* DebugVarReporter::GetDebugVar(const wstring& sVarName)
   }
   else
   {
-    NStr::WCopy(L"NIL", buf + nextPos, 128); // если нет такой переменной, вернем значение "NIL"
+    NStr::WCopy(L"NIL", buf + nextPos, 128); // РµСЃР»Рё РЅРµС‚ С‚Р°РєРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№, РІРµСЂРЅРµРј Р·РЅР°С‡РµРЅРёРµ "NIL"
   }
 
   return buf;
@@ -76,17 +76,17 @@ const wchar_t* DebugVarReporter::RunRemoteCommand(const wstring& cmdline)
 {
   LOG_M(0) << "RunRemoteCommand(" << cmdline << ")";
 
-  // довольно извращенный хак: вешаем собственный string dumper, чтобы захапать всё что будет написано в лог в ответ на нашу команду
+  // РґРѕРІРѕР»СЊРЅРѕ РёР·РІСЂР°С‰РµРЅРЅС‹Р№ С…Р°Рє: РІРµС€Р°РµРј СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ string dumper, С‡С‚РѕР±С‹ Р·Р°С…Р°РїР°С‚СЊ РІСЃС‘ С‡С‚Рѕ Р±СѓРґРµС‚ РЅР°РїРёСЃР°РЅРѕ РІ Р»РѕРі РІ РѕС‚РІРµС‚ РЅР° РЅР°С€Сѓ РєРѕРјР°РЅРґСѓ
   char cbuf[1024] = "";
   StrongMT<NLogg::CStringDumper> strDumper = new NLogg::CStringDumper( &GetSystemLog(), cbuf, sizeof(cbuf) );
 
   bool res = NGlobal::RunCommand( cmdline.c_str() );
 
-  // и сразу отцепляем свой левый дампер (конечно, есть шансы что все равно успеют попасть "чужие лог-строчки", ну потерпим)
+  // Рё СЃСЂР°Р·Сѓ РѕС‚С†РµРїР»СЏРµРј СЃРІРѕР№ Р»РµРІС‹Р№ РґР°РјРїРµСЂ (РєРѕРЅРµС‡РЅРѕ, РµСЃС‚СЊ С€Р°РЅСЃС‹ С‡С‚Рѕ РІСЃРµ СЂР°РІРЅРѕ СѓСЃРїРµСЋС‚ РїРѕРїР°СЃС‚СЊ "С‡СѓР¶РёРµ Р»РѕРі-СЃС‚СЂРѕС‡РєРё", РЅСѓ РїРѕС‚РµСЂРїРёРј)
   GetSystemLog().RemoveDumper( strDumper );
 
   int written = NStr::SWPrintf(buf, sizeof(buf), L"%ls|%d|", cmdline.c_str(), res);
-  NStr::ConvertToWString(cbuf, buf+written, sizeof(buf)-written); // исходный текст | ответ | все что написали в лог (обрезано до ~1000 символов)
+  NStr::ConvertToWString(cbuf, buf+written, sizeof(buf)-written); // РёСЃС…РѕРґРЅС‹Р№ С‚РµРєСЃС‚ | РѕС‚РІРµС‚ | РІСЃРµ С‡С‚Рѕ РЅР°РїРёСЃР°Р»Рё РІ Р»РѕРі (РѕР±СЂРµР·Р°РЅРѕ РґРѕ ~1000 СЃРёРјРІРѕР»РѕРІ)
 
   return buf;
 }

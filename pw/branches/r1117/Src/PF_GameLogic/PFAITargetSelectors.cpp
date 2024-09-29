@@ -366,7 +366,7 @@ namespace NWorld
       }
     } coll( myAbility, pCastersSelector, pars  );
 
-    //оптимизация: если pTargetSelector не нашел целей - не запускаем pCastersSelector
+    //РѕРїС‚РёРјРёР·Р°С†РёСЏ: РµСЃР»Рё pTargetSelector РЅРµ РЅР°С€РµР» С†РµР»РµР№ - РЅРµ Р·Р°РїСѓСЃРєР°РµРј pCastersSelector
 
     float minDist = RetrieveParam( GetDB().minDistBetweenTargets, pars, 0.f );
     struct Filter : public ITargetAction, public NonCopyable

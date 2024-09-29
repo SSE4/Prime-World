@@ -753,7 +753,7 @@ bool IsValidSymbol( wchar_t chr, NDb::EUITextEntryType eTextEntryType )
       break;
     case NDb::UITEXTENTRYTYPE_IDENTIFIER:
       {
-        //проверим, что символ удовлетворяет требованиям GameSpy NickName
+        //РїСЂРѕРІРµСЂРёРј, С‡С‚Рѕ СЃРёРјРІРѕР» СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ С‚СЂРµР±РѕРІР°РЅРёСЏРј GameSpy NickName
         static const wstring ValidSymbols = L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789[]\\`_^{|}-";
         return IsSymbolIn( chr, ValidSymbols );
       }
@@ -774,7 +774,7 @@ bool IsValidSymbol( wchar_t chr, NDb::EUITextEntryType eTextEntryType )
       /*
     case NDb::TEXTENTRYTYPE_FILENAME:
       {
-      //проверим, что символ удовлетворяет требованиям FileName symbols
+      //РїСЂРѕРІРµСЂРёРј, С‡С‚Рѕ СЃРёРјРІРѕР» СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ С‚СЂРµР±РѕРІР°РЅРёСЏРј FileName symbols
       //wstringValidSymbols = L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789[]`_^{}-!@#$%^&()+=~";
       static const wstring InvalidSymbols = L"\\/|:*?\"<>\r\n";
       return !IsSymbolIn( chr, InvalidSymbols );
@@ -782,14 +782,14 @@ bool IsValidSymbol( wchar_t chr, NDb::EUITextEntryType eTextEntryType )
       break;
     case NDb::TEXTENTRYTYPE_GAME_SPY:
       {
-      //проверим, что символ удовлетворяет требованиям GameSpy NickName
+      //РїСЂРѕРІРµСЂРёРј, С‡С‚Рѕ СЃРёРјРІРѕР» СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ С‚СЂРµР±РѕРІР°РЅРёСЏРј GameSpy NickName
       static const wstring ValidSymbols = L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789[]\\`_^{|}-";
       return IsSymbolIn( chr, ValidSymbols );
       }
       break;
     case NDb::TEXTENTRYTYPE_UBI:
       {
-      //проверим, что символ удовлетворяет требованиям UbiCom
+      //РїСЂРѕРІРµСЂРёРј, С‡С‚Рѕ СЃРёРјРІРѕР» СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ С‚СЂРµР±РѕРІР°РЅРёСЏРј UbiCom
       static const wstring ValidSymbols = L"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-";
       return IsSymbolIn( chr, ValidSymbols );
       }

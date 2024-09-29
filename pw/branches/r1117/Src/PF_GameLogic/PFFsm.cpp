@@ -205,12 +205,12 @@ void PFHFSM::PushState( CObj<IPFState> const& pState )
   NI_VERIFY( pState, "Trying to push invalid state!", return; );
   if ( !GetCurrentState() || !GetCurrentState()->IsBlocking() )
   {
-    // Óáèðàåì ñòåéò, êîòîðûé äîëæåí ïîêèíóòü ñòåê ïðè ïóøå íîâîãî ñòåéòà. Ñåé÷àñ ïîêà ÷òî òîëüêî PFHeroHoldState.
+    // Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ ÑÑ‚ÐµÐ¹Ñ‚, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð¿Ð¾ÐºÐ¸Ð½ÑƒÑ‚ÑŒ ÑÑ‚ÐµÐº Ð¿Ñ€Ð¸ Ð¿ÑƒÑˆÐµ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑÑ‚ÐµÐ¹Ñ‚Ð°. Ð¡ÐµÐ¹Ñ‡Ð°Ñ Ð¿Ð¾ÐºÐ° Ñ‡Ñ‚Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ PFHeroHoldState.
     if ( GetCurrentState() && GetCurrentState()->IsEscaping() )
     {
       CObj<IPFState> curState = PopState();
       if(IsValid(curState))
-        curState->DoLeave( true ); // Ñ÷èòàåì ýòî î÷èñòêîé
+        curState->DoLeave( true ); // Ð¡Ñ‡Ð¸Ñ‚Ð°ÐµÐ¼ ÑÑ‚Ð¾ Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ¾Ð¹
     }
     //DevTrace("%08x : PFHFSM::PushState(%s)", int(this), pState->GetObjectTypeName());
     stateStack.push_back( pState );

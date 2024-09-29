@@ -27,7 +27,7 @@ namespace AdminConsole
   {
   }
 
-  // для нового транспорта (серверного, через CoordinatorClient)
+  // РґР»СЏ РЅРѕРІРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р° (СЃРµСЂРІРµСЂРЅРѕРіРѕ, С‡РµСЂРµР· CoordinatorClient)
   Client::Client( int localId, 
       StrongMT<Transport::ITransportSystem> transport, 
       nstl::string loginAddr ) 
@@ -59,7 +59,7 @@ namespace AdminConsole
 
   void Client::OnChannelClosed( Transport::IChannel* channel,  rpc::Node* node )
   {
-    clusterAdmin = 0; // канал у нас один, так что любой разрыв связи -- повод для реконнекта
+    clusterAdmin = 0; // РєР°РЅР°Р» Сѓ РЅР°СЃ РѕРґРёРЅ, С‚Р°Рє С‡С‚Рѕ Р»СЋР±РѕР№ СЂР°Р·СЂС‹РІ СЃРІСЏР·Рё -- РїРѕРІРѕРґ РґР»СЏ СЂРµРєРѕРЅРЅРµРєС‚Р°
     printf("\n");
     LOG_W(0) << "DISCONNECTED from ClusterAdmin";
   }
@@ -141,7 +141,7 @@ namespace AdminConsole
     {
     case Stage::NONE:
       {
-        rpcNode_ = gateKeeper_->RequestNode( ClusterAdmin::ServiceInterfaceId ); // честно говоря, пофиг; все равно у нас dummy resolver
+        rpcNode_ = gateKeeper_->RequestNode( ClusterAdmin::ServiceInterfaceId ); // С‡РµСЃС‚РЅРѕ РіРѕРІРѕСЂСЏ, РїРѕС„РёРі; РІСЃРµ СЂР°РІРЅРѕ Сѓ РЅР°СЃ dummy resolver
         if ( rpcNode_ )
         {
           rpcNode_->Query<ClusterAdmin::RIClusterAdmin>( ClusterAdmin::RpcServiceInterfaceId, this, &Client::OnClusterAdminPtr); 
@@ -166,7 +166,7 @@ namespace AdminConsole
 
     case Stage::INPUT: 
       {
-        char buf[2] = ""; // для сравнения с множеством допустимых символов (пунктуация и т.п.)
+        char buf[2] = ""; // РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ СЃ РјРЅРѕР¶РµСЃС‚РІРѕРј РґРѕРїСѓСЃС‚РёРјС‹С… СЃРёРјРІРѕР»РѕРІ (РїСѓРЅРєС‚СѓР°С†РёСЏ Рё С‚.Рї.)
         if( _kbhit() )
         {
           char c = getch();
@@ -175,25 +175,25 @@ namespace AdminConsole
             getch();
             break;
           }
-          else if ( c == VK_ESCAPE ) // ESC -- cancel, очистим строчку и перейдем на следующую
+          else if ( c == VK_ESCAPE ) // ESC -- cancel, РѕС‡РёСЃС‚РёРј СЃС‚СЂРѕС‡РєСѓ Рё РїРµСЂРµР№РґРµРј РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ
           {
             NextInput(); 
             break;
           }
-          else if ( c == VK_BACK ) // BACKSPACE, прибить пред.символ
+          else if ( c == VK_BACK ) // BACKSPACE, РїСЂРёР±РёС‚СЊ РїСЂРµРґ.СЃРёРјРІРѕР»
           {
             if( input_.length() )
             {
               input_.erase( input_.length()-1 );
               putch(c);
-              putch(' '); // стираем букву и на экране консоли (OMGWTF cant believe I'm writing this sh*(*$*^%$ -- in 21st century!)
+              putch(' '); // СЃС‚РёСЂР°РµРј Р±СѓРєРІСѓ Рё РЅР° СЌРєСЂР°РЅРµ РєРѕРЅСЃРѕР»Рё (OMGWTF cant believe I'm writing this sh*(*$*^%$ -- in 21st century!)
               putch(c);
               break;
             }
           }
 
           if ( c != '\r' ) 
-          {// accept & echo printable chars (latin alpha-num, and a few others (+- и т.п.)
+          {// accept & echo printable chars (latin alpha-num, and a few others (+- Рё С‚.Рї.)
             buf[0] = c;
             if (  ( c >= 'a' && c <= 'z' ) || 
                   ( c >= 'A' && c <= 'Z' ) ||
@@ -222,14 +222,14 @@ namespace AdminConsole
                 if( HandleInput() )
                   return true;
 
-                // не смогли обработать команду: 
+                // РЅРµ СЃРјРѕРіР»Рё РѕР±СЂР°Р±РѕС‚Р°С‚СЊ РєРѕРјР°РЅРґСѓ: 
                 ConsoleCmdHelp();
                 break;
               }
               NextInput(); 
             }
             else
-            {// просто ENTER: возобновляем работу цикла
+            {// РїСЂРѕСЃС‚Рѕ ENTER: РІРѕР·РѕР±РЅРѕРІР»СЏРµРј СЂР°Р±РѕС‚Сѓ С†РёРєР»Р°
               printf( "\nENTER: resume operation...\n" );
               stage_ =  need_stage_reset_ || (!clusterAdmin) ? Stage::NONE : Stage::LOOP;
             }

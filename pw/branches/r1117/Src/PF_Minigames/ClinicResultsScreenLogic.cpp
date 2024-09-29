@@ -108,8 +108,8 @@ void ClinicResultsScreenLogic::AddCreatures(const PF_Minigames::ClinicCreepsUIDe
     int xMargin = (maxWidth - size.x * itemsInThisRow) / 2;
     pNew->SetLocation(base.x + xMargin + size.x * indexInRow, base.y + size.y * rowIndex);
 
-    //@iA@TODO: Анимация opacity вырезана; здесь ее планируется заменить flsh-анимацией
-    //поэтому функционал windowsToShow + goldAnim пока сохрянем, может пригодится
+    //@iA@TODO: РђРЅРёРјР°С†РёСЏ opacity РІС‹СЂРµР·Р°РЅР°; Р·РґРµСЃСЊ РµРµ РїР»Р°РЅРёСЂСѓРµС‚СЃСЏ Р·Р°РјРµРЅРёС‚СЊ flsh-Р°РЅРёРјР°С†РёРµР№
+    //РїРѕСЌС‚РѕРјСѓ С„СѓРЅРєС†РёРѕРЅР°Р» windowsToShow + goldAnim РїРѕРєР° СЃРѕС…СЂСЏРЅРµРј, РјРѕР¶РµС‚ РїСЂРёРіРѕРґРёС‚СЃСЏ
 
     //setup creep card
     pNew->SetOpacity( 1.f );
@@ -160,7 +160,7 @@ void ClinicResultsScreenLogic::AddCreatures(const PF_Minigames::ClinicCreepsUIDe
 void ClinicResultsScreenLogic::UpdateMedal(float * pShowTime)
 {
   *pShowTime += GetUIDB().medalAppearPause;
-  //посчитать средее заполненности бара кричей
+  //РїРѕСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРµРµ Р·Р°РїРѕР»РЅРµРЅРЅРѕСЃС‚Рё Р±Р°СЂР° РєСЂРёС‡РµР№
   //TODO: move this win ratios to DB
 
   const char * medalLOName = 0;
@@ -197,16 +197,16 @@ void ClinicResultsScreenLogic::UpdateGold(float time)
 
   TGoldAnim::iterator it = goldAnim.lower_bound(time), from = goldAnim.end(), to = goldAnim.end();
 
-  if(it == goldAnim.end()) //Время ушло
+  if(it == goldAnim.end()) //Р’СЂРµРјСЏ СѓС€Р»Рѕ
   {
     --it;
     from = to = it;
   }
-  else if(it == goldAnim.begin()) //Время еще не пришло
+  else if(it == goldAnim.begin()) //Р’СЂРµРјСЏ РµС‰Рµ РЅРµ РїСЂРёС€Р»Рѕ
   {
     from = to = it;
   }
-  else //анимация
+  else //Р°РЅРёРјР°С†РёСЏ
   {
     to = it;
     --it;
@@ -225,19 +225,19 @@ void ClinicResultsScreenLogic::UpdateGold(float time)
     lastGoldValue = newValue;
   }
 
-  //TODO: Тут планировался мега сплэш на счетчике денег, но ничего не вышло :(
-  // - opacity почему-то нифига не анимируется
-  // - при скалировании контрола текст не скалится совсем :(
-  // - поэтому просто немного поиграем иконкой денег
+  //TODO: РўСѓС‚ РїР»Р°РЅРёСЂРѕРІР°Р»СЃСЏ РјРµРіР° СЃРїР»СЌС€ РЅР° СЃС‡РµС‚С‡РёРєРµ РґРµРЅРµРі, РЅРѕ РЅРёС‡РµРіРѕ РЅРµ РІС‹С€Р»Рѕ :(
+  // - opacity РїРѕС‡РµРјСѓ-С‚Рѕ РЅРёС„РёРіР° РЅРµ Р°РЅРёРјРёСЂСѓРµС‚СЃСЏ
+  // - РїСЂРё СЃРєР°Р»РёСЂРѕРІР°РЅРёРё РєРѕРЅС‚СЂРѕР»Р° С‚РµРєСЃС‚ РЅРµ СЃРєР°Р»РёС‚СЃСЏ СЃРѕРІСЃРµРј :(
+  // - РїРѕСЌС‚РѕРјСѓ РїСЂРѕСЃС‚Рѕ РЅРµРјРЅРѕРіРѕ РїРѕРёРіСЂР°РµРј РёРєРѕРЅРєРѕР№ РґРµРЅРµРі
 
-  //Если дошли до постоянного участка, проиграем сплэш
+  //Р•СЃР»Рё РґРѕС€Р»Рё РґРѕ РїРѕСЃС‚РѕСЏРЅРЅРѕРіРѕ СѓС‡Р°СЃС‚РєР°, РїСЂРѕРёРіСЂР°РµРј СЃРїР»СЌС€
   if(from->second == to->second && newValue != lastSplashValue && time >= from->first)
     if(UI::ImageLabel * pWnd = UI::GetChildChecked<UI::ImageLabel>(pBaseWindow, "GoldDecor", true))
     {
       lastSplashValue = newValue;
-      //@iA@TODO: Вот здесь вот было проигрывание супер-мега-FX на контроле pWnd (отображает выигранную сумму денех)
-      //Но, так как анимация location/size была вырезана, теперь здесь никаких FX-ов нет
-      //TODO: запустить штоль здесь какую-нить флэшку
+      //@iA@TODO: Р’РѕС‚ Р·РґРµСЃСЊ РІРѕС‚ Р±С‹Р»Рѕ РїСЂРѕРёРіСЂС‹РІР°РЅРёРµ СЃСѓРїРµСЂ-РјРµРіР°-FX РЅР° РєРѕРЅС‚СЂРѕР»Рµ pWnd (РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РІС‹РёРіСЂР°РЅРЅСѓСЋ СЃСѓРјРјСѓ РґРµРЅРµС…)
+      //РќРѕ, С‚Р°Рє РєР°Рє Р°РЅРёРјР°С†РёСЏ location/size Р±С‹Р»Р° РІС‹СЂРµР·Р°РЅР°, С‚РµРїРµСЂСЊ Р·РґРµСЃСЊ РЅРёРєР°РєРёС… FX-РѕРІ РЅРµС‚
+      //TODO: Р·Р°РїСѓСЃС‚РёС‚СЊ С€С‚РѕР»СЊ Р·РґРµСЃСЊ РєР°РєСѓСЋ-РЅРёС‚СЊ С„Р»СЌС€РєСѓ
     }
 }
 

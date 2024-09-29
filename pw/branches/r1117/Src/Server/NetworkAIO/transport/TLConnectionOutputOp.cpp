@@ -48,7 +48,7 @@ namespace TransportLayer
         unsigned int chainsize = 0;
         OpScopeT currentChain;
 
-        //  определяем операции(цепочку), которые исполним в текущем цикле
+        //  РѕРїСЂРµРґРµР»СЏРµРј РѕРїРµСЂР°С†РёРё(С†РµРїРѕС‡РєСѓ), РєРѕС‚РѕСЂС‹Рµ РёСЃРїРѕР»РЅРёРј РІ С‚РµРєСѓС‰РµРј С†РёРєР»Рµ
         {
           NI_PROFILE_BLOCK("select chain");
 
@@ -80,10 +80,10 @@ namespace TransportLayer
           currentChain.scope(gop, prevtmpop);
         }
 
-        //  начало следующей цепочки операций
+        //  РЅР°С‡Р°Р»Рѕ СЃР»РµРґСѓСЋС‰РµР№ С†РµРїРѕС‡РєРё РѕРїРµСЂР°С†РёР№
         gop = currentChain.last()->next();
 
-        //  аллоцируем память под цепочку операций
+        //  Р°Р»Р»РѕС†РёСЂСѓРµРј РїР°РјСЏС‚СЊ РїРѕРґ С†РµРїРѕС‡РєСѓ РѕРїРµСЂР°С†РёР№
         ACE_Message_Block* chunk = 0;
         {
           NI_PROFILE_BLOCK("outmbf.alloc_msg");
@@ -92,11 +92,11 @@ namespace TransportLayer
         if (!chunk)
           return naio::status::NO_MEMORY;
 
-        //  используем in-place аллокатор для сериализации операций
+        //  РёСЃРїРѕР»СЊР·СѓРµРј in-place Р°Р»Р»РѕРєР°С‚РѕСЂ РґР»СЏ СЃРµСЂРёР°Р»РёР·Р°С†РёРё РѕРїРµСЂР°С†РёР№
         InPlaceMessageBlockFactory localmbf;
         localmbf.set_place(chunk->wr_ptr(), chunk->size());
 
-        //  обходим и исполняем операции
+        //  РѕР±С…РѕРґРёРј Рё РёСЃРїРѕР»РЅСЏРµРј РѕРїРµСЂР°С†РёРё
         unsigned int op_count = 0;
         st = naio::status::FAIL;
         op::ChannelOpPtr tmpop = currentChain.first();
@@ -122,10 +122,10 @@ namespace TransportLayer
           NI_ASSERT(chainsize == localmbf.bytes_allocated(), 
             NI_STRFMT("Calculated and allocated size must be equal(calc=%d alloc=%d)", chainsize, localmbf.bytes_allocated()));
         }
-        //  выставляем смещение в используемом блоке памяти
+        //  РІС‹СЃС‚Р°РІР»СЏРµРј СЃРјРµС‰РµРЅРёРµ РІ РёСЃРїРѕР»СЊР·СѓРµРјРѕРј Р±Р»РѕРєРµ РїР°РјСЏС‚Рё
         chunk->wr_ptr(localmbf.bytes_allocated());
 
-        //  кладем результат в output цепочку message block'ов
+        //  РєР»Р°РґРµРј СЂРµР·СѓР»СЊС‚Р°С‚ РІ output С†РµРїРѕС‡РєСѓ message block'РѕРІ
         ++chunk_count;
         if (!pmb)
         {

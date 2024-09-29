@@ -690,7 +690,7 @@ bool MovingUnit::CreatePath( bool needReversePath )
   SVector start = pMap->GetTile(origin);
   SVector end   = pMap->GetTile(vFarTarget);
 
-  // Смотрим прямой путь
+  // РЎРјРѕС‚СЂРёРј РїСЂСЏРјРѕР№ РїСѓС‚СЊ
   pStaticPath = CreateStaticPath( start, end );
   if ( !pStaticPath )
   {
@@ -700,7 +700,7 @@ bool MovingUnit::CreatePath( bool needReversePath )
   
   CVec2 reverseTarget = pMap->GetPointByTile( start );
 
-  // Если хотим более качественно найти путь ( для героев ), то смотрим и обратный путь
+  // Р•СЃР»Рё С…РѕС‚РёРј Р±РѕР»РµРµ РєР°С‡РµСЃС‚РІРµРЅРЅРѕ РЅР°Р№С‚Рё РїСѓС‚СЊ ( РґР»СЏ РіРµСЂРѕРµРІ ), С‚Рѕ СЃРјРѕС‚СЂРёРј Рё РѕР±СЂР°С‚РЅС‹Р№ РїСѓС‚СЊ
   CObj<CCommonStaticPath> pStaticPathReverse;
   if ( needReversePath )
   {
@@ -709,7 +709,7 @@ bool MovingUnit::CreatePath( bool needReversePath )
     {
       pChecking = new RangeChecking( reverseTarget, pOwner, stopDistance );
     }
-    // Ищем путь от конца уже найденного пути
+    // РС‰РµРј РїСѓС‚СЊ РѕС‚ РєРѕРЅС†Р° СѓР¶Рµ РЅР°Р№РґРµРЅРЅРѕРіРѕ РїСѓС‚Рё
     pStaticPathReverse = CreateStaticPath( pStaticPath->GetFinishTile(), start );
 
     if ( pChecking )
@@ -718,19 +718,19 @@ bool MovingUnit::CreatePath( bool needReversePath )
     }
   }
 
-  // Ничего не нашли - выходим
+  // РќРёС‡РµРіРѕ РЅРµ РЅР°С€Р»Рё - РІС‹С…РѕРґРёРј
   if ( !pStaticPath && !pStaticPathReverse )
   {
     Stop();
     return false;
   }
-  // Нашли только обратный путь - применяем его
+  // РќР°С€Р»Рё С‚РѕР»СЊРєРѕ РѕР±СЂР°С‚РЅС‹Р№ РїСѓС‚СЊ - РїСЂРёРјРµРЅСЏРµРј РµРіРѕ
   else if ( !pStaticPath && pStaticPathReverse )
   {
     pStaticPath = pStaticPathReverse;
     pStaticPath->ReversePath();
   }
-  // Нашли оба - смотрим тот, который короче
+  // РќР°С€Р»Рё РѕР±Р° - СЃРјРѕС‚СЂРёРј С‚РѕС‚, РєРѕС‚РѕСЂС‹Р№ РєРѕСЂРѕС‡Рµ
   else if ( pStaticPath && pStaticPathReverse )
   {
     if ( pStaticPath->GetLength() > pStaticPathReverse->GetLength() )
@@ -1391,10 +1391,10 @@ void MovingUnit::TickMove(float timeDelta)
           }
         }
       } func( vShortTarget );
-      // суть этой страшной конструкции в том, что func передаётся по ссылке а не по значению
+      // СЃСѓС‚СЊ СЌС‚РѕР№ СЃС‚СЂР°С€РЅРѕР№ РєРѕРЅСЃС‚СЂСѓРєС†РёРё РІ С‚РѕРј, С‡С‚Рѕ func РїРµСЂРµРґР°С‘С‚СЃСЏ РїРѕ СЃСЃС‹Р»РєРµ Р° РЅРµ РїРѕ Р·РЅР°С‡РµРЅРёСЋ
       nstl::for_each<nstl::vector<Protection::HiddenVar<CVec2, 30>::T>::iterator,NearestPoint&>( splineTiles.begin(), splineTiles.end(), func ); 
 
-      if( func.nearestPathPoint == origin ) // это значит что скорости слишком мало, чтобы перейти в другой тайл. Кейз маловероятный
+      if( func.nearestPathPoint == origin ) // СЌС‚Рѕ Р·РЅР°С‡РёС‚ С‡С‚Рѕ СЃРєРѕСЂРѕСЃС‚Рё СЃР»РёС€РєРѕРј РјР°Р»Рѕ, С‡С‚РѕР±С‹ РїРµСЂРµР№С‚Рё РІ РґСЂСѓРіРѕР№ С‚Р°Р№Р». РљРµР№Р· РјР°Р»РѕРІРµСЂРѕСЏС‚РЅС‹Р№
       {
         Stop();
         break;

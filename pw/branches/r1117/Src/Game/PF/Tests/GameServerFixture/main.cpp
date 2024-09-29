@@ -647,12 +647,12 @@ int main(int argc, char* argv[])
 {
   ni_detail::InitPointersStatics();
 
-  const int sessionsCount = 2000;                 // количество сессий
-  const float sessionLifetime = 60.f*30;         // время жизни сессии
-  const float disconnectPeriod = 5.f;            // период проверки сессии на окончание
-  const float connectPeriod = 0.1f;              // период добавления новых сессий
-  const int simulationThreadsCount = 1;          // количество тредов симуляции логики
-  const int clientsThreadsCount = 1;             // количество тредов клиентских
+  const int sessionsCount = 2000;                 // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµСЃСЃРёР№
+  const float sessionLifetime = 60.f*30;         // РІСЂРµРјСЏ Р¶РёР·РЅРё СЃРµСЃСЃРёРё
+  const float disconnectPeriod = 5.f;            // РїРµСЂРёРѕРґ РїСЂРѕРІРµСЂРєРё СЃРµСЃСЃРёРё РЅР° РѕРєРѕРЅС‡Р°РЅРёРµ
+  const float connectPeriod = 0.1f;              // РїРµСЂРёРѕРґ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІС‹С… СЃРµСЃСЃРёР№
+  const int simulationThreadsCount = 1;          // РєРѕР»РёС‡РµСЃС‚РІРѕ С‚СЂРµРґРѕРІ СЃРёРјСѓР»СЏС†РёРё Р»РѕРіРёРєРё
+  const int clientsThreadsCount = 1;             // РєРѕР»РёС‡РµСЃС‚РІРѕ С‚СЂРµРґРѕРІ РєР»РёРµРЅС‚СЃРєРёС…
   const bool writeReplaysThroughBDS = false;
   const int scheduleQueueSize = 1024;
 

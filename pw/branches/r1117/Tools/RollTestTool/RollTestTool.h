@@ -3,29 +3,29 @@
 
 nstl::string buffs_internal_[17] = {
 
-  //35-37 ресурсы
+  //35-37 СЂРµСЃСѓСЂСЃС‹
   "Items/GuildBuffs/B035_allresources_cw.xdb",
   "Items/GuildBuffs/B036_allresources_cw.xdb",
   "Items/GuildBuffs/B037_allresources_cw.xdb",
   
-  //38-40 серебро
+  //38-40 СЃРµСЂРµР±СЂРѕ
   "Items/GuildBuffs/B038_silver_cw.xdb",
   "Items/GuildBuffs/B039_silver_cw.xdb",
   "Items/GuildBuffs/B040_silver_cw.xdb",
   
-  //56-58 кристаллы
+  //56-58 РєСЂРёСЃС‚Р°Р»Р»С‹
   "Items/GuildBuffs/B056_crystal.xdb",
   "Items/GuildBuffs/B057_crystal.xdb",
   "Items/GuildBuffs/B058_crystal.xdb",
 
-  //59-63 таланты
+  //59-63 С‚Р°Р»Р°РЅС‚С‹
   "Items/GuildBuffs/B059_talent.xdb",
   "Items/GuildBuffs/B060_talent.xdb",
   "Items/GuildBuffs/B061_talent.xdb",
   "Items/GuildBuffs/B062_talent.xdb",
   "Items/GuildBuffs/B063_talent.xdb",
   
-  //81 очки тактики
+  //81 РѕС‡РєРё С‚Р°РєС‚РёРєРё
   "Items/GuildBuffs/B081_player_points.xdb",
 
   "Items/GuildBuffs/B103_Points1_24h.xdb",

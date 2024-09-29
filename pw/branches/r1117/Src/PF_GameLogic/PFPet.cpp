@@ -29,8 +29,8 @@ PFPetAIBaseState::PFPetAIBaseState(CPtr<PFBasePetUnit> const& pPet)
 
 bool PFPetAIBaseState::OnStep( float dt )
 {
-  // Ðåæèì ñëåäîâàíèÿ çà èãðîêîì. Ïåðåìåùàåìñÿ â ïîçèöèþ ðÿäîì ñ èãðîêîì
-  // Åñëè â targetingRange ïîÿâëÿåòñÿ âðàã - ...
+  // Ð ÐµÐ¶Ð¸Ð¼ ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ñ Ð·Ð° Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð¼. ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰Ð°ÐµÐ¼ÑÑ Ð² Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ Ñ€ÑÐ´Ð¾Ð¼ Ñ Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð¼
+  // Ð•ÑÐ»Ð¸ Ð² targetingRange Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð²Ñ€Ð°Ð³ - ...
 
   if ( GetCurrentState() )
   {
@@ -48,7 +48,7 @@ bool PFPetAIBaseState::OnStep( float dt )
     const CVec2 vPetKeeperPosition = pPetKeeper->IsDead() ? pPetKeeper->GetSpawnPosition().AsVec2D() : pPetKeeper->GetPosition().AsVec2D();
     if ( pOwner->IsPositionInRange( vPetKeeperPosition, maxEscortDistance ) )
     {
-      // Äâèæåìñÿ çà ìàñòåðîì
+      // Ð”Ð²Ð¸Ð¶ÐµÐ¼ÑÑ Ð·Ð° Ð¼Ð°ÑÑ‚ÐµÑ€Ð¾Ð¼
       const CVec2 escortPosition = pPetKeeper->IsDead() ? pPetKeeper->GetSpawnPosition().AsVec2D() : pPetKeeper->GetPetEscortPosition().AsVec2D();
       if ( !pOwner->IsPositionInRange( escortPosition, minEscortDistance ) )
       {

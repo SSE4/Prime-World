@@ -34,7 +34,7 @@ private:
 
 
 
-//прослойка между интерфейсами NMarkup::IStyle и UI::IFontStyle
+//РїСЂРѕСЃР»РѕР№РєР° РјРµР¶РґСѓ РёРЅС‚РµСЂС„РµР№СЃР°РјРё NMarkup::IStyle Рё UI::IFontStyle
 class TextComponentStyle : public NMarkup::IStyle
 {
 public:

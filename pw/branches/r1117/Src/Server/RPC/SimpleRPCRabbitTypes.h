@@ -19,7 +19,7 @@ struct SClientStatistics : public rpc::Data
 
   ZDATA
   ZNOPARENT( rpc::Data )
-  int      clientId; //FIXME: в принципе, это поле здесь не нужно; Надо бы попробовать избавится от него
+  int      clientId; //FIXME: РІ РїСЂРёРЅС†РёРїРµ, СЌС‚Рѕ РїРѕР»Рµ Р·РґРµСЃСЊ РЅРµ РЅСѓР¶РЅРѕ; РќР°РґРѕ Р±С‹ РїРѕРїСЂРѕР±РѕРІР°С‚СЊ РёР·Р±Р°РІРёС‚СЃСЏ РѕС‚ РЅРµРіРѕ
   EGameFinishClientState::Enum  clientState;
   uint                      totalAfkSeconds; 
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&clientId); f.Add(3,&clientState); f.Add(4,&totalAfkSeconds); return 0; }
@@ -134,7 +134,7 @@ struct GuildData
 struct PlayerInfo
 {
   ZDATA
-    TAuid             auid; //TEMP: Пока добавить ауид сюда. Надеюсь, временно
+    TAuid             auid; //TEMP: РџРѕРєР° РґРѕР±Р°РІРёС‚СЊ Р°СѓРёРґ СЃСЋРґР°. РќР°РґРµСЋСЃСЊ, РІСЂРµРјРµРЅРЅРѕ
     PlayerTalentSet   talents;
     nstl::vector<int> inventory;
     nstl::vector<int> friends;
@@ -277,11 +277,11 @@ namespace EGameResult
 {
   enum Enum
   {
-    SyncResults,   // результаты получены с клиентов и все клиенты прислали одинаковые результаты
-    NoResults,     // у сессии нет результатов
-    NobodyCame,    // не дождались коннекта ни одного пользователя
-    AsyncResults,  // результаты получены с клиентов и есть разногласия по содержимому
-    Async,         // случился асинк и результатов нет
+    SyncResults,   // СЂРµР·СѓР»СЊС‚Р°С‚С‹ РїРѕР»СѓС‡РµРЅС‹ СЃ РєР»РёРµРЅС‚РѕРІ Рё РІСЃРµ РєР»РёРµРЅС‚С‹ РїСЂРёСЃР»Р°Р»Рё РѕРґРёРЅР°РєРѕРІС‹Рµ СЂРµР·СѓР»СЊС‚Р°С‚С‹
+    NoResults,     // Сѓ СЃРµСЃСЃРёРё РЅРµС‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
+    NobodyCame,    // РЅРµ РґРѕР¶РґР°Р»РёСЃСЊ РєРѕРЅРЅРµРєС‚Р° РЅРё РѕРґРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+    AsyncResults,  // СЂРµР·СѓР»СЊС‚Р°С‚С‹ РїРѕР»СѓС‡РµРЅС‹ СЃ РєР»РёРµРЅС‚РѕРІ Рё РµСЃС‚СЊ СЂР°Р·РЅРѕРіР»Р°СЃРёСЏ РїРѕ СЃРѕРґРµСЂР¶РёРјРѕРјСѓ
+    Async,         // СЃР»СѓС‡РёР»СЃСЏ Р°СЃРёРЅРє Рё СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РЅРµС‚
     Unknown,
   };
 }

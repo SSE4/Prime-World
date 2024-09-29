@@ -565,8 +565,8 @@ void UIRenderer::ResetWorldMatrix()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void UIRenderer::GetBillboardMatrix(SHMatrix * pCombined, const SHMatrix & world, ETransformMode::Enum transformMode, const CVec3 & pivot, float depthBias)
 {
-  //FIXME: Не очень оптимальная работа с матицами
-  //TODO: iA: Надо бы упростить расчет матриц; Думаю, можно свести все к 3-4 умножениям в самом сложном случае
+  //FIXME: РќРµ РѕС‡РµРЅСЊ РѕРїС‚РёРјР°Р»СЊРЅР°СЏ СЂР°Р±РѕС‚Р° СЃ РјР°С‚РёС†Р°РјРё
+  //TODO: iA: РќР°РґРѕ Р±С‹ СѓРїСЂРѕСЃС‚РёС‚СЊ СЂР°СЃС‡РµС‚ РјР°С‚СЂРёС†; Р”СѓРјР°СЋ, РјРѕР¶РЅРѕ СЃРІРµСЃС‚Рё РІСЃРµ Рє 3-4 СѓРјРЅРѕР¶РµРЅРёСЏРј РІ СЃР°РјРѕРј СЃР»РѕР¶РЅРѕРј СЃР»СѓС‡Р°Рµ
 
   //Rotation = PivotOffset * (~viewMatrix) * swap * (~PivotOffset);
   SHMatrix RotLeft;

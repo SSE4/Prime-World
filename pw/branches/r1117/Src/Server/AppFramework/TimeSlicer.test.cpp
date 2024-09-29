@@ -3,8 +3,8 @@
 #include <cxxtest/TestSuite.h>
 #include <System/ThreadHelpers.h>
 
-// T класс наследован от IObjectBase
-// убрать лишнии аллокации через rvector
+// T РєР»Р°СЃСЃ РЅР°СЃР»РµРґРѕРІР°РЅ РѕС‚ IObjectBase
+// СѓР±СЂР°С‚СЊ Р»РёС€РЅРёРё Р°Р»Р»РѕРєР°С†РёРё С‡РµСЂРµР· rvector
 #include "TimeSlicer.h"
 
 namespace test

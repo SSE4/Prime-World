@@ -67,7 +67,7 @@ bool NivalServerBase::Startup( const TStartList & _startList, const TServerCmdLi
 
   // Network initialization
   netDriver = Network::Initialize();
-  netDriver->SetTrafficType( Network::EDriverTrafficType::Light ); // было Heavy == 750К буферов на каждый несчастный Connection
+  netDriver->SetTrafficType( Network::EDriverTrafficType::Light ); // Р±С‹Р»Рѕ Heavy == 750Рљ Р±СѓС„РµСЂРѕРІ РЅР° РєР°Р¶РґС‹Р№ РЅРµСЃС‡Р°СЃС‚РЅС‹Р№ Connection
 
   netDriver->SetStreamAllocator( new Network::StreamAllocator() );
 
@@ -240,7 +240,7 @@ bool NivalServerBase::SpawnServices( const TStartList & _startList, const TServe
       ServiceOptions svcOpts;
       svcOpts.commandLine = _serverCmdLine;
 
-      // выбираем опции, относящиеся к данному сервису (+глобальные опции, относящиеся ко всем сервисам)
+      // РІС‹Р±РёСЂР°РµРј РѕРїС†РёРё, РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ Рє РґР°РЅРЅРѕРјСѓ СЃРµСЂРІРёСЃСѓ (+РіР»РѕР±Р°Р»СЊРЅС‹Рµ РѕРїС†РёРё, РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ РєРѕ РІСЃРµРј СЃРµСЂРІРёСЃР°Рј)
       const Coordinator::TConfigServiceOptions & configOptions = Coordinator::GetConfigServiceOptions();
       for( int idx = 0; idx < configOptions.size(); ++idx ) {
         const Coordinator::SConfigServiceOption * cfgOpt = configOptions[idx];

@@ -132,7 +132,7 @@ void LocationServer::OnChannelClosed( Transport::IChannel* channel,  rpc::Node* 
 
   Protocol::ObjectID objectId = itConn->second->controlledObject;
 
-  if ( objectId == -1 ) // соединение было, но не пришло ConnectionInfo от игрока
+  if ( objectId == -1 ) // СЃРѕРµРґРёРЅРµРЅРёРµ Р±С‹Р»Рѕ, РЅРѕ РЅРµ РїСЂРёС€Р»Рѕ ConnectionInfo РѕС‚ РёРіСЂРѕРєР°
     return;
 
   ClientPlayers::iterator itPlayer = clientPlayers.find( objectId );

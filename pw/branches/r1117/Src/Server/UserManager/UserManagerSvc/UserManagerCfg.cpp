@@ -11,9 +11,9 @@ static unsigned int s_PartialReconnectRetryTimeout = 40;
 REGISTER_VAR( "usermgr_partial_reconnect_retry_timeout", s_PartialReconnectRetryTimeout, STORAGE_NONE );
 static unsigned int s_PartialReconnectRetries = 2;
 REGISTER_VAR( "usermgr_partial_reconnect_retries", s_PartialReconnectRetries, STORAGE_NONE );
-bool s_PartialReconnectSupport = true; //  поддерживаем ли partial reconnect, информация отсылается клиенту,
-                                        //  и клиент не пытается делать partial reconnect при разрыве secondary соединения,
-                                        //  т.е. это способ отключать фичу
+bool s_PartialReconnectSupport = true; //  РїРѕРґРґРµСЂР¶РёРІР°РµРј Р»Рё partial reconnect, РёРЅС„РѕСЂРјР°С†РёСЏ РѕС‚СЃС‹Р»Р°РµС‚СЃСЏ РєР»РёРµРЅС‚Сѓ,
+                                        //  Рё РєР»РёРµРЅС‚ РЅРµ РїС‹С‚Р°РµС‚СЃСЏ РґРµР»Р°С‚СЊ partial reconnect РїСЂРё СЂР°Р·СЂС‹РІРµ secondary СЃРѕРµРґРёРЅРµРЅРёСЏ,
+                                        //  С‚.Рµ. СЌС‚Рѕ СЃРїРѕСЃРѕР± РѕС‚РєР»СЋС‡Р°С‚СЊ С„РёС‡Сѓ
 REGISTER_VAR( "usermgr_partial_reconnect_support", s_PartialReconnectSupport, STORAGE_NONE );
 
 namespace UserManager

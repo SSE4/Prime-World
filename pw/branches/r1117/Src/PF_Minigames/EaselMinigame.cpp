@@ -213,7 +213,7 @@ bool EaselMinigame::DoStep( uint _stepCount, short _inputX, short _inputY, bool 
   stepInfo.inputState.mouseLeftButton = _mouseLeft;
   stepInfo.inputState.mouseRightButton = _mouseRight;
 
-  stepInfo.deltaTime = 0; // Хак, позволяет провести инпут
+  stepInfo.deltaTime = 0; // РҐР°Рє, РїРѕР·РІРѕР»СЏРµС‚ РїСЂРѕРІРµСЃС‚Рё РёРЅРїСѓС‚
   remoteGame->StepM( stepInfo );
   
   EaselStepInfo info;
@@ -592,7 +592,7 @@ void EaselMinigame::OnStep( float deltaTime )
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void EaselMinigame::Update( float deltaTime, bool gameOnPause )
 {
-  // NUM_TASK "аварийное извлечение" из миниигры растянуто во времени, чтобы успевала отрабатывать логика скринов
+  // NUM_TASK "Р°РІР°СЂРёР№РЅРѕРµ РёР·РІР»РµС‡РµРЅРёРµ" РёР· РјРёРЅРёРёРіСЂС‹ СЂР°СЃС‚СЏРЅСѓС‚Рѕ РІРѕ РІСЂРµРјРµРЅРё, С‡С‚РѕР±С‹ СѓСЃРїРµРІР°Р»Р° РѕС‚СЂР°Р±Р°С‚С‹РІР°С‚СЊ Р»РѕРіРёРєР° СЃРєСЂРёРЅРѕРІ
   switch (ejectStage)
   {
   case 1:
@@ -678,9 +678,9 @@ void EaselMinigame::CheatWinGame()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void EaselMinigame::CheatDropCooldowns()
 {
-  // Хоть этот код исполняется уже из World Step,
-  // но что бы сохранить схему работы remote и local миров Изела,
-  // мы воспользуемся командой
+  // РҐРѕС‚СЊ СЌС‚РѕС‚ РєРѕРґ РёСЃРїРѕР»РЅСЏРµС‚СЃСЏ СѓР¶Рµ РёР· World Step,
+  // РЅРѕ С‡С‚Рѕ Р±С‹ СЃРѕС…СЂР°РЅРёС‚СЊ СЃС…РµРјСѓ СЂР°Р±РѕС‚С‹ remote Рё local РјРёСЂРѕРІ РР·РµР»Р°,
+  // РјС‹ РІРѕСЃРїРѕР»СЊР·СѓРµРјСЃСЏ РєРѕРјР°РЅРґРѕР№
 
 #ifndef _SHIPPING
   if ( localGame )

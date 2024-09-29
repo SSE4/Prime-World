@@ -14,8 +14,8 @@ class EaselWorldClientConvertHelper;
 
 
 //////////////////////////////////////////////////////////////////////////
-//FIXME: Фиктивный прокси-объект
-//TODO: Заменить на EaselWorldClientConvertHelper
+//FIXME: Р¤РёРєС‚РёРІРЅС‹Р№ РїСЂРѕРєСЃРё-РѕР±СЉРµРєС‚
+//TODO: Р—Р°РјРµРЅРёС‚СЊ РЅР° EaselWorldClientConvertHelper
 class PathConverter : public CObjectBase, public NonCopyable
 {
   OBJECT_BASIC_METHODS( PathConverter )

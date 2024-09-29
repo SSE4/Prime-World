@@ -394,7 +394,7 @@ PFBaseSummonedUnit::PFBaseSummonedUnit( CPtr<PFWorld> const& pWorld, NDb::Creatu
 
 #ifndef _SHIPPING
     {
-      // прочекаем, классовый ли это саммон или нет, т.к. у не классовых не должно быть скинов
+      // РїСЂРѕС‡РµРєР°РµРј, РєР»Р°СЃСЃРѕРІС‹Р№ Р»Рё СЌС‚Рѕ СЃР°РјРјРѕРЅ РёР»Рё РЅРµС‚, С‚.Рє. Сѓ РЅРµ РєР»Р°СЃСЃРѕРІС‹С… РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ СЃРєРёРЅРѕРІ
       const NDb::Hero* pDbHero = dynamic_cast<const NDb::Hero*>(pHero->GetDbHero());
 
       //Do not check summons skins in custom game because there one faction for both sides. 
@@ -412,7 +412,7 @@ PFBaseSummonedUnit::PFBaseSummonedUnit( CPtr<PFWorld> const& pWorld, NDb::Creatu
 
           if (!ourSideUnit && otherSideUnit)
             ourSideUnit = otherSideUnit;
-          // для каждого саммона нашей фракции надо добавить в список исключаемых из прелоада ресурсов те скины, которые не будут использоваться
+          // РґР»СЏ РєР°Р¶РґРѕРіРѕ СЃР°РјРјРѕРЅР° РЅР°С€РµР№ С„СЂР°РєС†РёРё РЅР°РґРѕ РґРѕР±Р°РІРёС‚СЊ РІ СЃРїРёСЃРѕРє РёСЃРєР»СЋС‡Р°РµРјС‹С… РёР· РїСЂРµР»РѕР°РґР° СЂРµСЃСѓСЂСЃРѕРІ С‚Рµ СЃРєРёРЅС‹, РєРѕС‚РѕСЂС‹Рµ РЅРµ Р±СѓРґСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ
           if (ourSideUnit == pDbSummoned)
           {
             bFound = true;
@@ -482,7 +482,7 @@ float PFBaseSummonedUnit::OnDamage(const DamageDesc &desc)
 
 void PFBaseSummonedUnit::Reset()
 {
-  // перескочим через одного предка PFBaseCreep::Reset() т.к. там создается клиентский объект с неправильными (не саммоновскими) параметрами
+  // РїРµСЂРµСЃРєРѕС‡РёРј С‡РµСЂРµР· РѕРґРЅРѕРіРѕ РїСЂРµРґРєР° PFBaseCreep::Reset() С‚.Рє. С‚Р°Рј СЃРѕР·РґР°РµС‚СЃСЏ РєР»РёРµРЅС‚СЃРєРёР№ РѕР±СЉРµРєС‚ СЃ РЅРµРїСЂР°РІРёР»СЊРЅС‹РјРё (РЅРµ СЃР°РјРјРѕРЅРѕРІСЃРєРёРјРё) РїР°СЂР°РјРµС‚СЂР°РјРё
   PFCreature::Reset();
 
   PFBaseMaleHero* pHero = dynamic_cast<PFBaseMaleHero*>( pMaster.GetPtr() );
@@ -496,7 +496,7 @@ void PFBaseSummonedUnit::Reset()
 
   const NDb::CreepSkin* pSkin = GetCreepSkin();
 
-  // восстанавливаем оверрайд имени и иконки от скина
+  // РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј РѕРІРµСЂСЂР°Р№Рґ РёРјРµРЅРё Рё РёРєРѕРЅРєРё РѕС‚ СЃРєРёРЅР°
   if ( pHero && pSkin )
   {
     description       = pSkin->description.GetText();
@@ -522,7 +522,7 @@ bool PFBaseSummonedUnit::SetSkin( const nstl::string& skinId )
   if ( !pDbSummoned )
     return false;
 
-  // найдем нужный скин, если юзер выбрал его для игры
+  // РЅР°Р№РґРµРј РЅСѓР¶РЅС‹Р№ СЃРєРёРЅ, РµСЃР»Рё СЋР·РµСЂ РІС‹Р±СЂР°Р» РµРіРѕ РґР»СЏ РёРіСЂС‹
   if (!skinId.empty() && skinId != "default")
   {
     vector<NDb::Ptr<NDb::CreepSkin>>::const_iterator it = pDbSummoned->creepSkins.begin();

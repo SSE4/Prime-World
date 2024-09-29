@@ -160,7 +160,7 @@ void TextMarkup::AddWord( TOffset begin, TOffset end, const wchar_t * valueText,
   TOffset wordBegin = valueText ? 0 : begin;
   TOffset wordEnd = valueText ? wcslen( valueText ) : end;
 
-  //Если слово получается шире, чем area.x,  будем делить его на части, которые помещаются в area.x
+  //Р•СЃР»Рё СЃР»РѕРІРѕ РїРѕР»СѓС‡Р°РµС‚СЃСЏ С€РёСЂРµ, С‡РµРј area.x,  Р±СѓРґРµРј РґРµР»РёС‚СЊ РµРіРѕ РЅР° С‡Р°СЃС‚Рё, РєРѕС‚РѕСЂС‹Рµ РїРѕРјРµС‰Р°СЋС‚СЃСЏ РІ area.x
   while( wordBegin < wordEnd )
   {
     elements.push_back( SElement() );
@@ -212,7 +212,7 @@ void TextMarkup::ArrangeElement( TOffset index, bool enableWordWrap )
     prevElem = &elements[index - 1];
   }
 
-  //Разберемся с пробелами
+  //Р Р°Р·Р±РµСЂРµРјСЃСЏ СЃ РїСЂРѕР±РµР»Р°РјРё
   TUnit leadingSpace = 0;
   if( lineBegin != NullOffset )
   {
@@ -225,7 +225,7 @@ void TextMarkup::ArrangeElement( TOffset index, bool enableWordWrap )
     }
   }
 
-  //проверим автоперенос слов
+  //РїСЂРѕРІРµСЂРёРј Р°РІС‚РѕРїРµСЂРµРЅРѕСЃ СЃР»РѕРІ
   if( enableWordWrap && wordWrap && ( atomBegin == NullOffset ) )
   {
     if( currentXOffs + leadingSpace + elem.bounds.width > area.x )
@@ -235,15 +235,15 @@ void TextMarkup::ArrangeElement( TOffset index, bool enableWordWrap )
     }
   }
 
-  //Начнем строку, если ее еще нет
+  //РќР°С‡РЅРµРј СЃС‚СЂРѕРєСѓ, РµСЃР»Рё РµРµ РµС‰Рµ РЅРµС‚
   if( lineBegin == NullOffset )
     lineBegin = index;
 
   elem.line = currentLine;
 
-  //Положим элемент в список, определим его координаты
+  //РџРѕР»РѕР¶РёРј СЌР»РµРјРµРЅС‚ РІ СЃРїРёСЃРѕРє, РѕРїСЂРµРґРµР»РёРј РµРіРѕ РєРѕРѕСЂРґРёРЅР°С‚С‹
   currentXOffs += leadingSpace;
-  elem.offset.x = currentXOffs; // currentYOffs корректно определяется только на завершенной строке
+  elem.offset.x = currentXOffs; // currentYOffs РєРѕСЂСЂРµРєС‚РЅРѕ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РЅР° Р·Р°РІРµСЂС€РµРЅРЅРѕР№ СЃС‚СЂРѕРєРµ
   currentXOffs += elem.bounds.width;
 }
 
@@ -263,7 +263,7 @@ void TextMarkup::EndLine( bool forced, TOffset endOfTheLine, float defaultAscent
   if( endOfTheLine == NullOffset )
     endOfTheLine = elements.size();
 
-  //Вычислим габариты строки как совокупности элементов
+  //Р’С‹С‡РёСЃР»РёРј РіР°Р±Р°СЂРёС‚С‹ СЃС‚СЂРѕРєРё РєР°Рє СЃРѕРІРѕРєСѓРїРЅРѕСЃС‚Рё СЌР»РµРјРµРЅС‚РѕРІ
   TUnit maxAscent = 0, maxDescent = 0;
   TUnit maxAboveBL = 0, maxUnderBL = 0; //Accounting additional gaps
 
@@ -277,13 +277,13 @@ void TextMarkup::EndLine( bool forced, TOffset endOfTheLine, float defaultAscent
     maxUnderBL = Max( maxUnderBL, b.descent + b.gapUnder );
   }
 
-  //Запомним отступы сверху и под текстом
+  //Р—Р°РїРѕРјРЅРёРј РѕС‚СЃС‚СѓРїС‹ СЃРІРµСЂС…Сѓ Рё РїРѕРґ С‚РµРєСЃС‚РѕРј
   if ( currentLine == 0 )
     upperGap = maxAboveBL - maxAscent;
   lowerGapAndDescent = maxUnderBL;
 
-  //Теперь проставим все координаты, которые можно узнать, только завершив строку
-  //Поставим все элементы на baseline
+  //РўРµРїРµСЂСЊ РїСЂРѕСЃС‚Р°РІРёРј РІСЃРµ РєРѕРѕСЂРґРёРЅР°С‚С‹, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СѓР·РЅР°С‚СЊ, С‚РѕР»СЊРєРѕ Р·Р°РІРµСЂС€РёРІ СЃС‚СЂРѕРєСѓ
+  //РџРѕСЃС‚Р°РІРёРј РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РЅР° baseline
   if ( lineBegin != NullOffset )
     for( TOffset i = lineBegin; i < endOfTheLine; ++i )
     {
@@ -291,10 +291,10 @@ void TextMarkup::EndLine( bool forced, TOffset endOfTheLine, float defaultAscent
       elements[i].offset.y = textBounds.y + blDiff;
     }
 
-  //Займемся justify со строкой: left, right, center, justify, fright и другие позы
+  //Р—Р°Р№РјРµРјСЃСЏ justify СЃРѕ СЃС‚СЂРѕРєРѕР№: left, right, center, justify, fright Рё РґСЂСѓРіРёРµ РїРѕР·С‹
   JustifyFreshLine( endOfTheLine );
 
-  //Подготовимся к следующей строке
+  //РџРѕРґРіРѕС‚РѕРІРёРјСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµР№ СЃС‚СЂРѕРєРµ
   textBounds.y += maxAboveBL + maxUnderBL;
 
   ++currentLine;
@@ -413,7 +413,7 @@ void TextMarkup::SpaceTag( const class Tag & tag )
 
 void TextMarkup::StyleTag( const class Tag & tag )
 {
-  TString name; //TODO: обойтись как-нибудь без хипа
+  TString name; //TODO: РѕР±РѕР№С‚РёСЃСЊ РєР°Рє-РЅРёР±СѓРґСЊ Р±РµР· С…РёРїР°
   tag.GetValue( &name );
 
   IStyle * style = pUiRender->GetStyle( name.c_str() );
@@ -840,7 +840,7 @@ bool TextMarkup::WordStartsWithDot(const wchar_t * word, TOffset begin){
 
 bool TextMarkup::WordStartsWithPunctuationMark(const wchar_t * word, TOffset begin)
 {
-  const nstl::wstring &marks = L"-.,;:!?%\"')»";
+  const nstl::wstring &marks = L"-.,;:!?%\"')В»";
   if ( !word )
     return false;
 
@@ -848,7 +848,7 @@ bool TextMarkup::WordStartsWithPunctuationMark(const wchar_t * word, TOffset beg
 }
 
 bool TextMarkup::IsPunctuationMark(const wchar_t * word, TOffset length){
-  const nstl::wstring &marks = L"-.,;:!?%\"')»";
+  const nstl::wstring &marks = L"-.,;:!?%\"')В»";
   if (!word || length != 1)
     return false;
 

@@ -285,7 +285,7 @@ void AwardsController::AwardUser( const nstl::vector<AwardData> & _awards )
 		int filteredIndex = -1;
 		for(int j = 0; j<filteredAwards.size(); j++)
 		{
-			//сравниваем по картинке
+			//СЃСЂР°РІРЅРёРІР°РµРј РїРѕ РєР°СЂС‚РёРЅРєРµ
 			if (resourceAwards[i].image == filteredAwards[j].image)
 			{
 				filteredIndex = j;
@@ -293,7 +293,7 @@ void AwardsController::AwardUser( const nstl::vector<AwardData> & _awards )
 			}
 		}
 		
-		//не нашли уже такой элемент
+		//РЅРµ РЅР°С€Р»Рё СѓР¶Рµ С‚Р°РєРѕР№ СЌР»РµРјРµРЅС‚
 		if (filteredIndex == -1)
 		{
 			filteredAwards.push_back(resourceAwards[i]);
@@ -301,7 +301,7 @@ void AwardsController::AwardUser( const nstl::vector<AwardData> & _awards )
 		}
 
 		
-		//Нашли уже нужный. надо теперь сложить две награды
+		//РќР°С€Р»Рё СѓР¶Рµ РЅСѓР¶РЅС‹Р№. РЅР°РґРѕ С‚РµРїРµСЂСЊ СЃР»РѕР¶РёС‚СЊ РґРІРµ РЅР°РіСЂР°РґС‹
 		Award & finalAward = filteredAwards[filteredIndex];
 		Award & curAward = resourceAwards[i];
 
@@ -310,7 +310,7 @@ void AwardsController::AwardUser( const nstl::vector<AwardData> & _awards )
 	}
 
 
-	//теперь уже добавляем полную сумму
+	//С‚РµРїРµСЂСЊ СѓР¶Рµ РґРѕР±Р°РІР»СЏРµРј РїРѕР»РЅСѓСЋ СЃСѓРјРјСѓ
 	for(int i = 0; i<filteredAwards.size(); i++)
 		awards.push_back(filteredAwards[i]);
 

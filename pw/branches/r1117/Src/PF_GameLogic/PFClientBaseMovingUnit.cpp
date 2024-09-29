@@ -225,7 +225,7 @@ void PFClientBaseMovingUnit::OnMoveTo( const CVec2& newpos, bool animate )
   }
 
   destination = CVec3( newpos, 0.0f );
-  //TODO Ïðîáëåìà â çàäà÷å NUM_TASK
+  //TODO ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð° Ð² Ð·Ð°Ð´Ð°Ñ‡Ðµ NUM_TASK
   //float rawSpeed = WorldObject() ? WorldObject()->GetUnitSpeed() : 10.0f;
   float rawSpeed = 10.0f;
   speed       = rawSpeed * fabs( dir );

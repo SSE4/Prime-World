@@ -15,7 +15,7 @@ namespace UI
 
   private:
     bool needUpdate;
-		ImageComponent BackGround; //@iA@TODO: поле BackGround инициализируется из BD, на ее изменение нужно будет переинициализировать BackGround
+		ImageComponent BackGround; //@iA@TODO: РїРѕР»Рµ BackGround РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚СЃСЏ РёР· BD, РЅР° РµРµ РёР·РјРµРЅРµРЅРёРµ РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ РїРµСЂРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ BackGround
 		TextComponent Text;
     bool forbidSaturation;
 

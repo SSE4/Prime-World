@@ -77,7 +77,7 @@ namespace NGameX
 
     int damageIntensity = 0;
 
-    //получает дамаг
+    //РїРѕР»СѓС‡Р°РµС‚ РґР°РјР°Рі
     if (healthChange < 0)
     {
       for (int i = 0; i< damageAnimationTalbe.size(); i++)

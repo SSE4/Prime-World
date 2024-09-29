@@ -39,7 +39,7 @@ bool JSONChunkSerializer::StartChunk( const string& idChunk, int nChunkNumber )
 {
   if (IsReading())
   {
-    // åñëè â ñòåêå òîëüêî ðóò - ÷èòàåì òåêóùèé îáúåêò îòíîñèòåëüíî íåãî
+    // ÐµÑÐ»Ð¸ Ð² ÑÑ‚ÐµÐºÐµ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ€ÑƒÑ‚ - Ñ‡Ð¸Ñ‚Ð°ÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚ Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð½ÐµÐ³Ð¾
     if (idChunk != "__root__") 
     {
       Json::Value& current = serializationStack.Top()->value;

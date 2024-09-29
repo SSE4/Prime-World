@@ -133,7 +133,7 @@ inline void ShuffleHeroes( vector<NCore::PlayerStartInfo>& players, const int ra
     for ( int i = 0; i < teamSize; i++ )
       shufflePos[i] = i;
 
-    const bool odd = teamSize % 2; // Нечётность кол-ва игроков в команде
+    const bool odd = teamSize % 2; // РќРµС‡С‘С‚РЅРѕСЃС‚СЊ РєРѕР»-РІР° РёРіСЂРѕРєРѕРІ РІ РєРѕРјР°РЅРґРµ
 
     for ( int count = 0, total = teamSize / 2 + odd; count < total; count++ )
     {
@@ -147,7 +147,7 @@ inline void ShuffleHeroes( vector<NCore::PlayerStartInfo>& players, const int ra
       nstl::swap( leftPI.talents,     rightPI.talents );
       nstl::swap( leftPI.heroSkin,    rightPI.heroSkin );
 
-      // Только для финальной статистики и экрана загрузки
+      // РўРѕР»СЊРєРѕ РґР»СЏ С„РёРЅР°Р»СЊРЅРѕР№ СЃС‚Р°С‚РёСЃС‚РёРєРё Рё СЌРєСЂР°РЅР° Р·Р°РіСЂСѓР·РєРё
       nstl::swap( leftPI.heroLevel,   rightPI.heroLevel );
       nstl::swap( leftPI.heroExp,     rightPI.heroExp );
       nstl::swap( leftPI.heroRating,  rightPI.heroRating );
@@ -223,7 +223,7 @@ public:
       player.playerInfo.heroId = Crc32Checksum().AddString( lobbyPlayer.context.hero.c_str() ).Get();
       player.usePlayerInfoTalentSet = false;
 
-      // NUM_TASK поддержка выдачи ботам скинов со стороны сервера
+      // NUM_TASK РїРѕРґРґРµСЂР¶РєР° РІС‹РґР°С‡Рё Р±РѕС‚Р°Рј СЃРєРёРЅРѕРІ СЃРѕ СЃС‚РѕСЂРѕРЅС‹ СЃРµСЂРІРµСЂР°
       if ( player.playerType == NCore::EPlayerType::Computer ) 
         player.playerInfo.heroSkin = lobbyPlayer.context.botSkin;
     }

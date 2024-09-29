@@ -124,7 +124,7 @@ void MinigameCameraController::Update( NScene::SCameraPosition* pNewPos, const N
 
   *pNewPos = currentPos;
 
-  //FIXME: не уверен, что это все необходимо, возможно currentPos не отличается сохраненных значений
+  //FIXME: РЅРµ СѓРІРµСЂРµРЅ, С‡С‚Рѕ СЌС‚Рѕ РІСЃРµ РЅРµРѕР±С…РѕРґРёРјРѕ, РІРѕР·РјРѕР¶РЅРѕ currentPos РЅРµ РѕС‚Р»РёС‡Р°РµС‚СЃСЏ СЃРѕС…СЂР°РЅРµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
   pitchInterpolator.Set( currentPos.fPitch );
   yawInterpolator.Set( currentPos.fYaw );
   rollInterpolator.Set( currentPos.fRoll );

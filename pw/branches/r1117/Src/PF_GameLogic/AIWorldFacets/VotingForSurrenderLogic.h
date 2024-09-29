@@ -120,7 +120,7 @@ private:
   SimpleTimerWitnNameMap votingCooldown;  
   SimpleTimer beforeSurrender;
   SimpleTimer votingDuration;
-  int surrenderVotes; //Выставляется при голосовании за сдачу
+  int surrenderVotes; //Р’С‹СЃС‚Р°РІР»СЏРµС‚СЃСЏ РїСЂРё РіРѕР»РѕСЃРѕРІР°РЅРёРё Р·Р° СЃРґР°С‡Сѓ
   NDb::Ptr<NDb::VotingForSurrender> pDb;
   NDb::Ptr<NDb::VotingForSurrenderPerMission> pDbMission;
 public:

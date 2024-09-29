@@ -5,8 +5,8 @@
 #define PRODUCT_TITLE_SHORT		"PF"
 
 #define ENTERPRISE_COMPANY		"Nival Network"
-#define ENTERPRISE_COPYRIGHT	"Copyright© Nival Network 2008, 2009"
-#define ENTERPRISE_TRADEMARK	"Nival® is a registered trademark of Nival Group."
+#define ENTERPRISE_COPYRIGHT	"CopyrightÂ© Nival Network 2008, 2009"
+#define ENTERPRISE_TRADEMARK	"NivalÂ® is a registered trademark of Nival Group."
 
 #define VERSION_MAJOR			0
 #define VERSION_MINOR			0

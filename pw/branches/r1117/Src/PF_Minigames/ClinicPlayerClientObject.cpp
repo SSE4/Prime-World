@@ -64,7 +64,7 @@ MinigameClientObject * ClinicPlayerClientObject::RedirectMouseOver()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ClinicPlayerClientObject::CreateSceneObject( const NDb::DBSceneObject* dbSceneObject )
 {
-  //Ëîâèì ïàäåíèå â CreatePriestessModel()
+  //Ð›Ð¾Ð²Ð¸Ð¼ Ð¿Ð°Ð´ÐµÐ½Ð¸Ðµ Ð² CreatePriestessModel()
  // NI_ASSERT( IsValid( worldObject->GetMinigame()->GetMinigames()->GetClientSessionInterface() ), "" );
 
   //sceneObject = worldObject->GetMinigame()->GetMinigames()->GetClientSessionInterface()->CreatePriestessModel();

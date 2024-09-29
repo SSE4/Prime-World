@@ -23,7 +23,7 @@ namespace NGameX
   {
     NI_VERIFY(IsValid(ourHero) && IsValid(flashInterface), "ivalid ctor params", return);
     heroInfos.reserve(10);
-    ///òóò ïåðåäàåòñÿ ôðàêöèÿ òîëüêî äëÿ òîãî ÷òîáû ñåáÿ âïèõíóòü ïåðâûì â ñòàòèñòèêó ñ íóæíîé ñòîðîíû
+    ///Ñ‚ÑƒÑ‚ Ð¿ÐµÑ€ÐµÐ´Ð°ÐµÑ‚ÑÑ Ñ„Ñ€Ð°ÐºÑ†Ð¸Ñ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ñ‚Ð¾Ð³Ð¾ Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐµÐ±Ñ Ð²Ð¿Ð¸Ñ…Ð½ÑƒÑ‚ÑŒ Ð¿ÐµÑ€Ð²Ñ‹Ð¼ Ð² ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ Ñ Ð½ÑƒÐ¶Ð½Ð¾Ð¹ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹
     flashInterface->SetOurHeroIdententity(ourHero->GetPlayerId(), ourHero->GetFaction(), ourHero->GetBaseAttackDamageType(), ourHero->GetLeagueIndex(), ourHero->GetOwnLeaguePlace(), ourHero->GetLeaguePlaces());
 
     if (uiData)

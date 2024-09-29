@@ -131,7 +131,7 @@ struct ClientHolder
         info.step = step-confirmFrequency;
       } else
       {
-        // TODO: info.step = step - step % confirmFrequency -- эквивалент
+        // TODO: info.step = step - step % confirmFrequency -- СЌРєРІРёРІР°Р»РµРЅС‚
         info.step = (((step + (confirmFrequency-step%confirmFrequency))/confirmFrequency)-1)*confirmFrequency; // first unconfirmed step
       }
     }

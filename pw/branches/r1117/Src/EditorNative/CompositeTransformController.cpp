@@ -134,10 +134,10 @@ void CompositeTransformController::Scale::set( Vector3^ value )
 	  controller->Scale = gcnew Vector3(ComponentProduct( ComponentInvProduct( controller->Scale->Native, tempScale->Native ), value->Native ));
   }
 
-  //âêëþ÷åí ðåæèì ãëîáàëüíîãî ñêåéëà
+  //Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½ Ñ€ÐµÐ¶Ð¸Ð¼ Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÑÐºÐµÐ¹Ð»Ð°
   if( controllers->Length > 1 && IsCommonCenter )
   {   
-    //èùåì öåíòð îáúåêòîâ
+    //Ð¸Ñ‰ÐµÐ¼ Ñ†ÐµÐ½Ñ‚Ñ€ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
     CVec3 center = CVec3( 0, 0, 0 );
 
     for each ( IObjectTransformController^ controller in controllers )
@@ -155,7 +155,7 @@ void CompositeTransformController::Scale::set( Vector3^ value )
       CVec3 move = CVec3(
         (controller->Location->X - center.x) * value->X / tempScale->X,
         (controller->Location->Y - center.y) * value->Y / tempScale->Y,
-         controller->Location->Z - center.z //íå ìåíÿåì âûñîòó îáúåêòîâ
+         controller->Location->Z - center.z //Ð½Ðµ Ð¼ÐµÐ½ÑÐµÐ¼ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
         );
 
       controller->Location = gcnew Vector3( move + center );

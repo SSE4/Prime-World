@@ -99,23 +99,23 @@ void CScreenTests::IndependCommands()
 	const int nTotalScreensCount = NMainLoop::GetScreens().size();
 	const int nDrawCalles = pStubScreen->GetDraw();
 	pStubScreen->RemoveMeOnNextStep();
-	// OnBeforeClose должен возвращать false
+	// OnBeforeClose РґРѕР»Р¶РµРЅ РІРѕР·РІСЂР°С‰Р°С‚СЊ false
 	pStubScreen->DoNotAllowRemoveMe();
 	TS_ASSERT_EQUALS( pStubScreen->OnBeforeClose(), false );
 	TS_ASSERT_EQUALS( NMainLoop::Step( true ), true);
-	// проверяем что команда на удаление не выполняется прямо в этом Step'е, выполниться она должна в следущем
+	// РїСЂРѕРІРµСЂСЏРµРј С‡С‚Рѕ РєРѕРјР°РЅРґР° РЅР° СѓРґР°Р»РµРЅРёРµ РЅРµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂСЏРјРѕ РІ СЌС‚РѕРј Step'Рµ, РІС‹РїРѕР»РЅРёС‚СЊСЃСЏ РѕРЅР° РґРѕР»Р¶РЅР° РІ СЃР»РµРґСѓС‰РµРј
 	TS_ASSERT_EQUALS( NMainLoop::GetScreens().size(), nTotalScreensCount );
 	TS_ASSERT_EQUALS( NMainLoop::Step( true ), true);
-	// теперь команда должны была обламаться, т.к. OnBeforeClose нам вернул false, но мы поместили еще одну команду на удаление самих себя в стек!!!
+	// С‚РµРїРµСЂСЊ РєРѕРјР°РЅРґР° РґРѕР»Р¶РЅС‹ Р±С‹Р»Р° РѕР±Р»Р°РјР°С‚СЊСЃСЏ, С‚.Рє. OnBeforeClose РЅР°Рј РІРµСЂРЅСѓР» false, РЅРѕ РјС‹ РїРѕРјРµСЃС‚РёР»Рё РµС‰Рµ РѕРґРЅСѓ РєРѕРјР°РЅРґСѓ РЅР° СѓРґР°Р»РµРЅРёРµ СЃР°РјРёС… СЃРµР±СЏ РІ СЃС‚РµРє!!!
 	TS_ASSERT_EQUALS( NMainLoop::GetScreens().size(), nTotalScreensCount );
 	pStubScreen->AllowRemoveMe();
 	TS_ASSERT_DIFFERS( pStubScreen->OnBeforeClose(), false );
-	// а вот теперь нас должны были прибить, но сначала нам должны были позвать Draw, вообще нам Draw должны были позвать 3 (по количеству Step) раз
+	// Р° РІРѕС‚ С‚РµРїРµСЂСЊ РЅР°СЃ РґРѕР»Р¶РЅС‹ Р±С‹Р»Рё РїСЂРёР±РёС‚СЊ, РЅРѕ СЃРЅР°С‡Р°Р»Р° РЅР°Рј РґРѕР»Р¶РЅС‹ Р±С‹Р»Рё РїРѕР·РІР°С‚СЊ Draw, РІРѕРѕР±С‰Рµ РЅР°Рј Draw РґРѕР»Р¶РЅС‹ Р±С‹Р»Рё РїРѕР·РІР°С‚СЊ 3 (РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ Step) СЂР°Р·
 	TS_ASSERT_EQUALS( NMainLoop::Step( true ), false);
 	TS_ASSERT_EQUALS( NMainLoop::GetScreens().size(), nTotalScreensCount - 1 );
-	// я могу спросить ->GetDraw, т.к. сам держу на экран CObj, поэтому его уничтожение в стеке экранов меня не волнует
+	// СЏ РјРѕРіСѓ СЃРїСЂРѕСЃРёС‚СЊ ->GetDraw, С‚.Рє. СЃР°Рј РґРµСЂР¶Сѓ РЅР° СЌРєСЂР°РЅ CObj, РїРѕСЌС‚РѕРјСѓ РµРіРѕ СѓРЅРёС‡С‚РѕР¶РµРЅРёРµ РІ СЃС‚РµРєРµ СЌРєСЂР°РЅРѕРІ РјРµРЅСЏ РЅРµ РІРѕР»РЅСѓРµС‚
 	TS_ASSERT_EQUALS( pStubScreen->GetDraw(), nDrawCalles + 3 );
-	// а вот тут я не должне упать, у меня есть команда, которая хочет удалить невалидный экран
+	// Р° РІРѕС‚ С‚СѓС‚ СЏ РЅРµ РґРѕР»Р¶РЅРµ СѓРїР°С‚СЊ, Сѓ РјРµРЅСЏ РµСЃС‚СЊ РєРѕРјР°РЅРґР°, РєРѕС‚РѕСЂР°СЏ С…РѕС‡РµС‚ СѓРґР°Р»РёС‚СЊ РЅРµРІР°Р»РёРґРЅС‹Р№ СЌРєСЂР°РЅ
 	TS_ASSERT_EQUALS( NMainLoop::Step( true ), false);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

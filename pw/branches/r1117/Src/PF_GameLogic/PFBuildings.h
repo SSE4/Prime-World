@@ -57,7 +57,7 @@ protected:
   ZNOPARENT(ILogicStatesMapObject)
   NDb::ERoute routeID;
   int   routeLevel;
-  bool  isDenying; // !temporary! Do not use it!! (на здании лежит ДоТ пожертвования)
+  bool  isDenying; // !temporary! Do not use it!! (РЅР° Р·РґР°РЅРёРё Р»РµР¶РёС‚ Р”РѕРў РїРѕР¶РµСЂС‚РІРѕРІР°РЅРёСЏ)
   bool isDecoration;
   ZNOCRC
   ZNOMAPOBJECT

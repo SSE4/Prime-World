@@ -33,8 +33,8 @@ void PriestessSignEffect::Init()
 
   state = STATE_WAITDEATHEFFECT;
 
-  // Бывший тип self, сейчас это эффект, который раждается умирающим и умирает, 
-  // когда Ready2Die() вернет true или по DieImmediate()
+  // Р‘С‹РІС€РёР№ С‚РёРї self, СЃРµР№С‡Р°СЃ СЌС‚Рѕ СЌС„С„РµРєС‚, РєРѕС‚РѕСЂС‹Р№ СЂР°Р¶РґР°РµС‚СЃСЏ СѓРјРёСЂР°СЋС‰РёРј Рё СѓРјРёСЂР°РµС‚, 
+  // РєРѕРіРґР° Ready2Die() РІРµСЂРЅРµС‚ true РёР»Рё РїРѕ DieImmediate()
   bDying = true;
 }
 

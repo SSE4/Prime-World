@@ -21,7 +21,7 @@ namespace GameBalancer
   static unsigned int gameHardLimit = 200;
   REGISTER_VAR( "game_balancer_hardlimit", gameHardLimit, STORAGE_NONE );
 
-  static unsigned int hostGameDistributionAccuracy = 10; //  гранулярность распределения игр по хостам с gamesvc
+  static unsigned int hostGameDistributionAccuracy = 10; //  РіСЂР°РЅСѓР»СЏСЂРЅРѕСЃС‚СЊ СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ РёРіСЂ РїРѕ С…РѕСЃС‚Р°Рј СЃ gamesvc
   REGISTER_VAR( "game_balancer_host_game_distribution_accuracy", hostGameDistributionAccuracy, STORAGE_NONE );
 
   int Cfg::GetSelfTestStepFreq()

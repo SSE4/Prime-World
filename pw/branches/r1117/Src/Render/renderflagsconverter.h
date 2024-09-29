@@ -11,18 +11,18 @@
 namespace Render
 {
 
-/// Конвертирование типа примитивов рендера в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РїСЂРёРјРёС‚РёРІРѕРІ СЂРµРЅРґРµСЂР° РІ d3d9
 D3DPRIMITIVETYPE ConvertPrimitiveType(ERenderPrimitiveType type);
-/// Конвертирование типа элемента вершины в его размер
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ РµРіРѕ СЂР°Р·РјРµСЂ
 UINT GetVertexElementSize(EVertexElementType type);
-/// Конвертирование типа использования элемента вершины в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ d3d9
 BYTE ConvertVertexElementUsage(EVertexElementUsage usage);
-/// Конвертирование типа элемента вершины в d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РІ d3d9
 BYTE ConvertVertexElementType(EVertexElementType type);
 
-/// Конвертирование типа использования элемента вершины из d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РёР· d3d9
 EVertexElementUsage Convert2VertexElementUsage(BYTE usage);
-/// Конвертирование типа элемента вершины из d3d9
+/// РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹ РёР· d3d9
 EVertexElementType Convert2VertexElementType(BYTE type);
 
 DWORD ConvertRenderLockType(ERenderLockType type);

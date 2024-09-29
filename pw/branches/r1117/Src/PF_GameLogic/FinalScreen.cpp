@@ -48,11 +48,11 @@ void FinalScreen::ShowFinalMessage( const NCore::GameShowWonMessage& message )
     {
       if (pHero->GetFaction() == message.loserFaction )
       {
-        pLogic->SetWinLoseText(L"[@todo Oleg]Âû ïðîèãðàëè!");
+        pLogic->SetWinLoseText(L"[@todo Oleg]Ð’Ñ‹ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ð°Ð»Ð¸!");
       }
       else
       {
-        pLogic->SetWinLoseText(L"[@todo Oleg]Âû ïîáåäèëè!");
+        pLogic->SetWinLoseText(L"[@todo Oleg]Ð’Ñ‹ Ð¿Ð¾Ð±ÐµÐ´Ð¸Ð»Ð¸!");
       }
     }
   }

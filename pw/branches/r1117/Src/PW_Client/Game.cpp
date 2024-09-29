@@ -277,7 +277,7 @@ bool CheckHardwareCompatibility()
   const NDb::ClientHardwareErrorMessages* const heMessages = &sessionMessages->clientHardwareErrorMessages;
 
   if ( GlobalMemoryStatusEx( &globMemStatus ) )
-    hasEnoughMemory = ( ( globMemStatus.ullTotalPhys / 1024ul )  > 900000 ); // да-да смешное число
+    hasEnoughMemory = ( ( globMemStatus.ullTotalPhys / 1024ul )  > 900000 ); // РґР°-РґР° СЃРјРµС€РЅРѕРµ С‡РёСЃР»Рѕ
 
   if ( !supportSM30 || !hasEnoughMemory )
   {
@@ -422,8 +422,8 @@ private:
   T arr[N];
 };
 
-//В интервале времени 0.2(9) секунды всегда
-//помещаются ровно 2 такта логики
+//Р’ РёРЅС‚РµСЂРІР°Р»Рµ РІСЂРµРјРµРЅРё 0.2(9) СЃРµРєСѓРЅРґС‹ РІСЃРµРіРґР°
+//РїРѕРјРµС‰Р°СЋС‚СЃСЏ СЂРѕРІРЅРѕ 2 С‚Р°РєС‚Р° Р»РѕРіРёРєРё
 static float g_maxMovingAvgTime = 0.2999999f;
 
 REGISTER_DEV_VAR( "max_smooth_time", g_maxMovingAvgTime, STORAGE_NONE);
@@ -443,8 +443,8 @@ void DebugTraceInvalidParamsHandler(const wchar_t* expression,
 
   DebugTrace( "Expression: %s\n", NStr::ToMBCS(expression).c_str() );
 
-  //Произошла фатальная ошибка. Продолжать работу нельзя. 
-  //Отдаём управления стандартному обработчику, который закроет программу.
+  //РџСЂРѕРёР·РѕС€Р»Р° С„Р°С‚Р°Р»СЊРЅР°СЏ РѕС€РёР±РєР°. РџСЂРѕРґРѕР»Р¶Р°С‚СЊ СЂР°Р±РѕС‚Сѓ РЅРµР»СЊР·СЏ. 
+  //РћС‚РґР°С‘Рј СѓРїСЂР°РІР»РµРЅРёСЏ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРјСѓ РѕР±СЂР°Р±РѕС‚С‡РёРєСѓ, РєРѕС‚РѕСЂС‹Р№ Р·Р°РєСЂРѕРµС‚ РїСЂРѕРіСЂР°РјРјСѓ.
   (*g_oldInvalidParamHandler)( expression, function, file, line, pReserved );
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -592,10 +592,10 @@ void OnPileFileReadError(FileReadResultCode code, FileReadCallbackContext* pCont
       // Shutdown the SteamAPI
       if (s_bSteamInited)
         SteamAPI_Shutdown();
-      // Тк мы можем закараптиться на любой стадии, то у нас будет не правильная инициализация
-      // И правильно деинициализироваться мы не сможем
-      // Сейчас падает в exit(0) на деинициализации статиков где-то во флэше
-      // Поэтому показываем Message Box про закарапченные данные, а потом делаем TerminateProcess
+      // РўРє РјС‹ РјРѕР¶РµРј Р·Р°РєР°СЂР°РїС‚РёС‚СЊСЃСЏ РЅР° Р»СЋР±РѕР№ СЃС‚Р°РґРёРё, С‚Рѕ Сѓ РЅР°СЃ Р±СѓРґРµС‚ РЅРµ РїСЂР°РІРёР»СЊРЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
+      // Р РїСЂР°РІРёР»СЊРЅРѕ РґРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊСЃСЏ РјС‹ РЅРµ СЃРјРѕР¶РµРј
+      // РЎРµР№С‡Р°СЃ РїР°РґР°РµС‚ РІ exit(0) РЅР° РґРµРёРЅРёС†РёР°Р»РёР·Р°С†РёРё СЃС‚Р°С‚РёРєРѕРІ РіРґРµ-С‚Рѕ РІРѕ С„Р»СЌС€Рµ
+      // РџРѕСЌС‚РѕРјСѓ РїРѕРєР°Р·С‹РІР°РµРј Message Box РїСЂРѕ Р·Р°РєР°СЂР°РїС‡РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ, Р° РїРѕС‚РѕРј РґРµР»Р°РµРј TerminateProcess
       // NUM_TASK
       TerminateProcess( GetCurrentProcess(), 0 );
       //exit(0);
@@ -782,7 +782,7 @@ int __stdcall PseudoWinMain( HINSTANCE hInstance, HWND hWnd, LPTSTR lpCmdLine, S
   persistentEvents::GetSingleton()->CheckUnfinishedSessions();
   persistentEvents::AutoClose persistentEventsAutoClose;
 
-  // убираем клиентский заголовок строки до состояния "как было" (только severity)
+  // СѓР±РёСЂР°РµРј РєР»РёРµРЅС‚СЃРєРёР№ Р·Р°РіРѕР»РѕРІРѕРє СЃС‚СЂРѕРєРё РґРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ "РєР°Рє Р±С‹Р»Рѕ" (С‚РѕР»СЊРєРѕ severity)
   GetSystemLog().SetHeaderFormat( NLogg::EHeaderFormat::Default ); 
   GetGameLogicLog().SetHeaderFormat( 0 );
 
@@ -1352,7 +1352,7 @@ int __stdcall PseudoWinMain( HINSTANCE hInstance, HWND hWnd, LPTSTR lpCmdLine, S
 
     const float commonTimeDelta = NMainLoop::GetTimeDelta();
     
-    //Усредняем длительность кадра, что даёт значительно более плавную картинку, при FPS < 60
+    //РЈСЃСЂРµРґРЅСЏРµРј РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РєР°РґСЂР°, С‡С‚Рѕ РґР°С‘С‚ Р·РЅР°С‡РёС‚РµР»СЊРЅРѕ Р±РѕР»РµРµ РїР»Р°РІРЅСѓСЋ РєР°СЂС‚РёРЅРєСѓ, РїСЂРё FPS < 60
     const float smoothTimeDelta = avgDeltaTime.NextValue( NMainLoop::GetTimeDelta(), g_maxMovingAvgTime );    
     NMainLoop::SetTemporaryTimeDelta( smoothTimeDelta );
     

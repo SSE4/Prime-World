@@ -11,7 +11,7 @@ namespace PF_Minigames
     LuxChainMergedNotification() {};
 
     //
-    // указать какие цепочки 
+    // СѓРєР°Р·Р°С‚СЊ РєР°РєРёРµ С†РµРїРѕС‡РєРё 
     //
   };
 }

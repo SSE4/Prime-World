@@ -971,7 +971,7 @@ static bool SetSkin( const char *name, const vector<wstring> &params, const Chea
     string flagIcon;
     wstring flagTooltip;
 
-    // TODO: добавить параметр включения/выключения анимированного портрета
+    // TODO: РґРѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂ РІРєР»СЋС‡РµРЅРёСЏ/РІС‹РєР»СЋС‡РµРЅРёСЏ Р°РЅРёРјРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕСЂС‚СЂРµС‚Р°
     AdventureScreenLogic* advLogic = dynamic_cast<AdventureScreenLogic*>(AdventureScreen::Instance()->GetLogic());
     NI_ASSERT( advLogic, "Can't acquire adventure screen logic" );
     advLogic->GetFlashInterface()->SetHeroIdentity(

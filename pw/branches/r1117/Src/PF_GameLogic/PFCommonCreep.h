@@ -125,7 +125,7 @@ private:
   vector<CVec2> targets;
 
   ZDATA_(PFBaseSpawner);
-  vector<float> statFactors;  // усиление статов крипов (используется при разрушении бараков)
+  vector<float> statFactors;  // СѓСЃРёР»РµРЅРёРµ СЃС‚Р°С‚РѕРІ РєСЂРёРїРѕРІ (РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё СЂР°Р·СЂСѓС€РµРЅРёРё Р±Р°СЂР°РєРѕРІ)
   PFCommonCreep::CreepsRing creepsRing;
   float         farestCreepPositionUpdateOffset;
   CVec2         farestCreepPosition;

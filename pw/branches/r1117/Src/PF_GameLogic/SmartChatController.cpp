@@ -248,9 +248,9 @@ namespace NGameX
           DoBuild(configuration);
 
           #pragma REMINDER("Get rid of this hack")
-          // HACK: удаление команды безусловно "дергает" UpdateAllCommandsSupersets()
-          // некоторые ControlsSet'ы были уничтожены в процессе ребинда
-          // необходимо обеспечить консистентность ссылок
+          // HACK: СѓРґР°Р»РµРЅРёРµ РєРѕРјР°РЅРґС‹ Р±РµР·СѓСЃР»РѕРІРЅРѕ "РґРµСЂРіР°РµС‚" UpdateAllCommandsSupersets()
+          // РЅРµРєРѕС‚РѕСЂС‹Рµ ControlsSet'С‹ Р±С‹Р»Рё СѓРЅРёС‡С‚РѕР¶РµРЅС‹ РІ РїСЂРѕС†РµСЃСЃРµ СЂРµР±РёРЅРґР°
+          // РЅРµРѕР±С…РѕРґРёРјРѕ РѕР±РµСЃРїРµС‡РёС‚СЊ РєРѕРЅСЃРёСЃС‚РµРЅС‚РЅРѕСЃС‚СЊ СЃСЃС‹Р»РѕРє
           binds->DeleteCommand(smartChatTechnicalCommand.c_str());
         }
       private:

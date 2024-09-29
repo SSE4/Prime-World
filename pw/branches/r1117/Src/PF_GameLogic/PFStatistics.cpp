@@ -249,7 +249,7 @@ void CustomEventNameMap::SetVictim(const NWorld::PFBaseUnit* victim)
 //=================================================================================================================================
 void CustomEventNameMap::SetAssistants(const vector<NWorld::PFBaseHero*>& eventAssistants)
 { 
-  //криворукие писатели nstl не могли даже написать assign нормальный!!!
+  //РєСЂРёРІРѕСЂСѓРєРёРµ РїРёСЃР°С‚РµР»Рё nstl РЅРµ РјРѕРіР»Рё РґР°Р¶Рµ РЅР°РїРёСЃР°С‚СЊ assign РЅРѕСЂРјР°Р»СЊРЅС‹Р№!!!
   m_eventAssistants.clear();
   vector<NWorld::PFBaseHero*>::const_iterator iter;
   for(iter = eventAssistants.begin(); iter != eventAssistants.end(); ++iter )

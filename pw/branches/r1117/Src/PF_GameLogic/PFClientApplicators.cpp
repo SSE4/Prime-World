@@ -41,7 +41,7 @@ static bool CanApplyEffect(CObj<PF_Core::BasicEffect> pEffect, NWorld::PFLogicOb
 
   const NDb::EffectBase* const desc= pEffect->GetDBDesc();
 
-  // TODO: ïî÷åìó èìåííî ýòè ýôôåêòû?
+  // TODO: Ð¿Ð¾Ñ‡ÐµÐ¼Ñƒ Ð¸Ð¼ÐµÐ½Ð½Ð¾ ÑÑ‚Ð¸ ÑÑ„Ñ„ÐµÐºÑ‚Ñ‹?
   switch (desc->GetObjectTypeID())
   {
   case NDb::PlayAnimationEffect::typeId:

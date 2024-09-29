@@ -20,7 +20,7 @@ namespace Terrain
 
         if( point.x < -epsilon || point.y < -epsilon || point.x > topX || point.y > topY )
         {
-            // ищем пересечение с верхней правой четвертью
+            // РёС‰РµРј РїРµСЂРµСЃРµС‡РµРЅРёРµ СЃ РІРµСЂС…РЅРµР№ РїСЂР°РІРѕР№ С‡РµС‚РІРµСЂС‚СЊСЋ
             float t[4];
             t[0] = dir.y != 0 ? - point.y / dir.y : -1; // y = 0; OX
             t[1] = dir.x != 0 ? - point.x / dir.x : -1; // x = 0; OY

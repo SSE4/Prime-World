@@ -9,7 +9,7 @@ namespace ZZima
   enum ErrorCode
   {
     E_OK = 0, 
-    E_ASYNC_WAIT = -1, // связываемся асинхронно, поэтому сразу из PerformLoginCheck возвращаем error code "ждите ответа"
+    E_ASYNC_WAIT = -1, // СЃРІСЏР·С‹РІР°РµРјСЃСЏ Р°СЃРёРЅС…СЂРѕРЅРЅРѕ, РїРѕСЌС‚РѕРјСѓ СЃСЂР°Р·Сѓ РёР· PerformLoginCheck РІРѕР·РІСЂР°С‰Р°РµРј error code "Р¶РґРёС‚Рµ РѕС‚РІРµС‚Р°"
     E_SETUP_FAILED = -500,
     E_INVOKE_FAILED = -501,
     E_PARSE_FAILED = -502,

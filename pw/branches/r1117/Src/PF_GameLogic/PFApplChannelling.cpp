@@ -115,7 +115,7 @@ void PFApplChannelling::Stop()
   }
 
   // Channelling finished
-  // if добавил для починки NUM_TASK
+  // if РґРѕР±Р°РІРёР» РґР»СЏ РїРѕС‡РёРЅРєРё NUM_TASK
   if ( state != STATE_CANCEL && state != STATE_INTERRUPT )
   {
     if(GetStopReason() != APPL_STOP_REASON_ONDEATH)
@@ -231,7 +231,7 @@ unsigned int PFApplChannelling::OnEvent(const PFBaseUnitEvent *pEvent)
 	NI_ASSERT(pEvent, "NULL is not supported");
   const NDb::EBaseUnitEvent& eventType = pEvent->GetType();
 
-  // Для случая когда подписаны в нескольких местах
+  // Р”Р»СЏ СЃР»СѓС‡Р°СЏ РєРѕРіРґР° РїРѕРґРїРёСЃР°РЅС‹ РІ РЅРµСЃРєРѕР»СЊРєРёС… РјРµСЃС‚Р°С…
   if ( state == STATE_CANCEL || state == STATE_INTERRUPT )
     return PFBaseUnitEventListener::FLAGS_REMOVE;
 

@@ -71,7 +71,7 @@ PFClientTree::PFClientTree(const PF_Core::WorldObjectRef &pWO, const NDb::AdvMap
   }
   pStubsSceneObjectsHolder->SetActive(SelectSceneObjectIndex(NDb::NATURETYPE_N, night), bVisible);
   
-  // закоменировано по просьбе дизайнеров - деревья теперь не интерактивны..
+  // Р·Р°РєРѕРјРµРЅРёСЂРѕРІР°РЅРѕ РїРѕ РїСЂРѕСЃСЊР±Рµ РґРёР·Р°Р№РЅРµСЂРѕРІ - РґРµСЂРµРІСЊСЏ С‚РµРїРµСЂСЊ РЅРµ РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹..
   //NScene::SceneObject* pSceneObject = GetSceneObject();
   //if ( pSceneObject )
   //{

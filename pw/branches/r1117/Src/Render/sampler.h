@@ -8,7 +8,7 @@ namespace Render
 {
 	
 
-	/// Сэмплер
+	/// РЎСЌРјРїР»РµСЂ
 	class Sampler
 	{
 	public:
@@ -26,21 +26,21 @@ namespace Render
 		static const uint MIN_VS_SAMPLER_INDEX = 257;
 		///
     // Sampler() {}
-		/// Деструктор
+		/// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 		//virtual ~Sampler() {}
 
-		/// Получение стэйтов сэмплера
+		/// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚СЌР№С‚РѕРІ СЃСЌРјРїР»РµСЂР°
 		void GetSignificantPart(SignificantPart *_res) const;
-		/// Получение стэйтов сэмплера
+		/// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚СЌР№С‚РѕРІ СЃСЌРјРїР»РµСЂР°
 		const SamplerState& GetSamplerState() const { return samplerState; }
-		/// Получение стэйтов сэмплера
+		/// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚СЌР№С‚РѕРІ СЃСЌРјРїР»РµСЂР°
 		SamplerState& GetSamplerState() { return samplerState; }
-		/// Установка стэйтов сэмплера
+		/// РЈСЃС‚Р°РЅРѕРІРєР° СЃС‚СЌР№С‚РѕРІ СЃСЌРјРїР»РµСЂР°
 		void SetSamplerState(const NDb::SamplerState& state) { samplerState = SamplerState(state); }
 
-		/// Установка текстуры
+		/// РЈСЃС‚Р°РЅРѕРІРєР° С‚РµРєСЃС‚СѓСЂС‹
 		void SetTexture( Texture * pTexture_ ) { pTexture = pTexture_; }
-		/// Получение текстуры
+		/// РџРѕР»СѓС‡РµРЅРёРµ С‚РµРєСЃС‚СѓСЂС‹
 		const TextureRef& GetTexture() const { return pTexture; }
 		///
 		void Bind(int samplerIndex) const;

@@ -2,7 +2,7 @@
 
 namespace Render
 {
-	/// Типы примитивов рендера
+	/// РўРёРїС‹ РїСЂРёРјРёС‚РёРІРѕРІ СЂРµРЅРґРµСЂР°
 	enum ERenderPrimitiveType
 	{
 		RENDERPRIMITIVE_POINTLIST,

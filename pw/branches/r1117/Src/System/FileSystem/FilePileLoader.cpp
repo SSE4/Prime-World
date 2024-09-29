@@ -354,7 +354,7 @@ void FilePileLoader::OnFileCorruption( const char * _expr, const char * _msg, Fi
   if (IsValid(readCallback)) 
   {
     (*readCallback.GetPtr())(err_code, packFilename.c_str());
-    //предотвратим повторный вызов
+    //РїСЂРµРґРѕС‚РІСЂР°С‚РёРј РїРѕРІС‚РѕСЂРЅС‹Р№ РІС‹Р·РѕРІ
     readCallback.SetPtr(NULL);
   }
 }

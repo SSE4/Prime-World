@@ -8,7 +8,7 @@ namespace Coordinator
     Transport::TServiceId serviceId; 
     nstl::string option;
 
-    // признак опции, которые нужно раздавать всем сервисам (не одному конкретному)
+    // РїСЂРёР·РЅР°Рє РѕРїС†РёРё, РєРѕС‚РѕСЂС‹Рµ РЅСѓР¶РЅРѕ СЂР°Р·РґР°РІР°С‚СЊ РІСЃРµРј СЃРµСЂРІРёСЃР°Рј (РЅРµ РѕРґРЅРѕРјСѓ РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ)
     bool IsGlobalOption() const { return serviceId.empty() || ("all" == NStr::GetLower( string(serviceId.c_str()) )); } 
   };
 

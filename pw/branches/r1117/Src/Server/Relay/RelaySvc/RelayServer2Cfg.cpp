@@ -8,7 +8,7 @@ namespace Relay
 {
 
 static int rs2Threads = 0;
-static int rs2KeepAliveTimeout = 60; // 0 - отключить
+static int rs2KeepAliveTimeout = 60; // 0 - РѕС‚РєР»СЋС‡РёС‚СЊ
 static int rs2LogLevel = 2;
 static int rs2IOTerabitLogLevel = 2;
 static int rs2BackendSoRcvBuf = -1;

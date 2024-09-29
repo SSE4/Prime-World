@@ -568,7 +568,7 @@ namespace NWorld
     {
       pSpawner->AwardForCreepKill( award );
 
-      // TODO: здесь этого быть не должно
+      // TODO: Р·РґРµСЃСЊ СЌС‚РѕРіРѕ Р±С‹С‚СЊ РЅРµ РґРѕР»Р¶РЅРѕ
       if(pSpawner->GetSpawnedCreepsCount() == 1)
       {
         if(PFWorld* pWorld = GetWorld())

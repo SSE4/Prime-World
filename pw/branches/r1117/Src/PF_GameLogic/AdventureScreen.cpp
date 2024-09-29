@@ -194,7 +194,7 @@ static CVec2 CalcScrollOffset( SVector const &mousePos, float scrollSize )
   const float scrollWidth = scrollSize;
   const float scrollHeight = scrollSize;
   
-  //Если убрать данную проверку то скроллинг будет нормально работать за границами окна
+  //Р•СЃР»Рё СѓР±СЂР°С‚СЊ РґР°РЅРЅСѓСЋ РїСЂРѕРІРµСЂРєСѓ С‚Рѕ СЃРєСЂРѕР»Р»РёРЅРі Р±СѓРґРµС‚ РЅРѕСЂРјР°Р»СЊРЅРѕ СЂР°Р±РѕС‚Р°С‚СЊ Р·Р° РіСЂР°РЅРёС†Р°РјРё РѕРєРЅР°
   if( mousePos.x < 0 || mousePos.y < 0 || 
       mousePos.x >= scrRes.x || mousePos.y >= scrRes.y )
     return VNULL2;
@@ -588,8 +588,8 @@ void AdventureScreen::Construct( NGameX::ChatUiController * _chatController, NGa
     smartChatController->SetBindsController(bindsController);
   }
 
-  //FIXME: корректно распределить евенты между eventsUI и eventsScene
-  //то есть 2D/UI события регать в 'eventsUI', а относящиеся к сцене - в 'eventsScene'
+  //FIXME: РєРѕСЂСЂРµРєС‚РЅРѕ СЂР°СЃРїСЂРµРґРµР»РёС‚СЊ РµРІРµРЅС‚С‹ РјРµР¶РґСѓ eventsUI Рё eventsScene
+  //С‚Рѕ РµСЃС‚СЊ 2D/UI СЃРѕР±С‹С‚РёСЏ СЂРµРіР°С‚СЊ РІ 'eventsUI', Р° РѕС‚РЅРѕСЃСЏС‰РёРµСЃСЏ Рє СЃС†РµРЅРµ - РІ 'eventsScene'
   eventsScene.AddSystemHandler( "win_mouse_move",             &AdventureScreen::MsgOnMouseMove );
 	eventsScene.AddSystemHandler( "win_left_button_down",       &AdventureScreen::MsgOnLMouseDown );
 	eventsScene.AddSystemHandler( "win_right_button_down",      &AdventureScreen::MsgOnRMouseDown );
@@ -1033,7 +1033,7 @@ bool AdventureScreen::IsValidCommandTarget(Command cmd, const PF_Core::WorldObje
   if (target == GetHero())
     return (flags & NDb::SPELLTARGET_SELF);
 
-  // NUM_TASK: нельзя выбрать - нельзя атаковать
+  // NUM_TASK: РЅРµР»СЊР·СЏ РІС‹Р±СЂР°С‚СЊ - РЅРµР»СЊР·СЏ Р°С‚Р°РєРѕРІР°С‚СЊ
   if (target->CheckFlagType(NDb::UNITFLAGTYPE_FORBIDPICK))
     return false;
 
@@ -1410,7 +1410,7 @@ void AdventureScreen::ExecuteCommand(Command cmd, CVec3 const &worldPos, PF_Core
     {
       if ( !pingAbuseController->Use() )
       {
-        // Если ещё чего нужно будет пихать в нейммапу для сообщения, то имеет смысл сам контроллер отнаследовать от NameMap.
+        // Р•СЃР»Рё РµС‰С‘ С‡РµРіРѕ РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ РїРёС…Р°С‚СЊ РІ РЅРµР№РјРјР°РїСѓ РґР»СЏ СЃРѕРѕР±С‰РµРЅРёСЏ, С‚Рѕ РёРјРµРµС‚ СЃРјС‹СЃР» СЃР°Рј РєРѕРЅС‚СЂРѕР»Р»РµСЂ РѕС‚РЅР°СЃР»РµРґРѕРІР°С‚СЊ РѕС‚ NameMap.
         SingleValueNameMapT<float> valuesMap( ceil( pingAbuseController->GetCooldown() ) );
         pLogic->SetErrorMessage( NDb::ERRORMESSAGETYPE_PINGRESTRICTED, true, &valuesMap );
         break;
@@ -2693,7 +2693,7 @@ bool AdventureScreen::CmdCancel()
 
     if (!processed)
     {
-      // TEMP: NUM_TASK не показываем игровое меню, если активен какой-нибудь диалог
+      // TEMP: NUM_TASK РЅРµ РїРѕРєР°Р·С‹РІР°РµРј РёРіСЂРѕРІРѕРµ РјРµРЅСЋ, РµСЃР»Рё Р°РєС‚РёРІРµРЅ РєР°РєРѕР№-РЅРёР±СѓРґСЊ РґРёР°Р»РѕРі
       if (pLogic->GetDialogController() && !pLogic->GetDialogController()->IsDialogFinished(NULL))
         ;
       else
@@ -4411,10 +4411,10 @@ NWorld::PFBaseUnit * AdventureScreen::GetMainUnit()
         return true;
       }
 
-      // мы неможем выбрать юнит, который под варфогом или невидим
+      // РјС‹ РЅРµРјРѕР¶РµРј РІС‹Р±СЂР°С‚СЊ СЋРЅРёС‚, РєРѕС‚РѕСЂС‹Р№ РїРѕРґ РІР°СЂС„РѕРіРѕРј РёР»Рё РЅРµРІРёРґРёРј
       if ( !pUnit->IsVisibleForFaction( GetHero()->GetFaction() ) )
         return false;
-      // нельзя выбрать юнит, который нельзя выбрать (?)
+      // РЅРµР»СЊР·СЏ РІС‹Р±СЂР°С‚СЊ СЋРЅРёС‚, РєРѕС‚РѕСЂС‹Р№ РЅРµР»СЊР·СЏ РІС‹Р±СЂР°С‚СЊ (?)
       if (pUnit->CheckFlagType(NDb::UNITFLAGTYPE_FORBIDPICK))
         return false;
 
@@ -4603,7 +4603,7 @@ bool AdventureScreen::OnTalentSetButtonClick(int level, int slot)
         SendGameCommand(NWorld::CreateCmdActivateTalent(pMale, level, slot), true);
       }
 
-      if( isPlayingMinigame ) // запрещаем использовать таланты играя в миниигру
+      if( isPlayingMinigame ) // Р·Р°РїСЂРµС‰Р°РµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚Р°Р»Р°РЅС‚С‹ РёРіСЂР°СЏ РІ РјРёРЅРёРёРіСЂСѓ
         return false;
 
       if (pTalent->IsActivated() && pTalent->CanBeUsed() && pTalent->IsActive())
@@ -5147,8 +5147,8 @@ bool AdventureScreen::OnUIEvent( PFUIEvent *  pEvent, NNameMap::Map const *pMap 
             // NUM_TASK
             if (pEvent->GetEventData().dbEvent == evAddGold)
             {
-              // NOTE: название метода противоречит семантике. возможно, это баг.
-              // метод проверяет, является ли герой указанного игрока получателем.
+              // NOTE: РЅР°Р·РІР°РЅРёРµ РјРµС‚РѕРґР° РїСЂРѕС‚РёРІРѕСЂРµС‡РёС‚ СЃРµРјР°РЅС‚РёРєРµ. РІРѕР·РјРѕР¶РЅРѕ, СЌС‚Рѕ Р±Р°Рі.
+              // РјРµС‚РѕРґ РїСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РіРµСЂРѕР№ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РёРіСЂРѕРєР° РїРѕР»СѓС‡Р°С‚РµР»РµРј.
               if (pEvent->IsCurrentHeroEventOwner(GetPlayer()))
               {
                 pOwnerUnit = pLocalHero;
@@ -5231,7 +5231,7 @@ void AdventureScreen::PrecacheResources()
 {
   NI_PROFILE_FUNCTION;
 
-  // Прекэш NDb::SessionRoot::GetRoot()->logicRoot->heroesLevelups->killExperienceModifiers ( NUM_TASK )
+  // РџСЂРµРєСЌС€ NDb::SessionRoot::GetRoot()->logicRoot->heroesLevelups->killExperienceModifiers ( NUM_TASK )
   NDb::Precache<NDb::HeroesLevelUps>( NDb::SessionRoot::GetRoot()->logicRoot->heroesLevelups->GetDBID(), 10, true );
 
   NDb::Ptr<NDb::GlyphsDB> pDBGlyphs = NDb::SessionRoot::GetRoot()->logicRoot->glyphsDB;
@@ -5704,7 +5704,7 @@ bool AdventureScreen::StartSpectate( const int& heroIdx )
 
   const CPtr<NWorld::PFAIWorld> pAIWorld = pWorld->GetAIWorld();
 
-  // После завершения игры - не можем переключать героев спектатором ( NUM_TASK )
+  // РџРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ РёРіСЂС‹ - РЅРµ РјРѕР¶РµРј РїРµСЂРµРєР»СЋС‡Р°С‚СЊ РіРµСЂРѕРµРІ СЃРїРµРєС‚Р°С‚РѕСЂРѕРј ( NUM_TASK )
   if ( !pWorld || (IsValid(pAIWorld) && pAIWorld->WasGameFinished()) )
     return true;
 
@@ -7078,7 +7078,7 @@ void AdventureScreen::OnVictory( NDb::EFaction _failedFaction, int _surrenderVot
 
   const NDb::AdvMapDescription* const mapDesc = pWorld->GetMapDescription();
 
-  //TODO: захардкоженный параметр задержки перенести в аргумент флешовой GameEnd. Корзунов Семен.
+  //TODO: Р·Р°С…Р°СЂРґРєРѕР¶РµРЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ Р·Р°РґРµСЂР¶РєРё РїРµСЂРµРЅРµСЃС‚Рё РІ Р°СЂРіСѓРјРµРЅС‚ С„Р»РµС€РѕРІРѕР№ GameEnd. РљРѕСЂР·СѓРЅРѕРІ РЎРµРјРµРЅ.
   if (skipTutorial)
   {
     endGameTimer.Start(1.f);

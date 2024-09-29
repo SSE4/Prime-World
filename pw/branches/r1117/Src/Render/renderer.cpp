@@ -90,7 +90,7 @@ Renderer::Renderer(unsigned int _hWnd) :
 	pD3D = Direct3DCreate9(D3D_SDK_VERSION);
 	if (pD3D == 0)
 	{
-		//Log.Add(MAIN_LOG, "[!] Ошибка Direct3DCreate9\n"); FIXME
+		//Log.Add(MAIN_LOG, "[!] РћС€РёР±РєР° Direct3DCreate9\n"); FIXME
 	}
 
 	hWnd = _hWnd;
@@ -145,18 +145,18 @@ void Renderer::CorrectResolution( unsigned int &width, unsigned int &height ) co
     float deltaWidth =  (float)curWidth - width;
     float deltaHeight = (float)curHeight - height;  
 
-    //Найти разрешение больше запрошенного намного предпочтительнее чем меньше,
-    //поэтому для всех разрешений меньше запрошенного будет искусственно завышать 
-    //коэффициент, тем самым разделив разрешения на два класса
+    //РќР°Р№С‚Рё СЂР°Р·СЂРµС€РµРЅРёРµ Р±РѕР»СЊС€Рµ Р·Р°РїСЂРѕС€РµРЅРЅРѕРіРѕ РЅР°РјРЅРѕРіРѕ РїСЂРµРґРїРѕС‡С‚РёС‚РµР»СЊРЅРµРµ С‡РµРј РјРµРЅСЊС€Рµ,
+    //РїРѕСЌС‚РѕРјСѓ РґР»СЏ РІСЃРµС… СЂР°Р·СЂРµС€РµРЅРёР№ РјРµРЅСЊС€Рµ Р·Р°РїСЂРѕС€РµРЅРЅРѕРіРѕ Р±СѓРґРµС‚ РёСЃРєСѓСЃСЃС‚РІРµРЅРЅРѕ Р·Р°РІС‹С€Р°С‚СЊ 
+    //РєРѕСЌС„С„РёС†РёРµРЅС‚, С‚РµРј СЃР°РјС‹Рј СЂР°Р·РґРµР»РёРІ СЂР°Р·СЂРµС€РµРЅРёСЏ РЅР° РґРІР° РєР»Р°СЃСЃР°
     //
-    //Для отрицательных разрешений искусственно добавляем следующую разницу 
-    //в процентах
+    //Р”Р»СЏ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЂР°Р·СЂРµС€РµРЅРёР№ РёСЃРєСѓСЃСЃС‚РІРµРЅРЅРѕ РґРѕР±Р°РІР»СЏРµРј СЃР»РµРґСѓСЋС‰СѓСЋ СЂР°Р·РЅРёС†Сѓ 
+    //РІ РїСЂРѕС†РµРЅС‚Р°С…
     const float additionalDeltaPercent = 0.1f;
 
     if( deltaWidth < 0 )  deltaWidth  -= width * additionalDeltaPercent;
     if( deltaHeight < 0 ) deltaHeight -= height * additionalDeltaPercent;
 
-    //Среднеквадратичное отклонение текущего разрешения к запрошенному
+    //РЎСЂРµРґРЅРµРєРІР°РґСЂР°С‚РёС‡РЅРѕРµ РѕС‚РєР»РѕРЅРµРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·СЂРµС€РµРЅРёСЏ Рє Р·Р°РїСЂРѕС€РµРЅРЅРѕРјСѓ
     float curCoef = deltaWidth * deltaWidth + deltaHeight * deltaHeight;
 
     //DebugTrace( "Relation %dx%d to %dx%d is %g", width, height, curWidth, curHeight, curCoef );
@@ -241,12 +241,12 @@ void Renderer::UpdateRealRenderMode( const RenderMode &configRenderMode )
   D3DDISPLAYMODE mode = {};
   pDevice->GetDisplayMode( 0, &mode );
   
-  //В оконном режиме режиме mode.Width и mode.Height содержат разрешение 
-  //рабочего стола, поэтому воспользуемся данными presentParams
+  //Р’ РѕРєРѕРЅРЅРѕРј СЂРµР¶РёРјРµ СЂРµР¶РёРјРµ mode.Width Рё mode.Height СЃРѕРґРµСЂР¶Р°С‚ СЂР°Р·СЂРµС€РµРЅРёРµ 
+  //СЂР°Р±РѕС‡РµРіРѕ СЃС‚РѕР»Р°, РїРѕСЌС‚РѕРјСѓ РІРѕСЃРїРѕР»СЊР·СѓРµРјСЃСЏ РґР°РЅРЅС‹РјРё presentParams
   realRenderMode.width = presentParams.BackBufferWidth;
   realRenderMode.height = presentParams.BackBufferHeight;
   
-  //Если в настройках refreshRate равен 0, то так мы точно получаем настоящее значение
+  //Р•СЃР»Рё РІ РЅР°СЃС‚СЂРѕР№РєР°С… refreshRate СЂР°РІРµРЅ 0, С‚Рѕ С‚Р°Рє РјС‹ С‚РѕС‡РЅРѕ РїРѕР»СѓС‡Р°РµРј РЅР°СЃС‚РѕСЏС‰РµРµ Р·РЅР°С‡РµРЅРёРµ
   realRenderMode.refreshRate = mode.RefreshRate; 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -266,9 +266,9 @@ bool Renderer::NeedToFilterResolutionFromUser( unsigned int width, unsigned int 
   
   const float desktopAspectRatio = float(deskWidth) / deskHeight;
   
-  //Будем считать, что разрешение можно показывать пользователю если 
-  //его соотношение сторон отличается от соотношения сторон рабочего стола 
-  //менее чем на aspectRatioThreshold процентов
+  //Р‘СѓРґРµРј СЃС‡РёС‚Р°С‚СЊ, С‡С‚Рѕ СЂР°Р·СЂРµС€РµРЅРёРµ РјРѕР¶РЅРѕ РїРѕРєР°Р·С‹РІР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РµСЃР»Рё 
+  //РµРіРѕ СЃРѕРѕС‚РЅРѕС€РµРЅРёРµ СЃС‚РѕСЂРѕРЅ РѕС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ СЃРѕРѕС‚РЅРѕС€РµРЅРёСЏ СЃС‚РѕСЂРѕРЅ СЂР°Р±РѕС‡РµРіРѕ СЃС‚РѕР»Р° 
+  //РјРµРЅРµРµ С‡РµРј РЅР° aspectRatioThreshold РїСЂРѕС†РµРЅС‚РѕРІ
   const float aspectRatioThreshold = 0.1f;
   
   const float ratio = (curAspectRatio - desktopAspectRatio) / desktopAspectRatio;
@@ -696,7 +696,7 @@ void Renderer::Synchronize()
           break;
         }
 
-        // Здесь можно что-нибудь сделать
+        // Р—РґРµСЃСЊ РјРѕР¶РЅРѕ С‡С‚Рѕ-РЅРёР±СѓРґСЊ СЃРґРµР»Р°С‚СЊ
 
         Sleep(1);
       }

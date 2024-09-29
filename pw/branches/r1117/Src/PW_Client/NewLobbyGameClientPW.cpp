@@ -56,7 +56,7 @@ REGISTER_DEV_VAR( "fs_log_ingame_activity0", s_LogIngameActivity, STORAGE_NONE )
 
 static int s_boostVal = 1;
 REGISTER_DEV_VAR( "boost_thread_priority_val", s_boostVal, STORAGE_NONE);
-// NOTE: hardcode. полагаемся на то, что оператор настроит список жалоб правильно. см. NUM_TASK
+// NOTE: hardcode. РїРѕР»Р°РіР°РµРјСЃСЏ РЅР° С‚Рѕ, С‡С‚Рѕ РѕРїРµСЂР°С‚РѕСЂ РЅР°СЃС‚СЂРѕРёС‚ СЃРїРёСЃРѕРє Р¶Р°Р»РѕР± РїСЂР°РІРёР»СЊРЅРѕ. СЃРј. NUM_TASK
 #ifndef BAD_BEHAVIOUR_REPORT_ITEM_ID
 #define BAD_BEHAVIOUR_REPORT_ITEM_ID 1
 #endif
@@ -95,7 +95,7 @@ loadingScreeen (_loadingScreen)
   ignoreListStorage = new NGameX::IgnoreListStorage( ClientId() );
 }
 
-//наму нужен деструктор, чтобы в явном виде указать какие члены долны шотдауниться раньше
+//РЅР°РјСѓ РЅСѓР¶РµРЅ РґРµСЃС‚СЂСѓРєС‚РѕСЂ, С‡С‚РѕР±С‹ РІ СЏРІРЅРѕРј РІРёРґРµ СѓРєР°Р·Р°С‚СЊ РєР°РєРёРµ С‡Р»РµРЅС‹ РґРѕР»РЅС‹ С€РѕС‚РґР°СѓРЅРёС‚СЊСЃСЏ СЂР°РЅСЊС€Рµ
 GameClientPW::~GameClientPW()
 {
   loadingThread = 0;
@@ -566,7 +566,7 @@ void GameClientPW::OnPlayerInfoLoaded()
       info.force = force;
       info.raiting = (int)( playerStartInfo.playerInfo.heroRating );
 
-      if (!hasBots && !Client()->GameParams().customGame) // с ботами или в договорных не дают рейт
+      if (!hasBots && !Client()->GameParams().customGame) // СЃ Р±РѕС‚Р°РјРё РёР»Рё РІ РґРѕРіРѕРІРѕСЂРЅС‹С… РЅРµ РґР°СЋС‚ СЂРµР№С‚
       {
         info.winDeltaRaiting = playerStartInfo.playerInfo.ratingDeltaPrediction.onVictory;
         info.loseDeltaRaiting = playerStartInfo.playerInfo.ratingDeltaPrediction.onDefeat;
@@ -929,7 +929,7 @@ void GameClientPW::ProcessBadBehaviourComplaints()
         return;
       }
 
-      // NOTE: такое не может случиться при нормальных условиях
+      // NOTE: С‚Р°РєРѕРµ РЅРµ РјРѕР¶РµС‚ СЃР»СѓС‡РёС‚СЊСЃСЏ РїСЂРё РЅРѕСЂРјР°Р»СЊРЅС‹С… СѓСЃР»РѕРІРёСЏС…
       if (sender == receiver)
       {
         ErrorTrace("ProcessBadBehaviourComplaints: reported self (uid=%d)", complaint.senderClientId);

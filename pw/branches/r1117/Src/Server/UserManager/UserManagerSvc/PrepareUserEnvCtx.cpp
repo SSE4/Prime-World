@@ -120,7 +120,7 @@ namespace UserManager
     Transport::TServiceId const & _secondaryrelay, Network::NetAddress const & _secondaryaddr,
     bool _partialReconnectSupported, unsigned int _partialReconnectRetries, unsigned int _partialReconnectRetryTimeout)
   {
-    notify_->OnPrepareUserEnvCompleted(_result, this); //FIXME: «ƒ≈—‹ ”ƒ¿Àﬂ≈“—ﬂ »« œ¿–≈Õ“¿ Œ¡⁄≈ “ 'this' !!!
+    notify_->OnPrepareUserEnvCompleted(_result, this); //FIXME: –ó–î–ï–°–¨ –£–î–ê–õ–Ø–ï–¢–°–Ø –ò–ó –ü–ê–†–ï–ù–¢–ê –û–ë–™–ï–ö–¢ 'this' !!!
 
     RelayInfo relayInfo(_relay, _relayaddr, _secondaryrelay, _secondaryaddr);
     PartialReconnectInfo preconnInfo( prs_.supported(), prs_.retries(), prs_.retryTimeout() );

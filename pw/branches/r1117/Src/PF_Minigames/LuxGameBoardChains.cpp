@@ -240,7 +240,7 @@ void LuxGameBoardChain::ProcessPaintBlast(const SVector &_refBlastPos,int64 _rad
   {
     CObj<LuxBallChain> newChain;
     // explode all same color segments in every chain
-    while( newChain = (*itCurrent)->ExplodePaintBlastWave(_refBlastPos,_radius) )   // !!! другой метод 
+    while( newChain = (*itCurrent)->ExplodePaintBlastWave(_refBlastPos,_radius) )   // !!! РґСЂСѓРіРѕР№ РјРµС‚РѕРґ 
     {
       // if there is teared off tail - add it as a separate chain
       if ( IsValid( newChain )  )
@@ -390,7 +390,7 @@ void LuxGameBoardChain::MergeIntersectingChains()
 void LuxGameBoardChain::RemoveChainsCameToEnd( int _afterExitDistance )
 {
   // 
-  // Pavel<GnoM>Cherniavski TODO: нужно сделать реализацию на основе нормально remove_if алгоритма
+  // Pavel<GnoM>Cherniavski TODO: РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ СЂРµР°Р»РёР·Р°С†РёСЋ РЅР° РѕСЃРЅРѕРІРµ РЅРѕСЂРјР°Р»СЊРЅРѕ remove_if Р°Р»РіРѕСЂРёС‚РјР°
   //
   BallChains::iterator itCurrent = chains.begin();
   while( itCurrent != chains.end() )

@@ -160,8 +160,8 @@ namespace NWorld
 
   void PFBaseMaleHero::FillPersistentStats( const NCore::PlayerInfo playerInfo, TPersistentStats& stats )
   {
-    //Теперь статы даются не сразу, а "размазываются" до 36го уровня ( NUM_TASK )
-    // Сохраняем статы, чтобы не сохранять всю PlayerInfo в героя, используются для "размазанных" статов, также используется в чите hero_force
+    //РўРµРїРµСЂСЊ СЃС‚Р°С‚С‹ РґР°СЋС‚СЃСЏ РЅРµ СЃСЂР°Р·Сѓ, Р° "СЂР°Р·РјР°Р·С‹РІР°СЋС‚СЃСЏ" РґРѕ 36РіРѕ СѓСЂРѕРІРЅСЏ ( NUM_TASK )
+    // РЎРѕС…СЂР°РЅСЏРµРј СЃС‚Р°С‚С‹, С‡С‚РѕР±С‹ РЅРµ СЃРѕС…СЂР°РЅСЏС‚СЊ РІСЃСЋ PlayerInfo РІ РіРµСЂРѕСЏ, РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РґР»СЏ "СЂР°Р·РјР°Р·Р°РЅРЅС‹С…" СЃС‚Р°С‚РѕРІ, С‚Р°РєР¶Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ С‡РёС‚Рµ hero_force
     for (unsigned int i = 0; i < stats.capacity(); ++i)
     {
       stats[i] = 0.0f;
@@ -186,7 +186,7 @@ namespace NWorld
     if (count < 1)
 		  return;
 
-    //Выдаем "размазанные" статы ( NUM_TASK )
+    //Р’С‹РґР°РµРј "СЂР°Р·РјР°Р·Р°РЅРЅС‹Рµ" СЃС‚Р°С‚С‹ ( NUM_TASK )
     for (unsigned int i = 0; i < persistentStats.capacity(); ++i)
     {
       NDb::EStat stat = static_cast<NDb::EStat>(i);
@@ -230,7 +230,7 @@ namespace NWorld
       AddStat( stat, statValue);
     }
 
-    // NOTE: NUM_TASK код ниже скопирован из методов базовых классов, внесены соответствующие правки
+    // NOTE: NUM_TASK РєРѕРґ РЅРёР¶Рµ СЃРєРѕРїРёСЂРѕРІР°РЅ РёР· РјРµС‚РѕРґРѕРІ Р±Р°Р·РѕРІС‹С… РєР»Р°СЃСЃРѕРІ, РІРЅРµСЃРµРЅС‹ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РїСЂР°РІРєРё
 
     if (count > 0)
     {
@@ -554,9 +554,9 @@ bool PFBaseMaleHero::HasFreshTalentsToBuy() const
       // 1. "default"
       if ( g_current_pet == 0 )
       {
-        // a. - ничего не делаем
+        // a. - РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј
 
-        // b. - вызываем случайного и прописываем pet X
+        // b. - РІС‹Р·С‹РІР°РµРј СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Рё РїСЂРѕРїРёСЃС‹РІР°РµРј pet X
         for ( int i = 0; i < consumables.size(); i++ )
         {
           if ( CanUseConsumable( i ) )
@@ -581,7 +581,7 @@ bool PFBaseMaleHero::HasFreshTalentsToBuy() const
       // 3. "pet X"
       else
       {
-        // a. также как "default"
+        // a. С‚Р°РєР¶Рµ РєР°Рє "default"
         if ( inventory.find( g_current_pet ) == inventory.end() )
         {
           g_current_pet = 0;
@@ -594,7 +594,7 @@ bool PFBaseMaleHero::HasFreshTalentsToBuy() const
             }
           }
         }
-        // b. помещаем одного на actionBar, вызываем
+        // b. РїРѕРјРµС‰Р°РµРј РѕРґРЅРѕРіРѕ РЅР° actionBar, РІС‹Р·С‹РІР°РµРј
         else
         {
           for ( int i = 0; i < consumables.size(); i++ )

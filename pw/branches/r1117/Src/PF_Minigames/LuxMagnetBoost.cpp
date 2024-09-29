@@ -69,7 +69,7 @@ void LuxMagnetBoost::vProcessStep( int deltaTime,  LuxGameLogic* _gameLogic )
   {
   case EState::Started:
     {
-      _gameLogic->GetPaintLogic()->GetPainterPoints( painterPoints );  // получить color points
+      _gameLogic->GetPaintLogic()->GetPainterPoints( painterPoints );  // РїРѕР»СѓС‡РёС‚СЊ color points
 
       if ( painterPoints.empty()  )
       {
@@ -85,7 +85,7 @@ void LuxMagnetBoost::vProcessStep( int deltaTime,  LuxGameLogic* _gameLogic )
 
   case EState::WaitingForPlacement:
     {
-      // определить расстояние до ближайщей color point
+      // РѕРїСЂРµРґРµР»РёС‚СЊ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ Р±Р»РёР¶Р°Р№С‰РµР№ color point
       closestPoint = LocateClosestPainterPoint( userPos );
       if ( !IsValid( closestPoint ) ) 
       {

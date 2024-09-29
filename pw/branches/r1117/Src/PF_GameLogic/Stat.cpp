@@ -239,7 +239,7 @@ void PFStatContainer::Load( const NDb::StatsContainer* pStats, const NDb::Ptr<ND
 
     stat.SetCoreValue( value );
 
-    // NUM_TASK: ñòàòû íå äîëæíû áûòü îòðèöàòåëüíûìè; ðåãåíåðàöèÿ ìîæåò áûòü îòðèöàòåëüíîé
+    // NUM_TASK: ÑÑ‚Ð°Ñ‚Ñ‹ Ð½Ðµ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸; Ñ€ÐµÐ³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ñ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹
     // NUM_TASK: CritChanceBonus may be negative;
     switch (it->statId)
     {

@@ -77,7 +77,7 @@ public:
   virtual void Flush() {};
   virtual void FinishFlush() {};
 
-	// стандартные операции ввода/вывода
+	// СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ РѕРїРµСЂР°С†РёРё РІРІРѕРґР°/РІС‹РІРѕРґР°
   bool ReadString( nstl::string &res, int nMaxSize = -1 );
 	void WriteString( const nstl::string &res ) { Write( res.c_str(), res.size() ); }
 	template<class T> Stream& operator>>( T &res ) { Read( &res, sizeof(res) ); return *this; }

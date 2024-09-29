@@ -69,7 +69,7 @@ private:
   CPtr<NScene::IScene> scene;
   CPtr<PF_Minigames::Clinic> clinic;
 
-  //Раздельная обработка клика и mouse over!
+  //Р Р°Р·РґРµР»СЊРЅР°СЏ РѕР±СЂР°Р±РѕС‚РєР° РєР»РёРєР° Рё mouse over!
   CVec2 cursorPos;
   CPtr<PF_Minigames::MinigameWorldObject> currentWorldClickPick;
   CPtr<PF_Minigames::MinigameClientObject> currentClientOverPick;

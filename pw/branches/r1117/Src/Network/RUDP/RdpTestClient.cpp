@@ -18,7 +18,7 @@ spontaneousDisconnectTime( ( _spontaneousDisconnectTime >= 0 ) ? ( _now + _spont
 
 bool RdpTestClient::Init( const ni_udp::NetAddr & _serverIpAddr, int _serverMuxIdx )
 {
-  MessageTrace( "Ñlient started. inst=%d", InstIdx() );
+  MessageTrace( "Ð¡lient started. inst=%d", InstIdx() );
 
   conn = rdp->Connect( _serverIpAddr, _serverMuxIdx, this );
   NI_VERIFY( conn, "", return false );
@@ -30,7 +30,7 @@ bool RdpTestClient::Init( const ni_udp::NetAddr & _serverIpAddr, int _serverMuxI
 
 void RdpTestClient::OnConnectionEstablished( ni_udp::IRdpConnection * _conn )
 {
-  MessageTrace( "Ñlient connected to server. inst=%d", InstIdx() );
+  MessageTrace( "Ð¡lient connected to server. inst=%d", InstIdx() );
 
   threading::MutexLock lock( mutex );
 

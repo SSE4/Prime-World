@@ -41,7 +41,7 @@ void EditBoxDumper::OnDump( const SEntryInfo & entryInfo, const char * headerAnd
     char* pos = strchr( startPos, '\n' );
     startPos = pos + 1;
 
-    // Не нашли '\n'
+    // РќРµ РЅР°С€Р»Рё '\n'
     if ( !pos )
     {
       textPos = 0;

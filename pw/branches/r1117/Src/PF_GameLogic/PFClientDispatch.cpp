@@ -595,7 +595,7 @@ namespace NGameX
 
     RetrieveTargetCoords();
 
-    // линейный диспатч теперь умеет плавно летать по горкам
+    // Р»РёРЅРµР№РЅС‹Р№ РґРёСЃРїР°С‚С‡ С‚РµРїРµСЂСЊ СѓРјРµРµС‚ РїР»Р°РІРЅРѕ Р»РµС‚Р°С‚СЊ РїРѕ РіРѕСЂРєР°Рј
     CVec3 newTarget;
     float dist4SpeedCorrection = 0.0f;
     if( flyMode == NDb::DISPATCHFLYMODE_LINEAR )

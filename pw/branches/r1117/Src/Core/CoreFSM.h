@@ -23,7 +23,7 @@ namespace NCore
 		typedef CObjectBase* (*MessageBuilder)();
 
 	private:
-		///< message cañh for created states, key - id for state, value - message builder
+		///< message caÑh for created states, key - id for state, value - message builder
 		hash_map<StateId, MessageBuilder> messages;
 
 	public:

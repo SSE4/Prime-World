@@ -353,7 +353,7 @@ void ServerNode::OnChangeClientStatus( Peered::TSessionId _sessionId, const nstl
 
       socialLobbyProxy->UserDroppedFromPvX( clientId, leaver );
 
-      // NUM_TASK не отправляем в статистику события о дисконнектах после окончания игры
+      // NUM_TASK РЅРµ РѕС‚РїСЂР°РІР»СЏРµРј РІ СЃС‚Р°С‚РёСЃС‚РёРєСѓ СЃРѕР±С‹С‚РёСЏ Рѕ РґРёСЃРєРѕРЅРЅРµРєС‚Р°С… РїРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ РёРіСЂС‹
       {
         const GameSession* const game = FindGame(_sessionId);
         // NOTE: hacky

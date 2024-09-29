@@ -184,7 +184,7 @@ bool EaselBallView::Init(Easel& _easel, LuxBall* ball, BallCoordsConverter* _con
   EnableComponent( trailComponentName, false );
   SetComponentMulColor( trailComponentName, color );
 
-  // Станет видимым когда отработает интерполятор
+  // РЎС‚Р°РЅРµС‚ РІРёРґРёРјС‹Рј РєРѕРіРґР° РѕС‚СЂР°Р±РѕС‚Р°РµС‚ РёРЅС‚РµСЂРїРѕР»СЏС‚РѕСЂ
   SetVisible( false );
   invisible = true;
 

@@ -82,10 +82,10 @@ int AuditCore::Open()
 
   const string szMutexName( PRODUCT_TITLE_SHORT );
   //bool bSecondInstance = false;
-  // при выходе система сама уничтожит этот mutex
+  // РїСЂРё РІС‹С…РѕРґРµ СЃРёСЃС‚РµРјР° СЃР°РјР° СѓРЅРёС‡С‚РѕР¶РёС‚ СЌС‚РѕС‚ mutex
   CreateMutex( 0, TRUE, szMutexName.c_str() );
 
-  // мы сначала прочитаем cfg файлы, а потом решим что надо делать, может хочется запустить две экземпляра игры на двух мониторах
+  // РјС‹ СЃРЅР°С‡Р°Р»Р° РїСЂРѕС‡РёС‚Р°РµРј cfg С„Р°Р№Р»С‹, Р° РїРѕС‚РѕРј СЂРµС€РёРј С‡С‚Рѕ РЅР°РґРѕ РґРµР»Р°С‚СЊ, РјРѕР¶РµС‚ С…РѕС‡РµС‚СЃСЏ Р·Р°РїСѓСЃС‚РёС‚СЊ РґРІРµ СЌРєР·РµРјРїР»СЏСЂР° РёРіСЂС‹ РЅР° РґРІСѓС… РјРѕРЅРёС‚РѕСЂР°С…
   const bool bAlreadyRunned = ( GetLastError() == ERROR_ALREADY_EXISTS );
   const string szMutexName2 = szMutexName + "_2";
   if ( bAlreadyRunned )

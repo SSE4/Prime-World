@@ -25,8 +25,8 @@ namespace Render
     float biasSlope;
 
 		D3DXMATRIX m_world2LightProj;
-		D3DXMATRIX m_world2Light; /// видовая матрица трансформации источника света
-		D3DXMATRIX m_light2World; /// инверсированная видовая матрица трансформации источника света
+		D3DXMATRIX m_world2Light; /// РІРёРґРѕРІР°СЏ РјР°С‚СЂРёС†Р° С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёРё РёСЃС‚РѕС‡РЅРёРєР° СЃРІРµС‚Р°
+		D3DXMATRIX m_light2World; /// РёРЅРІРµСЂСЃРёСЂРѕРІР°РЅРЅР°СЏ РІРёРґРѕРІР°СЏ РјР°С‚СЂРёС†Р° С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёРё РёСЃС‚РѕС‡РЅРёРєР° СЃРІРµС‚Р°
 		D3DXMATRIX m_light2LightProj;
 		D3DXVECTOR3 m_lightDirWS;
 		D3DXMATRIX m_world2View, m_view2Proj;

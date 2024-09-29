@@ -33,18 +33,18 @@ public:
   void SetNodeInfo( int nodeIdx, const NDb::AnGrMacronode& nodeInfo );
   void SetSequenceInfo( int nodeIdx, int seqIdx, const NDb::AnGrFormula& startPar, const NDb::AnGrFormula& stopPar, 
                         const NDb::AnGrFormula& speed, const nstl::string& name );
-  // вот поэтому я хочу объединения float и не float транзакций, дабы не плодить эти функции
+  // РІРѕС‚ РїРѕСЌС‚РѕРјСѓ СЏ С…РѕС‡Сѓ РѕР±СЉРµРґРёРЅРµРЅРёСЏ float Рё РЅРµ float С‚СЂР°РЅР·Р°РєС†РёР№, РґР°Р±С‹ РЅРµ РїР»РѕРґРёС‚СЊ СЌС‚Рё С„СѓРЅРєС†РёРё
   void SetFlMultiTransactionsInfo( int fromNodeIdx, int toNodeIdx, const NDb::AnGrFlMultiTransaction& transactionInfo );
   void SetFlTransactionsInfo( int fromNodeIdx, int toNodeIdx, int partIdx, const NDb::AnGrFlTransaction& partInfo );
 
-  void ReloadAG(); // перезагрузить AG из базы данных
-  void PlayNodes( const vector<int> &nodeIndices, float _loopTime ); // проиграть node's в указанном порядке
-  void SetGlobalSpeed( float speed ); // установить глобальную скорость проигрывания анимаций
+  void ReloadAG(); // РїРµСЂРµР·Р°РіСЂСѓР·РёС‚СЊ AG РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…
+  void PlayNodes( const vector<int> &nodeIndices, float _loopTime ); // РїСЂРѕРёРіСЂР°С‚СЊ node's РІ СѓРєР°Р·Р°РЅРЅРѕРј РїРѕСЂСЏРґРєРµ
+  void SetGlobalSpeed( float speed ); // СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РіР»РѕР±Р°Р»СЊРЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ Р°РЅРёРјР°С†РёР№
   
-  void SetVirtualParameter( int nodeIdx, float value ); // установить анимацию из node в "позицию" float
-  void ResetVirtualParameter(); // вернуться к нормальному воспроизведению AG
+  void SetVirtualParameter( int nodeIdx, float value ); // СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р°РЅРёРјР°С†РёСЋ РёР· node РІ "РїРѕР·РёС†РёСЋ" float
+  void ResetVirtualParameter(); // РІРµСЂРЅСѓС‚СЊСЃСЏ Рє РЅРѕСЂРјР°Р»СЊРЅРѕРјСѓ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЋ AG
   
-  void GetActiveEntity( int* pNodeIdx, int* pFromNodeIdx, int* pToNodeIdx, bool isGetDispatcher = false ) const; // пишет -1, если не в ноде/не в транзакции
+  void GetActiveEntity( int* pNodeIdx, int* pFromNodeIdx, int* pToNodeIdx, bool isGetDispatcher = false ) const; // РїРёС€РµС‚ -1, РµСЃР»Рё РЅРµ РІ РЅРѕРґРµ/РЅРµ РІ С‚СЂР°РЅР·Р°РєС†РёРё
   int  GetCurTargetNode() { return m_nodesToPlay[m_curTargetIdx]; }
   bool GetCurNodeSurfSpeed(CVec2 &surfSpeed);
 
@@ -67,11 +67,11 @@ private:
   void SetTransactionParams( uint from, uint to, float min, float max );
   void GetTransactionParams( uint from, uint to, float* min, float* max );
 
-  // Сохранение переходов для проигрывания одиноких нод ( убиваем переходы, чтобы играть одну ноду подряд )
+  // РЎРѕС…СЂР°РЅРµРЅРёРµ РїРµСЂРµС…РѕРґРѕРІ РґР»СЏ РїСЂРѕРёРіСЂС‹РІР°РЅРёСЏ РѕРґРёРЅРѕРєРёС… РЅРѕРґ ( СѓР±РёРІР°РµРј РїРµСЂРµС…РѕРґС‹, С‡С‚РѕР±С‹ РёРіСЂР°С‚СЊ РѕРґРЅСѓ РЅРѕРґСѓ РїРѕРґСЂСЏРґ )
   bool isSavedTransactionParams;
   nstl::vector<SavedTransactionInfo> savedInfos;
 
-  // Сколько проводить времени в зацикленной ноде
+  // РЎРєРѕР»СЊРєРѕ РїСЂРѕРІРѕРґРёС‚СЊ РІСЂРµРјРµРЅРё РІ Р·Р°С†РёРєР»РµРЅРЅРѕР№ РЅРѕРґРµ
   float loopTime;
   int numLoopCycle;
 

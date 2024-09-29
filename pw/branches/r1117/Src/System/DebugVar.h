@@ -24,7 +24,7 @@ class Plotter
   NHPTimer::STime lastTime;
   int curIdx;
 public:
-  // count - количество отсчетов по которым сторится график
+  // count - РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚СЃС‡РµС‚РѕРІ РїРѕ РєРѕС‚РѕСЂС‹Рј СЃС‚РѕСЂРёС‚СЃСЏ РіСЂР°С„РёРє
   Plotter( int _count = 64, float _timeLimit = 0.0f )
   {
     count = _count;

@@ -142,7 +142,7 @@ void PFApplBounce::OnDispatchTargetDropped( const PFDispatch * pDispatch )
 
 void PFApplBounce::SetNewTarget( const Target & _target )
 {
-  // Учитываем ситуацию, когда текущий диспатч уже успел прилететь.
+  // РЈС‡РёС‚С‹РІР°РµРј СЃРёС‚СѓР°С†РёСЋ, РєРѕРіРґР° С‚РµРєСѓС‰РёР№ РґРёСЃРїР°С‚С‡ СѓР¶Рµ СѓСЃРїРµР» РїСЂРёР»РµС‚РµС‚СЊ.
   if ( IsValid( pDispatch ) && pDispatch->HasArrived() )
   {
     targetCounter++;
@@ -150,7 +150,7 @@ void PFApplBounce::SetNewTarget( const Target & _target )
 
   timeToNextBounce = 0;
 
-  // Если новая цель - владелец, то завершаем и проигрываем cancelEffect
+  // Р•СЃР»Рё РЅРѕРІР°СЏ С†РµР»СЊ - РІР»Р°РґРµР»РµС†, С‚Рѕ Р·Р°РІРµСЂС€Р°РµРј Рё РїСЂРѕРёРіСЂС‹РІР°РµРј cancelEffect
   if ( _target.IsUnitValid() && _target.GetUnit() == GetAbilityOwner() )
   {
 #ifndef VISUAL_CUTTED

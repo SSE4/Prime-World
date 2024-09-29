@@ -5,6 +5,6 @@
 namespace Login
 {
 
-SERIALIZE_FACTORY( LoginResultData ); // требуется как REMOTE для CoordinatorClient и CoordinatorServer
+SERIALIZE_FACTORY( LoginResultData ); // С‚СЂРµР±СѓРµС‚СЃСЏ РєР°Рє REMOTE РґР»СЏ CoordinatorClient Рё CoordinatorServer
 
 } //namespace Login

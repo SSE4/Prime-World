@@ -29,7 +29,7 @@ bool EaselLuxViewTunnelPoint::Init( Easel& _easel, const SVector& _point )
   // create placement
   Placement objPlacement = _easel.GetPlacement();
 
-  /// âûíåñòè â îòäåëüíûé ìåòîä
+  /// Ð²Ñ‹Ð½ÐµÑÑ‚Ð¸ Ð² Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¼ÐµÑ‚Ð¾Ð´
   
   CVec3 zeroDist = _easel.GetConvertHelper()->ConvertWorldToClientCoordinates( SVector(0, 0));
   static SVector defaultDirection = SVector(0, 1000);

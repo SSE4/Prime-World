@@ -226,7 +226,7 @@ void ChatUiController::Update()
 
       if ( g_sessionChatOff)
       {
-        // NUM_TASK свои сообщения всё же должны получать
+        // NUM_TASK СЃРІРѕРё СЃРѕРѕР±С‰РµРЅРёСЏ РІСЃС‘ Р¶Рµ РґРѕР»Р¶РЅС‹ РїРѕР»СѓС‡Р°С‚СЊ
         if (chatMessage.userId != chatClient->GetGameUserId())
           continue;
       }

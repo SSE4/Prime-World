@@ -82,7 +82,7 @@ public:
   bool CheckChainReachedEnd(int64 _endOffset) const;
 
   void ForceNewChainGeneration( LuxGameLogic* _gameLogic );          // forced mechanism
-  void GenerateNewChains( int deltaTime, LuxGameLogic* _gameLogic );   // неудачный метод
+  void GenerateNewChains( int deltaTime, LuxGameLogic* _gameLogic );   // РЅРµСѓРґР°С‡РЅС‹Р№ РјРµС‚РѕРґ
 
   // move all chains by delta time
   void MoveChains(int deltaTime);

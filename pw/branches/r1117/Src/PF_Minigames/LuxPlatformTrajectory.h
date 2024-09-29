@@ -25,7 +25,7 @@ public:
 	SVector GetMidPosition();    // get middle line position (usefull for start platform positioning)
 
 	//
-	// UNDONE !!! реализовать ....
+	// UNDONE !!! СЂРµР°Р»РёР·РѕРІР°С‚СЊ ....
 	//
 
 	// platform trajectory draw (call only if debug drawer is enabled)
@@ -36,7 +36,7 @@ private:
 	CPlatformTrajectory& operator=(const CPlatformTrajectory &rhs);
 
 	// trajectory representation
-	CHorizLineTrajectory trajectory;  // у нас пока заглушка с горизонтальными линиями траектории
+	CHorizLineTrajectory trajectory;  // Сѓ РЅР°СЃ РїРѕРєР° Р·Р°РіР»СѓС€РєР° СЃ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹РјРё Р»РёРЅРёСЏРјРё С‚СЂР°РµРєС‚РѕСЂРёРё
 
 protected:
 

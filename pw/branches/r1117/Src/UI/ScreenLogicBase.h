@@ -51,13 +51,13 @@ public:
 
   void OnScreenFocus( bool focus );
 
-  //@iA@TODO: Возможно, понадобится событие на потерю capture
+  //@iA@TODO: Р’РѕР·РјРѕР¶РЅРѕ, РїРѕРЅР°РґРѕР±РёС‚СЃСЏ СЃРѕР±С‹С‚РёРµ РЅР° РїРѕС‚РµСЂСЋ capture
   void CaptureMouse( Window * window );
   void ReleaseMouse();
 
   //virtual methods
   virtual void    Step( float deltaTime ) {}
-  virtual void    RenderWindows(); //@iA@TODO: сделать эту функцию НЕвирутальной
+  virtual void    RenderWindows(); //@iA@TODO: СЃРґРµР»Р°С‚СЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ РќР•РІРёСЂСѓС‚Р°Р»СЊРЅРѕР№
 
   virtual bool    HasKeyboardFocus( const Window * window ) const;
   virtual void    SetKeyboardFocus( Window * window );

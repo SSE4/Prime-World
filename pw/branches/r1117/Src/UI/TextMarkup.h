@@ -72,12 +72,12 @@ public:
 private:
   struct SElement
   {
-    TOffset   begin, end;  //Ссылки в текст
+    TOffset   begin, end;  //РЎСЃС‹Р»РєРё РІ С‚РµРєСЃС‚
     int       line;
     IImage *  image;
-    SBounds   bounds; //Габариты блока текста или изображения
-    TPoint    offset; //Координаты для рендера; У первого символа в режиме left/top offset = [0, 0]
-    bool      noSpaceBefore, noSpaceAfter; //если один из этих флагов false, то пробела с соответствующей стороны не будет
+    SBounds   bounds; //Р“Р°Р±Р°СЂРёС‚С‹ Р±Р»РѕРєР° С‚РµРєСЃС‚Р° РёР»Рё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+    TPoint    offset; //РљРѕРѕСЂРґРёРЅР°С‚С‹ РґР»СЏ СЂРµРЅРґРµСЂР°; РЈ РїРµСЂРІРѕРіРѕ СЃРёРјРІРѕР»Р° РІ СЂРµР¶РёРјРµ left/top offset = [0, 0]
+    bool      noSpaceBefore, noSpaceAfter; //РµСЃР»Рё РѕРґРёРЅ РёР· СЌС‚РёС… С„Р»Р°РіРѕРІ false, С‚Рѕ РїСЂРѕР±РµР»Р° СЃ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ СЃС‚РѕСЂРѕРЅС‹ РЅРµ Р±СѓРґРµС‚
     TUnit     minSpaceBefore, minSpaceAfter;
     IStyle *  style;
     bool      valueElement;
@@ -101,9 +101,9 @@ private:
   vector< IStyle *>   stylesStack;
   EVerticalAlign::Enum verticalAlign;
 
-  TPoint              textBounds; //Габариты текста, вычисленные со всеми отступами
-  TUnit               upperGap; //Отступ текста сверху
-  TUnit               lowerGapAndDescent; //Отступ текста снизу
+  TPoint              textBounds; //Р“Р°Р±Р°СЂРёС‚С‹ С‚РµРєСЃС‚Р°, РІС‹С‡РёСЃР»РµРЅРЅС‹Рµ СЃРѕ РІСЃРµРјРё РѕС‚СЃС‚СѓРїР°РјРё
+  TUnit               upperGap; //РћС‚СЃС‚СѓРї С‚РµРєСЃС‚Р° СЃРІРµСЂС…Сѓ
+  TUnit               lowerGapAndDescent; //РћС‚СЃС‚СѓРї С‚РµРєСЃС‚Р° СЃРЅРёР·Сѓ
 
   bool                condenseWhite;
   bool                enableTags;
@@ -111,12 +111,12 @@ private:
 
   vector< SElement >  elements;
   EJustify::Enum      currentJustify;
-  TOffset             lineBegin; //индекс первого элемента текущей строки, или NullOffset, если строка еще не началась
+  TOffset             lineBegin; //РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё, РёР»Рё NullOffset, РµСЃР»Рё СЃС‚СЂРѕРєР° РµС‰Рµ РЅРµ РЅР°С‡Р°Р»Р°СЃСЊ
   TUnit               currentXOffs;
   int                 currentLine;
   bool                wordWrap;
   bool                stretch;
-  TUnit               currentStretchFactor; //текущее максимальное растяжение текста (в долях от area)
+  TUnit               currentStretchFactor; //С‚РµРєСѓС‰РµРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ СЂР°СЃС‚СЏР¶РµРЅРёРµ С‚РµРєСЃС‚Р° (РІ РґРѕР»СЏС… РѕС‚ area)
   TOffset             atomBegin;
   TOffset             frightBegin; // i.e. Flush-Right =)
 

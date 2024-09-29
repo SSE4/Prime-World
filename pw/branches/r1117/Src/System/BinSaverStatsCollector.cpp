@@ -12,7 +12,7 @@ inline BinSaverStatsCollector::TTickCount BinSaverStatsCollector::GetCpuTickCoun
 
 inline double BinSaverStatsCollector::TickToMSec( TTickCount tc )
 {
-  return double(tc) / 2000; //Примерное значение времени, нам нужны относительные значения
+  return double(tc) / 2000; //РџСЂРёРјРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІСЂРµРјРµРЅРё, РЅР°Рј РЅСѓР¶РЅС‹ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,7 +53,7 @@ void BinSaverStatsCollector::StartTypeImpl( const std::type_info &ti )
   
   const ChildredNodes::key_type key( ti );
   
-  //Оптимизация: Ищем только один раз
+  //РћРїС‚РёРјРёР·Р°С†РёСЏ: РС‰РµРј С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·
   ChildredNodes::iterator it = pChildren->lower_bound(key);
   
   if( it != pChildren->end() && !pChildren->key_comp()(key, it->first) )
@@ -178,6 +178,6 @@ void BinSaverStatsCollector::DumpDataRecursize( int level, const ChildredNodes::
     DebugTrace( "%*s}", level * 2, "" );
   }
   
-  //Убрать префикс строк в Notepad++:
+  //РЈР±СЂР°С‚СЊ РїСЂРµС„РёРєСЃ СЃС‚СЂРѕРє РІ Notepad++:
   //  "\.\\BinSaverStatsCollector\.cpp\(\d+\): d: "
 }

@@ -32,7 +32,7 @@ private:
   Peered::TSessionId serverId_;
   int initialStep_;
   int currentStep_;
-  int sendStep_;  //  на каком последнем степе послали данные серверу
+  int sendStep_;  //  РЅР° РєР°РєРѕРј РїРѕСЃР»РµРґРЅРµРј СЃС‚РµРїРµ РїРѕСЃР»Р°Р»Рё РґР°РЅРЅС‹Рµ СЃРµСЂРІРµСЂСѓ
   int confirmFrequency;
   NRandom::RandomGenerator packetSizeRandom, dataRandom;
   int chatSendStep;

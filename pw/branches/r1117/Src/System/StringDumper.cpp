@@ -19,7 +19,7 @@ void CStringDumper::OnDump( const SEntryInfo & entryInfo, const char * headerAnd
 {
   threading::MutexLock lock( mutex );
 
-  if( strlen(string) + strlen(headerAndText) < unsigned(size) ) // èíà÷å ïðè ïåðåïîëíåíèè áóôåðà áóäåò âàëèòüñÿ íà NI_ASSERT-å âíóòðè Cat
+  if( strlen(string) + strlen(headerAndText) < unsigned(size) ) // Ð¸Ð½Ð°Ñ‡Ðµ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ð¸ Ð±ÑƒÑ„ÐµÑ€Ð° Ð±ÑƒÐ´ÐµÑ‚ Ð²Ð°Ð»Ð¸Ñ‚ÑŒÑÑ Ð½Ð° NI_ASSERT-Ðµ Ð²Ð½ÑƒÑ‚Ñ€Ð¸ Cat
   {
     NStr::Cat(string, headerAndText, size);
   }

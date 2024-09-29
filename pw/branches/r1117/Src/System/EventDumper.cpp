@@ -14,7 +14,7 @@ void CEventDumper::OnDump( const SEntryInfo & entryInfo, const char * headerAndT
 {
   threading::MutexLock guard( mutex );
 
-  //TODO: здесь вместо 0 передавалось скалярное время в секундах
+  //TODO: Р·РґРµСЃСЊ РІРјРµСЃС‚Рѕ 0 РїРµСЂРµРґР°РІР°Р»РѕСЃСЊ СЃРєР°Р»СЏСЂРЅРѕРµ РІСЂРµРјСЏ РІ СЃРµРєСѓРЅРґР°С…
   SystemLogEvent::Log( textOnly, 0, MessageLevelToString( entryInfo.level ) );
 }
 	

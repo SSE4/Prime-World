@@ -168,7 +168,7 @@ namespace NGameX
     //Listen for heroes
     nstl::vector<CVec2> heroesPos;
 
-    const float radiusPreventMoving = 1.f; // радиус в добавок к alarmRadius для предотвращения ошибочного движения обратно на базу
+    const float radiusPreventMoving = 1.f; // СЂР°РґРёСѓСЃ РІ РґРѕР±Р°РІРѕРє Рє alarmRadius РґР»СЏ РїСЂРµРґРѕС‚РІСЂР°С‰РµРЅРёСЏ РѕС€РёР±РѕС‡РЅРѕРіРѕ РґРІРёР¶РµРЅРёСЏ РѕР±СЂР°С‚РЅРѕ РЅР° Р±Р°Р·Сѓ
 
     const CVec2 curPos = GetPosition().AsVec2D();
 

@@ -152,7 +152,7 @@ NMarkup::IStyle * TextContainer::GetStyle( const NMarkup::TChar * style )
   if ( !swfFont )
     return defaultFont;
 
-  //FIXME: ïîêà ìû íå ìîæåì óçíàòü íóæíóþ âûñîòó øðèôòà; âîçüìåì èç äåôîëòîâîãî
+  //FIXME: Ð¿Ð¾ÐºÐ° Ð¼Ñ‹ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÐ¼ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ð½ÑƒÐ¶Ð½ÑƒÑŽ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ ÑˆÑ€Ð¸Ñ„Ñ‚Ð°; Ð²Ð¾Ð·ÑŒÐ¼ÐµÐ¼ Ð¸Ð· Ð´ÐµÑ„Ð¾Ð»Ñ‚Ð¾Ð²Ð¾Ð³Ð¾
   const int height = defaultFont->Renderable()->Height();
 
   IFontInstance * inst = swfFont->GetRenderable( fontRender, height );

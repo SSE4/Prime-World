@@ -147,13 +147,13 @@ namespace NWorld
     {
       if ( !pMaster->IsTargetInRange( pOwner, maxChaseDistance ) )
       {
-        return true; // ñëèøêîì äàëåêî îò ìàñòåðà
+        return true; // ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð°Ð»ÐµÐºÐ¾ Ð¾Ñ‚ Ð¼Ð°ÑÑ‚ÐµÑ€Ð°
       }
     }
 
     if ( !pOwner->IsTargetInAttackRange( pTarget ) )
     {
-      return true; // ñëèøêîì äàëåêî îò öåëè
+      return true; // ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð°Ð»ÐµÐºÐ¾ Ð¾Ñ‚ Ñ†ÐµÐ»Ð¸
     }
 
     return pOwner->IsReadyToAttack() && !pOwner->DoAttack();
@@ -280,8 +280,8 @@ namespace NWorld
 
   bool PFSummonAIBaseState::OnStep( float dt )
   {
-    // Ðåæèì ñëåäîâàíèÿ çà èãðîêîì. Ïåðåìåùàåìñÿ â ïîçèöèþ ðÿäîì ñ èãðîêîì
-    // Åñëè â targetingRange ïîÿâëÿåòñÿ âðàã - ïåðåõîäèì â ñïåö. ðåæèì àòàêè
+    // Ð ÐµÐ¶Ð¸Ð¼ ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ñ Ð·Ð° Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð¼. ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰Ð°ÐµÐ¼ÑÑ Ð² Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ Ñ€ÑÐ´Ð¾Ð¼ Ñ Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð¼
+    // Ð•ÑÐ»Ð¸ Ð² targetingRange Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð²Ñ€Ð°Ð³ - Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´Ð¸Ð¼ Ð² ÑÐ¿ÐµÑ†. Ñ€ÐµÐ¶Ð¸Ð¼ Ð°Ñ‚Ð°ÐºÐ¸
 
     if ( GetCurrentState() )
     {
@@ -299,14 +299,14 @@ namespace NWorld
         ignoreTargetsTimer -= dt;
       else
       {
-        // Èùåì öåëü, òîëüêî åñëè íàõîäèìñÿ äîñòàòî÷íî áëèçêî ê ìàñòåðó
+        // Ð˜Ñ‰ÐµÐ¼ Ñ†ÐµÐ»ÑŒ, Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐµÑÐ»Ð¸ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ÑÑ Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾ Ð±Ð»Ð¸Ð·ÐºÐ¾ Ðº Ð¼Ð°ÑÑ‚ÐµÑ€Ñƒ
         if ( isStationarySummon || pMaster->IsTargetInRange( pOwner, maxEscortDistance ))
         {
           CPtr<PFBaseUnit> pTarget = pOwner->FindTarget( pOwner->GetTargetingRange() );
-          //Ïðîâåðÿåì ÷òî öåëü âàëèäíà è îò ìàñòåðà íàõîäèòñÿ â äèñòàíöèè ÷åéçà 
+          //ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ñ‡Ñ‚Ð¾ Ñ†ÐµÐ»ÑŒ Ð²Ð°Ð»Ð¸Ð´Ð½Ð° Ð¸ Ð¾Ñ‚ Ð¼Ð°ÑÑ‚ÐµÑ€Ð° Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ Ð² Ð´Ð¸ÑÑ‚Ð°Ð½Ñ†Ð¸Ð¸ Ñ‡ÐµÐ¹Ð·Ð° 
           if ( IsUnitValid( pTarget ) /*&& pMaster->IsTargetInRange( pTarget, pOwner->GetChaseRange() )*/ )
           {
-            // Àòàêóåì öåëü â îáëàñòè âèäèìîñòè
+            // ÐÑ‚Ð°ÐºÑƒÐµÐ¼ Ñ†ÐµÐ»ÑŒ Ð² Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸
             pOwner->PushState( new PFSummonAIAttackState( pOwner, pTarget, false ) );
             return false;
           }
@@ -332,7 +332,7 @@ namespace NWorld
             if ( !pOwner->IsPositionInRange( masterPosition, maxEscortDistance ) )
               //if (!pMaster->IsTargetInRange( pOwner, maxEscortDistance ))
             {
-              //ìû ñëèøêîì äàëåêî; èä¸ì ê õîçÿèíó
+              //Ð¼Ñ‹ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð°Ð»ÐµÐºÐ¾; Ð¸Ð´Ñ‘Ð¼ Ðº Ñ…Ð¾Ð·ÑÐ¸Ð½Ñƒ
               pOwner->MoveTo( targetPosition );
               currentTask = ST_RETURN_TO_LASH_RANGE;
               return false;
@@ -357,7 +357,7 @@ namespace NWorld
               }
               else
               {
-                // äâèãàåìñÿ òóäà æå, êóäà è õîçÿèí
+                // Ð´Ð²Ð¸Ð³Ð°ÐµÐ¼ÑÑ Ñ‚ÑƒÐ´Ð° Ð¶Ðµ, ÐºÑƒÐ´Ð° Ð¸ Ñ…Ð¾Ð·ÑÐ¸Ð½
                 masterDestination = pMovingMaster->GetDestination();
               }
             }
@@ -367,7 +367,7 @@ namespace NWorld
             {
               targetPosition = masterDestination + escortOffset;
 
-              // õîçÿèí èçìåíèë íàïðàâëåíèå äâèæåíèÿ
+              // Ñ…Ð¾Ð·ÑÐ¸Ð½ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ð» Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð²Ð¸Ð¶ÐµÐ½Ð¸Ñ
               pOwner->MoveTo( targetPosition );
               lastMasterDestination = masterDestination;
               if (currentTask == ST_NONE)
@@ -385,7 +385,7 @@ namespace NWorld
             currentTask = ST_NONE;
             if ( !pOwner->IsPositionInRange( targetPosition, 1.0f ) )
             {
-              // èä¸ì â öåëåâóþ òî÷êó
+              // Ð¸Ð´Ñ‘Ð¼ Ð² Ñ†ÐµÐ»ÐµÐ²ÑƒÑŽ Ñ‚Ð¾Ñ‡ÐºÑƒ
               pOwner->MoveTo( targetPosition );
               returnToMasterTimeout = RETURN_TO_MASTER_TIMEOUT;
               return false;
@@ -449,7 +449,7 @@ namespace NWorld
 
   if ( !moveToDestination )
   {
-  // èä¸ì â öåëåâóþ òî÷êó
+  // Ð¸Ð´Ñ‘Ð¼ Ð² Ñ†ÐµÐ»ÐµÐ²ÑƒÑŽ Ñ‚Ð¾Ñ‡ÐºÑƒ
   pOwner->MoveTo( targetPosition );
   moveToDestination = true;
   }

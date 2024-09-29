@@ -104,7 +104,7 @@ public:
   virtual void AddClientFast(int clientId, int clientIndex, NI_LPTR Peered::IGameClient* _client, int fromStep);
   virtual void SendCommand(int clientIndex, const rpc::MemoryBlock& info, bool isPlayerCommand);
   virtual void OnClientReady(int clientIndex);
-  virtual SHybridPongResult& Ping( SHybridPongResult& time_step ) { return time_step; } // возвращаем ровно то же время, которое нам присылают; чтобы на стороне клиента не возиться с запоминанием.
+  virtual SHybridPongResult& Ping( SHybridPongResult& time_step ) { return time_step; } // РІРѕР·РІСЂР°С‰Р°РµРј СЂРѕРІРЅРѕ С‚Рѕ Р¶Рµ РІСЂРµРјСЏ, РєРѕС‚РѕСЂРѕРµ РЅР°Рј РїСЂРёСЃС‹Р»Р°СЋС‚; С‡С‚РѕР±С‹ РЅР° СЃС‚РѕСЂРѕРЅРµ РєР»РёРµРЅС‚Р° РЅРµ РІРѕР·РёС‚СЊСЃСЏ СЃ Р·Р°РїРѕРјРёРЅР°РЅРёРµРј.
 
   virtual void OnFinishStep(int clientIndex, uint step, uint worldCrc);
   virtual void SetTimeScale(int clientIndex, float _scale);

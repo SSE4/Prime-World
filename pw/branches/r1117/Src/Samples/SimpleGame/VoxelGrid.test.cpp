@@ -159,7 +159,7 @@ struct TestSampleVoxelGrid : public CxxTest::TestSuite
       void operator()( int objectID ) {  collection.insert( objectID ); }
     };
 
-    // Тест сдвигов с радиусом 1 во все стороны
+    // РўРµСЃС‚ СЃРґРІРёРіРѕРІ СЃ СЂР°РґРёСѓСЃРѕРј 1 РІРѕ РІСЃРµ СЃС‚РѕСЂРѕРЅС‹
     nstl::set<int> checkCollection;
     NeighbourTest neighbourTest;
     testGrid.ForAllNeighboursDelta( 3, 3, -1, -1, 1, neighbourTest );
@@ -212,7 +212,7 @@ struct TestSampleVoxelGrid : public CxxTest::TestSuite
     checkCollection.insert( 21 ); checkCollection.insert( 31 ); checkCollection.insert( 41 );
     TS_ASSERT( nstl::equal( checkCollection.begin(), checkCollection.end(), neighbourTest.collection.begin() ) );
 
-    // Тест сдвигов на краях 
+    // РўРµСЃС‚ СЃРґРІРёРіРѕРІ РЅР° РєСЂР°СЏС… 
     checkCollection.clear();
     neighbourTest.collection.clear();
     testGrid.ForAllNeighboursDelta( 1, 1, -1, -1, 1, neighbourTest );
@@ -227,7 +227,7 @@ struct TestSampleVoxelGrid : public CxxTest::TestSuite
     testGrid.ForAllNeighboursDelta( 8, 8, +1, +1, 1, neighbourTest );
     TS_ASSERT( neighbourTest.collection.empty() );
 
-    // Тест с радиусом 2
+    // РўРµСЃС‚ СЃ СЂР°РґРёСѓСЃРѕРј 2
     checkCollection.clear();
     neighbourTest.collection.clear();
     testGrid.ForAllNeighboursDelta( 3, 3, -1, -1, 2, neighbourTest );

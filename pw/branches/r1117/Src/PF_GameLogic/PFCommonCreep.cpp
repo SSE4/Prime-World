@@ -40,7 +40,7 @@ namespace
   int     g_nCreepForceSpawnLevel = 0;
   int     g_nCreepForceWaveNum    = 0;
   float   g_farestCreepPositionUpdateInterval = 1.0f;
-  int     g_maxCreepsTotalCount = 0; // эта переменная перегружает то, что задано в AILogicParameters::maxCreepsCount
+  int     g_maxCreepsTotalCount = 0; // СЌС‚Р° РїРµСЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРіСЂСѓР¶Р°РµС‚ С‚Рѕ, С‡С‚Рѕ Р·Р°РґР°РЅРѕ РІ AILogicParameters::maxCreepsCount
 }
 
 namespace NWorld
@@ -247,7 +247,7 @@ void PFCreepSpawner::InitializeCreep( PFCommonCreep* pCreep, const Render::HDRCo
 
   
 
-  //Модели крипов реюзаются, поэтому надо сбросить цвет в дефолтный
+  //РњРѕРґРµР»Рё РєСЂРёРїРѕРІ СЂРµСЋР·Р°СЋС‚СЃСЏ, РїРѕСЌС‚РѕРјСѓ РЅР°РґРѕ СЃР±СЂРѕСЃРёС‚СЊ С†РІРµС‚ РІ РґРµС„РѕР»С‚РЅС‹Р№
 #ifndef VISUAL_CUTTED
   {
     NI_PROFILE_BLOCK( "Recolor" );

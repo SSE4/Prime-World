@@ -2,7 +2,7 @@
 
 namespace Render
 {
-	/// Тип использования элемента вершины
+	/// РўРёРї РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 	enum EVertexElementUsage
 	{
 		VERETEXELEMENTUSAGE_POSITION,

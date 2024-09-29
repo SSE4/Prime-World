@@ -4,7 +4,7 @@
 #include "PFPlayer.h"
 #include "PlayerBehaviourTracking.h"
 
-// NOTE: hardcode. полагаемся на то, что оператор настроит список жалоб правильно. см. NUM_TASK
+// NOTE: hardcode. РїРѕР»Р°РіР°РµРјСЃСЏ РЅР° С‚Рѕ, С‡С‚Рѕ РѕРїРµСЂР°С‚РѕСЂ РЅР°СЃС‚СЂРѕРёС‚ СЃРїРёСЃРѕРє Р¶Р°Р»РѕР± РїСЂР°РІРёР»СЊРЅРѕ. СЃРј. NUM_TASK
 #define BAD_BEHAVIOUR_REPORT_ITEM_ID 1
 #define INSULT_REPORT_ITEM_ID 2
 
@@ -41,7 +41,7 @@ namespace PlayerBehaviourTracking
     if (!CheckPlayer(receiver))
       return false;
 
-    // NOTE: такое не может случиться при нормальных условиях
+    // NOTE: С‚Р°РєРѕРµ РЅРµ РјРѕР¶РµС‚ СЃР»СѓС‡РёС‚СЊСЃСЏ РїСЂРё РЅРѕСЂРјР°Р»СЊРЅС‹С… СѓСЃР»РѕРІРёСЏС…
     if (sender == receiver)
     {
       ErrorTrace("CmdBadBehaviourComplaint: reported self (uid=%d)", sender->GetUserID());

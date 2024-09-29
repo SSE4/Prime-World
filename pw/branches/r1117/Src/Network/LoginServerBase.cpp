@@ -73,7 +73,7 @@ void LoginServerBase::SendReply( SLoginContext * context )
     ::CoCreateGuid( &guid );
     NStr::GUID2String( &resp.sessionId, guid );
 
-    OnNewLoginSuccess( resp ); // синхронный Login здесь может отправить свой ILoginProcessor::NewClientLoggedIn()
+    OnNewLoginSuccess( resp ); // СЃРёРЅС…СЂРѕРЅРЅС‹Р№ Login Р·РґРµСЃСЊ РјРѕР¶РµС‚ РѕС‚РїСЂР°РІРёС‚СЊ СЃРІРѕР№ ILoginProcessor::NewClientLoggedIn()
 
     AutoPerfCounterRate( "users_inc_login_succ", 1 );
 
@@ -153,7 +153,7 @@ bool LoginServerBase::ProcessPacket(Stream* stream, Network::IConnection *conn)
       }
       else
       {
-        // failed клиентам в любом случае отвечаем сразу
+        // failed РєР»РёРµРЅС‚Р°Рј РІ Р»СЋР±РѕРј СЃР»СѓС‡Р°Рµ РѕС‚РІРµС‡Р°РµРј СЃСЂР°Р·Сѓ
         SendReply( context );
       }
     }
@@ -174,7 +174,7 @@ bool LoginServerBase::ProcessPacket(Stream* stream, Network::IConnection *conn)
 
 void LoginServerBase::StepLogin()
 {
-  handler.Step( this ); // получили новые connections, дропнули старые
+  handler.Step( this ); // РїРѕР»СѓС‡РёР»Рё РЅРѕРІС‹Рµ connections, РґСЂРѕРїРЅСѓР»Рё СЃС‚Р°СЂС‹Рµ
 }
 
 } // namespace Login

@@ -9,7 +9,7 @@
 #include "ChatController.h"
 #include "DBStats.h"
 
-// NOTE: hardcode. полагаемся на то, что оператор настроит список жалоб правильно. см. NUM_TASK
+// NOTE: hardcode. РїРѕР»Р°РіР°РµРјСЃСЏ РЅР° С‚Рѕ, С‡С‚Рѕ РѕРїРµСЂР°С‚РѕСЂ РЅР°СЃС‚СЂРѕРёС‚ СЃРїРёСЃРѕРє Р¶Р°Р»РѕР± РїСЂР°РІРёР»СЊРЅРѕ. СЃРј. NUM_TASK
 #define BAD_BEHAVIOUR_REPORT_ITEM_ID 1
 #define INSULT_REPORT_ITEM_ID 2
 
@@ -99,7 +99,7 @@ namespace NGameX
 
         if (AdventureScreen* const advScreen = AdventureScreen::Instance())
         {
-          // NOTE: const_cast обусловлен стремлением к чистому интерфейсу этой обертки
+          // NOTE: const_cast РѕР±СѓСЃР»РѕРІР»РµРЅ СЃС‚СЂРµРјР»РµРЅРёРµРј Рє С‡РёСЃС‚РѕРјСѓ РёРЅС‚РµСЂС„РµР№СЃСѓ СЌС‚РѕР№ РѕР±РµСЂС‚РєРё
           const CPtr<NWorld::PFPlayer> player_ptr(const_cast<NWorld::PFPlayer*>(player));
 
           advScreen->AddToComplList(player_ptr);

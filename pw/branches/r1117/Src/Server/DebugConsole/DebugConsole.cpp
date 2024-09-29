@@ -27,7 +27,7 @@ namespace DebugConsole
     pingInterval_ = 10*60000;
   }
 
-  // для нового транспорта (серверного, через CoordinatorClient)
+  // РґР»СЏ РЅРѕРІРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р° (СЃРµСЂРІРµСЂРЅРѕРіРѕ, С‡РµСЂРµР· CoordinatorClient)
   Client::Client( int localId, 
       StrongMT<Transport::ITransportSystem> transport, 
       StrongMT<Coordinator::CoordinatorClient> coord,
@@ -119,8 +119,8 @@ namespace DebugConsole
     case Stage::NONE:
       {
         if( !varImmediateIP_.empty() && coordClient_ )
-        {// грязными руками добавляем в routeMap указанный внешний адрес
-          coordClient_->RemoveRoute( varService_ ); // на случай если такой сервис уже был (мало ли сколько у нас этих кластеров и статистик-серверов)
+        {// РіСЂСЏР·РЅС‹РјРё СЂСѓРєР°РјРё РґРѕР±Р°РІР»СЏРµРј РІ routeMap СѓРєР°Р·Р°РЅРЅС‹Р№ РІРЅРµС€РЅРёР№ Р°РґСЂРµСЃ
+          coordClient_->RemoveRoute( varService_ ); // РЅР° СЃР»СѓС‡Р°Р№ РµСЃР»Рё С‚Р°РєРѕР№ СЃРµСЂРІРёСЃ СѓР¶Рµ Р±С‹Р» (РјР°Р»Рѕ Р»Рё СЃРєРѕР»СЊРєРѕ Сѓ РЅР°СЃ СЌС‚РёС… РєР»Р°СЃС‚РµСЂРѕРІ Рё СЃС‚Р°С‚РёСЃС‚РёРє-СЃРµСЂРІРµСЂРѕРІ)
           coordClient_->AddRoute( varService_, varImmediateIP_ );
         }
         
@@ -151,7 +151,7 @@ namespace DebugConsole
       {
         getch(); // no echo: on any keystroke just stop & go to INPUT mode
         stage_ = Stage::INPUT; // stop looping, and wait for keypress
-        need_stage_reset_ = false; // если не будет изменений сервиса/переменных, продолжим loop со старым requester'ом
+        need_stage_reset_ = false; // РµСЃР»Рё РЅРµ Р±СѓРґРµС‚ РёР·РјРµРЅРµРЅРёР№ СЃРµСЂРІРёСЃР°/РїРµСЂРµРјРµРЅРЅС‹С…, РїСЂРѕРґРѕР»Р¶РёРј loop СЃРѕ СЃС‚Р°СЂС‹Рј requester'РѕРј
         ConsoleCmdHelp();
         PrintCompletions();
         NextInput(); 
@@ -160,7 +160,7 @@ namespace DebugConsole
 
     case Stage::INPUT: 
       {
-        char buf[2] = ""; // для сравнения с множеством допустимых символов (пунктуация и т.п.)
+        char buf[2] = ""; // РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ СЃ РјРЅРѕР¶РµСЃС‚РІРѕРј РґРѕРїСѓСЃС‚РёРјС‹С… СЃРёРјРІРѕР»РѕРІ (РїСѓРЅРєС‚СѓР°С†РёСЏ Рё С‚.Рї.)
         if( _kbhit() )
         {
           char c = getch();
@@ -169,25 +169,25 @@ namespace DebugConsole
             getch();
             break;
           }
-          else if ( c == VK_ESCAPE ) // ESC -- cancel, очистим строчку и перейдем на следующую
+          else if ( c == VK_ESCAPE ) // ESC -- cancel, РѕС‡РёСЃС‚РёРј СЃС‚СЂРѕС‡РєСѓ Рё РїРµСЂРµР№РґРµРј РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ
           {
             NextInput(); 
             break;
           }
-          else if ( c == VK_BACK ) // BACKSPACE, прибить пред.символ
+          else if ( c == VK_BACK ) // BACKSPACE, РїСЂРёР±РёС‚СЊ РїСЂРµРґ.СЃРёРјРІРѕР»
           {
             if( input_.length() )
             {
               input_.erase( input_.length()-1 );
               putch(c);
-              putch(' '); // стираем букву и на экране консоли (OMGWTF cant believe I'm writing this sh*(*$*^%$ -- in 21st century!)
+              putch(' '); // СЃС‚РёСЂР°РµРј Р±СѓРєРІСѓ Рё РЅР° СЌРєСЂР°РЅРµ РєРѕРЅСЃРѕР»Рё (OMGWTF cant believe I'm writing this sh*(*$*^%$ -- in 21st century!)
               putch(c);
               break;
             }
           }
 
           if ( c != '\r' ) 
-          {// accept & echo printable chars (latin alpha-num, and a few others (+- и т.п.)
+          {// accept & echo printable chars (latin alpha-num, and a few others (+- Рё С‚.Рї.)
             buf[0] = c;
             if (  ( c >= 'a' && c <= 'z' ) || 
                   ( c >= 'A' && c <= 'Z' ) ||
@@ -213,7 +213,7 @@ namespace DebugConsole
                 {
                   string cmd = input_.substr(1);
                   if ( cmd.length() && cmd[0] == '/' )
-                  {// если начинается с двух слэшей, запускаем исполнение сразу
+                  {// РµСЃР»Рё РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РґРІСѓС… СЃР»СЌС€РµР№, Р·Р°РїСѓСЃРєР°РµРј РёСЃРїРѕР»РЅРµРЅРёРµ СЃСЂР°Р·Сѓ
                     cmd = cmd.substr(1);
                     printf("\n//: run remote cmd (IMMEDIATE)");
                     stage_ = Stage::LOOP;
@@ -224,8 +224,8 @@ namespace DebugConsole
                   wchar_t buf[256];
                   NStr::ToWString<char const*>( cmd.c_str(), buf, 256 );
 
-                  // ну нафиг, не надо пихать одноразовые команды в "общий сценарий" varRequester_.AddScenario( buf, -1 );
-                  varRequester_.AddImmediate( 1, buf ); // Immediate не будет добавлять в общий сценарий, только в один реквестер 
+                  // РЅСѓ РЅР°С„РёРі, РЅРµ РЅР°РґРѕ РїРёС…Р°С‚СЊ РѕРґРЅРѕСЂР°Р·РѕРІС‹Рµ РєРѕРјР°РЅРґС‹ РІ "РѕР±С‰РёР№ СЃС†РµРЅР°СЂРёР№" varRequester_.AddScenario( buf, -1 );
+                  varRequester_.AddImmediate( 1, buf ); // Immediate РЅРµ Р±СѓРґРµС‚ РґРѕР±Р°РІР»СЏС‚СЊ РІ РѕР±С‰РёР№ СЃС†РµРЅР°СЂРёР№, С‚РѕР»СЊРєРѕ РІ РѕРґРёРЅ СЂРµРєРІРµСЃС‚РµСЂ 
                 }
                 break;
 
@@ -303,7 +303,7 @@ namespace DebugConsole
               NextInput(); 
             }
             else
-            {// просто ENTER: возобновляем работу цикла
+            {// РїСЂРѕСЃС‚Рѕ ENTER: РІРѕР·РѕР±РЅРѕРІР»СЏРµРј СЂР°Р±РѕС‚Сѓ С†РёРєР»Р°
               printf( "\nENTER: resume operation...\n" );
               stage_ =  need_stage_reset_ ? Stage::NONE : Stage::LOOP;
             }

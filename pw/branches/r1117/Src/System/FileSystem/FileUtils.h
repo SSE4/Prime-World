@@ -35,7 +35,7 @@ class CFileIterator : private NonCopyable
 public:
   typedef nstl::string       filename_type;
   typedef unsigned long      attrs_type;
-  // TODO: перейти к unsigned - проверить по references
+  // TODO: РїРµСЂРµР№С‚Рё Рє unsigned - РїСЂРѕРІРµСЂРёС‚СЊ РїРѕ references
   typedef int                length_type;
 
 public:
@@ -43,7 +43,7 @@ public:
   ~CFileIterator() throw() { Close(); }
 
   const CFileIterator & Next();
-  // Только постфиксный ++, т.к. у нас нет конструктора копирования
+  // РўРѕР»СЊРєРѕ РїРѕСЃС‚С„РёРєСЃРЅС‹Р№ ++, С‚.Рє. Сѓ РЅР°СЃ РЅРµС‚ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєРѕРїРёСЂРѕРІР°РЅРёСЏ
   const CFileIterator & operator++() { return Next(); }
   bool IsValid() const;
 	bool IsEnd() const { return !IsValid(); }
@@ -90,8 +90,8 @@ public:
 	}
 
   const SWin32Time GetLastWriteTime() const;
-  // Эти функции есть только в Win32
-  // Чтобы их грамотно спортировать, надо определиться с интерфейсом
+  // Р­С‚Рё С„СѓРЅРєС†РёРё РµСЃС‚СЊ С‚РѕР»СЊРєРѕ РІ Win32
+  // Р§С‚РѕР±С‹ РёС… РіСЂР°РјРѕС‚РЅРѕ СЃРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ, РЅР°РґРѕ РѕРїСЂРµРґРµР»РёС‚СЊСЃСЏ СЃ РёРЅС‚РµСЂС„РµР№СЃРѕРј
 #if defined( NV_WIN_PLATFORM )
   // file time attributes
 	FILETIME GetCreationTime() const { return findinfo_.ftCreationTime; }
@@ -124,7 +124,7 @@ private:
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // enumerate all files by mask.
-// при рекурсивной енумерации сначала входим в директорию, а потом только получаем её имя (при выходе из рекурсии)
+// РїСЂРё СЂРµРєСѓСЂСЃРёРІРЅРѕР№ РµРЅСѓРјРµСЂР°С†РёРё СЃРЅР°С‡Р°Р»Р° РІС…РѕРґРёРј РІ РґРёСЂРµРєС‚РѕСЂРёСЋ, Р° РїРѕС‚РѕРј С‚РѕР»СЊРєРѕ РїРѕР»СѓС‡Р°РµРј РµС‘ РёРјСЏ (РїСЂРё РІС‹С…РѕРґРµ РёР· СЂРµРєСѓСЂСЃРёРё)
 template <class TEnumFunc>
 void EnumerateFiles( const string &szStartDir, const char *pszMask, TEnumFunc callback, bool bRecurse )
 {

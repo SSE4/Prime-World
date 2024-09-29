@@ -11,7 +11,7 @@
 static bool gDebugDrawFonts = false;
 REGISTER_DEV_VAR( "flash_debug_fonts", gDebugDrawFonts, STORAGE_NONE );
 
-const static float FLASH_SCALE_HACK = 0.7f; //HACK: во флэше размер шрифта задается как row step, у нас - как ascent
+const static float FLASH_SCALE_HACK = 0.7f; //HACK: РІРѕ С„Р»СЌС€Рµ СЂР°Р·РјРµСЂ С€СЂРёС„С‚Р° Р·Р°РґР°РµС‚СЃСЏ РєР°Рє row step, Сѓ РЅР°СЃ - РєР°Рє ascent
 
 
 namespace UI

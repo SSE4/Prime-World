@@ -163,7 +163,7 @@ int main(int argc, const char* argv[])
         printf("Server dropped\n");
       }
 
-      // теперь побегаем немного для проверки DebugVarReporter
+      // С‚РµРїРµСЂСЊ РїРѕР±РµРіР°РµРј РЅРµРјРЅРѕРіРѕ РґР»СЏ РїСЂРѕРІРµСЂРєРё DebugVarReporter
       /*
       for( int i=0; i<60; i++ )
       {
@@ -182,30 +182,30 @@ int main(int argc, const char* argv[])
 
 static bool CommandSendClientVar( const char *cmdname, const vector<wstring> &params )
 {
-  //TODO: начать слать в статистику что-то
+  //TODO: РЅР°С‡Р°С‚СЊ СЃР»Р°С‚СЊ РІ СЃС‚Р°С‚РёСЃС‚РёРєСѓ С‡С‚Рѕ-С‚Рѕ
 
   //else
   {
-    LOG_M(0) << "usage: sendvar <var_name> <period_seconds>"; // шлите нам переменную var_name раз в столько секунд (float)
+    LOG_M(0) << "usage: sendvar <var_name> <period_seconds>"; // С€Р»РёС‚Рµ РЅР°Рј РїРµСЂРµРјРµРЅРЅСѓСЋ var_name СЂР°Р· РІ СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ (float)
   }
 	return true;
 }
 
 static bool CommandStopClientVar( const char *cmdname, const vector<wstring> &params )
 {
-  //TODO: прекратить слать в статистику что-то
+  //TODO: РїСЂРµРєСЂР°С‚РёС‚СЊ СЃР»Р°С‚СЊ РІ СЃС‚Р°С‚РёСЃС‚РёРєСѓ С‡С‚Рѕ-С‚Рѕ
 
   if ( params.size() == 1 && params[0] == L"ALL" )
   {
-    LOG_M(0) << "usage: stopvar ALL"; // лайк, совсем перестаньте спамить сервер своими переменными
+    LOG_M(0) << "usage: stopvar ALL"; // Р»Р°Р№Рє, СЃРѕРІСЃРµРј РїРµСЂРµСЃС‚Р°РЅСЊС‚Рµ СЃРїР°РјРёС‚СЊ СЃРµСЂРІРµСЂ СЃРІРѕРёРјРё РїРµСЂРµРјРµРЅРЅС‹РјРё
   }
   else
   {
-    LOG_M(0) << "usage: stopvar <var_name>"; // перестаньте спамить конкретно эту переменную
+    LOG_M(0) << "usage: stopvar <var_name>"; // РїРµСЂРµСЃС‚Р°РЅСЊС‚Рµ СЃРїР°РјРёС‚СЊ РєРѕРЅРєСЂРµС‚РЅРѕ СЌС‚Сѓ РїРµСЂРµРјРµРЅРЅСѓСЋ
   }
 	return true;
 }
 
-REGISTER_CMD( sendvar, CommandSendClientVar ); // "sendvar name period" -- начинаем слать серверу статистики соотв. переменную с соотв. периодичностью
-REGISTER_CMD( stopvar, CommandStopClientVar ); // "stopvar name", "stopvar ALL" -- прекращаем слать соотв. переменные
+REGISTER_CMD( sendvar, CommandSendClientVar ); // "sendvar name period" -- РЅР°С‡РёРЅР°РµРј СЃР»Р°С‚СЊ СЃРµСЂРІРµСЂСѓ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃРѕРѕС‚РІ. РїРµСЂРµРјРµРЅРЅСѓСЋ СЃ СЃРѕРѕС‚РІ. РїРµСЂРёРѕРґРёС‡РЅРѕСЃС‚СЊСЋ
+REGISTER_CMD( stopvar, CommandStopClientVar ); // "stopvar name", "stopvar ALL" -- РїСЂРµРєСЂР°С‰Р°РµРј СЃР»Р°С‚СЊ СЃРѕРѕС‚РІ. РїРµСЂРµРјРµРЅРЅС‹Рµ
 

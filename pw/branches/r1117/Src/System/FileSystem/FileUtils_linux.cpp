@@ -27,7 +27,7 @@ CFileIterator::CFileIterator( const CFileIterator::filename_type & mask ) :
   data_.gl_pathc = 0;
   data_.gl_pathv = NULL;
   data_.gl_offs = 1;
-  // HACK: пока так, потом надо исправить на более высоком уровне
+  // HACK: РїРѕРєР° С‚Р°Рє, РїРѕС‚РѕРј РЅР°РґРѕ РёСЃРїСЂР°РІРёС‚СЊ РЅР° Р±РѕР»РµРµ РІС‹СЃРѕРєРѕРј СѓСЂРѕРІРЅРµ
   CFileIterator::filename_type msk( mask );
   std::replace( msk.begin(), msk.end(), '\\', '/' );
   const int globRes = ::glob( msk.c_str(), 0, NULL, &data_ );
@@ -40,7 +40,7 @@ CFileIterator::CFileIterator( const CFileIterator::filename_type & mask ) :
   }
   else
   {
-    // На всякий случай - убедиться, что IsValid() вернет false
+    // РќР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№ - СѓР±РµРґРёС‚СЊСЃСЏ, С‡С‚Рѕ IsValid() РІРµСЂРЅРµС‚ false
     data_.gl_pathc = 0;
   }
 }
@@ -67,7 +67,7 @@ void CFileIterator::Close()
 
 const CFileIterator & CFileIterator::Next()
 {
-  // Если это итератор на end - просто ничего не делать
+  // Р•СЃР»Рё СЌС‚Рѕ РёС‚РµСЂР°С‚РѕСЂ РЅР° end - РїСЂРѕСЃС‚Рѕ РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°С‚СЊ
   if ( IsValid() )
   {
     ++ind_;

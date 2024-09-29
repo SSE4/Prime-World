@@ -53,21 +53,21 @@ md_clone(PyObject *self, PyObject *args)
 			
 			if( clone_count > 0 )
 			{
-				PyObject* list = PyList_New( clone_count ); // сейчас все элементы == NULL
+				PyObject* list = PyList_New( clone_count ); // СЃРµР№С‡Р°СЃ РІСЃРµ СЌР»РµРјРµРЅС‚С‹ == NULL
 				PyObject* __dict__ = NULL;
 				
 				for( i=0; i<clone_count; i++)
 				{
 					new_obj = PyObject_CallObject((PyObject*)type_object, NULL);
 					
-					// увы, _PyObject_New создает только шкурку от объекта, GC и Heap с этим объектом дружить не будут; придется делать call, как в питоне: x = Class()
+					// СѓРІС‹, _PyObject_New СЃРѕР·РґР°РµС‚ С‚РѕР»СЊРєРѕ С€РєСѓСЂРєСѓ РѕС‚ РѕР±СЉРµРєС‚Р°, GC Рё Heap СЃ СЌС‚РёРј РѕР±СЉРµРєС‚РѕРј РґСЂСѓР¶РёС‚СЊ РЅРµ Р±СѓРґСѓС‚; РїСЂРёРґРµС‚СЃСЏ РґРµР»Р°С‚СЊ call, РєР°Рє РІ РїРёС‚РѕРЅРµ: x = Class()
 					//~ if(i)
 					//~ {
 						//~ new_obj = PyObject_CallObject((PyObject*)type_object, NULL);
 					//~ }
 					//~ else
 					//~ {
-						//~ new_obj = _PyObject_New(type_object); //PyObject_New(PyObject, ); // первый объект создадим "плохой" :)
+						//~ new_obj = _PyObject_New(type_object); //PyObject_New(PyObject, ); // РїРµСЂРІС‹Р№ РѕР±СЉРµРєС‚ СЃРѕР·РґР°РґРёРј "РїР»РѕС…РѕР№" :)
 						//~ PyObject_Init(new_obj, type_object);
 						//~ //new_obj = PyObject_CallObject((PyObject*)type_object, NULL);
 					//~ }
@@ -85,7 +85,7 @@ md_clone(PyObject *self, PyObject *args)
 						//PyObject_GenericSetAttr(new_obj, attr3_name, attr3_value);
 						//PyObject_GenericSetAttr(new_obj, attr4_name, attr4_value);
 					
-						Py_DECREF(attr1_value); // а вот эти рефы "на константы", увы, никто кроме нас декрементить не будет
+						Py_DECREF(attr1_value); // Р° РІРѕС‚ СЌС‚Рё СЂРµС„С‹ "РЅР° РєРѕРЅСЃС‚Р°РЅС‚С‹", СѓРІС‹, РЅРёРєС‚Рѕ РєСЂРѕРјРµ РЅР°СЃ РґРµРєСЂРµРјРµРЅС‚РёС‚СЊ РЅРµ Р±СѓРґРµС‚
 						Py_DECREF(attr2_value);
 						Py_DECREF(attr3_value);
 						Py_DECREF(attr4_value);
@@ -94,7 +94,7 @@ md_clone(PyObject *self, PyObject *args)
 						printf("bad __dict__ for object [%d]\n", i);
 					
 					PyList_SetItem( list, i, new_obj );
-					//Py_DECREF(new_obj); -- PyList_SetItem “steals” a reference to item and discards a reference to an item already in the list at the affected position.
+					//Py_DECREF(new_obj); -- PyList_SetItem вЂњstealsвЂќ a reference to item and discards a reference to an item already in the list at the affected position.
 				}
 				
 				//if( __dict__ )
@@ -148,7 +148,7 @@ md_convert_int_keys(PyObject *self, PyObject *args)
 	{
 		if ( PyDict_Check(dict) )
 		{
-			// тупой вариант: создаем новый пустой словарь, вставляем туда все отконвертированные пары
+			// С‚СѓРїРѕР№ РІР°СЂРёР°РЅС‚: СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РїСѓСЃС‚РѕР№ СЃР»РѕРІР°СЂСЊ, РІСЃС‚Р°РІР»СЏРµРј С‚СѓРґР° РІСЃРµ РѕС‚РєРѕРЅРІРµСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ РїР°СЂС‹
 			PyObject* new_dict = PyDict_New(); 
 			
 			PyObject* key;
@@ -170,7 +170,7 @@ md_convert_int_keys(PyObject *self, PyObject *args)
 							Py_DECREF(new_key);
 						}
 						else
-						{// ключ не приводится к числу: ок, сразу нафиг (и возвращаем исходный словарь)
+						{// РєР»СЋС‡ РЅРµ РїСЂРёРІРѕРґРёС‚СЃСЏ Рє С‡РёСЃР»Сѓ: РѕРє, СЃСЂР°Р·Сѓ РЅР°С„РёРі (Рё РІРѕР·РІСЂР°С‰Р°РµРј РёСЃС…РѕРґРЅС‹Р№ СЃР»РѕРІР°СЂСЊ)
 							int long_key = atol(str_key);
 							if( long_key )
 							{
@@ -187,14 +187,14 @@ md_convert_int_keys(PyObject *self, PyObject *args)
 						}
 					}
 					else
-					{// плохая строка-ключ: ну нафиг (и возвращаем исходный словарь)
+					{// РїР»РѕС…Р°СЏ СЃС‚СЂРѕРєР°-РєР»СЋС‡: РЅСѓ РЅР°С„РёРі (Рё РІРѕР·РІСЂР°С‰Р°РµРј РёСЃС…РѕРґРЅС‹Р№ СЃР»РѕРІР°СЂСЊ)
 						printf( "mdutils.md_convert_int_keys ERROR: bad string from key (type %s)\n", key->ob_type->tp_name );
 						Py_DECREF(new_dict);
 						return dict;
 					}
 				}
 				else
-				{// ключ не является строкой: ок, сразу нафиг (и возвращаем исходный словарь)
+				{// РєР»СЋС‡ РЅРµ СЏРІР»СЏРµС‚СЃСЏ СЃС‚СЂРѕРєРѕР№: РѕРє, СЃСЂР°Р·Сѓ РЅР°С„РёРі (Рё РІРѕР·РІСЂР°С‰Р°РµРј РёСЃС…РѕРґРЅС‹Р№ СЃР»РѕРІР°СЂСЊ)
 					printf( "mdutils.md_convert_int_keys ERROR: key is not a string (type %s)\n", key->ob_type->tp_name );
 					Py_DECREF(new_dict);
 					return dict;

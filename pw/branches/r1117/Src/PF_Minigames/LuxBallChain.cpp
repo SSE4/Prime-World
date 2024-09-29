@@ -572,7 +572,7 @@ LuxBallChain* LuxBallChain::ExplodePaintBlastWave(const SVector &_refBlastPos,in
     {
       if ( fGotExplosion  ) 
       {
-        // у нас определилася область взрыва, рвем все
+        // Сѓ РЅР°СЃ РѕРїСЂРµРґРµР»РёР»Р°СЃСЏ РѕР±Р»Р°СЃС‚СЊ РІР·СЂС‹РІР°, СЂРІРµРј РІСЃРµ
         return PaintBlastExplodeBalls(explosionStart,currentBall);
       }
     }

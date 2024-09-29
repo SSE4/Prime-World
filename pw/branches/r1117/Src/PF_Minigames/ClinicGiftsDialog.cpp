@@ -62,7 +62,7 @@ void ClinicGiftsDialog::SetupMessageWindow(UI::Window * pScreenBaseWindow)
       NI_DATA_VERIFY(pImage, NStr::StrFmt("Could not find element '%s!'", FIELD_ITEM_IMAGE), return);
       pImage->SetBackgroundMaterial( place->GetIconMaterial() );
 
-      if(counter > 0) //ïåðâûé íå ñ÷èòàåì
+      if(counter > 0) //Ð¿ÐµÑ€Ð²Ñ‹Ð¹ Ð½Ðµ ÑÑ‡Ð¸Ñ‚Ð°ÐµÐ¼
         sizeAdd += pDbLayout->size.y;
       pos.y += pDbLayout->size.y;
     }

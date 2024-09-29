@@ -18,25 +18,25 @@ namespace rpc
 {
   class TransportPipe;
 
-  /// Предоставляет вызовы по внутренним событиям GateKeeper
+  /// РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РІС‹Р·РѕРІС‹ РїРѕ РІРЅСѓС‚СЂРµРЅРЅРёРј СЃРѕР±С‹С‚РёСЏРј GateKeeper
   _interface IGateKeeperCallback : public IBaseInterfaceMT
   {
     NI_DECLARE_CLASS_1( IGateKeeperCallback, IBaseInterfaceMT );
 
-    /// Вызывается из Poll() при появлении нового канала. Передаёт в параметрах канал и ноду
+    /// Р’С‹Р·С‹РІР°РµС‚СЃСЏ РёР· Poll() РїСЂРё РїРѕСЏРІР»РµРЅРёРё РЅРѕРІРѕРіРѕ РєР°РЅР°Р»Р°. РџРµСЂРµРґР°С‘С‚ РІ РїР°СЂР°РјРµС‚СЂР°С… РєР°РЅР°Р» Рё РЅРѕРґСѓ
     virtual void OnNewNode( Transport::IChannel * channel,  rpc::Node * node ) = 0;
 
-    /// Вызывается из Poll() при закрытии канала. Передаёт в параметрах канал и ноду
+    /// Р’С‹Р·С‹РІР°РµС‚СЃСЏ РёР· Poll() РїСЂРё Р·Р°РєСЂС‹С‚РёРё РєР°РЅР°Р»Р°. РџРµСЂРµРґР°С‘С‚ РІ РїР°СЂР°РјРµС‚СЂР°С… РєР°РЅР°Р» Рё РЅРѕРґСѓ
     virtual void OnChannelClosed( Transport::IChannel * channel, rpc::Node * node ) = 0;
 
-    /// Вызывается при наступлении одноимённого события в канале
+    /// Р’С‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РЅР°СЃС‚СѓРїР»РµРЅРёРё РѕРґРЅРѕРёРјС‘РЅРЅРѕРіРѕ СЃРѕР±С‹С‚РёСЏ РІ РєР°РЅР°Р»Рµ
     virtual void OnCorruptData( Transport::IChannel * channel, rpc::Node * node ) = 0;
   };
 
 
 
 
-  /// Базовый класс для GateKeeper и GateKeeperClient
+  /// Р‘Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ РґР»СЏ GateKeeper Рё GateKeeperClient
   class GateKeeperBase : public BaseObjectMT, public rpc::IPipeProcessor
   {
     NI_DECLARE_REFCOUNT_CLASS_2( GateKeeperBase, BaseObjectMT, rpc::IPipeProcessor )
@@ -47,10 +47,10 @@ namespace rpc
 
     ~GateKeeperBase(){}
 
-    /// Прокачивает поступившие вызовы у всех нод
+    /// РџСЂРѕРєР°С‡РёРІР°РµС‚ РїРѕСЃС‚СѓРїРёРІС€РёРµ РІС‹Р·РѕРІС‹ Сѓ РІСЃРµС… РЅРѕРґ
     void Poll();
 
-    /// Возвращает гейт 
+    /// Р’РѕР·РІСЂР°С‰Р°РµС‚ РіРµР№С‚ 
     //TODO: return pointer, NOT ref
     rpc::Gate * GetGate() const
     { 
@@ -61,15 +61,15 @@ namespace rpc
     void attachNotificationCallback( IGateKeeperCallback * _callback );
     void detachNotificationCallback( IGateKeeperCallback * _callback );
 
-    /// Возвращает ноду по serviceId. Если не находит, создаёт новую ноду.
+    /// Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРґСѓ РїРѕ serviceId. Р•СЃР»Рё РЅРµ РЅР°С…РѕРґРёС‚, СЃРѕР·РґР°С‘С‚ РЅРѕРІСѓСЋ РЅРѕРґСѓ.
     StrongMT<rpc::Node> RequestNode( const Transport::TServiceId& destination );
 
     void setTransportPipeTrackerFactory( TransportPipeTrafficTrackerFactory * tpttf );
 
-    /// Возвращает ноду по serviceId. Если не находит, возвращает 0.
+    /// Р’РѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРґСѓ РїРѕ serviceId. Р•СЃР»Рё РЅРµ РЅР°С…РѕРґРёС‚, РІРѕР·РІСЂР°С‰Р°РµС‚ 0.
     StrongMT<rpc::Node> GetNode( const Transport::TServiceId& destination ) const;
 
-    /// Удаляет ноду по serviceId
+    /// РЈРґР°Р»СЏРµС‚ РЅРѕРґСѓ РїРѕ serviceId
     void RemoveNode( const Transport::TServiceId& destination );
 
   protected:
@@ -116,26 +116,26 @@ namespace rpc
     TPipeTrackers trackers;
   };
 
- /// Доступ к гейту и нодам из прикладного уровня.
- /// Класс GateKeeper предназначен для доступа к гейту и нодам из прикладного уровня. 
- /// Он держит в себе гейт, коллекцию нод, а также ссылку на callback-объект.
+ /// Р”РѕСЃС‚СѓРї Рє РіРµР№С‚Сѓ Рё РЅРѕРґР°Рј РёР· РїСЂРёРєР»Р°РґРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ.
+ /// РљР»Р°СЃСЃ GateKeeper РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РґРѕСЃС‚СѓРїР° Рє РіРµР№С‚Сѓ Рё РЅРѕРґР°Рј РёР· РїСЂРёРєР»Р°РґРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ. 
+ /// РћРЅ РґРµСЂР¶РёС‚ РІ СЃРµР±Рµ РіРµР№С‚, РєРѕР»Р»РµРєС†РёСЋ РЅРѕРґ, Р° С‚Р°РєР¶Рµ СЃСЃС‹Р»РєСѓ РЅР° callback-РѕР±СЉРµРєС‚.
  /// 
- /// См. также классы Gate и Node
+ /// РЎРј. С‚Р°РєР¶Рµ РєР»Р°СЃСЃС‹ Gate Рё Node
  class GateKeeper : public GateKeeperBase 
  {
    NI_DECLARE_REFCOUNT_CLASS_1( GateKeeper, GateKeeperBase )
 
  public:
-   /// Конструктор
-   /// <param name="_transport">передаваемая ссылка на объект сетевого транспорта</param>
-   /// <param name="_serviceId">код сервиса прикладного уровня</param>
-   /// <param name="_clientId">дополнительный код (используется при создании канала), по умолчанию Transport::autoAssignClientId</param>
-   /// <param name="callback">ссылка на callback-объект, по умолчанию 0</param>
+   /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+   /// <param name="_transport">РїРµСЂРµРґР°РІР°РµРјР°СЏ СЃСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚ СЃРµС‚РµРІРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р°</param>
+   /// <param name="_serviceId">РєРѕРґ СЃРµСЂРІРёСЃР° РїСЂРёРєР»Р°РґРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ</param>
+   /// <param name="_clientId">РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РєРѕРґ (РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё РєР°РЅР°Р»Р°), РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ Transport::autoAssignClientId</param>
+   /// <param name="callback">СЃСЃС‹Р»РєР° РЅР° callback-РѕР±СЉРµРєС‚, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 0</param>
    GateKeeper( Transport::ITransportSystem* _transport, const Transport::TServiceId& _serviceId, 
      Transport::TClientId _clientId = Transport::autoAssignClientId, IGateKeeperCallback* callback = 0,
      Network::NetAddress const & listenAddress = nstl::string());
 
-   /// Деструктор
+   /// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
    ~GateKeeper()
    {
      Destroy();
@@ -150,22 +150,22 @@ namespace rpc
 
  };
 
- /// Доступ к гейту и нодам из прикладного уровня клиента.
- /// Класс GateKeeperClient аналогичен классу GateKeeper, 
- /// но использует при создании сетевой транспорт Transport::IClientTransportSystem, 
- /// и не содержит в конструкторе параметра _clientId.
+ /// Р”РѕСЃС‚СѓРї Рє РіРµР№С‚Сѓ Рё РЅРѕРґР°Рј РёР· РїСЂРёРєР»Р°РґРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ РєР»РёРµРЅС‚Р°.
+ /// РљР»Р°СЃСЃ GateKeeperClient Р°РЅР°Р»РѕРіРёС‡РµРЅ РєР»Р°СЃСЃСѓ GateKeeper, 
+ /// РЅРѕ РёСЃРїРѕР»СЊР·СѓРµС‚ РїСЂРё СЃРѕР·РґР°РЅРёРё СЃРµС‚РµРІРѕР№ С‚СЂР°РЅСЃРїРѕСЂС‚ Transport::IClientTransportSystem, 
+ /// Рё РЅРµ СЃРѕРґРµСЂР¶РёС‚ РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРµ РїР°СЂР°РјРµС‚СЂР° _clientId.
  class GateKeeperClient : public GateKeeperBase 
  {
    NI_DECLARE_REFCOUNT_CLASS_1( GateKeeperClient, GateKeeperBase )
 
  public:
-   /// Конструктор
-   /// <param name="_transport">передаваемая ссылка на объект сетевого транспорта</param>
-   /// <param name="_serviceId">код сервиса прикладного уровня</param>
-   /// <param name="callback">ссылка на callback-объект, по умолчанию 0</param>
+   /// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+   /// <param name="_transport">РїРµСЂРµРґР°РІР°РµРјР°СЏ СЃСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚ СЃРµС‚РµРІРѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Р°</param>
+   /// <param name="_serviceId">РєРѕРґ СЃРµСЂРІРёСЃР° РїСЂРёРєР»Р°РґРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ</param>
+   /// <param name="callback">СЃСЃС‹Р»РєР° РЅР° callback-РѕР±СЉРµРєС‚, РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 0</param>
    GateKeeperClient( Transport::IClientTransportSystem* _transport, const Transport::TServiceId& _serviceId, IGateKeeperCallback* callback = 0 );
 
-   /// Деструктор
+   /// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
    ~GateKeeperClient()
    {
      Destroy();

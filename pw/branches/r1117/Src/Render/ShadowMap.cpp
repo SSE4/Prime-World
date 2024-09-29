@@ -214,7 +214,7 @@ bool ShadowMapPCF_DS::Init(unsigned int _width, unsigned int _height, float _dep
   //set special texture matrix for shadow mapping
   const float fOffsetX = 0.5f + (0.5f / (float)_width);
   const float fOffsetY = 0.5f + (0.5f / (float)_height);
-  const float range = 1; // Наследие прошлых времён. В DX8 надо было ставить 2^(bit depth)
+  const float range = 1; // РќР°СЃР»РµРґРёРµ РїСЂРѕС€Р»С‹С… РІСЂРµРјС‘РЅ. Р’ DX8 РЅР°РґРѕ Р±С‹Р»Рѕ СЃС‚Р°РІРёС‚СЊ 2^(bit depth)
   const float fBias    = 0.0f;
   //float fBias    = -0.001f * range;
   texScaleBiasMatrix.Set( 0.5f,  0.0f,  0.0f, fOffsetX,
@@ -338,7 +338,7 @@ bool ShadowMapPCF_DF::Init(unsigned int _width, unsigned int _height, float _dep
   //set special texture matrix for shadow mapping
   const float fOffsetX = 0.5f + (0.5f / (float)_width);
   const float fOffsetY = 0.5f + (0.5f / (float)_height);
-  const float range = 1; // Наследие прошлых времён. В DX8 надо было ставить 2^(bit depth)
+  const float range = 1; // РќР°СЃР»РµРґРёРµ РїСЂРѕС€Р»С‹С… РІСЂРµРјС‘РЅ. Р’ DX8 РЅР°РґРѕ Р±С‹Р»Рѕ СЃС‚Р°РІРёС‚СЊ 2^(bit depth)
   const float fBias    = 0.0f;
   //float fBias    = -0.001f * range;
   texScaleBiasMatrix.Set( 0.5f,  0.0f,  0.0f, fOffsetX,

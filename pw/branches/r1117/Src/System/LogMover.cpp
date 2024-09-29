@@ -16,7 +16,7 @@ namespace NLogg
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool LogMover::Init(int argc, char* argv[])
 {
-  // посмотрим, нет ли в ком.строке наших ключиков на "перенос старых логов"
+  // РїРѕСЃРјРѕС‚СЂРёРј, РЅРµС‚ Р»Рё РІ РєРѕРј.СЃС‚СЂРѕРєРµ РЅР°С€РёС… РєР»СЋС‡РёРєРѕРІ РЅР° "РїРµСЂРµРЅРѕСЃ СЃС‚Р°СЂС‹С… Р»РѕРіРѕРІ"
   moveLogsTo = "";
 	oldLogDaysLimit = 0;
 
@@ -27,11 +27,11 @@ bool LogMover::Init(int argc, char* argv[])
 	if ( cl.Process( argc, argv ) != NCmdLine::CCmdLine::PROC_RESULT_OK )
 		cl.PrintUsage( "Log Options Usage: --movelogs <to_subdir_name> --movelogdays <old_logs_storage_limit_days>" );
 
-  // пока соберем все подходящие по расширению и времени имена файлов; потом, после того как определимся с именем кластера и т.п., отфильтруем нужные нам имена
+  // РїРѕРєР° СЃРѕР±РµСЂРµРј РІСЃРµ РїРѕРґС…РѕРґСЏС‰РёРµ РїРѕ СЂР°СЃС€РёСЂРµРЅРёСЋ Рё РІСЂРµРјРµРЅРё РёРјРµРЅР° С„Р°Р№Р»РѕРІ; РїРѕС‚РѕРј, РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РѕРїСЂРµРґРµР»РёРјСЃСЏ СЃ РёРјРµРЅРµРј РєР»Р°СЃС‚РµСЂР° Рё С‚.Рї., РѕС‚С„РёР»СЊС‚СЂСѓРµРј РЅСѓР¶РЅС‹Рµ РЅР°Рј РёРјРµРЅР°
   oldLogFileNames.clear();
   time_t osTime;  
   time(&osTime);
-  time_t limitTime = osTime - (oldLogDaysLimit * 24*60*60); // time_t в секундах, опция задает время в сутках
+  time_t limitTime = osTime - (oldLogDaysLimit * 24*60*60); // time_t РІ СЃРµРєСѓРЅРґР°С…, РѕРїС†РёСЏ Р·Р°РґР°РµС‚ РІСЂРµРјСЏ РІ СЃСѓС‚РєР°С…
   for ( NFile::CFileIterator it( (string(NDebug::GetDebugLogDir()) + "/*.txt").c_str() ); !it.IsEnd(); ++it )
 	{
 		if ( !it.IsDirectory() )
@@ -39,7 +39,7 @@ bool LogMover::Init(int argc, char* argv[])
       SWin32Time win32time = it.GetLastWriteTime();
       time_t fileTime = Win32ToDOSDateTime( win32time.GetFullTime() );
 
-      if( fileTime < limitTime ) // файл достаточно старый?
+      if( fileTime < limitTime ) // С„Р°Р№Р» РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃС‚Р°СЂС‹Р№?
   			oldLogFileNames.push_back( it.GetFileName() );
     }
 	}

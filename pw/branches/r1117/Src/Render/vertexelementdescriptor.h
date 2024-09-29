@@ -5,12 +5,12 @@
 
 namespace Render
 {
-	/// Описания формата элемента вершины
+	/// РћРїРёСЃР°РЅРёСЏ С„РѕСЂРјР°С‚Р° СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 	struct VertexElementDescriptor
 	{
-		/// Конструктор 
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
 		VertexElementDescriptor(): stream(0), offset(0), type(VERTEXELEMENTTYPE_FLOAT3), usage(VERETEXELEMENTUSAGE_POSITION), usageIndex(0) {}
-		/// Конструктор 
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
 		VertexElementDescriptor( unsigned int _stream, unsigned int _offset, EVertexElementType _type, EVertexElementUsage _usage, unsigned int _usageindex ): 
 			stream(_stream), offset(_offset), type(_type), usage(_usage), usageIndex(_usageindex) {}
 
@@ -22,15 +22,15 @@ namespace Render
 		bool operator != (const VertexElementDescriptor& other) const { return !operator == (other); }
 
 
-		/// Номер потока
+		/// РќРѕРјРµСЂ РїРѕС‚РѕРєР°
 		unsigned int stream;
-		/// Смещение
+		/// РЎРјРµС‰РµРЅРёРµ
 		unsigned int offset;
-		/// Тип 
+		/// РўРёРї 
 		EVertexElementType type;
-		/// Тип использования
+		/// РўРёРї РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
 		EVertexElementUsage usage;
-		/// Индекс использования
+		/// РРЅРґРµРєСЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
 		unsigned int usageIndex;
 	};
 }; // namespace Render

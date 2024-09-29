@@ -95,7 +95,7 @@ bool MapLoadingJob::DoTheJob()
 
   MAP_LOADING_SCOPE(world->GetMapLoadingController());
 
-  // сильная ссылка не даст уничтожить ресурсы, пока карта грузится
+  // СЃРёР»СЊРЅР°СЏ СЃСЃС‹Р»РєР° РЅРµ РґР°СЃС‚ СѓРЅРёС‡С‚РѕР¶РёС‚СЊ СЂРµСЃСѓСЂСЃС‹, РїРѕРєР° РєР°СЂС‚Р° РіСЂСѓР·РёС‚СЃСЏ
   const CObj<PFResourcesCollection> worldResourcesCollection(world->GetResourcesCollection());
 
   SetupCamera();

@@ -3,12 +3,12 @@
 
 namespace Render
 {
-/// Конструктор
+/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 VertexFormatDescriptor::VertexFormatDescriptor()
 {
 	vertexElementDescriptors.reserve(32);
 }
-/// Добавление описания элемента вершины
+/// Р”РѕР±Р°РІР»РµРЅРёРµ РѕРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 void VertexFormatDescriptor::AddVertexElement(const VertexElementDescriptor& descr)
 {
 	vertexElementDescriptors.push_back(descr);
@@ -19,13 +19,13 @@ void VertexFormatDescriptor::AssignVertexElements( const VertexElementDescriptor
 	vertexElementDescriptors.resize(count);
 	memcpy(&vertexElementDescriptors[0], &descr, sizeof(VertexElementDescriptor)*count );
 }
-/// Получение описания элемента вершины
+/// РџРѕР»СѓС‡РµРЅРёРµ РѕРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 const VertexElementDescriptor& VertexFormatDescriptor::GetVertexElement(unsigned int index) const
 {
 	NI_ASSERT(index < GetVertexElementsCount(), "Invalid vertex element index!");
 	return vertexElementDescriptors[index];
 }
-/// Получение количества элементов вершины
+/// РџРѕР»СѓС‡РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° СЌР»РµРјРµРЅС‚РѕРІ РІРµСЂС€РёРЅС‹
 unsigned int VertexFormatDescriptor::GetVertexElementsCount() const
 {
 	return vertexElementDescriptors.size();

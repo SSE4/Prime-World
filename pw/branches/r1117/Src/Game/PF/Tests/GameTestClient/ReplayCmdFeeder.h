@@ -3,14 +3,14 @@
 #include "Core/CommandSerializer.h"
 #include "Core/Replay.h"
 
-// HELPER-класс на коленке, для вытаскивания команд конкретного клиента по одной 
-// (ага, избавьте нас от мучительной итерации по чанкам, сегментам, векторам команд и прочим ужосам Replay.cpp)
+// HELPER-РєР»Р°СЃСЃ РЅР° РєРѕР»РµРЅРєРµ, РґР»СЏ РІС‹С‚Р°СЃРєРёРІР°РЅРёСЏ РєРѕРјР°РЅРґ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РєР»РёРµРЅС‚Р° РїРѕ РѕРґРЅРѕР№ 
+// (Р°РіР°, РёР·Р±Р°РІСЊС‚Рµ РЅР°СЃ РѕС‚ РјСѓС‡РёС‚РµР»СЊРЅРѕР№ РёС‚РµСЂР°С†РёРё РїРѕ С‡Р°РЅРєР°Рј, СЃРµРіРјРµРЅС‚Р°Рј, РІРµРєС‚РѕСЂР°Рј РєРѕРјР°РЅРґ Рё РїСЂРѕС‡РёРј СѓР¶РѕСЃР°Рј Replay.cpp)
 //
-// тут весь механизм использования следующий:
+// С‚СѓС‚ РІРµСЃСЊ РјРµС…Р°РЅРёР·Рј РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃР»РµРґСѓСЋС‰РёР№:
 // if( LoadReplay( filename, clientId )
 // {
-//   GetCurrentCommand // получаем текущую команду
-//   do { ...smth... } while ( GetNextCommand ); // перебираем (по одной) следующие команды
+//   GetCurrentCommand // РїРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰СѓСЋ РєРѕРјР°РЅРґСѓ
+//   do { ...smth... } while ( GetNextCommand ); // РїРµСЂРµР±РёСЂР°РµРј (РїРѕ РѕРґРЅРѕР№) СЃР»РµРґСѓСЋС‰РёРµ РєРѕРјР°РЅРґС‹
 // }
 class ReplayCommandFeeder: public NonCopyable
 {
@@ -26,8 +26,8 @@ public:
 
   DWORD GetStartTime() { return startTime; }
 
-  // относительное время ("от старта игровой сессии"), когда команда cmd должна быть исполнена
-  DWORD GetCommandTimestamp( const NCore::ReplaySegment::Commands::iterator & cmd ) { return ((*cmd)->TimeSent() - startTime) / 1000.0; } // timeSent у нас в мсек
+  // РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕРµ РІСЂРµРјСЏ ("РѕС‚ СЃС‚Р°СЂС‚Р° РёРіСЂРѕРІРѕР№ СЃРµСЃСЃРёРё"), РєРѕРіРґР° РєРѕРјР°РЅРґР° cmd РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РёСЃРїРѕР»РЅРµРЅР°
+  DWORD GetCommandTimestamp( const NCore::ReplaySegment::Commands::iterator & cmd ) { return ((*cmd)->TimeSent() - startTime) / 1000.0; } // timeSent Сѓ РЅР°СЃ РІ РјСЃРµРє
 
 private:
   bool GetReplayStartTime();

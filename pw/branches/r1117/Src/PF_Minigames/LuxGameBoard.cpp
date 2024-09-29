@@ -78,7 +78,7 @@ struct CollideBalls
   CPtr<LuxGameBoardChain> currentPath;
   CPtr<LuxGameBoardChain> bestPath;
 
-  // $TODO [AZ] Надо всё это в онднородную массу превратить
+  // $TODO [AZ] РќР°РґРѕ РІСЃС‘ СЌС‚Рѕ РІ РѕРЅРґРЅРѕСЂРѕРґРЅСѓСЋ РјР°СЃСЃСѓ РїСЂРµРІСЂР°С‚РёС‚СЊ
   CPtr<ICollidable> bestCollider;
 
   void operator ()( LuxBall* ball )
@@ -273,7 +273,7 @@ bool LuxGameBoard::SkipMovie()
       }
 
     case BOARDSTATE_LEVEL_FAIL:
-      //Прикинемся, будто мы обработали запрос. Этим мы запретим появление Escape-меню во время анимации провала уровня
+      //РџСЂРёРєРёРЅРµРјСЃСЏ, Р±СѓРґС‚Рѕ РјС‹ РѕР±СЂР°Р±РѕС‚Р°Р»Рё Р·Р°РїСЂРѕСЃ. Р­С‚РёРј РјС‹ Р·Р°РїСЂРµС‚РёРј РїРѕСЏРІР»РµРЅРёРµ Escape-РјРµРЅСЋ РІРѕ РІСЂРµРјСЏ Р°РЅРёРјР°С†РёРё РїСЂРѕРІР°Р»Р° СѓСЂРѕРІРЅСЏ
       return true;
   }
 

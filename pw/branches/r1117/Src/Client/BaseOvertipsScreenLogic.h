@@ -47,8 +47,8 @@ private:
     bool                          itHadTarget;
     bool                          visibility;
     TLayouts                      layouts;
-    SHMatrix                      worldMatrix; //Используется только если target == NULL
-    CVec3                         aabbCenter, aabbHalfsize; //Используется только если target == NULL
+    SHMatrix                      worldMatrix; //РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РµСЃР»Рё target == NULL
+    CVec3                         aabbCenter, aabbHalfsize; //РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РµСЃР»Рё target == NULL
   };
 
   typedef map<int, SOvertipData>  TOvertipsData;

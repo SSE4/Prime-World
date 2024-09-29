@@ -166,7 +166,7 @@ struct SClientStatistics : public rpc::Data
 
   ZDATA
   ZNOPARENT( rpc::Data )
-  Transport::TClientId      clientId; //FIXME: в принципе, это поле здесь не нужно; Надо бы попробовать избавится от него
+  Transport::TClientId      clientId; //FIXME: РІ РїСЂРёРЅС†РёРїРµ, СЌС‚Рѕ РїРѕР»Рµ Р·РґРµСЃСЊ РЅРµ РЅСѓР¶РЅРѕ; РќР°РґРѕ Р±С‹ РїРѕРїСЂРѕР±РѕРІР°С‚СЊ РёР·Р±Р°РІРёС‚СЃСЏ РѕС‚ РЅРµРіРѕ
   EGameFinishClientState::Enum  clientState;
   uint                      totalAfkSeconds; 
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&clientId); f.Add(3,&clientState); f.Add(4,&totalAfkSeconds); return 0; }

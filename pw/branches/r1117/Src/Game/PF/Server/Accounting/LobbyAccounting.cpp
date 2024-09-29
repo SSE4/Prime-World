@@ -5,7 +5,7 @@
 namespace Lobby
 {
 
-int LobbyAccounting::BlockMoney( int userId, int serviceId )  // пытается заблокировать количество денег необходимое для покупки указанного сервиса, возвращает идентификатор блокировки
+int LobbyAccounting::BlockMoney( int userId, int serviceId )  // РїС‹С‚Р°РµС‚СЃСЏ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРµРЅРµРі РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ РїРѕРєСѓРїРєРё СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЃРµСЂРІРёСЃР°, РІРѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р±Р»РѕРєРёСЂРѕРІРєРё
 {
   if ( !IsValid( processor ) )
     return -1;
@@ -27,7 +27,7 @@ int LobbyAccounting::BlockMoney( int userId, int serviceId )  // пытается заблок
 
 
 
-void LobbyAccounting::UnblockMoney( int userId, int blockId ) // разблокирует указанную блокировку
+void LobbyAccounting::UnblockMoney( int userId, int blockId ) // СЂР°Р·Р±Р»РѕРєРёСЂСѓРµС‚ СѓРєР°Р·Р°РЅРЅСѓСЋ Р±Р»РѕРєРёСЂРѕРІРєСѓ
 {
   if ( !IsValid( processor ) )
     return;
@@ -46,7 +46,7 @@ void LobbyAccounting::UnblockMoney( int userId, int blockId ) // разблокирует ук
 
 
 
-int LobbyAccounting::GetServicePrice( int serviceId ) // возвращает цену указанного сервиса
+int LobbyAccounting::GetServicePrice( int serviceId ) // РІРѕР·РІСЂР°С‰Р°РµС‚ С†РµРЅСѓ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЃРµСЂРІРёСЃР°
 {
   ServiceMap::iterator it = servicePrices.find(serviceId);
   if (it != servicePrices.end())
@@ -58,7 +58,7 @@ int LobbyAccounting::GetServicePrice( int serviceId ) // возвращает цену указанн
 
 
 
-bool LobbyAccounting::BuyBlockedService( int userId, int blockId, int serviceId )  // пытается приобрести указанный сервис из заблокированной суммы, возвращает true/false в случае успеха/неуспеха операции
+bool LobbyAccounting::BuyBlockedService( int userId, int blockId, int serviceId )  // РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРѕР±СЂРµСЃС‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ СЃРµСЂРІРёСЃ РёР· Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРЅРѕР№ СЃСѓРјРјС‹, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
 {
   if ( !IsValid( processor ) )
     return false;
@@ -95,7 +95,7 @@ bool LobbyAccounting::BuyBlockedService( int userId, int blockId, int serviceId 
 
 
 
-BuyResult LobbyAccounting::BuyService( int userId, int serviceId )  // пытается приобрести указанный сервис, возвращает true/false в случае успеха/неуспеха операции
+BuyResult LobbyAccounting::BuyService( int userId, int serviceId )  // РїС‹С‚Р°РµС‚СЃСЏ РїСЂРёРѕР±СЂРµСЃС‚Рё СѓРєР°Р·Р°РЅРЅС‹Р№ СЃРµСЂРІРёСЃ, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
 {
   BuyResult result;
   result.isSuccessful = false;
@@ -118,7 +118,7 @@ BuyResult LobbyAccounting::BuyService( int userId, int serviceId )  // пытается 
 
 
 
-bool LobbyAccounting::RewardUser( int userId, int rewardId )  // пытается наградить юзера наградой serviceId, возвращает true/false в случае успеха/неуспеха операции
+bool LobbyAccounting::RewardUser( int userId, int rewardId )  // РїС‹С‚Р°РµС‚СЃСЏ РЅР°РіСЂР°РґРёС‚СЊ СЋР·РµСЂР° РЅР°РіСЂР°РґРѕР№ serviceId, РІРѕР·РІСЂР°С‰Р°РµС‚ true/false РІ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р°/РЅРµСѓСЃРїРµС…Р° РѕРїРµСЂР°С†РёРё
 {
   if ( !IsValid( processor ) )
     return false;
@@ -155,7 +155,7 @@ bool LobbyAccounting::GiveMoneyToUser( int userId, int userDstId, int serviceId 
 
 
 
-int LobbyAccounting::GetMoney( int userId ) // возвращает текущее состояние счета
+int LobbyAccounting::GetMoney( int userId ) // РІРѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‡РµС‚Р°
 {
   if ( !IsValid( processor ) )
     return 0;

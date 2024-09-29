@@ -146,7 +146,7 @@ void SamplingData::UpdateThreadTimings()
     if ( !result )
       continue;
 
-    NHPTimer::FTime kernel = ( (LARGE_INTEGER &)ftKern ).QuadPart * ( 1e-9 * 100.0 ); //нановремя
+    NHPTimer::FTime kernel = ( (LARGE_INTEGER &)ftKern ).QuadPart * ( 1e-9 * 100.0 ); //РЅР°РЅРѕРІСЂРµРјСЏ
     NHPTimer::FTime user = ( (LARGE_INTEGER &)ftUser ).QuadPart * ( 1e-9 * 100.0 );
 
     NHPTimer::FTime kernelDelta = kernel - thrd.kernelTime;

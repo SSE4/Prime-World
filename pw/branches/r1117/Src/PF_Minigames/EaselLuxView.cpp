@@ -84,7 +84,7 @@ void EaselLuxView::Reset()
 {
   for ( FallingObjects::iterator it = fallingObjects.begin(); it != fallingObjects.end(); ++it)
   {
-    // NUM_TASK Ïàäàëî, òê easel óæå áûë óäàëåí. À âîò ïî÷åìó òàêîé ïîðÿäîê, íàâåðíîå áóäóò ðàçáèðàòüñÿ â NUM_TASK
+    // NUM_TASK ÐŸÐ°Ð´Ð°Ð»Ð¾, Ñ‚Ðº easel ÑƒÐ¶Ðµ Ð±Ñ‹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½. Ð Ð²Ð¾Ñ‚ Ð¿Ð¾Ñ‡ÐµÐ¼Ñƒ Ñ‚Ð°ÐºÐ¾Ð¹ Ð¿Ð¾Ñ€ÑÐ´Ð¾Ðº, Ð½Ð°Ð²ÐµÑ€Ð½Ð¾Ðµ Ð±ÑƒÐ´ÑƒÑ‚ Ñ€Ð°Ð·Ð±Ð¸Ñ€Ð°Ñ‚ÑŒÑÑ Ð² NUM_TASK
     if ( IsValid(easel) )
       easel->GetClient().ReleaseObject( *it );
   }
@@ -267,7 +267,7 @@ void EaselLuxView::ChainBallAddedHandler(const LuxChainBallAddedNotification& no
 
   CPtr<LuxBall> _ball = notification.ball;
 
-  // íàéòè òðàåêòîðèþ
+  // Ð½Ð°Ð¹Ñ‚Ð¸ Ñ‚Ñ€Ð°ÐµÐºÑ‚Ð¾Ñ€Ð¸ÑŽ
   Paths::iterator pathIter = ballPaths.find(notification.path->GetID());
   if(pathIter == ballPaths.end())
     return;

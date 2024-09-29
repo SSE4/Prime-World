@@ -15,8 +15,8 @@ namespace NDb
 namespace NWorld
 {
 
-  // этот класс является так же используется серверной RollLogic
-  // при этом хидер общий, а имплементация серверная находится в PFResources.cpp
+  // СЌС‚РѕС‚ РєР»Р°СЃСЃ СЏРІР»СЏРµС‚СЃСЏ С‚Р°Рє Р¶Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ СЃРµСЂРІРµСЂРЅРѕР№ RollLogic
+  // РїСЂРё СЌС‚РѕРј С…РёРґРµСЂ РѕР±С‰РёР№, Р° РёРјРїР»РµРјРµРЅС‚Р°С†РёСЏ СЃРµСЂРІРµСЂРЅР°СЏ РЅР°С…РѕРґРёС‚СЃСЏ РІ PFResources.cpp
   class PFResourcesCollection : public CObjectBase
   {
     OBJECT_BASIC_METHODS( PFResourcesCollection );

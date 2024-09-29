@@ -73,7 +73,7 @@ public:
   //////////////////////////////////////////////////////////////////////////
 
   virtual void SetVisible( bool _visible );
-  virtual void OverrideVisible( bool _visible ); //FXIME: Подпорка чото бы например спрятать всю миниигру, не конфликтуая с SetVisible()
+  virtual void OverrideVisible( bool _visible ); //FXIME: РџРѕРґРїРѕСЂРєР° С‡РѕС‚Рѕ Р±С‹ РЅР°РїСЂРёРјРµСЂ СЃРїСЂСЏС‚Р°С‚СЊ РІСЃСЋ РјРёРЅРёРёРіСЂСѓ, РЅРµ РєРѕРЅС„Р»РёРєС‚СѓР°СЏ СЃ SetVisible()
 	virtual bool IsVisible();
 
   virtual void Update( float deltaTime, bool gameOnPause );
@@ -86,7 +86,7 @@ public:
   virtual bool NeedHighlight() const { return false; }
   virtual const Render::HDRColor& GetHighlightColor() const;
 
-  //FIXME: нужен ли этот функционал для всех миниигр или только для клиники?
+  //FIXME: РЅСѓР¶РµРЅ Р»Рё СЌС‚РѕС‚ С„СѓРЅРєС†РёРѕРЅР°Р» РґР»СЏ РІСЃРµС… РјРёРЅРёРёРіСЂ РёР»Рё С‚РѕР»СЊРєРѕ РґР»СЏ РєР»РёРЅРёРєРё?
   //TODO: iA: move these to Clinic-specific client object
   void CreateOvertip( Overtips::IManager * pOvertips, const NDb::UIObjectOvertips * pDesc );
   void RemoveOvertip();
@@ -121,10 +121,10 @@ protected:
 
 	CPtr<NScene::CollisionHull> collisionHull;
 
-  //TODO: проблема в том, что  мы не можем вернуть AABB от scene obejct, так как он "гуляет" вместе с анимацией
-  //И за этой же анимацией начинают "гулять" и овертипы над объектом
-  //Поэтому приходится конструировать какой-то свой бокс с фиксированным размером
-  //Так как при этом все методы Get - константные, отсюда и mutable
+  //TODO: РїСЂРѕР±Р»РµРјР° РІ С‚РѕРј, С‡С‚Рѕ  РјС‹ РЅРµ РјРѕР¶РµРј РІРµСЂРЅСѓС‚СЊ AABB РѕС‚ scene obejct, С‚Р°Рє РєР°Рє РѕРЅ "РіСѓР»СЏРµС‚" РІРјРµСЃС‚Рµ СЃ Р°РЅРёРјР°С†РёРµР№
+  //Р Р·Р° СЌС‚РѕР№ Р¶Рµ Р°РЅРёРјР°С†РёРµР№ РЅР°С‡РёРЅР°СЋС‚ "РіСѓР»СЏС‚СЊ" Рё РѕРІРµСЂС‚РёРїС‹ РЅР°Рґ РѕР±СЉРµРєС‚РѕРј
+  //РџРѕСЌС‚РѕРјСѓ РїСЂРёС…РѕРґРёС‚СЃСЏ РєРѕРЅСЃС‚СЂСѓРёСЂРѕРІР°С‚СЊ РєР°РєРѕР№-С‚Рѕ СЃРІРѕР№ Р±РѕРєСЃ СЃ С„РёРєСЃРёСЂРѕРІР°РЅРЅС‹Рј СЂР°Р·РјРµСЂРѕРј
+  //РўР°Рє РєР°Рє РїСЂРё СЌС‚РѕРј РІСЃРµ РјРµС‚РѕРґС‹ Get - РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Рµ, РѕС‚СЃСЋРґР° Рё mutable
 	mutable Render::AABB tmpAABB;
   CVec3 tmpAABBCenterOffset;
   mutable SHMatrix tmpWorldMatrix;
@@ -133,7 +133,7 @@ protected:
   bool commonSenseVisibility;
   bool overridenVisibility;
 
-  //FIXME: переместить этот код, а так же CreateOvertip() в некий объект ClinicClientObject
+  //FIXME: РїРµСЂРµРјРµСЃС‚РёС‚СЊ СЌС‚РѕС‚ РєРѕРґ, Р° С‚Р°Рє Р¶Рµ CreateOvertip() РІ РЅРµРєРёР№ РѕР±СЉРµРєС‚ ClinicClientObject
   //TODO: iA: move these to Clinic-specific client object
   template <class TUIElem>
   void CheckControlOut(Weak<TUIElem> * pControlPtr, UI::Window * pParent, const char * controlName)

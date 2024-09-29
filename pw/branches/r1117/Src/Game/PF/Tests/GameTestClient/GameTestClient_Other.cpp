@@ -2,8 +2,8 @@
 #include "GameTestClient_Other.h"
 
 
-static unsigned g_maxAllowedChatLoopbackTime = 20.0; // если за столько секунд нам не пришло обратно наше же сообщение, ассертим
-static unsigned g_maxAllowedChatConnectTime = 20.0; // если за столько секунд не залогинились, ассертим
+static unsigned g_maxAllowedChatLoopbackTime = 20.0; // РµСЃР»Рё Р·Р° СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ РЅР°Рј РЅРµ РїСЂРёС€Р»Рѕ РѕР±СЂР°С‚РЅРѕ РЅР°С€Рµ Р¶Рµ СЃРѕРѕР±С‰РµРЅРёРµ, Р°СЃСЃРµСЂС‚РёРј
+static unsigned g_maxAllowedChatConnectTime = 20.0; // РµСЃР»Рё Р·Р° СЃС‚РѕР»СЊРєРѕ СЃРµРєСѓРЅРґ РЅРµ Р·Р°Р»РѕРіРёРЅРёР»РёСЃСЊ, Р°СЃСЃРµСЂС‚РёРј
 
 namespace gtc
 {
@@ -22,11 +22,11 @@ StepResult Client_Login::MainStep()
     case Stage::LOGIN_FINISHED:
       if( transport_ ) 
       {
-        userId_ = transport_->GetUserId(); // quick hack (пока никто не говорит нам id)
+        userId_ = transport_->GetUserId(); // quick hack (РїРѕРєР° РЅРёРєС‚Рѕ РЅРµ РіРѕРІРѕСЂРёС‚ РЅР°Рј id)
 
         LOG_D(0) << "success: login finished for user " << params.user << ", userId " << userId_;
 
-        //// к сожалению, релогин пока реализовать не удается (транспорт дохнет на Read Error'ах)
+        //// Рє СЃРѕР¶Р°Р»РµРЅРёСЋ, СЂРµР»РѕРіРёРЅ РїРѕРєР° СЂРµР°Р»РёР·РѕРІР°С‚СЊ РЅРµ СѓРґР°РµС‚СЃСЏ (С‚СЂР°РЅСЃРїРѕСЂС‚ РґРѕС…РЅРµС‚ РЅР° Read Error'Р°С…)
         //transport_->Logout();
         timeLoginFinished_ = timer::Now();
         stage_ = Stage::LOGIN_WAIT_AFTER;
@@ -35,9 +35,9 @@ StepResult Client_Login::MainStep()
 
     case Stage::LOGIN_WAIT_AFTER:
       //if( timer::Now() - timeLoginFinished_ > 1 )
-      return StepResult( true, false ); // можно прибивать клиента
+      return StepResult( true, false ); // РјРѕР¶РЅРѕ РїСЂРёР±РёРІР°С‚СЊ РєР»РёРµРЅС‚Р°
 
-      //// к сожалению, релогин пока реализовать не удается (транспорт дохнет на Read Error'ах)
+      //// Рє СЃРѕР¶Р°Р»РµРЅРёСЋ, СЂРµР»РѕРіРёРЅ РїРѕРєР° СЂРµР°Р»РёР·РѕРІР°С‚СЊ РЅРµ СѓРґР°РµС‚СЃСЏ (С‚СЂР°РЅСЃРїРѕСЂС‚ РґРѕС…РЅРµС‚ РЅР° Read Error'Р°С…)
       //{// relogin after pause
       //  LOG_D(0) << "user " << params.user << " relogging";
       //  stage_ = Stage::NONE;
@@ -79,13 +79,13 @@ StepResult Client_Replay::MainStep()
       {
         NCore::ReplaySegment::Commands::iterator cmd;
         if( replay.GetCurrentCommand( cmd ) )
-        {// не пора ли проиграть?
+        {// РЅРµ РїРѕСЂР° Р»Рё РїСЂРѕРёРіСЂР°С‚СЊ?
           while( timer::Now() - timePlaySessionStarted > replay.GetCommandTimestamp( cmd ) )
-          {// пора отослать команду
-            // в этом режиме просто распечатываем команды (т.к. ни в какой мы не в сессии, только залогинились) 
+          {// РїРѕСЂР° РѕС‚РѕСЃР»Р°С‚СЊ РєРѕРјР°РЅРґСѓ
+            // РІ СЌС‚РѕРј СЂРµР¶РёРјРµ РїСЂРѕСЃС‚Рѕ СЂР°СЃРїРµС‡Р°С‚С‹РІР°РµРј РєРѕРјР°РЅРґС‹ (С‚.Рє. РЅРё РІ РєР°РєРѕР№ РјС‹ РЅРµ РІ СЃРµСЃСЃРёРё, С‚РѕР»СЊРєРѕ Р·Р°Р»РѕРіРёРЅРёР»РёСЃСЊ) 
             LOG_D(0) << "replay cmd time(ofs): " << (*cmd)->TimeSent() - replay.GetStartTime() << ", time(sent): " << (*cmd)->TimeSent();
 
-            if( !replay.GetNextCommand( cmd ) ) // давайте следующую команду
+            if( !replay.GetNextCommand( cmd ) ) // РґР°РІР°Р№С‚Рµ СЃР»РµРґСѓСЋС‰СѓСЋ РєРѕРјР°РЅРґСѓ
               break;
           }
         }

@@ -257,7 +257,7 @@ void EaselScreenLogic::OnRMouseDown()
 
 void EaselScreenLogic::InitInGameBoostButtonsContainer()
 {
-  // получить бусты от данных
+  // РїРѕР»СѓС‡РёС‚СЊ Р±СѓСЃС‚С‹ РѕС‚ РґР°РЅРЅС‹С…
   if( !IsValid( easelMinigame ) )
     return;
 

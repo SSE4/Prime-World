@@ -14,7 +14,7 @@ namespace UI
 		
 		Weak<Window> pHighlighted;
 		Weak<Window> pSelected;
-    //@iA@TODO: Динамически обновлять стили ImageComponent из layout
+    //@iA@TODO: Р”РёРЅР°РјРёС‡РµСЃРєРё РѕР±РЅРѕРІР»СЏС‚СЊ СЃС‚РёР»Рё ImageComponent РёР· layout
 		ImageComponent Highlight;
 		ImageComponent Selection;
 		bool highlightChanged;

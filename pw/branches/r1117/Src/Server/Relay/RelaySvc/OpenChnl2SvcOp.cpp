@@ -44,7 +44,7 @@ void OpenChnl2SvcOp::callback(int err, BackendContextWeakPtr wpctx)
   int rc = -1;
   if (0 == err)
   {
-    //  начинаем установку канала
+    //  РЅР°С‡РёРЅР°РµРј СѓСЃС‚Р°РЅРѕРІРєСѓ РєР°РЅР°Р»Р°
     BackendContextSP spbc = wpctx.strong();
     if (!spbc.null())
     {
@@ -70,7 +70,7 @@ void OpenChnl2SvcOp::callback(int err, BackendContextWeakPtr wpctx)
 
   if (err != 0 || rc < 0)
   {
-    //  не удалось установить соединение или начать установку канала
+    //  РЅРµ СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕРµРґРёРЅРµРЅРёРµ РёР»Рё РЅР°С‡Р°С‚СЊ СѓСЃС‚Р°РЅРѕРІРєСѓ РєР°РЅР°Р»Р°
     res_ = Result::FAIL;
 
     //  create fake result message
@@ -112,10 +112,10 @@ int OpenChnl2SvcOp::StartChannelCreation(BackendContextSP const & spbc)
   msg.loginData = loginData_;
   msg.channelType = response_.channelType;
 
-  //  QFIX(NUM_TASK): сохраняем переменные, которые надо залогировать, на стеке, 
-  //  т.к. к моменту когда будем логировать, может прийти ответ от сервиса(см. RelayBackendProtocol::HandleOpenChannelResponse)
-  //  и там объект будет удален
-  //  (да, надо переделать на использование intrusive pointer, но уже не успею)
+  //  QFIX(NUM_TASK): СЃРѕС…СЂР°РЅСЏРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РЅР°РґРѕ Р·Р°Р»РѕРіРёСЂРѕРІР°С‚СЊ, РЅР° СЃС‚РµРєРµ, 
+  //  С‚.Рє. Рє РјРѕРјРµРЅС‚Сѓ РєРѕРіРґР° Р±СѓРґРµРј Р»РѕРіРёСЂРѕРІР°С‚СЊ, РјРѕР¶РµС‚ РїСЂРёР№С‚Рё РѕС‚РІРµС‚ РѕС‚ СЃРµСЂРІРёСЃР°(СЃРј. RelayBackendProtocol::HandleOpenChannelResponse)
+  //  Рё С‚Р°Рј РѕР±СЉРµРєС‚ Р±СѓРґРµС‚ СѓРґР°Р»РµРЅ
+  //  (РґР°, РЅР°РґРѕ РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ intrusive pointer, РЅРѕ СѓР¶Рµ РЅРµ СѓСЃРїРµСЋ)
   Transport::TClientId userid = spClientCtx_->userid();
   Transport::TPipeId cpid = cpid_;
   Transport::TServiceId svcid = spbc->svcid();

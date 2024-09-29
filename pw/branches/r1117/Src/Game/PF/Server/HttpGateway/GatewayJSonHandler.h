@@ -31,7 +31,7 @@ class ForgeRollRequest;
 namespace EContextState { enum Enum; }
 
 
-// рабочий класс: парсит запросы, исполняет rpс-вызовы (через интерфейс ISocialLobby), кэширует данные и ответы
+// СЂР°Р±РѕС‡РёР№ РєР»Р°СЃСЃ: РїР°СЂСЃРёС‚ Р·Р°РїСЂРѕСЃС‹, РёСЃРїРѕР»РЅСЏРµС‚ rpСЃ-РІС‹Р·РѕРІС‹ (С‡РµСЂРµР· РёРЅС‚РµСЂС„РµР№СЃ ISocialLobby), РєСЌС€РёСЂСѓРµС‚ РґР°РЅРЅС‹Рµ Рё РѕС‚РІРµС‚С‹
 class GatewayJsonHandler : public BaseObjectMT
 {
 public:

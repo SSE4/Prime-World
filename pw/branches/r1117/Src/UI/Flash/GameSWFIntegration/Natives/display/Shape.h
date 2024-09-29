@@ -35,7 +35,7 @@ public:
 
   virtual bool HitTest( const flash::SWF_POINT & worldPoint );
 
-  void SetShape( const flash::ShapeDefinition& _shapeDesc ); //const-reference это для девочек!!!
+  void SetShape( const flash::ShapeDefinition& _shapeDesc ); //const-reference СЌС‚Рѕ РґР»СЏ РґРµРІРѕС‡РµРє!!!
 
 private:
 

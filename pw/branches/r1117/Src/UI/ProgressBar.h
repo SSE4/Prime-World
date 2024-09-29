@@ -35,8 +35,8 @@ public:
   DECLARE_LUA_TYPEINFO(ProgressBar);
 
 private:
-  //@iA@TODO: эти поля инициализируются по pProBarLayout->progressStyle и pProBarLayout->rotationEffectStyle
-  //На их изменение нужно будет переинициализировать Progress и Effect
+  //@iA@TODO: СЌС‚Рё РїРѕР»СЏ РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‚СЃСЏ РїРѕ pProBarLayout->progressStyle Рё pProBarLayout->rotationEffectStyle
+  //РќР° РёС… РёР·РјРµРЅРµРЅРёРµ РЅСѓР¶РЅРѕ Р±СѓРґРµС‚ РїРµСЂРµРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ Progress Рё Effect
   ImageComponent	Progress;
   ImageComponent	Effect;
   bool needUpdateBar;

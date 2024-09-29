@@ -129,7 +129,7 @@ namespace threading
   {
     MutexLock lock(threadsMux_);
     if (freethreads_.size() == threads_.size())
-      return 0; //  нет работы
+      return 0; //  РЅРµС‚ СЂР°Р±РѕС‚С‹
 
     ::WaitForSingleObject(hWaitJobsEvt_, INFINITE);
     return 0;

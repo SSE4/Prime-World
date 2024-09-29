@@ -96,7 +96,7 @@ namespace Network
 //				10022
 //
 //				Invalid argument. 
-//				Some invalid argument was supplied (for example, specifying an invalid level to the setsockopt function). In some instances, it also refers to the current state of the socket—for instance, calling accept on a socket that is not listening.
+//				Some invalid argument was supplied (for example, specifying an invalid level to the setsockopt function). In some instances, it also refers to the current state of the socketâ€”for instance, calling accept on a socket that is not listening.
 //
 //				WSAEMFILE
 //				10024
@@ -114,13 +114,13 @@ namespace Network
 //				10036
 //
 //				Operation now in progress. 
-//				A blocking operation is currently executing. Windows Sockets only allows a single blocking operation—per- task or thread—to be outstanding, and if any other function call is made (whether or not it references that or any other socket) the function fails with the WSAEINPROGRESS error.
+//				A blocking operation is currently executing. Windows Sockets only allows a single blocking operationâ€”per- task or threadâ€”to be outstanding, and if any other function call is made (whether or not it references that or any other socket) the function fails with the WSAEINPROGRESS error.
 //
 //				WSAEALREADY
 //				10037
 //
 //				Operation already in progress. 
-//				An operation was attempted on a nonblocking socket with an operation already in progress—that is, calling connect a second time on a nonblocking socket that is already connecting, or canceling an asynchronous request (WSAAsyncGetXbyY) that has already been canceled or completed.
+//				An operation was attempted on a nonblocking socket with an operation already in progressâ€”that is, calling connect a second time on a nonblocking socket that is already connecting, or canceling an asynchronous request (WSAAsyncGetXbyY) that has already been canceled or completed.
 //
 //				WSAENOTSOCK
 //				10038
@@ -186,7 +186,7 @@ namespace Network
 //				10048
 //
 //				Address already in use. 
-//				Typically, only one usage of each socket address (protocol/IP address/port) is permitted. This error occurs if an application attempts to bind a socket to an IP address/port that has already been used for an existing socket, or a socket that was not closed properly, or one that is still in the process of closing. For server applications that need to bind multiple sockets to the same port number, consider using setsockopt (SO_REUSEADDR). Client applications usually need not call bind at all—connect chooses an unused port automatically. When bind is called with a wildcard address (involving ADDR_ANY), a WSAEADDRINUSE error could be delayed until the specific address is committed. This could happen with a call to another function later, including connect, listen, WSAConnect, or WSAJoinLeaf.
+//				Typically, only one usage of each socket address (protocol/IP address/port) is permitted. This error occurs if an application attempts to bind a socket to an IP address/port that has already been used for an existing socket, or a socket that was not closed properly, or one that is still in the process of closing. For server applications that need to bind multiple sockets to the same port number, consider using setsockopt (SO_REUSEADDR). Client applications usually need not call bind at allâ€”connect chooses an unused port automatically. When bind is called with a wildcard address (involving ADDR_ANY), a WSAEADDRINUSE error could be delayed until the specific address is committed. This could happen with a call to another function later, including connect, listen, WSAConnect, or WSAJoinLeaf.
 //
 //				WSAEADDRNOTAVAIL
 //				10049
@@ -240,7 +240,7 @@ namespace Network
 //				10057
 //
 //				Socket is not connected. 
-//				A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using sendto) no address was supplied. Any other type of operation might also return this error—for example, setsockopt setting SO_KEEPALIVE if the connection has been reset.
+//				A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using sendto) no address was supplied. Any other type of operation might also return this errorâ€”for example, setsockopt setting SO_KEEPALIVE if the connection has been reset.
 //
 //				WSAESHUTDOWN
 //				10058
@@ -264,7 +264,7 @@ namespace Network
 //				10061
 //
 //				Connection refused. 
-//				No connection could be made because the target computer actively refused it. This usually results from trying to connect to a service that is inactive on the foreign host—that is, one with no server application running.
+//				No connection could be made because the target computer actively refused it. This usually results from trying to connect to a service that is inactive on the foreign hostâ€”that is, one with no server application running.
 //
 //				WSAELOOP
 //				10062
@@ -447,7 +447,7 @@ namespace Network
 //				11004
 //
 //				Valid name, no data record of requested type. 
-//				The requested name is valid and was found in the database, but it does not have the correct associated data being resolved for. The usual example for this is a host name-to-address translation attempt (using gethostbyname or WSAAsyncGetHostByName) which uses the DNS (Domain Name Server). An MX record is returned but no A record—indicating the host itself exists, but is not directly reachable.
+//				The requested name is valid and was found in the database, but it does not have the correct associated data being resolved for. The usual example for this is a host name-to-address translation attempt (using gethostbyname or WSAAsyncGetHostByName) which uses the DNS (Domain Name Server). An MX record is returned but no A recordâ€”indicating the host itself exists, but is not directly reachable.
 //
 //				WSA_QOS_RECEIVERS
 //				11005

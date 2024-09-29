@@ -88,8 +88,8 @@ bool Calculator::AggregateTeams(const NDb::AdvMapDescription * _map)
         else
         {
           const mmaking::RankDescription* prevRankDescr = tbl.FindRankByIndex(maxRankDescr->index -1 == -1 ? 0 : maxRankDescr->index -1);
-          party.minPartyRating = prevRankDescr->from; // получаем минимально допустимый рейтинг для фулки 
-                                                      // а он равен рейтингу партии на звание ниже (NUM_TASK). 
+          party.minPartyRating = prevRankDescr->from; // РїРѕР»СѓС‡Р°РµРј РјРёРЅРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ СЂРµР№С‚РёРЅРі РґР»СЏ С„СѓР»РєРё 
+                                                      // Р° РѕРЅ СЂР°РІРµРЅ СЂРµР№С‚РёРЅРіСѓ РїР°СЂС‚РёРё РЅР° Р·РІР°РЅРёРµ РЅРёР¶Рµ (NUM_TASK). 
         }
       }
     }

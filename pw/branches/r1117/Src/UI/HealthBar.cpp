@@ -245,7 +245,7 @@ namespace UI
     const float step1 = (dx * stripes.stripe1Step * denominator);
     const float step2 = (dx * stripes.stripe2Step * denominator);
 
-    // это раньше было в шейдере
+    // СЌС‚Рѕ СЂР°РЅСЊС€Рµ Р±С‹Р»Рѕ РІ С€РµР№РґРµСЂРµ
     const float blendFactor1 = Clamp((8.f - step1) / 5.f, 0.f, 1.f);
 
     ApplyStripesConstants(x1, ROUND(step1), ROUND(step2), blendFactor1);

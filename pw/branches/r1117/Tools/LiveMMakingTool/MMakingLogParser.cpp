@@ -436,7 +436,7 @@ bool LogParser::GetRequestMemeber( Ctx & ctx, vector<mmaking::SRequestMember> & 
   m.fameLevel = fame;
 
   if ( basket[0] )
-    m.basket = ParseBasket( basket ); //Это будет иметь смысл только для логов с версии 9.4.0
+    m.basket = ParseBasket( basket ); //Р­С‚Рѕ Р±СѓРґРµС‚ РёРјРµС‚СЊ СЃРјС‹СЃР» С‚РѕР»СЊРєРѕ РґР»СЏ Р»РѕРіРѕРІ СЃ РІРµСЂСЃРёРё 9.4.0
 
   if ( _logVersion <= ELogVersion::v932 )
     m.basket = DetermineMemberBasket( m );

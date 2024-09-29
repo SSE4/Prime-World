@@ -43,7 +43,7 @@ public:
     return seed.w;
   }
 
-  // äëÿ âêóñíîñòåé
+  // Ð´Ð»Ñ Ð²ÐºÑƒÑÐ½Ð¾ÑÑ‚ÐµÐ¹
   int Next( int min, int max )
   {
     if ( min >= max )

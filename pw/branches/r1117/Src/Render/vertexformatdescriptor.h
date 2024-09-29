@@ -5,11 +5,11 @@
 
 namespace Render
 {
-	/// Класс описания формата вершины
+	/// РљР»Р°СЃСЃ РѕРїРёСЃР°РЅРёСЏ С„РѕСЂРјР°С‚Р° РІРµСЂС€РёРЅС‹
 	class VertexFormatDescriptor
 	{
 	public:
-		/// Конструктор
+		/// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		VertexFormatDescriptor();
 
 		bool operator == (const VertexFormatDescriptor& other) const 
@@ -28,17 +28,17 @@ namespace Render
 		bool operator != (const VertexFormatDescriptor& other) const { return !operator == (other); }
 
 
-		/// Добавление описания элемента вершины
+		/// Р”РѕР±Р°РІР»РµРЅРёРµ РѕРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 		void AddVertexElement(const VertexElementDescriptor& descr);
 		void AssignVertexElements(const VertexElementDescriptor& descr, int count );
-		/// Получение описания элемента вершины
+		/// РџРѕР»СѓС‡РµРЅРёРµ РѕРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° РІРµСЂС€РёРЅС‹
 		const VertexElementDescriptor& GetVertexElement(unsigned int index) const;
-		/// Получение количества элементов вершины
+		/// РџРѕР»СѓС‡РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° СЌР»РµРјРµРЅС‚РѕРІ РІРµСЂС€РёРЅС‹
 		unsigned int GetVertexElementsCount() const;
 		///
 		int FindMaxUsageIndex(EVertexElementUsage usage) const;
 	private:
-		/// Описания элементов вершин
+		/// РћРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РІРµСЂС€РёРЅ
 		nstl::vector<VertexElementDescriptor> vertexElementDescriptors;
 	};
 }; // namespace Render

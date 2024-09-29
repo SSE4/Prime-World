@@ -60,7 +60,7 @@ public:
 	void Reset();
 private:
   NDb::Ptr<NDb::Terrain> pDBTerrain;
-  //Нет ZDATA, т.к. используется прямая сериализация pMap
+  //РќРµС‚ ZDATA, С‚.Рє. РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїСЂСЏРјР°СЏ СЃРµСЂРёР°Р»РёР·Р°С†РёСЏ pMap
   Terrain::NatureMap *pMap;
   CVec2 customNaturePercents; //m[0] for Freeze, m[1] for Burn
 public:

@@ -23,7 +23,7 @@ LocationClient::LocationClient( Transport::ClientTransportSystem * transport ) :
   gateKeeper = new rpc::GateKeeperClient( transport, Transport::ENetInterface::Invalid );
 
   rpcNode = gateKeeper->RequestNode( "location/0"/*Protocol::locationServerId*/ ); 
-  // @SE@TODO доделать координатор, чтобы адреса single серверов не оканчивались на /0
+  // @SE@TODO РґРѕРґРµР»Р°С‚СЊ РєРѕРѕСЂРґРёРЅР°С‚РѕСЂ, С‡С‚РѕР±С‹ Р°РґСЂРµСЃР° single СЃРµСЂРІРµСЂРѕРІ РЅРµ РѕРєР°РЅС‡РёРІР°Р»РёСЃСЊ РЅР° /0
 
   gateKeeper->GetGate().RegisterFactory<GameObject>( *this );
   gateKeeper->GetGate().RegisterFactory<LocationClient>( *this );

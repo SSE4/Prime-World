@@ -41,14 +41,14 @@ inline const char *RevFindBefore( const char *pBeg, const char *pEnd, char ch )
  
 BegEndPair FindClassName( const char *rawName )
 {
-  //В качестве className может быть передано либо имя 
-  //функции в следующих форматах (результат макроса BOOST_CURRENT_FUNCTION)
+  //Р’ РєР°С‡РµСЃС‚РІРµ className РјРѕР¶РµС‚ Р±С‹С‚СЊ РїРµСЂРµРґР°РЅРѕ Р»РёР±Рѕ РёРјСЏ 
+  //С„СѓРЅРєС†РёРё РІ СЃР»РµРґСѓСЋС‰РёС… С„РѕСЂРјР°С‚Р°С… (СЂРµР·СѓР»СЊС‚Р°С‚ РјР°РєСЂРѕСЃР° BOOST_CURRENT_FUNCTION)
   //MSVC: const char *__cdecl A::B::C::func(void)
   //GCC:  static const char* A::B::C::func()
-  //Шаблоны:
+  //РЁР°Р±Р»РѕРЅС‹:
   //MSVC: const char *__cdecl A::B::C<int>::func(void)
   //GCC: static const char* A::B::C<T>::func() [with T = int]
-  //либо, непосредственно, имя класса 
+  //Р»РёР±Рѕ, РЅРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕ, РёРјСЏ РєР»Р°СЃСЃР° 
   const char * pBeg = rawName;
   const char * pEnd = pBeg + strlen(rawName);
   
@@ -98,7 +98,7 @@ uint _GetId(const char* _className, IdType idType)
       }
       else
       {
-        //Должны пропустить первую букву R в названии класса
+        //Р”РѕР»Р¶РЅС‹ РїСЂРѕРїСѓСЃС‚РёС‚СЊ РїРµСЂРІСѓСЋ Р±СѓРєРІСѓ R РІ РЅР°Р·РІР°РЅРёРё РєР»Р°СЃСЃР°
         const char *pCur = RevFindBefore( cls.first, cls.second, ':' );
       
         s.Add( cls.first, pCur - cls.first );

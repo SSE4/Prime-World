@@ -554,8 +554,8 @@ void ChannelBase::sendMsg( Transport::MessageBase* pMsg )
 
 void ChannelBase::setPing(long ping, unsigned long seqnum)
 {
-  //  лок ставить ради пинга не хочется, 
-  //  допускаем погрешность, через GetPing могут взять новое значение счетчика и старое значение пинга
+  //  Р»РѕРє СЃС‚Р°РІРёС‚СЊ СЂР°РґРё РїРёРЅРіР° РЅРµ С…РѕС‡РµС‚СЃСЏ, 
+  //  РґРѕРїСѓСЃРєР°РµРј РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ, С‡РµСЂРµР· GetPing РјРѕРіСѓС‚ РІР·СЏС‚СЊ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡РµС‚С‡РёРєР° Рё СЃС‚Р°СЂРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРёРЅРіР°
   NI_ASSERT(pingSeqNumRecv_ < seqnum, "Just received ping seqnum MUST BE more than previous one");
   pingSeqNumRecv_ = seqnum;
   ping_ = ping;

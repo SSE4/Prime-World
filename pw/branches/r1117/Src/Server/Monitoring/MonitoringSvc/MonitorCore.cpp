@@ -90,7 +90,7 @@ namespace Monitoring
       if (currtime >= pcctx->lastSampleRecvTime() + pcctx->samplingPeriod() &&
           false == pcctx->inprogress())
       {
-        if (!pcctx->svcid().empty())  //  отсекаем cumulative counters
+        if (!pcctx->svcid().empty())  //  РѕС‚СЃРµРєР°РµРј cumulative counters
         {
           StrongMT<ProviderContext> provctx = findProviderCtx(pcctx->svcid());
           if (provctx)

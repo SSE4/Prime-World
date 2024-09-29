@@ -51,8 +51,8 @@ _interface IConnection: public IBaseInterfaceMT
 
   virtual void AsyncClose() = 0;
 
-  //Тут мы отходим от стандарта и возвращаем из функций CObj<> по значению и передаем его по константной ссылке
-  //Почему? -А потому, что мы имеем большие проблемы с временем жизни объектов Stream из-за хранения и распространения raw-указателей
+  //РўСѓС‚ РјС‹ РѕС‚С…РѕРґРёРј РѕС‚ СЃС‚Р°РЅРґР°СЂС‚Р° Рё РІРѕР·РІСЂР°С‰Р°РµРј РёР· С„СѓРЅРєС†РёР№ CObj<> РїРѕ Р·РЅР°С‡РµРЅРёСЋ Рё РїРµСЂРµРґР°РµРј РµРіРѕ РїРѕ РєРѕРЅСЃС‚Р°РЅС‚РЅРѕР№ СЃСЃС‹Р»РєРµ
+  //РџРѕС‡РµРјСѓ? -Рђ РїРѕС‚РѕРјСѓ, С‡С‚Рѕ РјС‹ РёРјРµРµРј Р±РѕР»СЊС€РёРµ РїСЂРѕР±Р»РµРјС‹ СЃ РІСЂРµРјРµРЅРµРј Р¶РёР·РЅРё РѕР±СЉРµРєС‚РѕРІ Stream РёР·-Р·Р° С…СЂР°РЅРµРЅРёСЏ Рё СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅРµРЅРёСЏ raw-СѓРєР°Р·Р°С‚РµР»РµР№
   virtual CObj<Stream> GetBufferToSend() = 0;
   virtual bool Send( const CObj<Stream> & data ) = 0;
 
@@ -67,8 +67,8 @@ _interface IConnection: public IBaseInterfaceMT
   static void DumpCompressionStatistics();
 };
 
-typedef vector<StrongMT<IConnection> > TConnections; // это для хранения original connection-ов
-typedef vector<StrongMT<IConnection> > TNewConnections; // а это будем использовать для того, что передается через GetNewConnections
+typedef vector<StrongMT<IConnection> > TConnections; // СЌС‚Рѕ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ original connection-РѕРІ
+typedef vector<StrongMT<IConnection> > TNewConnections; // Р° СЌС‚Рѕ Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ С‚РѕРіРѕ, С‡С‚Рѕ РїРµСЂРµРґР°РµС‚СЃСЏ С‡РµСЂРµР· GetNewConnections
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 _interface IConnectionsManager: public IBaseInterfaceMT

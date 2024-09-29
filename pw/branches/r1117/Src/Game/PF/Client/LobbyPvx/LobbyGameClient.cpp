@@ -32,13 +32,13 @@
 
 static const float PROGRESS_SEND_INTERVAL = 0.33f;
 
-static float g_fHybridPingPeriod = 5.0; // ïî óìîë÷àíèþ - áóäåì çàïðàøèâàòü ïèíã ðàç â ñòîëüêî ñåêóíä
+static float g_fHybridPingPeriod = 5.0; // Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ - Ð±ÑƒÐ´ÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°Ñ‚ÑŒ Ð¿Ð¸Ð½Ð³ Ñ€Ð°Ð· Ð² ÑÑ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐµÐºÑƒÐ½Ð´
 REGISTER_VAR( "hybrid_ping_period", g_fHybridPingPeriod, STORAGE_NONE);
 
-static float g_fHybridPingThreshold = 0.4f; // åñëè ïèíã (â ñåêóíäàõ) áîëüøå ýòîãî çíà÷åíèÿ, áóäåì ðóãàööà (ò.å. ñòàâèòü ôëàã warning â DebugVar "hybrid_ping_value")
+static float g_fHybridPingThreshold = 0.4f; // ÐµÑÐ»Ð¸ Ð¿Ð¸Ð½Ð³ (Ð² ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…) Ð±Ð¾Ð»ÑŒÑˆÐµ ÑÑ‚Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ, Ð±ÑƒÐ´ÐµÐ¼ Ñ€ÑƒÐ³Ð°Ñ†Ñ†Ð° (Ñ‚.Ðµ. ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ñ„Ð»Ð°Ð³ warning Ð² DebugVar "hybrid_ping_value")
 REGISTER_VAR( "hybrid_ping_threshold", g_fHybridPingThreshold, STORAGE_NONE);
 
-static float g_fHybridPingRequestTimeout = 20.0; // !=0: çàïðàøèâàòü ïèíã òîëüêî ïîñëå çàâåðøåíèÿ ïðåäûäóùåãî çàïðîñà, èëè ïî èñòå÷åíèþ óêàç. òàéìàóòà ïîñëå ïðåä. çàïðîñà
+static float g_fHybridPingRequestTimeout = 20.0; // !=0: Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°Ñ‚ÑŒ Ð¿Ð¸Ð½Ð³ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ Ð¿Ñ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÐµÐ³Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°, Ð¸Ð»Ð¸ Ð¿Ð¾ Ð¸ÑÑ‚ÐµÑ‡ÐµÐ½Ð¸ÑŽ ÑƒÐºÐ°Ð·. Ñ‚Ð°Ð¹Ð¼Ð°ÑƒÑ‚Ð° Ð¿Ð¾ÑÐ»Ðµ Ð¿Ñ€ÐµÐ´. Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°
 REGISTER_VAR( "hybrid_ping_timeout", g_fHybridPingRequestTimeout, STORAGE_NONE);
 
 static float g_fUpdatePingStatisticsPeriod = 5.0; // Update ping statistics once in 5 seconds by default
@@ -80,7 +80,7 @@ private:
 };
 
 
-static WorldStepIntDebugVar g_fHybridPingValue( "hybrid_ping_value" ); // ñþäà ñêëàäûâàåì ïîñëåäíåå ïîëó÷åííîå çíà÷åíèå ping
+static WorldStepIntDebugVar g_fHybridPingValue( "hybrid_ping_value" ); // ÑÑŽÐ´Ð° ÑÐºÐ»Ð°Ð´Ñ‹Ð²Ð°ÐµÐ¼ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐµ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ping
 
 
 namespace lobby
@@ -411,9 +411,9 @@ int GameClient::Poll( float transceiverDeltaTime )
 
       SendMyProgressIfNeeded();
 
-      //FIXME: çäåñü ìû äåëàåì ïðåäïîëîæåíèå, ÷òî âðåìÿ çàãðóçêè êàðòû ÿâëÿåòñÿ äîñòàòî÷íûì
-      //äëÿ óñòàíîâêè ñîåäèíåíèÿ ñ ãèáðèäíûì ñåðâåðîì. Âïðî÷åì, ïðè ëîæíîì ñðàáàòûâàíèè
-      //èãðà ïðîäîëæèò ôóíêöèîíèðîâàòü, ïðîñòî ïîÿâèòñÿ îêíî îá îòâàëèâøåìñÿ ñåðâåðå
+      //FIXME: Ð·Ð´ÐµÑÑŒ Ð¼Ñ‹ Ð´ÐµÐ»Ð°ÐµÐ¼ Ð¿Ñ€ÐµÐ´Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, Ñ‡Ñ‚Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ ÐºÐ°Ñ€Ñ‚Ñ‹ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ñ‹Ð¼
+      //Ð´Ð»Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ñ Ñ Ð³Ð¸Ð±Ñ€Ð¸Ð´Ð½Ñ‹Ð¼ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼. Ð’Ð¿Ñ€Ð¾Ñ‡ÐµÐ¼, Ð¿Ñ€Ð¸ Ð»Ð¾Ð¶Ð½Ð¾Ð¼ ÑÑ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°Ð½Ð¸Ð¸
+      //Ð¸Ð³Ñ€Ð° Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¾Ð½Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ, Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¿Ð¾ÑÐ²Ð¸Ñ‚ÑÑ Ð¾ÐºÐ½Ð¾ Ð¾Ð± Ð¾Ñ‚Ð²Ð°Ð»Ð¸Ð²ÑˆÐµÐ¼ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ðµ
 
       if ( !hybridStarted && hybridServerNode->IsStarted() )
       {
@@ -439,7 +439,7 @@ int GameClient::Poll( float transceiverDeltaTime )
       UpdateNoDataStatistics(transceiver->GetNextStep(), transceiver->GetNoData());
       UpdatePingStatistics();
   
-      // ðàç â óêàçàííîå êîë-âî ñåêóíä çàïðàøèâàåì ïèíã (transit_time rpc-çàïðîñà äî ãèáðèä-ñåðâåðà è îáðàòíî)
+      // Ñ€Ð°Ð· Ð² ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ð¾Ðµ ÐºÐ¾Ð»-Ð²Ð¾ ÑÐµÐºÑƒÐ½Ð´ Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÐ¼ Ð¿Ð¸Ð½Ð³ (transit_time rpc-Ð·Ð°Ð¿Ñ€Ð¾ÑÐ° Ð´Ð¾ Ð³Ð¸Ð±Ñ€Ð¸Ð´-ÑÐµÑ€Ð²ÐµÑ€Ð° Ð¸ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾)
       RequestHybridPing();
 
       if ( hybridServerNode->GracefullDisconnectReason() != Peered::EDisconnectReason::None )
@@ -770,7 +770,7 @@ void GameClient::OnHybridPing( Peered::SHybridPongResult& time_step, int context
     else
       debugDisplay::SetNewGraphInfo( "gping", debugDisplay::GraphInfo( 32, 100, debugDisplay::Color::Green, warn ? debugDisplay::Color::Red : debugDisplay::Color::Green, false ) );
 
-    timeLastUnansweredPing = 0; // íà ïðåä.çàïðîñ îòâåòèëè, ìîæíî íà÷èíàòü ñëåäóþùèé çàïðîñ
+    timeLastUnansweredPing = 0; // Ð½Ð° Ð¿Ñ€ÐµÐ´.Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð¾Ñ‚Ð²ÐµÑ‚Ð¸Ð»Ð¸, Ð¼Ð¾Ð¶Ð½Ð¾ Ð½Ð°Ñ‡Ð¸Ð½Ð°Ñ‚ÑŒ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹ Ð·Ð°Ð¿Ñ€Ð¾Ñ
     //DebugTrace("OnHybridPing: prev %0.4f, now %0.4f, ping=%0.4f, step=%d, isWarning=%d", time_step.pingTime, now, ping, time_step.worldStep, (ping > g_fHybridPingThreshold) );
   }
 }
@@ -780,10 +780,10 @@ void GameClient::OnHybridPing( Peered::SHybridPongResult& time_step, int context
 void GameClient::RequestHybridPing()
 {
   if( g_fHybridPingPeriod > 0 )
-  {// ðàç â óêàçàííîå êîë-âî ñåêóíä çàïðàøèâàåì ïèíã (transit_time rpc-çàïðîñà äî ãèáðèä-ñåðâåðà è îáðàòíî)
+  {// Ñ€Ð°Ð· Ð² ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ð¾Ðµ ÐºÐ¾Ð»-Ð²Ð¾ ÑÐµÐºÑƒÐ½Ð´ Ð·Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÐ¼ Ð¿Ð¸Ð½Ð³ (transit_time rpc-Ð·Ð°Ð¿Ñ€Ð¾ÑÐ° Ð´Ð¾ Ð³Ð¸Ð±Ñ€Ð¸Ð´-ÑÐµÑ€Ð²ÐµÑ€Ð° Ð¸ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾)
     NHPTimer::FTime tm = NHPTimer::GetScalarTime();
     if ( ( tm - timeLastPingRequest > g_fHybridPingPeriod )
-         && (timeLastUnansweredPing == 0 || tm - timeLastUnansweredPing > g_fHybridPingRequestTimeout) ) // UnansweredPing ñáðàñûâàåòñÿ â 0, êîãäà ïîëó÷àåì îòâåò
+         && (timeLastUnansweredPing == 0 || tm - timeLastUnansweredPing > g_fHybridPingRequestTimeout) ) // UnansweredPing ÑÐ±Ñ€Ð°ÑÑ‹Ð²Ð°ÐµÑ‚ÑÑ Ð² 0, ÐºÐ¾Ð³Ð´Ð° Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¾Ñ‚Ð²ÐµÑ‚
     {
       if ( client->GameServer() )
       {

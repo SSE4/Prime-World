@@ -148,7 +148,7 @@ void Ptr<TDbResource>::Load()
 		return;
 
   const NDb::DbResource* pRes = CastToDBResource( pResource ); 
-  //>WTF? Какой мусор валяется в pResource, если IsEmpty не помогает?!
+  //>WTF? РљР°РєРѕР№ РјСѓСЃРѕСЂ РІР°Р»СЏРµС‚СЃСЏ РІ pResource, РµСЃР»Рё IsEmpty РЅРµ РїРѕРјРѕРіР°РµС‚?!
   if( pRes == NULL )
   {
     return;

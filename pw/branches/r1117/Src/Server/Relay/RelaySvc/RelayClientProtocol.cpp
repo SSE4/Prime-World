@@ -346,7 +346,7 @@ int RelayClientProtocol::HandlePingMessage(Transport::PingMessage *pMsg, Terabit
             SvcOperationsMapT::iterator it = svc2ops_.find(spbc->svctxid());
             if (it != svc2ops_.end())
             {
-              //  добавляем операцию в цепочку операция для pipe
+              //  РґРѕР±Р°РІР»СЏРµРј РѕРїРµСЂР°С†РёСЋ РІ С†РµРїРѕС‡РєСѓ РѕРїРµСЂР°С†РёСЏ РґР»СЏ pipe
               ACE_ASSERT(0 == it->second.last_->next());
               it->second.last_->next(csop.get());
               it->second.last_ = csop.release();
@@ -423,7 +423,7 @@ int RelayClientProtocol::HandleInput(Terabit::AsynchChannel* channel, Transport:
   else
   {
     ACE_ERROR((LM_WARNING, ACE_TEXT("Unhandled message received from client (u=%d,m=%d)"), spctx->userid(), pMsg->GetTypeId()));
-    rc = 0; //  FIXME:  пока игнорируем
+    rc = 0; //  FIXME:  РїРѕРєР° РёРіРЅРѕСЂРёСЂСѓРµРј
   }
 
   return rc;
@@ -551,11 +551,11 @@ int RelayClientProtocol::HandleInput(Terabit::AsynchChannel* channel, Transport:
           {
             NI_PROFILE_BLOCK( "svc2ops_.insert" );
 
-            //  ставим операции в очередь
+            //  СЃС‚Р°РІРёРј РѕРїРµСЂР°С†РёРё РІ РѕС‡РµСЂРµРґСЊ
             SvcOperationsMapT::iterator it = svc2ops_.find(spbc->svctxid());
             if (it != svc2ops_.end())
             {
-              //  добавляем операцию в цепочку операция для pipe
+              //  РґРѕР±Р°РІР»СЏРµРј РѕРїРµСЂР°С†РёСЋ РІ С†РµРїРѕС‡РєСѓ РѕРїРµСЂР°С†РёСЏ РґР»СЏ pipe
               ACE_ASSERT(0 == it->second.last_->next());
               it->second.last_->next(csop.get());
               it->second.last_ = csop.release();
@@ -632,7 +632,7 @@ int RelayClientProtocol::OnReadHandlingCompleted(int result, size_t len, const c
     ACE_ERROR((LM_ERROR, ACE_TEXT("%s: clear operations due to failure(ch=%d length=%d ops=%d result=%d)"), 
       __FUNCTION__, channel->get_id(), len, svc2ops_.size(), result));
 
-    //  очищаем уже созданные операции
+    //  РѕС‡РёС‰Р°РµРј СѓР¶Рµ СЃРѕР·РґР°РЅРЅС‹Рµ РѕРїРµСЂР°С†РёРё
     SvcOperationsMapT::iterator it = svc2ops_.begin();
     SvcOperationsMapT::iterator eit = svc2ops_.end();
     for(; it != eit; ++it)
@@ -651,8 +651,8 @@ int RelayClientProtocol::OnReadHandlingCompleted(int result, size_t len, const c
     {
       ACE_ERROR((LM_ERROR, ACE_TEXT("%s. No context exists(ch=%d)"), 
         __FUNCTION__, channel->get_id()));
-      //  мы можем оказаться здесь также когда клиент запросивший новое соединение 
-      //  не прошел проверку(clientVerifier->VerifyClient())
+      //  РјС‹ РјРѕР¶РµРј РѕРєР°Р·Р°С‚СЊСЃСЏ Р·РґРµСЃСЊ С‚Р°РєР¶Рµ РєРѕРіРґР° РєР»РёРµРЅС‚ Р·Р°РїСЂРѕСЃРёРІС€РёР№ РЅРѕРІРѕРµ СЃРѕРµРґРёРЅРµРЅРёРµ 
+      //  РЅРµ РїСЂРѕС€РµР» РїСЂРѕРІРµСЂРєСѓ(clientVerifier->VerifyClient())
       return -1;
     }
 
@@ -733,7 +733,7 @@ int RelayClientProtocol::OnReadHandlingCompleted(int result, size_t len, const c
           it->second.count_, spctx->userid(), spbc->svcid().c_str(), spbc->id(), channel->get_id()));
       }
 
-      //  удаляем операции в случае фейла
+      //  СѓРґР°Р»СЏРµРј РѕРїРµСЂР°С†РёРё РІ СЃР»СѓС‡Р°Рµ С„РµР№Р»Р°
       if (rc < 0 && op)
       {
         NI_PROFILE_BLOCK( "close operations" );

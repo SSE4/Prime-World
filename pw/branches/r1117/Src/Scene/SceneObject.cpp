@@ -311,7 +311,7 @@ void SceneObject::UpdateForced( float timeDiff, bool isUnfreeze, bool isClientVi
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void SceneObject::Update( float timeDiff, bool isForcedUpdate )
 {
-  //Вызывается более 5000 раз
+  //Р’С‹Р·С‹РІР°РµС‚СЃСЏ Р±РѕР»РµРµ 5000 СЂР°Р·
   //NI_PROFILE_HEAVY_FUNCTION
 
   if (!pScene) 

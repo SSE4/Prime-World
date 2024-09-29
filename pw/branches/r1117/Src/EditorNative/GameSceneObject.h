@@ -215,7 +215,7 @@ namespace SceneObjects {
       bool get() { return !ReferenceEquals( Scene, nullptr ) && (sceneObjects->Count > currentSceneObject) && sceneObjects[currentSceneObject]->ppObject != nullptr; }
     }
 
-    bool isPlacedToMap;//объект поставлен на карту
+    bool isPlacedToMap;//РѕР±СЉРµРєС‚ РїРѕСЃС‚Р°РІР»РµРЅ РЅР° РєР°СЂС‚Сѓ
   internal:
     void DrawCircle( const nstl::vector<CVec3>& points, const Render::Color& color )
     {

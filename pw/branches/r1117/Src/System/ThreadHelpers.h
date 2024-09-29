@@ -24,8 +24,8 @@ public:
 
 //
 //
-// Классы ниже - устаревший функционал!
-// Используйте JobThread / IThreadJob / AutostopThread
+// РљР»Р°СЃСЃС‹ РЅРёР¶Рµ - СѓСЃС‚Р°СЂРµРІС€РёР№ С„СѓРЅРєС†РёРѕРЅР°Р»!
+// РСЃРїРѕР»СЊР·СѓР№С‚Рµ JobThread / IThreadJob / AutostopThread
 //
 //
 

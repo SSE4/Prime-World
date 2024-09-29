@@ -59,7 +59,7 @@ void DebugVarRequester::Detach()
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// периодически шлем удаленному Reporter'у пачку запросов: на все переменные, у которых истек период апдейта
+// РїРµСЂРёРѕРґРёС‡РµСЃРєРё С€Р»РµРј СѓРґР°Р»РµРЅРЅРѕРјСѓ Reporter'Сѓ РїР°С‡РєСѓ Р·Р°РїСЂРѕСЃРѕРІ: РЅР° РІСЃРµ РїРµСЂРµРјРµРЅРЅС‹Рµ, Сѓ РєРѕС‚РѕСЂС‹С… РёСЃС‚РµРє РїРµСЂРёРѕРґ Р°РїРґРµР№С‚Р°
 void DebugVarRequester::UpdateStep()
 {
   TIMESTAMP now = NHPTimer::GetScalarTime();
@@ -69,8 +69,8 @@ void DebugVarRequester::UpdateStep()
     for(TClientVars::iterator it = vars.begin(); it != vars.end(); ++it )
     {
       SClientVar& var = it->second;
-      if ( (var.lastRequested == 0) // запрашиваем 1-й раз
-            || (( var.updPeriod > 0 ) && ( var.lastRequested + var.updPeriod <= now )) // запрашиваем периодически, и время уже как раз
+      if ( (var.lastRequested == 0) // Р·Р°РїСЂР°С€РёРІР°РµРј 1-Р№ СЂР°Р·
+            || (( var.updPeriod > 0 ) && ( var.lastRequested + var.updPeriod <= now )) // Р·Р°РїСЂР°С€РёРІР°РµРј РїРµСЂРёРѕРґРёС‡РµСЃРєРё, Рё РІСЂРµРјСЏ СѓР¶Рµ РєР°Рє СЂР°Р·
          )  
       {
         LOG_D(0) << "req var " << it->first << " /time " << now;
@@ -111,10 +111,10 @@ bool DebugVarRequester::IsReady()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void DebugVarRequester::CallbackValueReceive(const wchar_t* rawReply)
 {
-  wstring reply( rawReply ); //FIXME неохота пока возиться с именами функций для raw wchar_t*
+  wstring reply( rawReply ); //FIXME РЅРµРѕС…РѕС‚Р° РїРѕРєР° РІРѕР·РёС‚СЊСЃСЏ СЃ РёРјРµРЅР°РјРё С„СѓРЅРєС†РёР№ РґР»СЏ raw wchar_t*
 
   TIMESTAMP now = NHPTimer::GetScalarTime();
-  // делим reply на имя|значение
+  // РґРµР»РёРј reply РЅР° РёРјСЏ|Р·РЅР°С‡РµРЅРёРµ
   size_t pos = reply.find( L"|" );
   if ( pos >= 0 )
   {
@@ -138,7 +138,7 @@ void DebugVarRequester::CallbackValueReceive(const wchar_t* rawReply)
         lastVarsReceived = now;
 
         if( var.updPeriod < 0 ) 
-        {// команды исполняем строго однократно
+        {// РєРѕРјР°РЅРґС‹ РёСЃРїРѕР»РЅСЏРµРј СЃС‚СЂРѕРіРѕ РѕРґРЅРѕРєСЂР°С‚РЅРѕ
           LOG_D(0) << " // remove finished cmd '" << name << "'";
           vars.erase( it ); 
         }
@@ -152,13 +152,13 @@ void DebugVarRequester::CallbackValueReceive(const wchar_t* rawReply)
 }
 
 
-// отдельный обработчик для RunCmd: там "cmd|bool_result|log_string(s)"
+// РѕС‚РґРµР»СЊРЅС‹Р№ РѕР±СЂР°Р±РѕС‚С‡РёРє РґР»СЏ RunCmd: С‚Р°Рј "cmd|bool_result|log_string(s)"
 void DebugVarRequester::CallbackCmdReplyReceive(const wchar_t* rawReply)
 {
-  wstring reply( rawReply ); //FIXME неохота пока возиться с именами функций для raw wchar_t*
+  wstring reply( rawReply ); //FIXME РЅРµРѕС…РѕС‚Р° РїРѕРєР° РІРѕР·РёС‚СЊСЃСЏ СЃ РёРјРµРЅР°РјРё С„СѓРЅРєС†РёР№ РґР»СЏ raw wchar_t*
 
   TIMESTAMP now = NHPTimer::GetScalarTime();
-  // делим reply на имя|значение|лог
+  // РґРµР»РёРј reply РЅР° РёРјСЏ|Р·РЅР°С‡РµРЅРёРµ|Р»РѕРі
   vector<wstring> words;
   NStr::SplitString( reply, &words, L"|" );
   if ( words.size() >= 3 )
@@ -184,7 +184,7 @@ void DebugVarRequester::CallbackCmdReplyReceive(const wchar_t* rawReply)
 
         lastVarsReceived = now;
 
-        // команды исполняем строго однократно
+        // РєРѕРјР°РЅРґС‹ РёСЃРїРѕР»РЅСЏРµРј СЃС‚СЂРѕРіРѕ РѕРґРЅРѕРєСЂР°С‚РЅРѕ
         LOG_D(0) << " // remove finished cmd '" << name << "'";
         vars.erase( it ); 
       }
@@ -197,7 +197,7 @@ void DebugVarRequester::CallbackCmdReplyReceive(const wchar_t* rawReply)
 }
 
 
-void DebugVarRequester::CallbackRemotePtrReceive( RDebugVarReporter* pReporter ) // ответ на Query<RDebugVarReporter>
+void DebugVarRequester::CallbackRemotePtrReceive( RDebugVarReporter* pReporter ) // РѕС‚РІРµС‚ РЅР° Query<RDebugVarReporter>
 {
   LOG_W(0) << "DebugVarRequester received queried ptr: " << (void*)pReporter;
   remote = pReporter;
@@ -240,7 +240,7 @@ bool DebugVarRequester::GetValue( const wstring &name, wstring& value ) const
 }
 
 bool DebugVarRequester::GetNextUpdatedVar( wstring &outName, wstring& outValue )
-{// каждая возвращенная переменная сразу помечается как checked
+{// РєР°Р¶РґР°СЏ РІРѕР·РІСЂР°С‰РµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ СЃСЂР°Р·Сѓ РїРѕРјРµС‡Р°РµС‚СЃСЏ РєР°Рє checked
   for(TClientVars::iterator it = vars.begin(); it != vars.end(); ++it )
   {
     SClientVar& var = it->second;
@@ -263,7 +263,7 @@ DebugVarRequesterMap::~DebugVarRequesterMap()
 {
   threading::MutexLock lock( mutex );
 
-  //for( TRequesters::const_iterator it = requesters.begin(); it != requesters.end(); ++it ) - теперь там StrongMT<>
+  //for( TRequesters::const_iterator it = requesters.begin(); it != requesters.end(); ++it ) - С‚РµРїРµСЂСЊ С‚Р°Рј StrongMT<>
   //  delete it->second;
   requesters.clear();
 }
@@ -274,12 +274,12 @@ DebugVarRequesterMap& DebugVarRequesterMap::AddScenario( const wstring &varName,
   threading::MutexLock lock( mutex );
 
   defaultScenario.push_back( SScenarioVar( varName, secUpdatePeriod ) );
-  return *this; // чтобы можно было вызывать цепочкой в одну строчку: req.AddScenario().AddScenario()...
+  return *this; // С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РІС‹Р·С‹РІР°С‚СЊ С†РµРїРѕС‡РєРѕР№ РІ РѕРґРЅСѓ СЃС‚СЂРѕС‡РєСѓ: req.AddScenario().AddScenario()...
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool DebugVarRequesterMap::RemoveScenario( const wstring &varName )
-{// удаляем переменную из сценария (true если и правда была такая)
+{// СѓРґР°Р»СЏРµРј РїРµСЂРµРјРµРЅРЅСѓСЋ РёР· СЃС†РµРЅР°СЂРёСЏ (true РµСЃР»Рё Рё РїСЂР°РІРґР° Р±С‹Р»Р° С‚Р°РєР°СЏ)
   threading::MutexLock lock( mutex );
 
   for( TScenarioVars::iterator it=defaultScenario.begin(); it != defaultScenario.end(); ++it )
@@ -294,7 +294,7 @@ bool DebugVarRequesterMap::RemoveScenario( const wstring &varName )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool DebugVarRequesterMap::RemoveScenarioByPrefix( const wstring &varName )
-{// удаляем из сценария все переменные с данным префиксом (true если была хоть одна такая)
+{// СѓРґР°Р»СЏРµРј РёР· СЃС†РµРЅР°СЂРёСЏ РІСЃРµ РїРµСЂРµРјРµРЅРЅС‹Рµ СЃ РґР°РЅРЅС‹Рј РїСЂРµС„РёРєСЃРѕРј (true РµСЃР»Рё Р±С‹Р»Р° С…РѕС‚СЊ РѕРґРЅР° С‚Р°РєР°СЏ)
   threading::MutexLock lock( mutex );
   bool result = false;
 
@@ -313,7 +313,7 @@ bool DebugVarRequesterMap::RemoveScenarioByPrefix( const wstring &varName )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void DebugVarRequesterMap::ListScenarios( nstl::wstring& out ) 
-{// простой дамп в формате "name:period,name:period.."
+{// РїСЂРѕСЃС‚РѕР№ РґР°РјРї РІ С„РѕСЂРјР°С‚Рµ "name:period,name:period.."
   threading::MutexLock lock( mutex );
 
   out.clear();
@@ -325,7 +325,7 @@ void DebugVarRequesterMap::ListScenarios( nstl::wstring& out )
   }
 
   if ( out.length() )
-    out.erase( out.length()-1 ); // убираем последнюю (лишнюю) запятую
+    out.erase( out.length()-1 ); // СѓР±РёСЂР°РµРј РїРѕСЃР»РµРґРЅСЋСЋ (Р»РёС€РЅСЋСЋ) Р·Р°РїСЏС‚СѓСЋ
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -337,12 +337,12 @@ void DebugVarRequesterMap::AddScenarios( const TScenarioVars& vec )
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// добавляем "одноразовую" переменную/команду, для конкретного реквестера, без добавления к общему сценарию
+// РґРѕР±Р°РІР»СЏРµРј "РѕРґРЅРѕСЂР°Р·РѕРІСѓСЋ" РїРµСЂРµРјРµРЅРЅСѓСЋ/РєРѕРјР°РЅРґСѓ, РґР»СЏ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ СЂРµРєРІРµСЃС‚РµСЂР°, Р±РµР· РґРѕР±Р°РІР»РµРЅРёСЏ Рє РѕР±С‰РµРјСѓ СЃС†РµРЅР°СЂРёСЋ
 bool DebugVarRequesterMap::AddImmediate( TUserId userId, const wstring &name, TIMESTAMP secPeriod )
 {
   threading::MutexLock lock( mutex );
 
-  StrongMT<DebugVarRequester> req(0); // если не найдем существующий requester, сделаем новый
+  StrongMT<DebugVarRequester> req(0); // РµСЃР»Рё РЅРµ РЅР°Р№РґРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ requester, СЃРґРµР»Р°РµРј РЅРѕРІС‹Р№
   TRequesters::iterator itReq = requesters.find( userId );
   if ( itReq == requesters.end() )
     req = new DebugVarRequester();
@@ -360,7 +360,7 @@ DebugVarRequester* DebugVarRequesterMap::AddRequester( long userID, rpc::Node* n
   StrongMT<DebugVarRequester> req = new DebugVarRequester();
   if( req )
   {
-    // дефолтный "сценарий опроса переменных", задается для всей нашей коллекции
+    // РґРµС„РѕР»С‚РЅС‹Р№ "СЃС†РµРЅР°СЂРёР№ РѕРїСЂРѕСЃР° РїРµСЂРµРјРµРЅРЅС‹С…", Р·Р°РґР°РµС‚СЃСЏ РґР»СЏ РІСЃРµР№ РЅР°С€РµР№ РєРѕР»Р»РµРєС†РёРё
     if ( bApplyDefaultScenario )
       for( TScenarioVars::const_iterator it = defaultScenario.begin(); it != defaultScenario.end(); ++it )
         req->ReqVar( it->wsName, it->updPeriod );
@@ -382,7 +382,7 @@ DebugVarRequester* DebugVarRequesterMap::QueryRequester( TUserId userID, rpc::No
   StrongMT<DebugVarRequester> req = new DebugVarRequester();
   if( req )
   {
-    // дефолтный "сценарий опроса переменных", задается для всей нашей коллекции
+    // РґРµС„РѕР»С‚РЅС‹Р№ "СЃС†РµРЅР°СЂРёР№ РѕРїСЂРѕСЃР° РїРµСЂРµРјРµРЅРЅС‹С…", Р·Р°РґР°РµС‚СЃСЏ РґР»СЏ РІСЃРµР№ РЅР°С€РµР№ РєРѕР»Р»РµРєС†РёРё
     if ( bApplyDefaultScenario )
       for( TScenarioVars::const_iterator it = defaultScenario.begin(); it != defaultScenario.end(); ++it )
         req->ReqVar( it->wsName, it->updPeriod );
@@ -406,7 +406,7 @@ bool DebugVarRequesterMap::RemoveRequester( TUserId userId )
   TRequesters::iterator itReq = requesters.find( userId );
   if ( itReq != requesters.end() )
   { 
-    //SAFE_DELETE( itReq->second ); - теперь там StrongMT<>
+    //SAFE_DELETE( itReq->second ); - С‚РµРїРµСЂСЊ С‚Р°Рј StrongMT<>
     requesters.erase( itReq );
     return true;
   }
@@ -443,18 +443,18 @@ DebugVarRequester* DebugVarRequesterMap::GetNextUpdated()
     if ( !it->second->IsChecked() )
       return it->second;
  
-  return NULL; // ничего нового
+  return NULL; // РЅРёС‡РµРіРѕ РЅРѕРІРѕРіРѕ
 }
 
 int DebugVarRequesterMap::ForEachUpdatedVar( TCallbackType funcCallback, void* param )
 {
-  int updatedCount = 0; // заодно посчитаем, сколько переменных изменилось (и сколько было вызовов)
+  int updatedCount = 0; // Р·Р°РѕРґРЅРѕ РїРѕСЃС‡РёС‚Р°РµРј, СЃРєРѕР»СЊРєРѕ РїРµСЂРµРјРµРЅРЅС‹С… РёР·РјРµРЅРёР»РѕСЃСЊ (Рё СЃРєРѕР»СЊРєРѕ Р±С‹Р»Рѕ РІС‹Р·РѕРІРѕРІ)
 
   if ( funcCallback )
   {
     DebugVarRequester* req = GetNextUpdated();
     wstring name, value;
-    while( req ) // while ( req = GetNext() ) зобанено, из-за warning
+    while( req ) // while ( req = GetNext() ) Р·РѕР±Р°РЅРµРЅРѕ, РёР·-Р·Р° warning
     {
       while ( req->GetNextUpdatedVar( name, value ) )
       {
@@ -470,7 +470,7 @@ int DebugVarRequesterMap::ForEachUpdatedVar( TCallbackType funcCallback, void* p
   return updatedCount;
 }
 
-// добавляем переменную "для немедленного исполнения всем", т.е. ко всем существующим requester'ам
+// РґРѕР±Р°РІР»СЏРµРј РїРµСЂРµРјРµРЅРЅСѓСЋ "РґР»СЏ РЅРµРјРµРґР»РµРЅРЅРѕРіРѕ РёСЃРїРѕР»РЅРµРЅРёСЏ РІСЃРµРј", С‚.Рµ. РєРѕ РІСЃРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРј requester'Р°Рј
 void DebugVarRequesterMap::AddVarBroadcast( const wstring &name, TIMESTAMP secPeriod )
 {
   threading::MutexLock lock( mutex );
@@ -502,7 +502,7 @@ bool SScenarioVar::Parse( const nstl::string &pair, bool cmd_may_omit_period )
       return true;
     }
     else if ( cmd_may_omit_period )
-    {// при парсинге команд можно опускать ":-1"
+    {// РїСЂРё РїР°СЂСЃРёРЅРіРµ РєРѕРјР°РЅРґ РјРѕР¶РЅРѕ РѕРїСѓСЃРєР°С‚СЊ ":-1"
       wchar_t buf[256];
       NStr::ToWString<char const*>( pair.c_str(), buf, 256 );
     
@@ -533,18 +533,18 @@ void Test_DebugVarRequester::TEST_Case1()
 {
   wstring value;
 
-  ReqVarOnce( L"var1" ); // эту спросим 1 раз
-  ReqVar( L"var2", 0.1 ); // эту будем спрашивать 10 раз в секунду
+  ReqVarOnce( L"var1" ); // СЌС‚Сѓ СЃРїСЂРѕСЃРёРј 1 СЂР°Р·
+  ReqVar( L"var2", 0.1 ); // СЌС‚Сѓ Р±СѓРґРµРј СЃРїСЂР°С€РёРІР°С‚СЊ 10 СЂР°Р· РІ СЃРµРєСѓРЅРґСѓ
 
-  ReqVar( L"var3", 0.2 ); // эту будем спрашивать 5 раз в секунду
-  RemoveVar( L"var3" ); // нет, лучше не будем
+  ReqVar( L"var3", 0.2 ); // СЌС‚Сѓ Р±СѓРґРµРј СЃРїСЂР°С€РёРІР°С‚СЊ 5 СЂР°Р· РІ СЃРµРєСѓРЅРґСѓ
+  RemoveVar( L"var3" ); // РЅРµС‚, Р»СѓС‡С€Рµ РЅРµ Р±СѓРґРµРј
 
   NI_ASSERT( vars.size() == 2, "bad vars count" ); 
-  NI_ASSERT( false == GetValue( L"var1", value ), "var1 returned w/o request" ); // lastReceived не инициализировано
+  NI_ASSERT( false == GetValue( L"var1", value ), "var1 returned w/o request" ); // lastReceived РЅРµ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅРѕ
     
   TIMESTAMP t1 = NHPTimer::GetScalarTime();
 
-  // бегаем пару секунд 
+  // Р±РµРіР°РµРј РїР°СЂСѓ СЃРµРєСѓРЅРґ 
   while( NHPTimer::GetScalarTime() - t1 < 0.5 )
   {
     UpdateStep();
@@ -557,13 +557,13 @@ void Test_DebugVarRequester::TEST_Case1()
   
   TClientVars::iterator it = vars.find( L"var1" );
   NI_ASSERT( it != vars.end(), "no var1" );
-  NI_ASSERT( it->second.lastRequested > 0, "var1 not requested" ); // запрос вызывался  
-  NI_ASSERT( it->second.lastRequested - t1 < 0.2, "bad var1 request time" ); // вызывался достаточно давно, т.е. вероятно однократно
+  NI_ASSERT( it->second.lastRequested > 0, "var1 not requested" ); // Р·Р°РїСЂРѕСЃ РІС‹Р·С‹РІР°Р»СЃСЏ  
+  NI_ASSERT( it->second.lastRequested - t1 < 0.2, "bad var1 request time" ); // РІС‹Р·С‹РІР°Р»СЃСЏ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР°РІРЅРѕ, С‚.Рµ. РІРµСЂРѕСЏС‚РЅРѕ РѕРґРЅРѕРєСЂР°С‚РЅРѕ
 
   it = vars.find( L"var2" );
   NI_ASSERT( it != vars.end(), "no var2" );
-  NI_ASSERT( it->second.lastRequested > 0, "var2 not requested" ); // запрос вызывался  
-  NI_ASSERT( t2 - it->second.lastRequested < 0.2, "bad var2 request time" ); // вызывался недавно, т.е. периодически
+  NI_ASSERT( it->second.lastRequested > 0, "var2 not requested" ); // Р·Р°РїСЂРѕСЃ РІС‹Р·С‹РІР°Р»СЃСЏ  
+  NI_ASSERT( t2 - it->second.lastRequested < 0.2, "bad var2 request time" ); // РІС‹Р·С‹РІР°Р»СЃСЏ РЅРµРґР°РІРЅРѕ, С‚.Рµ. РїРµСЂРёРѕРґРёС‡РµСЃРєРё
 
   CallbackValueReceive( L"var1|value1" );
   bool ok = GetValue( L"var1", value );
@@ -579,7 +579,7 @@ static void OnVarChanged(const TUserId& userId, wstring& name, wstring& value, v
 }
 
 void Test_DebugVarRequesterMap::TEST_Case1()
-{// тест всего Map
+{// С‚РµСЃС‚ РІСЃРµРіРѕ Map
   AddScenario( L"var1" ).AddScenario( L"var2", 1.0 );
 
   DebugVarRequester *req1 = AddRequester( 1, NULL );
@@ -596,7 +596,7 @@ void Test_DebugVarRequesterMap::TEST_Case1()
 
   NI_ASSERT( GetNextUpdated() == NULL, "GetNextUpdated returns with no updates" ); 
 
-  // теперь якобы вернем что-нибудь
+  // С‚РµРїРµСЂСЊ СЏРєРѕР±С‹ РІРµСЂРЅРµРј С‡С‚Рѕ-РЅРёР±СѓРґСЊ
   req2->CallbackValueReceive( L"var1|some_val" );
 
   DebugVarRequester *updated = GetNextUpdated();
@@ -615,11 +615,11 @@ void Test_DebugVarRequesterMap::TEST_Case1()
   updated->SetChecked();
   NI_ASSERT( GetNextUpdated() == NULL, "GetNextUpdated returns after SetChecked" ); 
 
-  // якобы вернем 2 переменных
+  // СЏРєРѕР±С‹ РІРµСЂРЅРµРј 2 РїРµСЂРµРјРµРЅРЅС‹С…
   req1->CallbackValueReceive( L"var2|some_val2" );
   req2->CallbackValueReceive( L"var1|some_val1" );
   
-  // и натравим ForEach, с подсчетом кол-ва изменившихся
+  // Рё РЅР°С‚СЂР°РІРёРј ForEach, СЃ РїРѕРґСЃС‡РµС‚РѕРј РєРѕР»-РІР° РёР·РјРµРЅРёРІС€РёС…СЃСЏ
   g_ForEach_CallCount = 0;
   int retCount = ForEachUpdatedVar( &OnVarChanged, NULL );
 

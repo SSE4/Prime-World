@@ -72,7 +72,7 @@ struct ServerDef : public rpc::Data
   ZNOPARENT(rpc::Data)
   ServiceDefsT svcdefs;
   MachineInfo machineInfo;
-  Transport::TServiceId svcPathBase;  //  сервисы запущенные в этом сервере будут находится по этому пути
+  Transport::TServiceId svcPathBase;  //  СЃРµСЂРІРёСЃС‹ Р·Р°РїСѓС‰РµРЅРЅС‹Рµ РІ СЌС‚РѕРј СЃРµСЂРІРµСЂРµ Р±СѓРґСѓС‚ РЅР°С…РѕРґРёС‚СЃСЏ РїРѕ СЌС‚РѕРјСѓ РїСѓС‚Рё
   unsigned int pid;
 
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&svcdefs); f.Add(3,&machineInfo); f.Add(4,&svcPathBase); f.Add(5,&pid); return 0; }

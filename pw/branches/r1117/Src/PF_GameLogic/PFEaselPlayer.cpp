@@ -181,7 +181,7 @@ bool PFEaselPlayer::StartMinigame( PFMinigamePlace * pPlace )
 
   Isolate( true );
 
-  // Избавляемся от стейтов в очереди. 
+  // РР·Р±Р°РІР»СЏРµРјСЃСЏ РѕС‚ СЃС‚РµР№С‚РѕРІ РІ РѕС‡РµСЂРµРґРё. 
   FlushStateQueue();
 
   if (!CheckFlag(NDb::UNITFLAG_INMINIGAME))

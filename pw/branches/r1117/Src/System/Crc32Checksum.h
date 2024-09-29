@@ -4,9 +4,9 @@
 
 // Yet another crc32 checksum generator-calculator class for everyday use.
 // All methods support chaining, i.e. Crc32ChecksumBase().Add(x).Add(y).Get();
-// Параметр dummy, в последствии замененный на StatisticsStrategy, понадобился для 
-// обхода ошибки линковки, при которой статическое поле table переставало 
-// находится после переноса функций Add из cpp в h-файл
+// РџР°СЂР°РјРµС‚СЂ dummy, РІ РїРѕСЃР»РµРґСЃС‚РІРёРё Р·Р°РјРµРЅРµРЅРЅС‹Р№ РЅР° StatisticsStrategy, РїРѕРЅР°РґРѕР±РёР»СЃСЏ РґР»СЏ 
+// РѕР±С…РѕРґР° РѕС€РёР±РєРё Р»РёРЅРєРѕРІРєРё, РїСЂРё РєРѕС‚РѕСЂРѕР№ СЃС‚Р°С‚РёС‡РµСЃРєРѕРµ РїРѕР»Рµ table РїРµСЂРµСЃС‚Р°РІР°Р»Рѕ 
+// РЅР°С…РѕРґРёС‚СЃСЏ РїРѕСЃР»Рµ РїРµСЂРµРЅРѕСЃР° С„СѓРЅРєС†РёР№ Add РёР· cpp РІ h-С„Р°Р№Р»
 template<class StatisticsStrategy>
 class Crc32ChecksumBase: public StatisticsStrategy
 {

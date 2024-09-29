@@ -35,20 +35,20 @@ class CStandartPath2 : public IPath, public PFWorldObjectBase
 	int     nBoundTileRadiusDyn;
 
 	CPtr<CCommonStaticPath> pStaticPath;
-	int     nCurStaticPathTile;	// используется в CalculatePath() и RecoverPath()
+	int     nCurStaticPathTile;	// РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ CalculatePath() Рё RecoverPath()
 
-	CVec2   vStartPoint;				// начальная точка движения юнита (может быть смещена относительно pStaticPath для группы)
-	CVec2   vFinishPoint;				// конечная точка движения юнита
-	SVector vFinishTile;				// конечная точка движения юнита как тайл
+	CVec2   vStartPoint;				// РЅР°С‡Р°Р»СЊРЅР°СЏ С‚РѕС‡РєР° РґРІРёР¶РµРЅРёСЏ СЋРЅРёС‚Р° (РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃРјРµС‰РµРЅР° РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ pStaticPath РґР»СЏ РіСЂСѓРїРїС‹)
+	CVec2   vFinishPoint;				// РєРѕРЅРµС‡РЅР°СЏ С‚РѕС‡РєР° РґРІРёР¶РµРЅРёСЏ СЋРЅРёС‚Р°
+	SVector vFinishTile;				// РєРѕРЅРµС‡РЅР°СЏ С‚РѕС‡РєР° РґРІРёР¶РµРЅРёСЏ СЋРЅРёС‚Р° РєР°Рє С‚Р°Р№Р»
 
-	int     remainingLength;		// длина остатка пути в тайлах
+	int     remainingLength;		// РґР»РёРЅР° РѕСЃС‚Р°С‚РєР° РїСѓС‚Рё РІ С‚Р°Р№Р»Р°С…
 
 	vector<SVector> insTiles;
 	int     nCurInsTile;
 
 	vector<SVector> pathTiles;
-	int     nCurPathTile;				// модифицируется только из Shift()
-	int     nLastPathTile;			// модифицируется только из CopyPath(); указывает на последний запомненный тайл вычисленного пути
+	int     nCurPathTile;				// РјРѕРґРёС„РёС†РёСЂСѓРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РёР· Shift()
+	int     nLastPathTile;			// РјРѕРґРёС„РёС†РёСЂСѓРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РёР· CopyPath(); СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРѕСЃР»РµРґРЅРёР№ Р·Р°РїРѕРјРЅРµРЅРЅС‹Р№ С‚Р°Р№Р» РІС‹С‡РёСЃР»РµРЅРЅРѕРіРѕ РїСѓС‚Рё
 	CPtr<IPointChecking> pointChecking;
 
 
@@ -84,16 +84,16 @@ public:
 	virtual const CVec2& GetStartPoint() const { return vStartPoint; }
 
 	bool TryUpdatePath(const CVec2 &target);
-	// восстановить (пересчитать новый статический путь) путь из новой точки ( vPoint )
+	// РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ (РїРµСЂРµСЃС‡РёС‚Р°С‚СЊ РЅРѕРІС‹Р№ СЃС‚Р°С‚РёС‡РµСЃРєРёР№ РїСѓС‚СЊ) РїСѓС‚СЊ РёР· РЅРѕРІРѕР№ С‚РѕС‡РєРё ( vPoint )
 	virtual void RecoverPath( const CVec2 &vPoint, const SVector &vLastKnownGoodTile, int numSteps );
-	// пересчитать путь из новой точки ( vPoint ); вернёт false, если путь не построен
+	// РїРµСЂРµСЃС‡РёС‚Р°С‚СЊ РїСѓС‚СЊ РёР· РЅРѕРІРѕР№ С‚РѕС‡РєРё ( vPoint ); РІРµСЂРЅС‘С‚ false, РµСЃР»Рё РїСѓС‚СЊ РЅРµ РїРѕСЃС‚СЂРѕРµРЅ
 	virtual bool RecalcPath( const CVec2 &vPoint, const SVector &vLastKnownGoodTile, IPathValidator *pValidator, int numSteps );
   virtual bool CalcShortPath( const SVector &vDest, const CVec2 &vPoint, const SVector &vLastKnownGoodTile, IPathValidator *pValidator, int numSteps );
-	// добавить тайлы в начало пути, для нормального продолжения после InsertTiles необходимо вызвать RecoverPath
+	// РґРѕР±Р°РІРёС‚СЊ С‚Р°Р№Р»С‹ РІ РЅР°С‡Р°Р»Рѕ РїСѓС‚Рё, РґР»СЏ РЅРѕСЂРјР°Р»СЊРЅРѕРіРѕ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РїРѕСЃР»Рµ InsertTiles РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹Р·РІР°С‚СЊ RecoverPath
 	virtual void InsertTiles( const list<SVector> &tiles );
-  // необходимо проверить можно ли развернуться для того, что бы ехать по данному пути
+  // РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РЅРѕ Р»Рё СЂР°Р·РІРµСЂРЅСѓС‚СЊСЃСЏ РґР»СЏ С‚РѕРіРѕ, С‡С‚Рѕ Р±С‹ РµС…Р°С‚СЊ РїРѕ РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё
 	virtual const bool ShouldCheckTurn() const { return true; }
-	// можно ли для этого пути построить сложный разворот (все равно разворотов по окружности ПОКА нет)
+	// РјРѕР¶РЅРѕ Р»Рё РґР»СЏ СЌС‚РѕРіРѕ РїСѓС‚Рё РїРѕСЃС‚СЂРѕРёС‚СЊ СЃР»РѕР¶РЅС‹Р№ СЂР°Р·РІРѕСЂРѕС‚ (РІСЃРµ СЂР°РІРЅРѕ СЂР°Р·РІРѕСЂРѕС‚РѕРІ РїРѕ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РџРћРљРђ РЅРµС‚)
 	virtual const bool CanBuildComplexTurn() const { return false; }
 	virtual bool NeedToBeStepped() { return false; }
 };

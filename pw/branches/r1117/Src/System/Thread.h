@@ -36,7 +36,7 @@ public:
   unsigned int Suspend(); //Use of this function is NOT recommended!
   bool Wait( unsigned int timeout = INFINITE ); // wait thread to finish timeout milliseconds,  returns true if thread is finished
   bool Finished() { return Wait( 0 ); } // returns true if thread is finished
-  void      Terminate( unsigned int exitCode ); //Насильственное завершение
+  void      Terminate( unsigned int exitCode ); //РќР°СЃРёР»СЊСЃС‚РІРµРЅРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ
   void      SetPriority( int priority );
   HANDLE    Handle() const { return externalHandle; }
   unsigned int Id() const { return threadID; }

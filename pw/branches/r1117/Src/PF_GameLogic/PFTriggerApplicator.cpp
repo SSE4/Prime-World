@@ -756,7 +756,7 @@ namespace NWorld
       {
         DummyFormulaPars dummy( pOwner, pBuffApplicator->GetLifetime() );
         const float newLifetime = db.newLifetime( pOwner->GetAbilityOwner(), pOwner->GetReceiver(), &dummy );
-        pBuffApplicator->SetLifetime( newLifetime ); // что с дочерними аппликаторами, если они вдруг используют lifetime?
+        pBuffApplicator->SetLifetime( newLifetime ); // С‡С‚Рѕ СЃ РґРѕС‡РµСЂРЅРёРјРё Р°РїРїР»РёРєР°С‚РѕСЂР°РјРё, РµСЃР»Рё РѕРЅРё РІРґСЂСѓРі РёСЃРїРѕР»СЊР·СѓСЋС‚ lifetime?
         pBuffApplicator->SetDuration( pBuffApplicator->GetModifiedDuration( newLifetime ) );
       }
       else
@@ -921,7 +921,7 @@ namespace NWorld
       NI_ASSERT(pControlledApplicator, "Applicator name in EventProcessorOnUseAbilityForceStrike must be an SpellPeriodicallyVisualApplicator!");
       if (pControlledApplicator)
       {
-        // HACK!!! Мы не можем сделать иначе, потому что внутри страйка нужен неконстантный this :(
+        // HACK!!! РњС‹ РЅРµ РјРѕР¶РµРј СЃРґРµР»Р°С‚СЊ РёРЅР°С‡Рµ, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РІРЅСѓС‚СЂРё СЃС‚СЂР°Р№РєР° РЅСѓР¶РµРЅ РЅРµРєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ this :(
         const_cast<PFApplSpellPeriodicallyVisual*>(pControlledApplicator)->DoStrike();
       }
     }

@@ -56,7 +56,7 @@ private:
     bool              valid;
     bool              newThread;
 
-    profiler3::TRootEventsDescription  rootEvents; //Внимание! Здесь id евентов идут уже НЕ подряд, могут быть пропуски
+    profiler3::TRootEventsDescription  rootEvents; //Р’РЅРёРјР°РЅРёРµ! Р—РґРµСЃСЊ id РµРІРµРЅС‚РѕРІ РёРґСѓС‚ СѓР¶Рµ РќР• РїРѕРґСЂСЏРґ, РјРѕРіСѓС‚ Р±С‹С‚СЊ РїСЂРѕРїСѓСЃРєРё
 
     profiler3::SWorstEventsSet worstEvents;
 

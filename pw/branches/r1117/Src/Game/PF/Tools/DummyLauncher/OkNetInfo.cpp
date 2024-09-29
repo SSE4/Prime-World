@@ -81,7 +81,7 @@ bool OkNetInfo::Authorize()
       if(GetFirstToken(code) && RefreshToken(m_refreshToken))
         return GetUserData();
     }
-    // ошибка
+    // РѕС€РёР±РєР°
   }
   return false;
 }
@@ -185,7 +185,7 @@ bool OkNetInfo::RefreshToken(const std::string& oldToken)
       g_App->GetConsole().AddText(STYLE_FROM_SERVER_ERROR, req.GetResult());
     }
   }
-  // ошибка
+  // РѕС€РёР±РєР°
   m_loggedIn = false;
 
   return false;

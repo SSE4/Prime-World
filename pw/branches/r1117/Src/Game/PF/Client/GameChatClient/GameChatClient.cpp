@@ -43,7 +43,7 @@ namespace gamechat
 
   void Client::Shutdown()
   {
-    // Ðàçðûâàåì êîëüöî NUM_TASK
+    // Ð Ð°Ð·Ñ€Ñ‹Ð²Ð°ÐµÐ¼ ÐºÐ¾Ð»ÑŒÑ†Ð¾ NUM_TASK
     if ( chatiface_ )
       chatiface_->close();
     chatiface_ = 0;

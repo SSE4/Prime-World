@@ -1,6 +1,6 @@
 /**
   FileStream implementation in Linux
-  @TODO: наделать кроссплатформенных юниттестов, особенно для file mappings
+  @TODO: РЅР°РґРµР»Р°С‚СЊ РєСЂРѕСЃСЃРїР»Р°С‚С„РѕСЂРјРµРЅРЅС‹С… СЋРЅРёС‚С‚РµСЃС‚РѕРІ, РѕСЃРѕР±РµРЅРЅРѕ РґР»СЏ file mappings
  */
 
 #include "stdafx.h"

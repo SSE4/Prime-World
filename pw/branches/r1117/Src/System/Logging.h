@@ -37,7 +37,7 @@ class IWriter : public IBaseInterfaceMT
   NI_DECLARE_CLASS_1( IWriter, IBaseInterfaceMT );
 
 public:
-  virtual void Write( const NLogg::SEntryInfo & _info, const char * _text ) = 0; //Заголовок будет формироваться позже, на основе настроек в конфиге
+  virtual void Write( const NLogg::SEntryInfo & _info, const char * _text ) = 0; //Р—Р°РіРѕР»РѕРІРѕРє Р±СѓРґРµС‚ С„РѕСЂРјРёСЂРѕРІР°С‚СЊСЃСЏ РїРѕР·Р¶Рµ, РЅР° РѕСЃРЅРѕРІРµ РЅР°СЃС‚СЂРѕРµРє РІ РєРѕРЅС„РёРіРµ
 };
 
 

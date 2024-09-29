@@ -121,7 +121,7 @@ int ACE_TMAIN(int argc, char* argv[])
 
   cfg.print();
 
-  // автоматически регистрируем внешний сервис "сервер статистики" (по умолчанию - на нашем собственном localhost:40002)
+  // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РІРЅРµС€РЅРёР№ СЃРµСЂРІРёСЃ "СЃРµСЂРІРµСЂ СЃС‚Р°С‚РёСЃС‚РёРєРё" (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - РЅР° РЅР°С€РµРј СЃРѕР±СЃС‚РІРµРЅРЅРѕРј localhost:40002)
   if( !cfg.loginaddr_.empty() )
   {
     StrongMT<Network::INetworkDriver> netDriver = Network::Initialize();
@@ -135,7 +135,7 @@ int ACE_TMAIN(int argc, char* argv[])
     StrongMT<Transport::ITransportSystem> transport = 
       Transport::CreateTransportSystem( netDriver, Transport::GetGlobalMessageFactory(), &dummyResolver );
 
-    // gatekeeper пусть AdminConsole::Client создает сам, и связь устанавливает сам; чтобы если что, удобно было встроить в другой App
+    // gatekeeper РїСѓСЃС‚СЊ AdminConsole::Client СЃРѕР·РґР°РµС‚ СЃР°Рј, Рё СЃРІСЏР·СЊ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃР°Рј; С‡С‚РѕР±С‹ РµСЃР»Рё С‡С‚Рѕ, СѓРґРѕР±РЅРѕ Р±С‹Р»Рѕ РІСЃС‚СЂРѕРёС‚СЊ РІ РґСЂСѓРіРѕР№ App
     ClientPtrT client = new AdminConsole::Client( 1, transport, cfg.loginaddr_ ); 
     //run_coordinator_connect_test:
     while( client && client->StepVarUpdate_Cluster() )

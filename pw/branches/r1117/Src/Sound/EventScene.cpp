@@ -1522,7 +1522,7 @@ static bool RestartSound( const char *name, const vector<wstring> &params )
 		NSoundScene::StartAmbient();
 		NSoundScene::StartHeartBeat();
 
-    // Восстановление категорий и текущей звуковой сцены
+    // Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№ Рё С‚РµРєСѓС‰РµР№ Р·РІСѓРєРѕРІРѕР№ СЃС†РµРЅС‹
     nstl::vector<NDb::SoundSceneDesc> soundScenesCache;
     for ( int i = 0; i < NSoundScene::soundScenes.size(); i++ )
     {

@@ -13,10 +13,10 @@ namespace Events
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 // file format:
 // header (LogFileHeader) 
-// далее повторяются блоки:
-// <event_size(2 bytes)> { if event_size != 0: <event_time(4 bytes)> <event_type(4 bytes)> <event_data(event_size bytes)> - сообщение с типом event_type
-//                       { if event_size == 0: <event_type(4 bytes)> { if event_type != 0 : <event_name(zero terminated)> - имя сообщения с типом event_type 
-//                                                                   { if event_type == 0 :                               - конец данных
+// РґР°Р»РµРµ РїРѕРІС‚РѕСЂСЏСЋС‚СЃСЏ Р±Р»РѕРєРё:
+// <event_size(2 bytes)> { if event_size != 0: <event_time(4 bytes)> <event_type(4 bytes)> <event_data(event_size bytes)> - СЃРѕРѕР±С‰РµРЅРёРµ СЃ С‚РёРїРѕРј event_type
+//                       { if event_size == 0: <event_type(4 bytes)> { if event_type != 0 : <event_name(zero terminated)> - РёРјСЏ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ С‚РёРїРѕРј event_type 
+//                                                                   { if event_type == 0 :                               - РєРѕРЅРµС† РґР°РЅРЅС‹С…
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static const uint EventFileLoggerVersion = 0x0101;
 #pragma pack( push, 1 )

@@ -138,7 +138,7 @@ bool EaselWorld::StartStatistics()
 //////////////////////////////////////////////////////////////////////////
 void EaselWorld::UpdateInputMove(SVector _mousePos)
 {
-  #pragma REMINDER( "TODO: убрать магические числа" )
+  #pragma REMINDER( "TODO: СѓР±СЂР°С‚СЊ РјР°РіРёС‡РµСЃРєРёРµ С‡РёСЃР»Р°" )
 
   _mousePos *= 10;
 
@@ -150,7 +150,7 @@ void EaselWorld::StepM(const EaselStepInfo& info)
 {
   NDebug::PerformanceDebugVarGuard perf(easelPerf_WorldStep, false);
 
-  #pragma REMINDER( "TODO: убрать магические числа" )
+  #pragma REMINDER( "TODO: СѓР±СЂР°С‚СЊ РјР°РіРёС‡РµСЃРєРёРµ С‡РёСЃР»Р°" )
 
   SEaselMouseInput mouseInput;
 

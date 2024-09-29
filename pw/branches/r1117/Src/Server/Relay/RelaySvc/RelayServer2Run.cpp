@@ -74,8 +74,8 @@ void RelayServer2::ThreadMain( volatile bool & _isRunning )
     manager.RegisterTrafficTrackerFactory( gamesvcls, spttf );
   }
 
-  //  'check connection activity timeout' используется для проверки keepalive клиентов
-  //  см. RelayClientProtocol::check_activity()
+  //  'check connection activity timeout' РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё keepalive РєР»РёРµРЅС‚РѕРІ
+  //  СЃРј. RelayClientProtocol::check_activity()
   ACE_Time_Value timeout (RelayServer2Cfg::GetCheckConnectionActivityTimeout(), 0);
   manager.set_timeout (timeout);
 

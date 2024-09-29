@@ -3135,7 +3135,7 @@ static void CreateCameraSpline(NGameX::AdventureScreen* pAdvScreen, const NDb::A
   NScene::SCameraPosition posFrom;
   pAdvScreen->GetCamera()->GetCameraPosition(&posFrom);
 
-  // конвертация в градусы, потому что эйлеровы углы хранятся в градусах
+  // РєРѕРЅРІРµСЂС‚Р°С†РёСЏ РІ РіСЂР°РґСѓСЃС‹, РїРѕС‚РѕРјСѓ С‡С‚Рѕ СЌР№Р»РµСЂРѕРІС‹ СѓРіР»С‹ С…СЂР°РЅСЏС‚СЃСЏ РІ РіСЂР°РґСѓСЃР°С…
   posFrom.ConvertFromRadToDeg();
 
   float pitch = posFrom.fPitch;

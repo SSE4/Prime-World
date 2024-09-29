@@ -139,7 +139,7 @@ void VotingForSurrenderLogic::Start( CPtr<PFPlayer> pPlayer )
   if( !IsValid(pPlayer) )
     return;
 
-  //Голосование может быть только одно
+  //Р“РѕР»РѕСЃРѕРІР°РЅРёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ РѕРґРЅРѕ
   if( state.IsVotingInProgress() )
   {
     DebugTrace( "Can't initiate voting because another one in progress" );
@@ -147,10 +147,10 @@ void VotingForSurrenderLogic::Start( CPtr<PFPlayer> pPlayer )
     return;
   }
    
-  //Любой игрок может инициировать голосование о сдаче в сессии только 
-  //начиная с N-й минуты игры
-  //У голосования есть КД (N секунд) - нельзя голосовать сразу же повторно 
-  //после отказа в первом голосовании.
+  //Р›СЋР±РѕР№ РёРіСЂРѕРє РјРѕР¶РµС‚ РёРЅРёС†РёРёСЂРѕРІР°С‚СЊ РіРѕР»РѕСЃРѕРІР°РЅРёРµ Рѕ СЃРґР°С‡Рµ РІ СЃРµСЃСЃРёРё С‚РѕР»СЊРєРѕ 
+  //РЅР°С‡РёРЅР°СЏ СЃ N-Р№ РјРёРЅСѓС‚С‹ РёРіСЂС‹
+  //РЈ РіРѕР»РѕСЃРѕРІР°РЅРёСЏ РµСЃС‚СЊ РљР” (N СЃРµРєСѓРЅРґ) - РЅРµР»СЊР·СЏ РіРѕР»РѕСЃРѕРІР°С‚СЊ СЃСЂР°Р·Сѓ Р¶Рµ РїРѕРІС‚РѕСЂРЅРѕ 
+  //РїРѕСЃР»Рµ РѕС‚РєР°Р·Р° РІ РїРµСЂРІРѕРј РіРѕР»РѕСЃРѕРІР°РЅРёРё.
   if( votingCooldown.IsInProgress() )
   {
     DebugTrace( "Can't initiate voting before N minutes of game or less than N seconds after prevision one" );
@@ -175,7 +175,7 @@ void VotingForSurrenderLogic::MakeDecision( CPtr<PFPlayer> pPlayer, VoteResult r
   if( !IsValid(pPlayer) )
     return;
     
-  //Голосование должно идти
+  //Р“РѕР»РѕСЃРѕРІР°РЅРёРµ РґРѕР»Р¶РЅРѕ РёРґС‚Рё
   if( !state.IsVotingInProgress() )
   {
     DebugTrace( "Can't make decision because voting is not in progress" );
@@ -204,7 +204,7 @@ bool VotingForSurrenderLogic::Step( float dtInSeconds )
   
   if( state.IsVotingInProgress() )
   {
-    //Игроки могут вывалится в любой момент, поэтому проверяем регулярно
+    //РРіСЂРѕРєРё РјРѕРіСѓС‚ РІС‹РІР°Р»РёС‚СЃСЏ РІ Р»СЋР±РѕР№ РјРѕРјРµРЅС‚, РїРѕСЌС‚РѕРјСѓ РїСЂРѕРІРµСЂСЏРµРј СЂРµРіСѓР»СЏСЂРЅРѕ
     if ( UpdateLeavers() )
       CheckForVotingComplete(); 
       
@@ -268,17 +268,17 @@ void VotingForSurrenderLogic::StartSurrender()
 
   ResetVoting();
         
-  //Начинаем процесс капитуляции
+  //РќР°С‡РёРЅР°РµРј РїСЂРѕС†РµСЃСЃ РєР°РїРёС‚СѓР»СЏС†РёРё
   DebugTrace( "Command accept surrender" );
   SendUserMsg( NDb::VFSUSERMESSAGES_COMMANDACCEPTSURRENDER, NameMap(this, stat) );  
     
-  //Находим главное здание
+  //РќР°С…РѕРґРёРј РіР»Р°РІРЅРѕРµ Р·РґР°РЅРёРµ
   typedef vector<PFMainBuilding*> BldCnt;
   BldCnt cnt;
   
   FindMainBuildings( GetWorld(), TeamIdToFaction(team), cnt );
     
-  //для команды противника там открывается варфог
+  //РґР»СЏ РєРѕРјР°РЅРґС‹ РїСЂРѕС‚РёРІРЅРёРєР° С‚Р°Рј РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ РІР°СЂС„РѕРі
   for( int i = 0; i < NDb::KnownEnum<NDb::EFaction>::sizeOf; ++i )
     if( i != TeamIdToFaction(team) )
         for( BldCnt::iterator it = cnt.begin(); it != cnt.end(); ++it )
@@ -287,20 +287,20 @@ void VotingForSurrenderLogic::StartSurrender()
           GetWorld()->GetFogOfWar()->AddObject( position, i, pDb->warforOpenedRadius );  
         }
 
-  // Сначала вызываем скриптовую функцию OnSurrender (если она есть)
+  // РЎРЅР°С‡Р°Р»Р° РІС‹Р·С‹РІР°РµРј СЃРєСЂРёРїС‚РѕРІСѓСЋ С„СѓРЅРєС†РёСЋ OnSurrender (РµСЃР»Рё РѕРЅР° РµСЃС‚СЊ)
   PFScript* pLuaScript = GetWorld()->GetAIContainer()->GetLuaScript();
   CALL_LUA_FUNCTION_ARG1( pLuaScript, "OnPlayersSurrender", false, (int)TeamIdToFaction(team) );
 
   if ( !cnt.empty() )
   {
-    //уничтожается Главное Здание, со всеми взрывами и эффектами, как при обычном поражении.
-    //камера переезжает к главному зданию сдавшейся команды
+    //СѓРЅРёС‡С‚РѕР¶Р°РµС‚СЃСЏ Р“Р»Р°РІРЅРѕРµ Р—РґР°РЅРёРµ, СЃРѕ РІСЃРµРјРё РІР·СЂС‹РІР°РјРё Рё СЌС„С„РµРєС‚Р°РјРё, РєР°Рє РїСЂРё РѕР±С‹С‡РЅРѕРј РїРѕСЂР°Р¶РµРЅРёРё.
+    //РєР°РјРµСЂР° РїРµСЂРµРµР·Р¶Р°РµС‚ Рє РіР»Р°РІРЅРѕРјСѓ Р·РґР°РЅРёСЋ СЃРґР°РІС€РµР№СЃСЏ РєРѕРјР°РЅРґС‹
     for( BldCnt::iterator it = cnt.begin(); it != cnt.end(); ++it )
       (*it)->KillUnit(); 
   }
   else 
   {
-    // А если главного здания нет - просто проигрываем
+    // Рђ РµСЃР»Рё РіР»Р°РІРЅРѕРіРѕ Р·РґР°РЅРёСЏ РЅРµС‚ - РїСЂРѕСЃС‚Рѕ РїСЂРѕРёРіСЂС‹РІР°РµРј
     GetWorld()->OnGameFinished( TeamIdToFaction(team) );
   }
 }
@@ -363,7 +363,7 @@ bool VotingForSurrenderLogic::TryVoteForDisconnectedPlayer(const NWorld::PFPlaye
 
   if (alreadyVoted)
   {
-    // нельзя менять, если уже голосовал за сдачу
+    // РЅРµР»СЊР·СЏ РјРµРЅСЏС‚СЊ, РµСЃР»Рё СѓР¶Рµ РіРѕР»РѕСЃРѕРІР°Р» Р·Р° СЃРґР°С‡Сѓ
     if (vote == VotedForSurrender)
       return false;
 
@@ -405,7 +405,7 @@ void VotingForSurrenderLogic::CalcStatistics( const State &state, Statistics &st
 {
   STARFORCE_STOPWATCH();
 
-  //Вычисляем общее количество игроков
+  //Р’С‹С‡РёСЃР»СЏРµРј РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёРіСЂРѕРєРѕРІ
   stat.playersCount = 0;
 
   for( int i = 0; i < GetWorld()->GetPlayersCount(); ++i )
@@ -416,7 +416,7 @@ void VotingForSurrenderLogic::CalcStatistics( const State &state, Statistics &st
       ++stat.playersCount;
   } 
 
-  //Вычисляем количество игроков проголосовавших за капитуляцию и против
+  //Р’С‹С‡РёСЃР»СЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РёРіСЂРѕРєРѕРІ РїСЂРѕРіРѕР»РѕСЃРѕРІР°РІС€РёС… Р·Р° РєР°РїРёС‚СѓР»СЏС†РёСЋ Рё РїСЂРѕС‚РёРІ
   stat.votesForSurrender = 0;
   stat.votesForFight = 0;
   PlayersVoteResult::const_iterator it;
@@ -462,18 +462,18 @@ void VotingForSurrenderLogic::CheckForVotingCompleteImpl()
   Statistics stat; 
   CalcStatistics( state, stat );
 
-  //Минимальное количество пользователей, которые могут проголосовать против при общем 
-  //положительном итоге 
+  //РњРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№, РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ РїСЂРѕРіРѕР»РѕСЃРѕРІР°С‚СЊ РїСЂРѕС‚РёРІ РїСЂРё РѕР±С‰РµРј 
+  //РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРј РёС‚РѕРіРµ 
   const int maxUsersForFightIgnored = pDbMission->maxUsersForFightIgnored;
 
-  //Если слишком много пользователей против, то голосование провалено
+  //Р•СЃР»Рё СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РїСЂРѕС‚РёРІ, С‚Рѕ РіРѕР»РѕСЃРѕРІР°РЅРёРµ РїСЂРѕРІР°Р»РµРЅРѕ
   if( stat.votesForFight > maxUsersForFightIgnored )
     StopVoting();
-  //Голосование считается состоявшимся, если проголосовало "против" не более N игроков
+  //Р“РѕР»РѕСЃРѕРІР°РЅРёРµ СЃС‡РёС‚Р°РµС‚СЃСЏ СЃРѕСЃС‚РѕСЏРІС€РёРјСЃСЏ, РµСЃР»Рё РїСЂРѕРіРѕР»РѕСЃРѕРІР°Р»Рѕ "РїСЂРѕС‚РёРІ" РЅРµ Р±РѕР»РµРµ N РёРіСЂРѕРєРѕРІ
   else if( stat.votesForSurrender + maxUsersForFightIgnored >= stat.playersCount )
   {
-    //Если голосование состоялось, то ставится задержка в N секунд  - задержка нужна, 
-    //чтобы успел "доголосовать" пятый игрок, если его голос ничего не решает
+    //Р•СЃР»Рё РіРѕР»РѕСЃРѕРІР°РЅРёРµ СЃРѕСЃС‚РѕСЏР»РѕСЃСЊ, С‚Рѕ СЃС‚Р°РІРёС‚СЃСЏ Р·Р°РґРµСЂР¶РєР° РІ N СЃРµРєСѓРЅРґ  - Р·Р°РґРµСЂР¶РєР° РЅСѓР¶РЅР°, 
+    //С‡С‚РѕР±С‹ СѓСЃРїРµР» "РґРѕРіРѕР»РѕСЃРѕРІР°С‚СЊ" РїСЏС‚С‹Р№ РёРіСЂРѕРє, РµСЃР»Рё РµРіРѕ РіРѕР»РѕСЃ РЅРёС‡РµРіРѕ РЅРµ СЂРµС€Р°РµС‚
     beforeSurrender.Start( pDb->delayBeforeVotingComplete );  
   }
 }

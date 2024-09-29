@@ -56,7 +56,7 @@ public:
   virtual void SoftStopService(Transport::TServiceId const & _svcid);
   virtual void ReloadConfig( const Transport::TServiceId & svcid );
 
-  void Step(); // периодические таски (context timeouts и т.п.)
+  void Step(); // РїРµСЂРёРѕРґРёС‡РµСЃРєРёРµ С‚Р°СЃРєРё (context timeouts Рё С‚.Рї.)
 
 protected:
 
@@ -99,7 +99,7 @@ private:
   typedef nstl::vector<StrongMT<ClientContext> > ClientContextsT;
   ClientContextsT clientContexts;
 
-  StrongMT<rpc::GateKeeper> gateKeeper; // // был weak, но живем мы все равно только в CoordinatorRunner, у которого strong
+  StrongMT<rpc::GateKeeper> gateKeeper; // // Р±С‹Р» weak, РЅРѕ Р¶РёРІРµРј РјС‹ РІСЃРµ СЂР°РІРЅРѕ С‚РѕР»СЊРєРѕ РІ CoordinatorRunner, Сѓ РєРѕС‚РѕСЂРѕРіРѕ strong
   StrongMT<IServiceAppearanceNotifySink> serviceAppearanceNotify;
 
   StrongMT<ClientContext> FindClientContext(ServerIdT const & _srvid);

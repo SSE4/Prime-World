@@ -56,8 +56,8 @@ namespace PF_Minigames
 
         if( _ball->Color() == _color )
         {
-          int64 _dist = CalculateDistance(_zeroPoint,_ball->Position()); // определить расстояние до точки ...
-          // сравнить расстояние с радиусами
+          int64 _dist = CalculateDistance(_zeroPoint,_ball->Position()); // РѕРїСЂРµРґРµР»РёС‚СЊ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ С‚РѕС‡РєРё ...
+          // СЃСЂР°РІРЅРёС‚СЊ СЂР°СЃСЃС‚РѕСЏРЅРёРµ СЃ СЂР°РґРёСѓСЃР°РјРё
           if(_dist <= _externalRad)
           {
             if(fGotBall == false)

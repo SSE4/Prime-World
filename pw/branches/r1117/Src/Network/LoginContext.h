@@ -7,7 +7,7 @@
 #include "System/HPTimer.h"
 #include "UserManager/UserManagerSvc/RUserManagerIface.auto.h"
 
-// имена лог-каналов (для всех логин-классов)
+// РёРјРµРЅР° Р»РѕРі-РєР°РЅР°Р»РѕРІ (РґР»СЏ РІСЃРµС… Р»РѕРіРёРЅ-РєР»Р°СЃСЃРѕРІ)
 #define LOGIN_CHNL "Login" 
 
 namespace Relay
@@ -25,8 +25,8 @@ struct SLoginContext : public UserManager::IPrepareUserEnvCallback, public BaseO
 {
   NI_DECLARE_REFCOUNT_CLASS_2( SLoginContext, UserManager::IPrepareUserEnvCallback, BaseObjectMT );
 
-  enum TStage { // STAGE_XXX: состояния, _TIME_XXX: просто замеры времени для stageTimes
-    #define EnUm( x ) x // для .h -- значение, для .cpp -- строчное представление
+  enum TStage { // STAGE_XXX: СЃРѕСЃС‚РѕСЏРЅРёСЏ, _TIME_XXX: РїСЂРѕСЃС‚Рѕ Р·Р°РјРµСЂС‹ РІСЂРµРјРµРЅРё РґР»СЏ stageTimes
+    #define EnUm( x ) x // РґР»СЏ .h -- Р·РЅР°С‡РµРЅРёРµ, РґР»СЏ .cpp -- СЃС‚СЂРѕС‡РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ
       EnUm( STAGE_RECONNECT_CHECK_START ),
       EnUm( STAGE_RECONNECT_CHECK_IN_PROGRESS ),
       EnUm( STAGE_RECONNECT_CHECK_FINISH ),
@@ -39,8 +39,8 @@ struct SLoginContext : public UserManager::IPrepareUserEnvCallback, public BaseO
       EnUm( STAGE_PREPARE_USER_ENVIRONMENT_RETURN ),
       EnUm( STAGE_PREPARE_USER_ENVIRONMENT_IN_PROGRESS ),
       EnUm( STAGE_PREPARE_USER_ENVIRONMENT_COMPLETED ),
-      EnUm( _TIME_FAIL ), // обломались (ошибка или таймаут)
-      EnUm( _TIME_SUCCESS ), // закончили с логином; после ответа клиенту прибьем
+      EnUm( _TIME_FAIL ), // РѕР±Р»РѕРјР°Р»РёСЃСЊ (РѕС€РёР±РєР° РёР»Рё С‚Р°Р№РјР°СѓС‚)
+      EnUm( _TIME_SUCCESS ), // Р·Р°РєРѕРЅС‡РёР»Рё СЃ Р»РѕРіРёРЅРѕРј; РїРѕСЃР»Рµ РѕС‚РІРµС‚Р° РєР»РёРµРЅС‚Сѓ РїСЂРёР±СЊРµРј
       EnUm( _TIME_REPLY_SENT ),
       //--
       TOTAL_STAGE_COUNT
@@ -49,8 +49,8 @@ struct SLoginContext : public UserManager::IPrepareUserEnvCallback, public BaseO
   static const char* StageNames[];
 
   TStage                stage;
-  volatile bool         isLoginChecked; // для ZZima будет делаться асинхронно, через отдельную очередь заявок
-  Timestamp             timeLastRequest; // для таймаутов
+  volatile bool         isLoginChecked; // РґР»СЏ ZZima Р±СѓРґРµС‚ РґРµР»Р°С‚СЊСЃСЏ Р°СЃРёРЅС…СЂРѕРЅРЅРѕ, С‡РµСЂРµР· РѕС‚РґРµР»СЊРЅСѓСЋ РѕС‡РµСЂРµРґСЊ Р·Р°СЏРІРѕРє
+  Timestamp             timeLastRequest; // РґР»СЏ С‚Р°Р№РјР°СѓС‚РѕРІ
 
   StrongMT<Network::IConnection> connection;
   LoginRequestMessage   request;
@@ -67,8 +67,8 @@ struct SLoginContext : public UserManager::IPrepareUserEnvCallback, public BaseO
 
   Timestamp             stageTimes[ TOTAL_STAGE_COUNT ];
 
-  SLoginContext(Network::IConnection* conn_=0); // будем слегка тестировать новые strong/weak, поэтому не inline
-  ~SLoginContext(); // будем слегка тестировать новые strong/weak, поэтому не inline
+  SLoginContext(Network::IConnection* conn_=0); // Р±СѓРґРµРј СЃР»РµРіРєР° С‚РµСЃС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІС‹Рµ strong/weak, РїРѕСЌС‚РѕРјСѓ РЅРµ inline
+  ~SLoginContext(); // Р±СѓРґРµРј СЃР»РµРіРєР° С‚РµСЃС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІС‹Рµ strong/weak, РїРѕСЌС‚РѕРјСѓ РЅРµ inline
 
   void SetStage(const TStage stage_);
   bool IsTimeout(const Timestamp now_);
@@ -89,15 +89,15 @@ struct SLoginContext : public UserManager::IPrepareUserEnvCallback, public BaseO
 };
 
 typedef nstl::list<StrongMT<SLoginContext> > TLoginContexts;
-typedef nstl::map<int,StrongMT<SLoginContext> > TLoginContextMap; // [userId] -> strong<SLoginContext>, для маппинга нотификаций
+typedef nstl::map<int,StrongMT<SLoginContext> > TLoginContextMap; // [userId] -> strong<SLoginContext>, РґР»СЏ РјР°РїРїРёРЅРіР° РЅРѕС‚РёС„РёРєР°С†РёР№
 
 
 
 enum ESessionLoginMode
 {
-  SESSION_LOGIN_NONE = 0, // игнорируем sessionKey
-  SESSION_LOGIN_CHECK, // проверяем sessionKey, подставляем sessionPath
-  SESSION_LOGIN_ONLY // вообще запрещаем коннектиться без валидного sessionKey
+  SESSION_LOGIN_NONE = 0, // РёРіРЅРѕСЂРёСЂСѓРµРј sessionKey
+  SESSION_LOGIN_CHECK, // РїСЂРѕРІРµСЂСЏРµРј sessionKey, РїРѕРґСЃС‚Р°РІР»СЏРµРј sessionPath
+  SESSION_LOGIN_ONLY // РІРѕРѕР±С‰Рµ Р·Р°РїСЂРµС‰Р°РµРј РєРѕРЅРЅРµРєС‚РёС‚СЊСЃСЏ Р±РµР· РІР°Р»РёРґРЅРѕРіРѕ sessionKey
 };
 
 
@@ -106,18 +106,18 @@ struct IAsyncLoginProcessor
 {
   virtual void setUserManagerIface( rpc::IfaceRequester<UserManager::RIUserManager> * _userMngrIface ) {};
 
-  // НЕ pure virtual: чтобы не заставлять вносить новые методы там где они пустые (без ZZima и т.п.)
+  // РќР• pure virtual: С‡С‚РѕР±С‹ РЅРµ Р·Р°СЃС‚Р°РІР»СЏС‚СЊ РІРЅРѕСЃРёС‚СЊ РЅРѕРІС‹Рµ РјРµС‚РѕРґС‹ С‚Р°Рј РіРґРµ РѕРЅРё РїСѓСЃС‚С‹Рµ (Р±РµР· ZZima Рё С‚.Рї.)
   virtual bool PerformLoginCheck( string const &login, string const &password, Network::IConnection *connection, Login::LoginResultData * result ) { return true; }
 
   // async
   virtual bool MainStep() { return false; }
   virtual bool ClientStep( StrongMT<SLoginContext> & context ) { return false; }
-  virtual unsigned GetAsyncOpCount() { return 0; } // кол-во асинхронных операций, выполненных за текущий степ
+  virtual unsigned GetAsyncOpCount() { return 0; } // РєРѕР»-РІРѕ Р°СЃРёРЅС…СЂРѕРЅРЅС‹С… РѕРїРµСЂР°С†РёР№, РІС‹РїРѕР»РЅРµРЅРЅС‹С… Р·Р° С‚РµРєСѓС‰РёР№ СЃС‚РµРї
 
-  // результат ждем в context->isLoginChecked (bool) и context->result (data)
+  // СЂРµР·СѓР»СЊС‚Р°С‚ Р¶РґРµРј РІ context->isLoginChecked (bool) Рё context->result (data)
   virtual void AsyncLoginRequest( string const &login, string const &password, const StrongMT<Login::SLoginContext> & result ) {} 
 
-  // здесь финализируем очередь async-запросов (web/XML/soap..): выкидываем исполненные запросы и т.п.
+  // Р·РґРµСЃСЊ С„РёРЅР°Р»РёР·РёСЂСѓРµРј РѕС‡РµСЂРµРґСЊ async-Р·Р°РїСЂРѕСЃРѕРІ (web/XML/soap..): РІС‹РєРёРґС‹РІР°РµРј РёСЃРїРѕР»РЅРµРЅРЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ Рё С‚.Рї.
   virtual void AsyncStep() {} 
 };
 

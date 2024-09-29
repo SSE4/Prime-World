@@ -157,7 +157,7 @@ typedef nstl::vector<nstl::string> TAwardsBuffs;
 struct PlayerInfo
 {
   ZDATA
-    TAuid             auid; //TEMP: Пока добавить ауид сюда. Надеюсь, временно
+    TAuid             auid; //TEMP: РџРѕРєР° РґРѕР±Р°РІРёС‚СЊ Р°СѓРёРґ СЃСЋРґР°. РќР°РґРµСЋСЃСЊ, РІСЂРµРјРµРЅРЅРѕ
     PlayerTalentSet   talents;
     nstl::vector<int> inventory;
     nstl::vector<int> friends;

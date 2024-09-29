@@ -34,10 +34,10 @@ void LoadServiceConfig( const char * svcClass )
 
 
 
-// Интерфейс ICoordinatorClient реализует отдельный объект для предотвращения кольцевой ссылки:
+// РРЅС‚РµСЂС„РµР№СЃ ICoordinatorClient СЂРµР°Р»РёР·СѓРµС‚ РѕС‚РґРµР»СЊРЅС‹Р№ РѕР±СЉРµРєС‚ РґР»СЏ РїСЂРµРґРѕС‚РІСЂР°С‰РµРЅРёСЏ РєРѕР»СЊС†РµРІРѕР№ СЃСЃС‹Р»РєРё:
 //
-// Strong-указатель на ICoordinatorClient хранят в себе все сервисы
-// А сервисы создает и хранит в себе объект CoordinatorClient
+// Strong-СѓРєР°Р·Р°С‚РµР»СЊ РЅР° ICoordinatorClient С…СЂР°РЅСЏС‚ РІ СЃРµР±Рµ РІСЃРµ СЃРµСЂРІРёСЃС‹
+// Рђ СЃРµСЂРІРёСЃС‹ СЃРѕР·РґР°РµС‚ Рё С…СЂР°РЅРёС‚ РІ СЃРµР±Рµ РѕР±СЉРµРєС‚ CoordinatorClient
 class CoordinatorClientInterface : public ICoordinatorClient, public BaseObjectMT
 {
   NI_DECLARE_REFCOUNT_CLASS_2( CoordinatorClientInterface, ICoordinatorClient, BaseObjectMT );

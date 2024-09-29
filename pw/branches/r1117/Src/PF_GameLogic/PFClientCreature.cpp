@@ -1180,7 +1180,7 @@ bool PFClientCreature::IsPartiallyVisible() const
     }
   };
 
-  // TODO: несколько SceneObject'ов?
+  // TODO: РЅРµСЃРєРѕР»СЊРєРѕ SceneObject'РѕРІ?
   if (SceneObject* const sceneObject = GetSceneObject())
   {
     Traverser f;

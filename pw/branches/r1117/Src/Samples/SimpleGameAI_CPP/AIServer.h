@@ -46,7 +46,7 @@ private:
   StrongMT<rpc::GateKeeper> gateKeeper;
 
   typedef nstl::vector<int> NPCVector;
-  NPCVector npÒ;
+  NPCVector np—Å;
 };
 
 } // namespace AI

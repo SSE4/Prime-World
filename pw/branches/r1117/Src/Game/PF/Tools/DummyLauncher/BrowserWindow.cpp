@@ -45,7 +45,7 @@ int BrowserWindow::Run()
   // and show it
   HWND IEWindow = 0;
   m_browser->get_HWND((SHANDLE_PTR*)&IEWindow);
-  SetWindowTextW(IEWindow, L"Авторизация");
+  SetWindowTextW(IEWindow, L"РђРІС‚РѕСЂРёР·Р°С†РёСЏ");
   m_browser->put_Visible(VARIANT_TRUE);
   BringWindowToTop(IEWindow);
 
@@ -103,7 +103,7 @@ HRESULT STDMETHODCALLTYPE BrowserWindow::Invoke(DISPID dispIdMember, REFIID riid
       // Make the windows title fake-constant, instead of updating it to the current URL
       HWND IEWindow = 0;
       m_browser->get_HWND((SHANDLE_PTR*)&IEWindow);
-      SetWindowTextW(IEWindow, L"Авторизация");
+      SetWindowTextW(IEWindow, L"РђРІС‚РѕСЂРёР·Р°С†РёСЏ");
     }
     return S_OK;
     case DISPID_NAVIGATECOMPLETE2:

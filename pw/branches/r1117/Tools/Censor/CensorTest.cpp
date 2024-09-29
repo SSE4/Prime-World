@@ -97,10 +97,10 @@ int _tmain(int argc, _TCHAR* argv[])
   fclose(f);
   std::cout << "Done!" << std::endl;
   
-  //Íîðìàëüíîå îòîáðàæåíèå òåêñòà íà ðóññêîì
+  //ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ñ‚ÐµÐºÑÑ‚Ð° Ð½Ð° Ñ€ÑƒÑÑÐºÐ¾Ð¼
   std::setlocale( LC_ALL, "" );
 
-  //Íàñòðàèâàåì boost::filesystem íà êîäèðîâêó utf8
+  //ÐÐ°ÑÑ‚Ñ€Ð°Ð¸Ð²Ð°ÐµÐ¼ boost::filesystem Ð½Ð° ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÑƒ utf8
   //std::locale utf8_locale(std::locale(), new boost::filesystem::detail::utf8_codecvt_facet() );
   //boost::filesystem::path::imbue(utf8_locale);
 

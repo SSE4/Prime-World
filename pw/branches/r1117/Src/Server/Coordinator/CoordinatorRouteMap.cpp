@@ -9,7 +9,7 @@ void CoordinatorRouteMap::AddRoute( const Transport::TServiceId& service, SvcNet
 {
   routeMap[ service ] = addrs;
 
-  // routes апдейтим всему кластеру
+  // routes Р°РїРґРµР№С‚РёРј РІСЃРµРјСѓ РєР»Р°СЃС‚РµСЂСѓ
   for ( int i = 0; i < slaves.size(); ++i )
     slaves[i]->AddRoute( service, addrs );
 }
@@ -20,7 +20,7 @@ void CoordinatorRouteMap::RemoveRoute( const Transport::TServiceId& service )
 {
   routeMap.erase( service );
 
-  // routes апдейтим всему кластеру
+  // routes Р°РїРґРµР№С‚РёРј РІСЃРµРјСѓ РєР»Р°СЃС‚РµСЂСѓ
   for ( int i = 0; i < slaves.size(); ++i )
     slaves[i]->RemoveRoute( service );
 }

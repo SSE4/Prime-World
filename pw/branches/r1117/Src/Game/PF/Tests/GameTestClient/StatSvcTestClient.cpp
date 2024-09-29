@@ -87,7 +87,7 @@ namespace GameTestClient2
         unicodeUsername_ = NStr::ToUnicode(getUserName());
 
         gstatCl = new StatisticService::GameStatClient( new StatisticService::ClientHttpDispatcher, 1 );
-        NDebug::DebugVarReporter::AttachTo( getLocalEntityFactory() ); // регистрируемся, чтобы динамически создавать DebugVarReporter по запросу с той стороны
+        NDebug::DebugVarReporter::AttachTo( getLocalEntityFactory() ); // СЂРµРіРёСЃС‚СЂРёСЂСѓРµРјСЃСЏ, С‡С‚РѕР±С‹ РґРёРЅР°РјРёС‡РµСЃРєРё СЃРѕР·РґР°РІР°С‚СЊ DebugVarReporter РїРѕ Р·Р°РїСЂРѕСЃСѓ СЃ С‚РѕР№ СЃС‚РѕСЂРѕРЅС‹
         rc = Result::SUCCESS;
   
         timeStatNodeReqStart_ = NHPTimer::GetScalarTime();
@@ -124,7 +124,7 @@ namespace GameTestClient2
 
     case StatStage::LOG_GAME_SESSION_START:
       {
-        // отправка информации о старте сессии
+        // РѕС‚РїСЂР°РІРєР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃС‚Р°СЂС‚Рµ СЃРµСЃСЃРёРё
         /*
         StatisticService::RPC::SessionStartInfo ssinfo;
         ssinfo.sessionId = sessionId();
@@ -223,7 +223,7 @@ namespace GameTestClient2
 
   int StatSvcTestClient::LogSessionEvent(unsigned int evtid)
   {
-    // для начала будем отсылать событие TalentUsed (EventType = 0)
+    // РґР»СЏ РЅР°С‡Р°Р»Р° Р±СѓРґРµРј РѕС‚СЃС‹Р»Р°С‚СЊ СЃРѕР±С‹С‚РёРµ TalentUsed (EventType = 0)
     StatisticService::RPC::ClientCommonSessionEvent evt;
     evt.common = StatisticService::RPC::CommonSessionEventInfo( sessionId(), userid(), currentStep() );
     evt.info = StatisticService::RPC::SessionEventInfo();

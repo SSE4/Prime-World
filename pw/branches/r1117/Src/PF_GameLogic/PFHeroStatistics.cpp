@@ -556,7 +556,7 @@ void PFHeroStatistics::NotifyTeleport()
   history.back().teleport = true;
 }
 
-// Очки которые "показываются по табу".
+// РћС‡РєРё РєРѕС‚РѕСЂС‹Рµ "РїРѕРєР°Р·С‹РІР°СЋС‚СЃСЏ РїРѕ С‚Р°Р±Сѓ".
 int PFHeroStatistics::GetGrandScore() const
 {
   int grandScore = score;

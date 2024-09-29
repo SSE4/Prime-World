@@ -117,8 +117,8 @@ int SvcConnectionManager::Connect_(ICallback* pcb)
     saddr.to_string(&svcIpAddrString[0], sizeof(svcIpAddrString)-1);
 
     cbqueue_t* cbq = &(svc2cb_[svcid]);
-    cbq->current_ = pcb;  // выставляем не после if(0==rc) 
-                          // т.к. к тому моменту операция уже может завершиться
+    cbq->current_ = pcb;  // РІС‹СЃС‚Р°РІР»СЏРµРј РЅРµ РїРѕСЃР»Рµ if(0==rc) 
+                          // С‚.Рє. Рє С‚РѕРјСѓ РјРѕРјРµРЅС‚Сѓ РѕРїРµСЂР°С†РёСЏ СѓР¶Рµ РјРѕР¶РµС‚ Р·Р°РІРµСЂС€РёС‚СЊСЃСЏ
 
     rc = ChannelConnector::start(saddr, pcb);
     if (0 == rc)

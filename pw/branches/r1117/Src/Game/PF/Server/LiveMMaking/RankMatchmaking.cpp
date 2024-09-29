@@ -161,8 +161,8 @@ namespace mmaking
       pop += req->Size();
       if (!members.empty())
         basket = getTeamBasket();
-      teamFaction = req->CommonData().team; // временная фракция, пока собираем команду одной фракции 
-      //TODO: Для групп ограничить TotalClassEfficiency() пределами из m_settings->optimalClasses
+      teamFaction = req->CommonData().team; // РІСЂРµРјРµРЅРЅР°СЏ С„СЂР°РєС†РёСЏ, РїРѕРєР° СЃРѕР±РёСЂР°РµРј РєРѕРјР°РЅРґСѓ РѕРґРЅРѕР№ С„СЂР°РєС†РёРё 
+      //TODO: Р”Р»СЏ РіСЂСѓРїРї РѕРіСЂР°РЅРёС‡РёС‚СЊ TotalClassEfficiency() РїСЂРµРґРµР»Р°РјРё РёР· m_settings->optimalClasses
       heroClasses.Add( req->TotalClassEfficiency() );
       avgForce = CountForce()/members.size();
       avgPlayerRating = CountPlayerRating(1200,2000)/members.size();
@@ -295,14 +295,14 @@ namespace mmaking
             switch(m_enableRandomQueueIterator )
             {
             case 0:
-              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, false); // обычный перебор очереди
+              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, false); // РѕР±С‹С‡РЅС‹Р№ РїРµСЂРµР±РѕСЂ РѕС‡РµСЂРµРґРё
               break;
             case 1:
-              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, true); //обход очереди случайным образом
+              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, true); //РѕР±С…РѕРґ РѕС‡РµСЂРµРґРё СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј
               break;
             case 2:
-              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, false); // обычный перебор очереди
-              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, true); //обход очереди случайным образом
+              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, false); // РѕР±С‹С‡РЅС‹Р№ РїРµСЂРµР±РѕСЂ РѕС‡РµСЂРµРґРё
+              SearchForGame( mostPopularRevision, targetRank, geo, fullParty, true); //РѕР±С…РѕРґ РѕС‡РµСЂРµРґРё СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј
               break;
 
             }
@@ -355,7 +355,7 @@ namespace mmaking
         if ( !CheckDonorConditions( teams, geo ) )
           return;
 
-      // чтобы не мейкать нормалов ливеров с нормалами не ливерами 
+      // С‡С‚РѕР±С‹ РЅРµ РјРµР№РєР°С‚СЊ РЅРѕСЂРјР°Р»РѕРІ Р»РёРІРµСЂРѕРІ СЃ РЅРѕСЂРјР°Р»Р°РјРё РЅРµ Р»РёРІРµСЂР°РјРё 
       if (!CheckLeaverBasket(teams))
         return ;
 
@@ -389,7 +389,7 @@ namespace mmaking
     if ( !teams[0].Size() && !teams[1].Size() )
       return false;
 
-    //Проверим время ожидания для случая фулка vs рандом
+    //РџСЂРѕРІРµСЂРёРј РІСЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ РґР»СЏ СЃР»СѓС‡Р°СЏ С„СѓР»РєР° vs СЂР°РЅРґРѕРј
     if ( targetRank->basket != EBasket::Newbie )
       for (int ti = 0; ti <2; ++ti  )
       {
@@ -400,7 +400,7 @@ namespace mmaking
         }
       }
 
-      //попробуем добить неполные фулки рандомом того же звания 
+      //РїРѕРїСЂРѕР±СѓРµРј РґРѕР±РёС‚СЊ РЅРµРїРѕР»РЅС‹Рµ С„СѓР»РєРё СЂР°РЅРґРѕРјРѕРј С‚РѕРіРѕ Р¶Рµ Р·РІР°РЅРёСЏ 
       for ( int ti = 0; ti < 2; ++ti )
         if ( teams[ti].Pop() && ( teams[ti].Pop() < m_teamSize ) )
         {
@@ -418,12 +418,12 @@ namespace mmaking
           }
         }
 
-        //Если добить не получилось, то очистим недоделанные команды
+        //Р•СЃР»Рё РґРѕР±РёС‚СЊ РЅРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ, С‚Рѕ РѕС‡РёСЃС‚РёРј РЅРµРґРѕРґРµР»Р°РЅРЅС‹Рµ РєРѕРјР°РЅРґС‹
         for ( int ti = 0; ti < 2; ++ti )
           if ( teams[ti].Pop() && ( teams[ti].Pop() < m_teamSize ) )
             teams[ti].Clear();
 
-        // чтобы не мейкать нормалов ливеров с нормалами не ливерами 
+        // С‡С‚РѕР±С‹ РЅРµ РјРµР№РєР°С‚СЊ РЅРѕСЂРјР°Р»РѕРІ Р»РёРІРµСЂРѕРІ СЃ РЅРѕСЂРјР°Р»Р°РјРё РЅРµ Р»РёРІРµСЂР°РјРё 
         if (!CheckLeaverBasket(teams)){
           //m_loger->Log( ELogLevel::Normal, "CheckLeaverBasket: return false" );
           return false;
@@ -1217,7 +1217,7 @@ namespace mmaking
 
     NI_PROFILE_FUNCTION;
 
-    //Если корзина EBasket::Undefined видимо это первый запрос в эту команду
+    //Р•СЃР»Рё РєРѕСЂР·РёРЅР° EBasket::Undefined РІРёРґРёРјРѕ СЌС‚Рѕ РїРµСЂРІС‹Р№ Р·Р°РїСЂРѕСЃ РІ СЌС‚Сѓ РєРѕРјР°РЅРґСѓ
     if(team.Basket() == EBasket::Undefined) 
       return true;
 

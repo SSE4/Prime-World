@@ -91,7 +91,7 @@ void CommandInstance::AddBind( const vector<string> & controlNames, Section * se
 
   if (isRebind)
   {
-    // сохраняем контролы с другим фактором
+    // СЃРѕС…СЂР°РЅСЏРµРј РєРѕРЅС‚СЂРѕР»С‹ СЃ РґСЂСѓРіРёРј С„Р°РєС‚РѕСЂРѕРј
     TControlsSet savedControls;
     if (!factorIsUndefined)
     {

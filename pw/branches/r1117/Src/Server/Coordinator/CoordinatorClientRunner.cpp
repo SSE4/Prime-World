@@ -18,7 +18,7 @@ void CoordinatorClientRunner::Open( Transport::ITransportSystem * _backendTransp
 {
   client->GetInterface()->AddExplicitRoute( Transport::ENetInterface::Coordinator, Coordinator::SvcNetAddresses( _coordinatorAddress, Network::NetAddress() ) );
 
-  Transport::TServiceId sourceFixed( ( coordClientNamePrefix + _source ).c_str() ); // ïðåäñòàâëÿåìñÿ ñëóæåáíûì ïñåâäîíèìîì "_ñ[oordinator]c[lient]_services..."
+  Transport::TServiceId sourceFixed( ( coordClientNamePrefix + _source ).c_str() ); // Ð¿Ñ€ÐµÐ´ÑÑ‚Ð°Ð²Ð»ÑÐµÐ¼ÑÑ ÑÐ»ÑƒÐ¶ÐµÐ±Ð½Ñ‹Ð¼ Ð¿ÑÐµÐ²Ð´Ð¾Ð½Ð¸Ð¼Ð¾Ð¼ "_Ñ[oordinator]c[lient]_services..."
 
   gk = new rpc::GateKeeper( _backendTransport, sourceFixed, Transport::autoAssignClientId, 0 );
   client->Open( _backendTransport, _frontendTransport, gk );

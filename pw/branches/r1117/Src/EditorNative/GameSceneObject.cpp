@@ -139,7 +139,7 @@ void GameSceneObject::CreateSceneObjects( NScene::IScene& scene )
     NScene::EditorSceneObject* sceneObj;
     sceneObj = NScene::CreateEditorSceneObject( &scene, pDBSVisual, place, i == currentSceneObject, !isFullyLoaded );
 
-    if( !loaded ) // íà âñå îáúåêòû mso òîëüêî îäíà ãåîìåòðèÿ äëÿ êîëëèçèé
+    if( !loaded ) // Ð½Ð° Ð²ÑÐµ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹ mso Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð½Ð° Ð³ÐµÐ¾Ð¼ÐµÑ‚Ñ€Ð¸Ñ Ð´Ð»Ñ ÐºÐ¾Ð»Ð»Ð¸Ð·Ð¸Ð¹
     {
       pCollisionHull = sceneObj->GetCollision();
       pSmallCollisionHull = sceneObj->GetSmallCollision();
@@ -162,7 +162,7 @@ void GameSceneObject::CreateSceneObjects( NScene::IScene& scene )
       {
         sceneObj->RegisterCollisionGeometry( dbGeom );
 
-        if( !loadedGeometry ) // íà âñå îáúåêòû mso òîëüêî îäíà ãåîìåòðèÿ äëÿ êîëëèçèé
+        if( !loadedGeometry ) // Ð½Ð° Ð²ÑÐµ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹ mso Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð½Ð° Ð³ÐµÐ¾Ð¼ÐµÑ‚Ñ€Ð¸Ñ Ð´Ð»Ñ ÐºÐ¾Ð»Ð»Ð¸Ð·Ð¸Ð¹
         {
           pCollisionHullGeometry = sceneObj->GetCollision();
           pSmallCollisionHullGeometry = sceneObj->GetSmallCollision();

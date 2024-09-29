@@ -244,7 +244,7 @@ namespace NWorld
     ZEND int operator&( IBinSaver &f ) { f.Add(1,(HeroStateFSM*)this); f.Add(2,&suspendTimeout); f.Add(3,&waitTime); f.Add(4,&isSuspendLong); return 0; }
     PFHeroSuspendState( CPtr<PFBaseHero> const& pOwner, bool isLongSuspend);
 
-    // Всегда покидает стек при пуше другого поверх него.
+    // Р’СЃРµРіРґР° РїРѕРєРёРґР°РµС‚ СЃС‚РµРє РїСЂРё РїСѓС€Рµ РґСЂСѓРіРѕРіРѕ РїРѕРІРµСЂС… РЅРµРіРѕ.
     virtual bool IsEscaping() const { return true; }
 
   protected:

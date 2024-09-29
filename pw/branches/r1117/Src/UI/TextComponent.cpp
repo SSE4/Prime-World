@@ -424,7 +424,7 @@ NMarkup::IImage * TextComponent::CreateImage( NMarkup::TPoint * size, const NMar
 
   const NDb::BaseUIMaterial * pMaterial = UI::SkinStyles::GetImageMaterial( NStr::ToMBCS( image ) );
 
-  //Напишем ошибку, если такой картинки не нашлось
+  //РќР°РїРёС€РµРј РѕС€РёР±РєСѓ, РµСЃР»Рё С‚Р°РєРѕР№ РєР°СЂС‚РёРЅРєРё РЅРµ РЅР°С€Р»РѕСЃСЊ
   if( !pMaterial )
   {
     wstring tmp = text;

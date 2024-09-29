@@ -334,8 +334,8 @@ namespace
 
       NI_VERIFY(!!dst_bits, "DIB was not initialized properly", return false);
 
-      // premultiplied alpha требуется для корректной работы блендинга
-      // TODO: использовать фактический формат пикселя исходной картинки
+      // premultiplied alpha С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕР№ СЂР°Р±РѕС‚С‹ Р±Р»РµРЅРґРёРЅРіР°
+      // TODO: РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С„Р°РєС‚РёС‡РµСЃРєРёР№ С„РѕСЂРјР°С‚ РїРёРєСЃРµР»СЏ РёСЃС…РѕРґРЅРѕР№ РєР°СЂС‚РёРЅРєРё
       {
         src_pixel_p src = reinterpret_cast<src_pixel_p>(src_bits);
         dst_pixel_p dst = reinterpret_cast<dst_pixel_p>(dst_bits);

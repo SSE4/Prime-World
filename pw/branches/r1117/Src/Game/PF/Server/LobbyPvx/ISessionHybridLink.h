@@ -16,8 +16,8 @@ namespace ECheatType
     ProtocolViolation,
     GameLogicHack,
     Async,
-    ProtectionAsync, // магические числа не сошлись
-    ProtectionViolation, // нарушение работы защиты
+    ProtectionAsync, // РјР°РіРёС‡РµСЃРєРёРµ С‡РёСЃР»Р° РЅРµ СЃРѕС€Р»РёСЃСЊ
+    ProtectionViolation, // РЅР°СЂСѓС€РµРЅРёРµ СЂР°Р±РѕС‚С‹ Р·Р°С‰РёС‚С‹
   };
 }
 

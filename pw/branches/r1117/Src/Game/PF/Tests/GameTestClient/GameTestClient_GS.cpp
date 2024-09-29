@@ -192,8 +192,8 @@ StepResult Client_GS::MainStep()
     case Stage::LOAD_MAP_STARTED:
       {
         PollMulticast();
-        //  так поступаем для того, чтобы если loadMapTimeout_ == 0,
-        //  сразу начать следующий степ без sleep'а
+        //  С‚Р°Рє РїРѕСЃС‚СѓРїР°РµРј РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РµСЃР»Рё loadMapTimeout_ == 0,
+        //  СЃСЂР°Р·Сѓ РЅР°С‡Р°С‚СЊ СЃР»РµРґСѓСЋС‰РёР№ СЃС‚РµРї Р±РµР· sleep'Р°
         if (0 == params.mapLoadTimeout)
         {
           systemLog(NLogg::LEVEL_MESSAGE) << "Map loading stage skipped(user=" << userId_ << ")" << endl;
@@ -393,9 +393,9 @@ int Client_GS::startJoinGameSession()
 
   Login::ClientVersion clientVersion;
 
-  //FIXME: Здесь образуется циклическая ссылка:
-  // - GameServer держит R-ссылку на Client (как на Peered::IGameClient)
-  // - Client держит R-ссылку на GameServer
+  //FIXME: Р—РґРµСЃСЊ РѕР±СЂР°Р·СѓРµС‚СЃСЏ С†РёРєР»РёС‡РµСЃРєР°СЏ СЃСЃС‹Р»РєР°:
+  // - GameServer РґРµСЂР¶РёС‚ R-СЃСЃС‹Р»РєСѓ РЅР° Client (РєР°Рє РЅР° Peered::IGameClient)
+  // - Client РґРµСЂР¶РёС‚ R-СЃСЃС‹Р»РєСѓ РЅР° GameServer
   gamesrv_->AddClient( playerName.c_str(), transport_->GetUserId(), clientVersion, gameClientWrapper );
 
   stage_ = Stage::JOIN_GAME_SESSION_STARTED;

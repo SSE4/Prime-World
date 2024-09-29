@@ -56,9 +56,9 @@ class NatureTransaction
 public:
   enum TransactionState
   {
-    waiting,  // задержка старта
-    started,  // исполняется
-    finished,  // закончено
+    waiting,  // Р·Р°РґРµСЂР¶РєР° СЃС‚Р°СЂС‚Р°
+    started,  // РёСЃРїРѕР»РЅСЏРµС‚СЃСЏ
+    finished,  // Р·Р°РєРѕРЅС‡РµРЅРѕ
   };
   inline TransactionState GetState() const { return state; }
   inline bool IsFinished() const  {  return GetState() == finished;  }
@@ -564,7 +564,7 @@ void NatureSceneObjectsHolder::SetActive(int index, bool visible)
 
   if (enabled && GetSceneObject(activeObjectInternal))
   {
-    //транзакцию затухания перегружаем, только если она ещё не стартовала
+    //С‚СЂР°РЅР·Р°РєС†РёСЋ Р·Р°С‚СѓС…Р°РЅРёСЏ РїРµСЂРµРіСЂСѓР¶Р°РµРј, С‚РѕР»СЊРєРѕ РµСЃР»Рё РѕРЅР° РµС‰С‘ РЅРµ СЃС‚Р°СЂС‚РѕРІР°Р»Р°
     if (!fadeOutTrans)
     {
       SetTransaction(fadeOutTrans, new FadeOutTransaction(::Get(GetSceneObject(activeObjectInternal)), GetTransFadeOutTime(), GetTransEffect(activeObjectInternal, false), fadeInTrans, !visible));
@@ -599,8 +599,8 @@ void NatureSceneObjectsHolder::DropTree( const CVec2& direction, const NDb::Ptr<
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void NatureSceneObjectsHolder::Enable(bool bEnable, bool forced)
 {
-  // Если не forced, объект будет поставлен/удален со сцены через транзакции.
-  // Однако при этом будет проиграна только анимация и не будет проигран эффект
+  // Р•СЃР»Рё РЅРµ forced, РѕР±СЉРµРєС‚ Р±СѓРґРµС‚ РїРѕСЃС‚Р°РІР»РµРЅ/СѓРґР°Р»РµРЅ СЃРѕ СЃС†РµРЅС‹ С‡РµСЂРµР· С‚СЂР°РЅР·Р°РєС†РёРё.
+  // РћРґРЅР°РєРѕ РїСЂРё СЌС‚РѕРј Р±СѓРґРµС‚ РїСЂРѕРёРіСЂР°РЅР° С‚РѕР»СЊРєРѕ Р°РЅРёРјР°С†РёСЏ Рё РЅРµ Р±СѓРґРµС‚ РїСЂРѕРёРіСЂР°РЅ СЌС„С„РµРєС‚
 
   if (bEnable == enabled)
     return;
@@ -633,7 +633,7 @@ void NatureSceneObjectsHolder::Enable(bool bEnable, bool forced)
   }
   else
   {
-    //транзакцию затухания перегружаем, только если она ещё не стартовала
+    //С‚СЂР°РЅР·Р°РєС†РёСЋ Р·Р°С‚СѓС…Р°РЅРёСЏ РїРµСЂРµРіСЂСѓР¶Р°РµРј, С‚РѕР»СЊРєРѕ РµСЃР»Рё РѕРЅР° РµС‰С‘ РЅРµ СЃС‚Р°СЂС‚РѕРІР°Р»Р°
     if (!fadeOutTrans)
     {
       SetTransaction(fadeOutTrans, new FadeOutTransaction(::Get(sceneObject), 0, NDb::Ptr<NDb::EffectBase>(), fadeInTrans, false));
