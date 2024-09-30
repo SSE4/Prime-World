@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "MonitoringSvc/PerfCounterCtx.h"
+#include "PerfCounterCtx.h"
 
 namespace Monitoring
 {

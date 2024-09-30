@@ -16,7 +16,7 @@
 #include <stdio.h>
 
 #include "DiAnGr.h"
-#include "DiMath.h"
+#include "dimath.h"
 #include "DiAnGrAPI.h"
 
 

@@ -18,7 +18,7 @@
 }
 
 #include <openssl/rsa.h>       
-#include <openSSL/ssl.h>
+#include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/crypto.h>
 #include <openssl/x509.h>

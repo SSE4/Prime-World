@@ -1,7 +1,7 @@
-#include <Server/Network/Transport.h>
-#include <Server/Network/TransportMessages.h>
-#include <Server/Network/ClientTransportSystem.h>
-#include <Server/Network/ClientTransportSystem2.h>
+#include <Network/Transport.h>
+#include <Network/TransportMessages.h>
+#include <Network/ClientTransportSystem.h>
+#include <Network/ClientTransportSystem2.h>
 #include <Server/NetworkAIO/transport/TLTransportModule.h>
 #include <Network/FreePortsFinder.h>
 

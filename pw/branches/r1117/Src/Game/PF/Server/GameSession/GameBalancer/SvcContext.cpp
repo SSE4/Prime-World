@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "GameBalancer/RGameBalancerIface.auto.h"
-#include "GameBalancer/SvcContext.h"
-#include "GameBalancer/GameBalancerCfg.h"
+#include "RGameBalancerIface.auto.h"
+#include "SvcContext.h"
+#include "GameBalancerCfg.h"
 
 NI_DEFINE_REFCOUNT(GameBalancer::SvcContext);
 

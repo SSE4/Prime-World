@@ -17,11 +17,11 @@
 #include "LuxBoost.h"
 
 
-#include "../ui/Window.h"
-#include "../ui/ImageLabel.h"
-#include "../ui/Button.h"
+#include "../UI/Window.h"
+#include "../UI/ImageLabel.h"
+#include "../UI/Button.h"
 
-#include "../Render/materialspec.h"
+#include "../Render/MaterialSpec.h"
 
 
 namespace PF_Minigames

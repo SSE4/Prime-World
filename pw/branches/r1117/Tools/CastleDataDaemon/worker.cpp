@@ -1,5 +1,5 @@
 #include "worker.h"
-#include "system/math/md4.h"
+#include "System/Math/MD4.h"
 #include <stdlib.h>
 #include <io.h>
 #include <direct.h>

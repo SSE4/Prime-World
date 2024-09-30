@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include <CxxTest.h>
 
 #include "MainLoop.h"

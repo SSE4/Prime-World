@@ -2,11 +2,11 @@
 
 #include "../System/Crc32Checksum.h"
 
-#include "Renderer.h"
+#include "renderer.h"
 #include "texture.h"
-#include "RenderResourceManager.h"
-#include "MultiShader.h"
-#include "Material.h"
+#include "renderresourcemanager.h"
+#include "multishader.h"
+#include "material.h"
 #include "MaterialSpec.h"
 
 

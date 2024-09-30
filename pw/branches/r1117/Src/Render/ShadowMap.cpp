@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "ShadowMap.h"
 #include "ImmediateRenderer.h"
 #include "smartrenderer.h"

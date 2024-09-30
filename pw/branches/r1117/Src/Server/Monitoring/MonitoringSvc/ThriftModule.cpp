@@ -6,8 +6,8 @@
 #include <thrift/transport/TBufferTransports.h>
 #include <thrift/transport/THttpServer.h>
 
-#include "MonitoringSvc/ThriftHandler.h"
-#include "MonitoringSvc/ThriftModule.h"
+#include "ThriftHandler.h"
+#include "ThriftModule.h"
 
 using namespace apache::thrift;
 using namespace apache::thrift::protocol;

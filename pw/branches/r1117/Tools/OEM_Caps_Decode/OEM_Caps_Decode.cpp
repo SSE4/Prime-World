@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "..\..\Src\Render\Features.h"
+#include "../../Src/Render/Features.h"
 
 const _TCHAR* const FeatureNames[] = {
   _TEXT("hasDF16"), // ATI DF16 depth format

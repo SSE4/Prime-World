@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "MainFrame.h"
 #include "Thread.h"
 #include "FileSystem/FileUtils.h"

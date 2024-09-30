@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameBalancer/GameBalancerIface.h"
+#include "GameBalancerIface.h"
 #include "RPC/IfaceRequester.h"
 
 namespace GameBalancer

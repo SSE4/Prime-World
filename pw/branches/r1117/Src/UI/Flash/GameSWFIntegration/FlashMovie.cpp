@@ -9,7 +9,7 @@
 
 #include "FontsRenderInterface.h"
 
-#include "Natives/display/Loaderinfo.h"
+#include "Natives/display/LoaderInfo.h"
 #include "Natives/display/MovieClip.h"
 #include "Natives/display/Bitmap.h"
 #include "Natives/display/BitmapData.h"

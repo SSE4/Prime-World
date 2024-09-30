@@ -1,9 +1,9 @@
 #pragma once
 
-#include "RelayBalancer/RelayBalancerIface.h"
+#include "Relay/RelayBalancer/RelayBalancerIface.h"
 #include "RPC/IfaceRequester.h"
-#include "RelayBalancer/RelayAllocationCompletedNotify.h"
-#include "RelayBalancer/RelayBalancerSettings.h"
+#include "Relay/RelayBalancer/RelayAllocationCompletedNotify.h"
+#include "Relay/RelayBalancer/RelayBalancerSettings.h"
 
 namespace Relay
 {

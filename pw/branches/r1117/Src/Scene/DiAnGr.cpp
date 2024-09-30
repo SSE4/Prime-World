@@ -14,7 +14,7 @@
 #include "stdafx.h"
 
 #include "DiAnGr.h"
-#include "../system/SystemLog.h"
+#include "../System/SystemLog.h"
 
 ///eugbelNSCENE///namespace NScene {
 

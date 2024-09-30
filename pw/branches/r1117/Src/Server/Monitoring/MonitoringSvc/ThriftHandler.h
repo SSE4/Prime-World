@@ -1,7 +1,7 @@
 #pragma once
 
 #include "gen-cpp/Monitoring.h"
-#include "MonitoringSvc/MonitorCore.h"
+#include "MonitorCore.h"
 
 namespace Monitoring
 {

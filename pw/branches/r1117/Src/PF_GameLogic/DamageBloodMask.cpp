@@ -1,9 +1,9 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 
 #include "DamageBloodMask.h"
 
 #include "DBStats.h"
-#include "../ui/ImageLabel.h"
+#include "../UI/ImageLabel.h"
 #include "PFHero.h"
 
 namespace NGameX

@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "IgnoreListStorage.h"
 #include "../System/ChunklessSaver.h"
 #include "../System/Crc32Checksum.h"

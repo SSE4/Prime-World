@@ -3,16 +3,16 @@
 #include <System/Basic.h>
 #include <Server/RPC/P2PNode.h>
 #include <Server/RPC/GateKeeper.h>
-#include <Server/rpc/LocalEntityFactory.h>
-#include <Server/Network/ClientTransportSystemIntf.h>
-#include <Server/Network/FreePortsFinder.h>
-#include "Server/Network/TransportTypes.h" 
-#include "Server/Network/AddressTranslator.h" 
+#include <Server/RPC/LocalEntityFactory.h>
+#include <Network/ClientTransportSystemIntf.h>
+#include <Network/FreePortsFinder.h>
+#include "Network/TransportTypes.h"
+#include "Network/AddressTranslator.h"
 
 #include "System/HPTimer.h"
 
-#include "Server/ClusterAdmin/ClusterAdminSvcIntf.h"
-#include "Server/ClusterAdmin/RClusterAdminSvcIntf.auto.h"
+#include "Server/ClusterAdmin/ClusterAdminSvc/ClusterAdminSvcIntf.h"
+#include "Server/ClusterAdmin/ClusterAdminSvc/RClusterAdminSvcIntf.auto.h"
 
 namespace TransportLayer
 {

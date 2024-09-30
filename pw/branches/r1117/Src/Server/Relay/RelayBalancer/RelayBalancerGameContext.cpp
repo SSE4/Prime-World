@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "RelayBalancer/RelayBalancerGameContext.h"
-#include "RelayBalancer/RelaySvcContext.h"
+#include "Relay/RelayBalancer/RelayBalancerGameContext.h"
+#include "Relay/RelayBalancer/RelaySvcContext.h"
 
 NI_DEFINE_REFCOUNT(Relay::GameContext);
 

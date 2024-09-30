@@ -1,11 +1,11 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "EscMenuController.h"
 
 #include "AdventureFlashInterface.h"
 #include "UIEventHandler.h"
 #include "FlashFSCommands.h"
 
-#include "../ui/FlashContainer2.h"
+#include "../UI/FlashContainer2.h"
 #include "GameMenuInterfaces.h"
 
 namespace NGameX

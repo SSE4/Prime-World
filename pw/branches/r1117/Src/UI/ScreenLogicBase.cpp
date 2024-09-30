@@ -1,10 +1,10 @@
-#include "Stdafx.h"
+#include "stdafx.h"
 #include "ScreenLogicBase.h"
 
 #include "User.h"
 #include "Window.h"
 #include "Resolution.h"
-#include "Render/DebugRenderer.h"
+#include "Render/debugrenderer.h"
 #include "Render/TextureManager.h"
 #include "Sound/EventScene.h"
 #include "System/MainFrame.h"

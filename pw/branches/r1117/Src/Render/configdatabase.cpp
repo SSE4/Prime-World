@@ -6,14 +6,14 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // P.S.: Я к этому мусору отношения не имею. Не виноватый я. Аслан.
 //--------------------------------------------------------------------------------------
-#include "StdAfx.h"
+#include "stdafx.h"
 #include <tchar.h>
 //#include "dxut.h"
 #pragma warning(disable: 4995)
 //#include <windows.h>
 //#include <stdio.h>
 //#include <map>
-#include "ConfigDatabase.h"
+#include "configdatabase.h"
 //#define INITGUID
 //#include <guiddef.h>
 //#include <dsound.h>

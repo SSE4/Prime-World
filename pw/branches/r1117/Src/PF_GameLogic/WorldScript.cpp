@@ -16,7 +16,7 @@
 #include "PFNeutralCreep.h"
 #include "PFMainBuilding.h"
 #include "PFSimpleObject.h"
-#include "PFRoadFlagPole.h"
+#include "PFRoadFlagpole.h"
 #include "PFTree.h"
 #include "PFImpulsiveBuffs.h"
 #include "Client/MainTimer.h"

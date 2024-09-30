@@ -5,7 +5,7 @@
 #include <vector>
 #include <curl/curl.h>
 #include <curl/easy.h>
-#include "System/NonCopyable.h"
+#include "System/noncopyable.h"
 
 
 namespace EUploadReaction

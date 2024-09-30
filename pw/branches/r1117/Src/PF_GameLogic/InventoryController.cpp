@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 
 #include "InventoryController.h"
 
@@ -15,8 +15,8 @@
 #include "UnitNameMap.h"
 #include "PrecompiledTooltips.h"
 
-#include "../ui/FlashContainer2.h"
-#include "../ui/ImageLabel.h"
+#include "../UI/FlashContainer2.h"
+#include "../UI/ImageLabel.h"
 //#include "../UI/Cursor.h"
 
 namespace

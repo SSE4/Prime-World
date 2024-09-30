@@ -2,7 +2,7 @@
 
 #include "Alphabet.h"
 #include "FontRender.hpp"
-#include "../Render/UIRenderer.h"
+#include "../Render/uirenderer.h"
 
 #include "Resolution.h"
 

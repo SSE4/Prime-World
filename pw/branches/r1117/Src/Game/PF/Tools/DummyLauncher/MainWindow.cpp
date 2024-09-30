@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "MainWindow.h"
 #include "Application.h"
-#include "log.h"
+#include "Log.h"
 #include "Convert.h"
 #include "HttpRequest.h"
 #include "UsersInfo.h"

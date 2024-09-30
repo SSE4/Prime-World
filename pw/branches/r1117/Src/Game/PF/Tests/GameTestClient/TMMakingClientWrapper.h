@@ -2,7 +2,7 @@
 
 #include <System/Basic.h>
 #include <Server/RPC/GateKeeper.h>
-#include <Server/rpc/LocalEntityFactory.h>
+#include <Server/RPC/LocalEntityFactory.h>
 #include <Network/ClientTransportSystemIntf.h>
 #include <Game/PF/Tests/GTCBase/Result.h>
 #include <MatchMaking/MatchMakingClient.h>

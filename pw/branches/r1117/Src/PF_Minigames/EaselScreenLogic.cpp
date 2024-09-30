@@ -3,7 +3,7 @@
 
 #include "../Client/ScreenCommands.h"
 //#include "../PF_GameLogic/GameMenuScreen.h"
-#include "../Render/materialspec.h"
+#include "../Render/MaterialSpec.h"
 
 #include "Minigames.h"
 #include "MinigamesMain.h"

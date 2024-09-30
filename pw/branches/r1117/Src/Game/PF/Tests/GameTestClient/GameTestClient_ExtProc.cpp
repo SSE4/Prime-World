@@ -1,5 +1,5 @@
 #include "GameTestClient_ExtProc.h"
-#include "System/fileSystem/FilePath.h"
+#include "System/FileSystem/FilePath.h"
 
 namespace gtc
 {

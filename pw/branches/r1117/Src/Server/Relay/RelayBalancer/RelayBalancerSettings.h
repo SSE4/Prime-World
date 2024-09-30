@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RelayBalancer/RelayUserLimits.h"
+#include "Relay/RelayBalancer/RelayUserLimits.h"
 
 namespace Relay
 {

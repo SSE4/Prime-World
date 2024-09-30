@@ -2,7 +2,7 @@
 #define VOXELGRID_H_FEFD6C9A_C7FB_48DE_A
 
 #include <System/PooledContainer.h>
-#include <System/2DArray.h>
+#include <System/2Darray.h>
 
 #include "Protocol.h"
 

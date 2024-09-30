@@ -13,8 +13,8 @@
 #include "UI/ProgressBar.h"
 #include "UI/HealthBar.h"
 
-#include "ui/DebugDraw.h"
-#include "Render/DebugRenderer.h"
+#include "UI/DebugDraw.h"
+#include "Render/debugrenderer.h"
 
 #include "System/InlineProfiler.h"
 

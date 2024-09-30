@@ -6,7 +6,7 @@
 #include "../System/SyncProcessorState.h"
 #include "../System/HPTimer.h"
 #include "../System/meminfo.h"
-#include "../System/WinFileSystem.h"
+#include "../System/FileSystem/WinFileSystem.h"
 #include "../System/LogFileName.h"
 
 #include "../Core/CoreFSM.h"

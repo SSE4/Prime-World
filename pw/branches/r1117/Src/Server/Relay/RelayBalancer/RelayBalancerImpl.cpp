@@ -1,14 +1,14 @@
 #include "stdafx.h"
-#include "RelayBalancer/RelayBalancerImpl.h"
-#include "RelayBalancer/RelaySvcContext.h"
-#include "RelayBalancer/RelayAllocationContext.h"
-#include "RelayBalancer/RRelayBalancerIface.auto.h"
+#include "Relay/RelayBalancer/RelayBalancerImpl.h"
+#include "Relay/RelayBalancer/RelaySvcContext.h"
+#include "Relay/RelayBalancer/RelayAllocationContext.h"
+#include "Relay/RelayBalancer/RRelayBalancerIface.auto.h"
 #include "UserManager/UserManagerSvc/RUserManagerIface.auto.h"
 #include "UserManager/UserManagerSvc/UserManagerNaming.h"
 #include <Coordinator/CoordinatorServerNaming.h>
-#include "RelaySvc/RelaySvcNaming.h"
-#include "RelayBalancer/RelayBalancerSettings.h"
-#include "RelayBalancer/RelayBalancerGameContext.h"
+#include "Relay/RelaySvc/RelaySvcNaming.h"
+#include "Relay/RelayBalancer/RelayBalancerSettings.h"
+#include "Relay/RelayBalancer/RelayBalancerGameContext.h"
 
 NI_DEFINE_REFCOUNT(Relay::BalancerImpl);
 

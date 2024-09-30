@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "CTE_Controller.h"
 
 #include "PFBaseUnit.h"

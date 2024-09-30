@@ -3,7 +3,7 @@
 #include <Vendor/Tamarin/source/platform/win32/win32-platform.h>
 #include <Vendor/Tamarin/source/core/avmplus.h>
 
-#include <UI/Flash/GameSWFIntegration/Builtins/NativesBuiltins.h>
+#include <UI/Flash/GameSWFIntegration/builtins/NativesBuiltins.h>
 #include "ClassMacros.h"
 #include <UI/Flash/GameSWFIntegration/SafeGCRoot.h>
 

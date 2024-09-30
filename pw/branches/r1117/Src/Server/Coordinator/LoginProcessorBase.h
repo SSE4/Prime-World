@@ -3,7 +3,7 @@
 
 #include "Network/LoginContext.h" // SLoginContext, IAsyncLoginProcessor
 //#include "rpc/P2PNode.h"
-#include "rpc/IfaceRequester.h"
+#include "RPC/IfaceRequester.h"
 
 
 namespace Login

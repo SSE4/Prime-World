@@ -1,5 +1,5 @@
 #pragma once
-#include "RelayBalancer/Types.h"
+#include "Relay/RelayBalancer/Types.h"
 
 namespace Relay
 {

@@ -1,1 +1,1 @@
-#include "GameChatController/stdafx.h"
+#include "stdafx.h"

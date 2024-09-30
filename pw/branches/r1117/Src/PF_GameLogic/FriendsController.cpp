@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "FriendsController.h"
 
 #include "AdventureFlashInterface.h"

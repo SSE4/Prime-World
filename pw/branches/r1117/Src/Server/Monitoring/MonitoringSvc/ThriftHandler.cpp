@@ -1,4 +1,4 @@
-#include "MonitoringSvc/ThriftHandler.h"
+#include "ThriftHandler.h"
 
 namespace Monitoring
 {

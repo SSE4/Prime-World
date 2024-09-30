@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "RelayBalancer/RelayBalancerGameUserGroup.h"
-#include "RelayBalancer/RelayBalancerUserContext.h"
+#include "Relay/RelayBalancer/RelayBalancerGameUserGroup.h"
+#include "Relay/RelayBalancer/RelayBalancerUserContext.h"
 
 NI_DEFINE_REFCOUNT(Relay::GameUserGroup);
 

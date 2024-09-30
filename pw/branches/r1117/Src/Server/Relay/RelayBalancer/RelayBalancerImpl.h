@@ -2,16 +2,16 @@
 
 #include <RPC/GateKeeper.h>
 #include <Coordinator/ServiceRole.h>
-#include "RelayBalancer/RelayBalancerIface.h"
-#include "RelayBalancer/RelayAllocationContextFactory.h"
-#include "RelayBalancer/RelayAllocationCompletedNotify.h"
-#include "RelayBalancer/RelayBalancerClientNotifyIface.h"
-#include "RelayBalancer/RelaySvcContextNotity.h"
-#include "UserManagerSvc/RUserManagerIface.auto.h"
-#include "RelayBalancer/RelayHostContext.h"
+#include "Relay/RelayBalancer/RelayBalancerIface.h"
+#include "Relay/RelayBalancer/RelayAllocationContextFactory.h"
+#include "Relay/RelayBalancer/RelayAllocationCompletedNotify.h"
+#include "Relay/RelayBalancer/RelayBalancerClientNotifyIface.h"
+#include "Relay/RelayBalancer/RelaySvcContextNotity.h"
+#include "UserManager/UserManagerSvc/RUserManagerIface.auto.h"
+#include "Relay/RelayBalancer/RelayHostContext.h"
 #include <Coordinator/ServiceAppearanceNotifierIface.h>
 #include <Coordinator/RServiceAppearanceNotifierIface.auto.h>
-#include "RelayBalancer/RelayBalancerSettings.h"
+#include "Relay/RelayBalancer/RelayBalancerSettings.h"
 
 namespace Relay
 {

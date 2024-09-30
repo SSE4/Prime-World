@@ -4,9 +4,9 @@
 #include "System/AssertDumper.h"
 #include "System/InlineProfiler.h"
 #include "System/CrashRptWrapper.h"
-#include "RenderStatesManager.h"
+#include "renderstatesmanager.h"
 #include "renderflagsconverter.h"
-#include "RenderResourceManager.h"
+#include "renderresourcemanager.h"
 
 #include "vertexformatdescriptor.h"
 #include "texture.h"

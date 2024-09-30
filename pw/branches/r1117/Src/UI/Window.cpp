@@ -4,7 +4,7 @@
 #include "SkinStyles.h"
 #include "Resolution.h"
 #include "User.h"
-#include "Render/UIRenderer.h"
+#include "Render/uirenderer.h"
 #include "Sound/EventScene.h"
 #include "LuaEventResult.h"
 #include "Scripts/Script.h"

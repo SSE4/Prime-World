@@ -1,8 +1,8 @@
 #include "TamarinPCH.h"
 
-#include <GLU.h>
+#include <GL/glu.h>
 
-#include "geometry.h"
+#include "Geometry.h"
 
 // void GeomShape::SetStyles(const std::list<FILLSTYLE>* styles)
 // {

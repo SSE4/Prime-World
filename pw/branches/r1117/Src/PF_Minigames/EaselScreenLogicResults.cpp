@@ -2,7 +2,7 @@
 #include "EaselScreenLogicResults.h"
 
 //#include "../Client/ScreenCommands.h"
-#include "../Ui/Window.h"
+#include "../Ui/window.h"
 
 #include "Minigames.h"
 #include "MinigamesMain.h"

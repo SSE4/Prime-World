@@ -15,7 +15,7 @@
 #include "FlashFSCommands.h"
 
 #include "../UI/Cursor.h"
-#include "../ui/FlashContainer2.h"
+#include "../UI/FlashContainer2.h"
 #include "../UI/ImageLabel.h"
 
 namespace NGameX

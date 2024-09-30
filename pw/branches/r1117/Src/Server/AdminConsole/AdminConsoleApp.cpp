@@ -6,12 +6,12 @@
 #include <ace/ACE.h>
 #include <ace/Get_Opt.h>
 
-#include "Server/Network/ClusterConfiguration.h"
-#include "Server/Network/StreamAllocator.h"
-#include "Server/Network/Initializer.h"
-#include "Server/Network/Transport.h"
-#include "Server/Network/TransportInitializer.h"
-#include "Server/Network/TransportMessages.h"
+#include "Network/ClusterConfiguration.h"
+#include "Network/StreamAllocator.h"
+#include "Network/Initializer.h"
+#include "Network/Transport.h"
+#include "Network/TransportInitializer.h"
+#include "Network/TransportMessages.h"
 #include "transport/TLTransportModule.h"
 #include "transport/TLCfg.h"
 #include "transport/TLDefaultLogCallback.h"

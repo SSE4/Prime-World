@@ -3,7 +3,7 @@
 #include <System/Basic.h>
 #include <Server/RPC/P2PNode.h>
 #include <Server/RPC/GateKeeper.h>
-#include <Server/rpc/LocalEntityFactory.h>
+#include <Server/RPC/LocalEntityFactory.h>
 #include <Server/Network/ClientTransportSystemIntf.h>
 #include <Server/Network/FreePortsFinder.h>
 

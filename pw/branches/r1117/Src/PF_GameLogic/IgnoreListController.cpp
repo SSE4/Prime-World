@@ -1,11 +1,11 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "IgnoreListController.h"
 
 #include "IgnoreListStorage.h"
 
 #include "AdventureFlashInterface.h"
 #include "FlashFSCommands.h"
-#include "ui/FlashContainer2.h"
+#include "UI/FlashContainer2.h"
 #include "Client/GameChatClient/IGameChatClient.h"
 
 #include "DBStats.h"

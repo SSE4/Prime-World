@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "libdb/DB.h"
+#include "libdb/Db.h"
 #include "System/FilePath.h"
 #include "System/FileSystem.h"
 #include "System/WinFileSystem.h"

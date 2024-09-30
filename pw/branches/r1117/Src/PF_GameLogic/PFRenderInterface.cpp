@@ -2,12 +2,12 @@
 
 #include "System/2Darray.h"
 #include "System/meminfo.h"
-#include "System/fixedstring.h"
+#include "System/fixedString.h"
 #include "System/InlineProfiler.h"
 
 #include "Scene/Scene.h"
 #include "Terrain/Terrain.h"
-#include <Terrain\TerrainTextureCache.h>
+#include <Terrain/TerrainTextureCache.h>
 
 #include "Render/ImmediateRenderer.h"
 #include "Render/renderresourcemanager.h"
@@ -22,7 +22,7 @@
 #include "Render/GlobalMasks.h"
 
 #include "Render/texture.h"
-#include "Render/RenderSurface.h"
+#include "Render/rendersurface.h"
 #include "Render/InstancedMeshResource.h"
 #include "Render/FrustumCuller.h"
 

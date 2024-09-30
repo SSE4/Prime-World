@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/TransportTypes.h"
+#include "Network/TransportTypes.h"
 
 namespace GtcSocial
 {

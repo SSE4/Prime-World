@@ -1,6 +1,6 @@
-#include <ChatSvc/ChatCensorCheckOp.h>
-#include <ChatSvc/ChatUserContext.h>
-#include <ChatSvc/ChatSvcLogging.h>
+#include "ChatCensorCheckOp.h"
+#include "ChatUserContext.h"
+#include "ChatSvcLogging.h"
 
 namespace chat
 {

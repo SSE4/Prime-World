@@ -3,7 +3,7 @@
 
 #include <RPC/RPC.h>
 #include "Chat/ChatTypes.h"
-#include "ChatSvc/ChatClientIfaceCallback.h"
+#include "ChatClientIfaceCallback.h"
 
 
 

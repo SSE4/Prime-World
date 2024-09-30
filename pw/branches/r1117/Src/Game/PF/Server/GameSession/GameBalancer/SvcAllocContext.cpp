@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "GameBalancer/SvcAllocContext.h"
-#include "GameBalancer/SvcContext.h"
+#include "SvcAllocContext.h"
+#include "SvcContext.h"
 
 NI_DEFINE_REFCOUNT(GameBalancer::SvcAllocContext);
 

@@ -1,9 +1,9 @@
 #pragma once
 
 #include "ServerAppBase/NivalService.h"
-#include "UserManagerSvc/UserManagerImpl.h"
+#include "UserManagerImpl.h"
 #include "RPC/IfaceRequester.h"
-#include "RelayBalancer/RRelayBalancerIface.auto.h"
+#include "Relay/RelayBalancer/RRelayBalancerIface.auto.h"
 
 namespace UserManager
 {

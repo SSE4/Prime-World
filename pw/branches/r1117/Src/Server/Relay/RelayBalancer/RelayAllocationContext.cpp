@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "RelayBalancer/RelayAllocationContext.h"
-#include "RelayBalancer/RelaySvcContext.h"
-#include "RelayBalancer/RRelayBalancerIface.auto.h"
-#include "RelayBalancer/RRelayBalancerClientNotifyIface.auto.h"
-#include "RelayBalancer/RelayBalancerGameUserGroup.h"
+#include "Relay/RelayBalancer/RelayAllocationContext.h"
+#include "Relay/RelayBalancer/RelaySvcContext.h"
+#include "Relay/RelayBalancer/RRelayBalancerIface.auto.h"
+#include "Relay/RelayBalancer/RRelayBalancerClientNotifyIface.auto.h"
+#include "Relay/RelayBalancer/RelayBalancerGameUserGroup.h"
 
 NI_DEFINE_REFCOUNT(Relay::AllocationContext);
 

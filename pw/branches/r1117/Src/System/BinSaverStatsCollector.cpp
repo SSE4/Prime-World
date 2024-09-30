@@ -1,6 +1,6 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "BinSaverStatsCollector.h"
-#include "InlineProfiler3\InlineProfilerTLD.h"
+#include "InlineProfiler3/InlineProfilerTLD.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

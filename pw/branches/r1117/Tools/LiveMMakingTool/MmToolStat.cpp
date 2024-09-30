@@ -2,7 +2,7 @@
 
 #include "MmToolStat.h"
 #include "Db/DBServer.auto.h"
-#include "system/SafeTextFormatStl.h"
+#include "System/SafeTextFormatStl.h"
 #include "Server/LobbySocial/SocialLobbyConfig.h"
 #include <direct.h>
 #include <json/writer.h>

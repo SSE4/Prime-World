@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "LobbyConnection.h"
 #include <winsock2.h>
-#include "System\StarForce\StarForce.h"
+#include "System/StarForce/StarForce.h"
 #include <Tlhelp32.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

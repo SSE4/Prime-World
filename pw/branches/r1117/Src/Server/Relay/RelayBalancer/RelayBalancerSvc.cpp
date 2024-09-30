@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "RelayBalancer/RelayBalancerSvc.h"
-#include "RelayBalancer/LRelayBalancerIface.auto.h"
-#include "RelayBalancer/RelayBalancerNaming.h"
-#include "RelayBalancer/LRelayBalancerClientNotifyIface.auto.h"
+#include "Relay/RelayBalancer/RelayBalancerSvc.h"
+#include "Relay/RelayBalancer/LRelayBalancerIface.auto.h"
+#include "Relay/RelayBalancer/RelayBalancerNaming.h"
+#include "Relay/RelayBalancer/LRelayBalancerClientNotifyIface.auto.h"
 #include "Coordinator/LServiceAppearanceNotifierIface.auto.h"
 
 

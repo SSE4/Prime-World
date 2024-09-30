@@ -3,7 +3,7 @@
 #include "IGameTestClient.h"
 #include <System/Basic.h>
 #include <Server/RPC/GateKeeper.h>
-#include <Server/rpc/LocalEntityFactory.h>
+#include <Server/RPC/LocalEntityFactory.h>
 #include <Network/ClientTransportSystemIntf.h>
 #include <Network/FreePortsFinder.h>
 

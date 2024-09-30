@@ -1,7 +1,7 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "BuffsController.h"
 
-#include "../ui/FlashContainer2.h"
+#include "../UI/FlashContainer2.h"
 
 #include "PFApplMod.h"
 #include "PFBaseUnit.h"

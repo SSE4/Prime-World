@@ -1,5 +1,5 @@
-#include "ChatSvc/stdafx.h"
-#include "ChatSvc/ChatChannelHistory.h"
+#include "stdafx.h"
+#include "ChatChannelHistory.h"
 
 NI_DEFINE_REFCOUNT(chat::ChannelHistory);
 

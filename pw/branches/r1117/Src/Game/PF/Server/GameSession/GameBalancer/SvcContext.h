@@ -3,8 +3,8 @@
 #include <RPC/IfaceRequester.h>
 #include "HybridServer/RGameServerAllocatorIface.auto.h"
 #include "HybridServer/RGameServerDispenserIface.auto.h"
-#include "GameBalancer/SvcAllocContext.h"
-#include "GameBalancer/IGameCCUCounter.h"
+#include "SvcAllocContext.h"
+#include "IGameCCUCounter.h"
 #include "Network/AddressTranslator.h"
 
 namespace HybridServer

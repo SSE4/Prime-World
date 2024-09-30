@@ -5,7 +5,7 @@
 #include <boost/unordered_set.hpp>
 #include <boost/algorithm/string.hpp>
 #include <string>
-#include <system/nvector.h>
+#include <System/nvector.h>
 #include <System/nstring.h>
 
 //#include <System/Pointers/BaseObjectMT.h>

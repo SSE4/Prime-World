@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CleanGeometry.h"
-#include <Render\renderflagsconverter.h>
+#include <Render/renderflagsconverter.h>
 #include <System/InlineProfiler.h>
 
 namespace Render {

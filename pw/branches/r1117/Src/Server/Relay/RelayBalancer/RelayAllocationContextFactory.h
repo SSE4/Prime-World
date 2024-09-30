@@ -1,5 +1,5 @@
 #pragma once
-#include "RelayBalancer/RelayAllocationCompletedNotify.h"
+#include "Relay/RelayBalancer/RelayAllocationCompletedNotify.h"
 
 namespace Relay
 {

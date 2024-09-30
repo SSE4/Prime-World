@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 
 #include "MainLoop.h"
 #include "ScreenBase.h"

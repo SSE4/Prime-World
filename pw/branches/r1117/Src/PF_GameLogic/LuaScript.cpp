@@ -16,7 +16,7 @@
 #include "PFNeutralCreep.h"
 #include "PFMainBuilding.h"
 #include "PFSimpleObject.h"
-#include "PFFlagPole.h"
+#include "PFFlagpole.h"
 #include "PFTree.h"
 #include "PFImpulsiveBuffs.h"
 #include "Client/MainTimer.h"
@@ -44,7 +44,7 @@
 #include "PFClientVisibilityMap.h"
 #include "PFConsumable.h"
 #include "Render/AOERenderer.h"
-#include "..\PF_Core\EffectsPool.h"
+#include "../PF_Core/EffectsPool.h"
 #include "PFClientHero.h"
 #include "ObjectsInfo2d.h"
 
