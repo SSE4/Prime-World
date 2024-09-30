@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "../System/fixedvector.h"
 #include "../MemoryLib/newdelete.h"
 
@@ -8,8 +10,7 @@ namespace Render
 	struct AABB;
   struct SceneConstants;
 
-	__declspec(align(16))
-	struct FPlane
+	struct ALIGN(16) FPlane
 	{
 		float X, Y, Z, W;
 		FPlane() : X(0), Y(0), Z(0), W(0) {}
@@ -24,8 +25,7 @@ namespace Render
     void Normalize(); // Normalize CVec3(X, Y, Z)
   };
 
-	__declspec(align(16))
-	class ConvexVolume
+	class ALIGN(16) ConvexVolume
 	{
 		enum
 		{
@@ -38,9 +38,9 @@ namespace Render
 			PLANE_COUNT,
 		};
 
-		__declspec(align(16)) FixedVector<FPlane, 12> planes;
-		__declspec(align(16)) FixedVector<FPlane, 12> permutedPlanes;
-		__declspec(align(16)) SHMatrix viewProjection;
+		FixedVector<FPlane, 12> ALIGN(16) planes;
+		FixedVector<FPlane, 12> ALIGN(16) permutedPlanes;
+		SHMatrix ALIGN(16) viewProjection;
 
 		void BuildPlanes(const SHMatrix& ViewProjectionMatrix);
 		void BuildNearAndFarPlanes( const SHMatrix& ViewProjectionMatrix );

@@ -139,7 +139,7 @@ void IntersectFrustumWithPlane(const SHMatrix &viewProjection, float farZ, Frust
 		CVec3( w, -h, d)
 	};
 
-	__declspec(align(16)) SHMatrix vp = viewProjection;
+	SHMatrix ALIGN(16) vp = viewProjection;
 	vp.HomogeneousInverse(viewProjection);
 	CVec3 camPos = vp.GetTranslation();
 	camPos.z = fabs(camPos.z);

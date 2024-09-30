@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "../Scene/SceneObject.h"
 #include "../Scene/LightningFX.h"
 #include "../Render/debugrenderer.h"
@@ -39,9 +41,8 @@ protected:
 class LightningEffect : public EffectDBLinker<NDb::LightningEffect>
 {
 public:
-  
-  __declspec(align(16))
-  class Object : public NScene::SceneObjectBase
+
+  class ALIGN(16) Object : public NScene::SceneObjectBase
   {
   public:
     DECLARE_NEWDELETE_ALIGN16(Object);

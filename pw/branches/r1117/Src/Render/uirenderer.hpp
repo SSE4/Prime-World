@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "../UI/DBUI.h"
 
 #include "uirenderer.h"
@@ -150,8 +152,7 @@ private:
     Color color;
   };
 
-  __declspec(align(16))
-  struct QuadStride
+  struct ALIGN(16) QuadStride
   {
     VertexStride v0, v1, v2, v3;
   };

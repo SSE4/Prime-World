@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 namespace NDb
 {
 	struct AABB;
@@ -7,8 +9,7 @@ namespace NDb
 
 namespace Render
 {
-	__declspec(align(16))
-	struct AABB
+	struct ALIGN(16) AABB
 	{
 		CVec3 center;
 		float x; //align to 4 floats for SSE instructions

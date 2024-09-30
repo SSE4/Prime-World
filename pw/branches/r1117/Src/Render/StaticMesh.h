@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "RenderComponent.h"
 #include "MeshResource.h"
 #include "MaterialSpec.h"
@@ -24,8 +26,7 @@ namespace Render
 
 struct SceneConstants;
 
-__declspec(align(16))
-class StaticMeshBase : public RenderComponent
+class ALIGN(16) StaticMeshBase : public RenderComponent
 {
 protected:
 	Matrix43  worldMatrix;
@@ -46,8 +47,7 @@ public:
   virtual void AddGeometryCRC(Crc32Checksum &crc) {}
 };
 
-__declspec(align(16))
-class StaticMesh : public StaticMeshBase
+class ALIGN(16) StaticMesh : public StaticMeshBase
 {
 	REPLACE_DEFAULT_NEW_DELETE(StaticMesh);
 	

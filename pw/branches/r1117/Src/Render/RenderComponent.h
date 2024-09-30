@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "../System/noncopyable.h"
 #include "aabb.h"
 #include "OcclusionQueries.h"
@@ -36,8 +38,7 @@ class RenderComponent;
 class BatchQueue;
 class BaseMaterial;
 
-__declspec(align(16))
-class RenderComponent : public NonCopyable
+class ALIGN(16) RenderComponent : public NonCopyable
 {
 protected:
 	const NDb::DBID *pResourceDBID;

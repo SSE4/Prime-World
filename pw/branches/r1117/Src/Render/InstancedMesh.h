@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "StaticMesh.h"
 
 namespace Render
@@ -8,8 +10,7 @@ namespace Render
 class InstancedMeshGeometry;
 class InstancingMaterial;
 
-__declspec(align(16))
-class InstancedMesh : public StaticMeshBase
+class ALIGN(16) InstancedMesh : public StaticMeshBase
 {
 	REPLACE_DEFAULT_NEW_DELETE(InstancedMesh);
 	ScopedPtr<BasicMaterial>  pMaterial;

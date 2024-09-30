@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "port/align.h"
+
 #include "HPTimer.h"
 #include "Thread.h"
 
@@ -14,7 +16,7 @@ static bool gSafeMode = false;
 static const double         FreqResampleRate = 0.1;
 
 //To ensure atomic access to variables
-#define MY_VOLATILE volatile __declspec(align(8))
+#define MY_VOLATILE volatile ALIGN(8)
 
 static MY_VOLATILE STime    gStartTime = 0;
 static MY_VOLATILE STime    gFrequency = 0;

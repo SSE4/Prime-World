@@ -1,4 +1,7 @@
 #pragma once
+
+#include "port/align.h"
+
 #include "SceneComponent.h"
 #include "Scene.h"
 #include "SceneObjectsPool.h"
@@ -52,8 +55,7 @@ protected:
 	CPtr<IScene> pScene;
 };
 
-__declspec(align(16))
-class SceneObject : public SceneObjectBase
+class ALIGN(16) SceneObject : public SceneObjectBase
 {
 protected:
 	enum

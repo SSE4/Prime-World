@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "port/align.h"
+
 #include "../Render/WaterManager.h"
 
 #include "../Render/debugrenderer.h"
@@ -31,8 +33,7 @@ bool g_useQueries = true;
 REGISTER_VAR( "waterUseQueries", g_useQueries, STORAGE_NONE );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-__declspec(align(16))
-struct WaterLevelsProcessor : private NonCopyable
+struct ALIGN(16) WaterLevelsProcessor : private NonCopyable
 {
 private:
 	FixedVector<ConvexVolume, 32>  volumes;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 static const unsigned __int32 VERTEX_PER_TRIANGLE = 3;
 static const int MAX_BONE_NAME_LENGTH = 1024;
 static const int MAX_FILE_NAME_LENGTH = 1024;
@@ -26,7 +28,7 @@ struct MayaTriangleWeight
 	unsigned short triangleID;
 };
 //////////////////////////////////////////////////////////////////////////
-__declspec(align(16)) struct TriangleJoints
+struct ALIGN(16) TriangleJoints
 {
 	TriangleJoints() : jointCount(0) { }
 	unsigned short jointsID[12];

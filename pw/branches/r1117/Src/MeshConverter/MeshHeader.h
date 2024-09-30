@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "../Render/vertexformatdescriptor.h"
 #include "../System/staticstring.h"
 #include "../System/staticvector.h"
@@ -165,7 +167,7 @@ struct MayaVertexStrideNew
 };
 
 
-__declspec(align(16)) struct H6SkeletalMeshVertexStride
+struct ALIGN(16) H6SkeletalMeshVertexStride
 {
 	CVec3 position;
 	CVec3 tangent;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "port/align.h"
+
 #include "MaterialSpec.h"
 #include "RenderComponent.h"
 #include "renderableprimitive.h"
@@ -11,8 +13,7 @@ namespace Render
 struct SHShaderConstants;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-__declspec(align(16))
-struct Batch
+struct ALIGN(16) Batch
 {
 	const RenderComponent      *pOwner;
 	unsigned int                elementNumber;

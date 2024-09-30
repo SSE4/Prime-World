@@ -1,12 +1,14 @@
 #ifndef _MATRIX43_H_
 #define _MATRIX43_H_
 
+#include "port/align.h"
+
 #include <System/Geom.h>
 #include <xmmintrin.h>
 #include <System/Decompose.h>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//__declspec(align(16))
+//ALIGN(16)
 struct Matrix43
 {
 #ifdef WIN32
