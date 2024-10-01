@@ -194,7 +194,7 @@ void LightningFX::Update(CVec3 const& a, CVec3 const& b, float dt)
 
 	// animate V coordinate in texture atlas
 	float increment = 0.0f;
-	frameOffset = modf(frameOffset + params.animSpeed * dt, &increment);
+	frameOffset = modff(frameOffset + params.animSpeed * dt, &increment);
   int animFrameCount = Max(0, params.animLastFrame - params.animFirstFrame) + 1;
 	switch (params.animType)
 	{
@@ -212,7 +212,7 @@ void LightningFX::Update(CVec3 const& a, CVec3 const& b, float dt)
 	}
 
 	// animate U coordinate
-	scrollOffset = modf(scrollOffset + params.scrollSpeed * dt / params.tiling, &increment);
+	scrollOffset = modff(scrollOffset + params.scrollSpeed * dt / params.tiling, &increment);
 
 	// prepare UV scale and offset for shader
 	float animFrameCountInv = 1.0f / float(params.animAtlasSize);
