@@ -184,48 +184,6 @@ inline TYPE Sign( const TYPE x )
         return 0;
 }
 
-#ifdef WIN32
-
-// calculates sign for integer variable, returns -1, 0, 1. template specialization
-//#pragma warning( disable: 4035 ) // compiler can and does produce wrong code in this case with optimisations turned on
-template <>
-inline int Sign<int>( const int nVal )
-{
-    int nRes;
-    _asm
-    {
-        xor ecx, ecx
-        mov eax, nVal
-        test eax, 0x7FFFFFFF
-        setne cl
-        sar eax, 31
-        or eax, ecx
-        mov nRes, eax
-    }
-    return nRes;
-}
-template <>
-inline short int Sign<short int>( const short int nVal )
-{
-    short int nRes;
-    _asm
-    {
-        xor ecx,ecx
-        mov ax, nVal
-        test ax, 0x7FFF
-        setne cl
-        sar ax, 15
-        or ax, cx
-        mov nRes, ax
-    }
-    return nRes;
-}
-
-#else
-
-
-#endif
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ************************************************************************************************************************ //
 // radian <=> degree conversion functions
@@ -276,22 +234,11 @@ inline void Zero( TYPE &val )
 // ************************************************************************************************************************ //
 inline void MemSetDWord( unsigned long* lpData, const unsigned long value, const int nCount )
 {
-  #ifdef WIN32
-    _asm
-    {
-        mov ecx, nCount
-        mov edi, lpData
-        mov eax, value
-        rep stosd
-    }
-    #else
       unsigned long *dest = lpData;
       for (int i = nCount; i > 0; i--)
       {
         *dest = value; dest++;
       }
-      
-    #endif
 }
 
 
@@ -303,25 +250,14 @@ inline void MemSetDWord( unsigned long* lpData, const unsigned long value, const
 __forceinline int Float2Int( const float fVal )
 {
     int nRet;
-    #ifdef WIN32
-      __asm fld dword ptr fVal
-      __asm fistp nRet
-  #else
     nRet = (int)(ceilf(fVal));
-  #endif      
     return nRet;
 }
 
 
 __forceinline void Float2Int( int *pInt, float fVal ) 
 {
-  #ifdef WIN32
-      __asm fld fVal
-      __asm mov edx, pInt
-      __asm fistp dword ptr [edx];
-  #else
     *(pInt) = (int)(ceilf(fVal));
-  #endif      
 }
 
 
