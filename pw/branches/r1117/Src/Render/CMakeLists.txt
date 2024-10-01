@@ -1,0 +1,224 @@
+add_library(Render
+Rect.h
+specific.h
+stdafx.cpp
+stdafx.h
+AOERenderer.cpp
+AOERenderer.h
+ConstantProtection.cpp
+ConstantProtection.h
+DeviceLost.cpp
+DeviceLost.h
+DXWarnSignal.h
+light.h
+LightsManager.cpp
+LightsManager.h
+NullRenderSignal.h
+omnilight.h
+Renderer.component
+renderer.cpp
+renderer.h
+RenderInterface.cpp
+RenderInterface.h
+rendermode.cpp
+rendermode.h
+renderresourcemanager.cpp
+renderresourcemanager.h
+sceneconstants.cpp
+sceneconstants.h
+smartrenderer.cpp
+smartrenderer.h
+# ../vendorFOURCC.h not found
+ atir2vb.h
+ CleanGeometry.cpp
+ CleanGeometry.h
+ ConvertDirection.h
+ DXHelpers.h
+ DxIntrusivePtr.h
+ DxResourcesControl.cpp
+ DxResourcesControl.h
+ dxutils.cpp
+ dxutils.h
+ ShaderInitializers.h
+ SHCoeffs.cpp
+ locktype.h
+ renderflagsconverter.cpp
+ renderflagsconverter.h
+ renderformat.h
+ renderprimitivetype.h
+ vertexelementtype.h
+ vertexelementusage.h
+ multishader.cpp
+ multishader.h
+ shadercompiler.cpp
+ shadercompiler.h
+ shaderpair.h
+ SHCoeffs.h
+ DDS.h
+ ReadDDS.cpp
+ ReadDDS.h
+ rendersurface.cpp
+ rendersurface.h
+ sampler.cpp
+ sampler.h
+ texture.cpp
+ texture.h
+ TextureManager.cpp
+ TextureManager.h
+ Textures.component
+ renderstates.h
+ renderstatesmanager.cpp
+ renderstatesmanager.h
+ states.h
+ batch.cpp
+ batch.h
+ BatchedRenderer.component
+ DXManager.cpp
+ DXManager.h
+ primitive.cpp
+ primitive.h
+ renderableprimitive.h
+ RenderComponent.cpp
+ RenderComponent.h
+ dipdescriptor.cpp
+ dipdescriptor.h
+ vertexelementdescriptor.h
+ vertexformatdescriptor.cpp
+ vertexformatdescriptor.h
+ vertexstreamdescriptor.h
+ Material.component
+ Material.cpp
+ Material.h
+ MaterialSpec.cpp
+ MaterialSpec.h
+ MaterialSpec.inl
+ priorities.h
+  BasicFXMaterial.inl
+  BasicMaterial.inl
+  BasicMaterialWithBatch.inl
+  CommonMaterialFunc.inl
+  DropMaterial.inl
+  EaselPaintMaterial.inl
+  HeightfogMaterial.inl
+  InstancingMaterial.inl
+  ParticleFXMaterial.inl
+  ShadowMaterialFunc.inl
+  SkyMaterial.inl
+  SpecialTransparency.inl
+  TerrainMaterialFunc.inl
+  TestTownMaterial.inl
+  UIBaseMaterial.inl
+  UIButtonMaterial.inl
+  UIFontMaterial.inl
+  UIGlassMaterial.inl
+  WaterMaterial.inl
+ configdatabase.cpp
+ configdatabase.h
+ ConfigManager.component
+ ConfigManager.cpp
+ ConfigManager.h
+ Features.h
+ IConfigManager.h
+ VidMemViaDDraw.cpp
+ VidMemViaWMI.cpp
+FlashRenderer.cpp
+FlashRenderer.h
+FlashRendererInterface.h
+UI_Renderer.component
+uirenderer.cpp
+uirenderer.h
+uirenderer.hpp
+UITextureAtlasItem.cpp
+UITextureAtlasItem.h
+UITextureCache.cpp
+UITextureCache.h
+UITextureCacheInterface.h
+../../Data/deprecated_shaders/debug3d_shader.hlsl
+../../Data/deprecated_shaders/debug_points2d_shader.hlsl
+../../Data/deprecated_shaders/debug_points3d_shader.hlsl
+../../Data/deprecated_shaders/debug_shader.hlsl
+GlobalMasks.h
+Shaders/MaterialSpec.hlsl
+Shaders/MaterialSpec.xml
+DBRender.component
+DBRender.cpp
+DBRender.h
+DBRenderResources.cpp
+DBRenderResources.h
+InstancedMesh.cpp
+InstancedMesh.h
+InstancedMeshResource.cpp
+InstancedMeshResource.h
+MeshResource.h
+ParticleFX.cpp
+ParticleFX.h
+RenderScene.component
+#RoadGeometryVertex.h not found
+SkeletalAnimationBlender.cpp
+SkeletalAnimationBlender.h
+SkeletalAnimationSampler.cpp
+SkeletalAnimationSampler.h
+SkeletalMesh.cpp
+SkeletalMesh.h
+skeletonanimation.cpp
+skeletonanimation.h
+SkeletonReindexResource.h
+SkeletonWrapper.cpp
+SkeletonWrapper.h
+StaticMesh.cpp
+StaticMesh.h
+debugmesh.cpp
+debugmesh.h
+DebugRenderer.component
+debugrenderer.cpp
+debugrenderer.h
+debugstaticmesh.cpp
+debugstaticmesh.h
+ImmediateRenderer.component
+ImmediateRenderer.cpp
+ImmediateRenderer.h
+aabb.cpp
+aabb.h
+ConvexVolume.cpp
+ConvexVolume.h
+Culling.component
+FrustumCuller.cpp
+FrustumCuller.h
+OcclusionQueries.cpp
+OcclusionQueries.h
+Water.component
+WaterConvexes.cpp
+WaterConvexes.h
+WaterManager.cpp
+WaterManager.h
+WaterMathTex.cpp
+WaterMathTex.h
+WaterMesh.cpp
+WaterMesh.h
+BoundingPrimitives.cpp
+BoundingPrimitives.h
+Shadow.component
+ShadowManager.cpp
+ShadowManager.h
+ShadowMap.cpp
+ShadowMap.h
+ShadowReceiverVolume.h
+Bloom.cpp
+Bloom.h
+Blur.cpp
+Blur.h
+Filter.h
+FullScreenFX.cpp
+FullScreenFX.h
+Stretcher.cpp
+Stretcher.h
+VertexColorStream.cpp
+VertexColorStream.h
+all.component
+DebugLocks.h
+PFXLogger.inl
+render.refs
+Shaders.component
+#../Version.rc ExcludedFromBuild
+)
+target_include_directories(Render PRIVATE ${SRCROOT})

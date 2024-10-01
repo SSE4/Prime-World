@@ -1,0 +1,138 @@
+add_library(EditorNative
+stdafx.cpp
+stdafx.h
+CompositeTransformController.cpp
+CompositeTransformController.h
+IObjectTransformController.cpp
+IObjectTransformController.h
+IObjectTransformControllersProvider.cpp
+IObjectTransformControllersProvider.h
+Manipulator.cpp
+Manipulator.h
+ManipulatorElement.cpp
+ManipulatorElement.h
+ManipulatorsController.cpp
+ManipulatorsController.h
+TransformParameters.cpp
+TransformParameters.h
+ AxisRotatorElement.cpp
+ AxisRotatorElement.h
+ CameraPlaneRotatorElement.cpp
+ CameraPlaneRotatorElement.h
+ Rotator.cpp
+ Rotator.h
+ RotatorElement.cpp
+ RotatorElement.h
+ AxisMoverElement.cpp
+ AxisMoverElement.h
+ CameraPlaneMoverElement.cpp
+ CameraPlaneMoverElement.h
+ Mover.cpp
+ Mover.h
+ MoverElement.cpp
+ MoverElement.h
+ MultiDirectionScalerElement.cpp
+ MultiDirectionScalerElement.h
+ Scaler.cpp
+ Scaler.h
+ ScalerElement.cpp
+ ScalerElement.h
+ SingleDirectionScalerElement.cpp
+ SingleDirectionScalerElement.h
+EditorTerrain.cpp
+EditorTerrain.h
+TcvMarker.cpp
+TcvMarker.h
+TerrainElement.cpp
+TerrainElement.h
+TerrainUtils.cpp
+TerrainUtils.h
+ TerrainGlobalLayer.cpp
+ TerrainGlobalLayer.h
+ TerrainLayer.cpp
+ TerrainLayer.h
+ TerrainMaterialLayer.cpp
+ TerrainMaterialLayer.h
+EditorFileSystem.cpp
+EditorFileSystem.h
+RoadWrapper.cpp
+RoadWrapper.h
+SceneElement.cpp
+SceneElement.h
+ Bound.cpp
+ Bound.h
+ GameSceneObject.cpp
+ GameSceneObject.h
+CubicSpline3D.cpp
+CubicSpline3D.h
+PlacementSpline.cpp
+PlacementSpline.h
+Quaternion.cpp
+Quaternion.h
+Vector2.cpp
+Vector2.h
+Vector3.cpp
+Vector3.h
+EditorDebugVars.cpp
+EditorDebugVars.h
+AGController.cpp
+AGController.h
+EditorDumper.cpp
+EditorDumper.h
+AABBSceneElement.cpp
+AABBSceneElement.h
+CollSceneObject.cpp
+CollSceneObject.h
+ComponentSceneElement.cpp
+ComponentSceneElement.h
+EditorSceneComponent.cpp
+EditorSceneComponent.h
+EditorSceneObject.cpp
+EditorSceneObject.h
+ISceneElement.cpp
+ISceneElement.h
+LocatorSceneElement.cpp
+LocatorSceneElement.h
+ManipulatorSceneObject.cpp
+ManipulatorSceneObject.h
+MoveManipulatorSceneComponent.cpp
+MoveManipulatorSceneComponent.h
+RotateManipulatorSceneComponent.cpp
+RotateManipulatorSceneComponent.h
+ScaleManipulatorSceneComponent.cpp
+ScaleManipulatorSceneComponent.h
+Editor2DSceneBase.cpp
+Editor2DSceneBase.h
+EditorMaterialScene.cpp
+EditorMaterialScene.h
+EditorUIScene.cpp
+EditorUIScene.h
+Camera.cpp
+Camera.h
+EditorScene.cpp
+EditorScene.h
+PickResult.cpp
+PickResult.h
+SimpleEditorScene.cpp
+SimpleEditorScene.h
+SimplePickResult.cpp
+SimplePickResult.h
+TextureImporter.cpp
+TextureImporter.h
+CinemaMode.cpp
+CinemaMode.h
+editornative.refs
+EditorRender.cpp
+EditorRender.h
+EditorSound.cpp
+EditorSound.h
+PlacementConverter.cpp
+PlacementConverter.h
+ResourceCache.cpp
+ResourceCache.h
+Settings.h
+StringUtils.h
+Utility.h
+)
+target_include_directories(EditorNative PRIVATE ${SRCROOT})
+target_link_libraries(EditorNative PRIVATE fmod)

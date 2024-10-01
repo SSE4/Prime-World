@@ -1,0 +1,20 @@
+add_library(ShaderCompiler
+crc_math.cpp
+crc_math.h
+parse.cpp
+parse.h
+specific.h
+stdafx.cpp
+stdafx.h
+multythread/mtworker.h
+multythread/mtworkerlite.cpp
+multythread/mtworkerlite.h
+multythread/RTExpImp.hxx
+multythread/RTOSDef.hxx
+ShaderCompiler.cpp
+UberShaderDesc.cpp
+UberShaderDesc.h
+)
+target_include_directories(ShaderCompiler PRIVATE
+${SRCROOT}
+${CMAKE_CURRENT_SOURCE_DIR})

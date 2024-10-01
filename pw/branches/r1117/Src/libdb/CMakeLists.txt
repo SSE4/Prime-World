@@ -1,0 +1,47 @@
+add_library(libdb
+libdbStdAfx.h
+Specific.h
+stdafx.cpp
+stdafx.h
+Checksum.component
+Checksum.cpp
+Checksum.h
+ClonedPtr.h
+Database.component
+DB.cpp
+Db.h
+dbid.component
+dbid.cpp
+dbid.h
+DbPtr.inl
+DbResourceCache.cpp
+DbResourceCache.h
+DbResourceCacheDump.cpp
+DbTypesRegistrator.cpp
+IDbTypesRegistrator.h
+LightXML.cpp
+LightXML.h
+LightXMLUtils.cpp
+LightXMLUtils.h
+XMLReader.component
+XMLReader.cpp
+XMLReader.h
+XmlUtils.cpp
+XmlUtils.h
+XmlChunkSaver.cpp
+XmlChunkSaver.h
+XMLSaver.component
+XmlSaver.h
+Animated.h
+Animated2Spline.h
+AnimatedAlgorithms.h
+AnimatedWrapper.h
+Placement.cpp
+Placement.h
+Types.component
+DBTestTypes.cpp
+DBTestTypes.h
+#../Version.rc ExcludedFromBuild
+)
+target_include_directories(libdb PRIVATE ${SRCROOT})
+target_link_libraries(libdb PRIVATE ZLIB::ZLIB)

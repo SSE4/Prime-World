@@ -1,0 +1,636 @@
+add_library(PF_GameLogic
+specific.h
+stdafx.cpp
+stdafx.h
+AdventureFlashInterface.cpp
+AdventureFlashInterface.h
+AdventureScreen.cpp
+AdventureScreen.h
+AdventureScreenBase.cpp
+AdventureScreenBase.h
+AdventureScreenDebug.cpp
+AdventureScreenLogic.cpp
+AdventureScreenLogic.h
+CommonScreens.component
+DamageBloodMask.cpp
+DamageBloodMask.h
+DebugCharStat.cpp
+DebugCharStat.h
+DieTimer.cpp
+DieTimer.h
+GameControl.h
+HeroRankCalculator.cpp
+HeroRankCalculator.h
+IAdventureScreen.h
+IGameStatistics.h
+IgnoreListStorage.cpp
+IgnoreListStorage.h
+MarkersController.cpp
+MarkersController.h
+Minimap.cpp
+Minimap.h
+NaftaInfoProvider.h
+ObjectInfoHelper.cpp
+ObjectInfoHelper.h
+ObjectInfoMapper.hpp
+ObjectsInfo2d.cpp
+ObjectsInfo2d.h
+PrecompiledTooltips.cpp
+PrecompiledTooltips.h
+ResourcesPreloader.cpp
+ResourcesPreloader.h
+Screens.component
+ScreensLogics.component
+TestingUtils.cpp
+UIBlockingController.cpp
+UIBlockingController.h
+ FlyTexts.cpp
+ FlyTexts.h
+ SingleFlyText.cpp
+ SingleFlyText.h
+ ActionBarController.cpp
+ ActionBarController.h
+ AnnouncementController.cpp
+ AnnouncementController.h
+ AwardsController.cpp
+ AwardsController.h
+ BindsController.cpp
+ BindsController.h
+ BuffsController.cpp
+ BuffsController.h
+ CharInfoContainer.cpp
+ CharInfoContainer.h
+ CharInfoController.cpp
+ CharInfoController.h
+ ChatController.cpp
+ ChatController.h
+ CommonCombatController.cpp
+ CommonCombatController.h
+ ComplainController.cpp
+ ComplainController.h
+ CTE_Controller.cpp
+ CTE_Controller.h
+ DialogController.cpp
+ DialogController.h
+ ErrorMessageController.cpp
+ ErrorMessageController.h
+ EscMenuController.cpp
+ EscMenuController.h
+ FinalStatisticsController.cpp
+ FinalStatisticsController.h
+ FlashFSCommands.cpp
+ FlashFSCommands.h
+ FriendsController.cpp
+ FriendsController.h
+ IChatMessageHook.h
+ IFlashChat.h
+ IgnoreListController.cpp
+ IgnoreListController.h
+ ImpulseBuffsController.cpp
+ ImpulseBuffsController.h
+ InventoryController.cpp
+ InventoryController.h
+ MinimapController.cpp
+ MinimapController.h
+ QuestsController.cpp
+ QuestsController.h
+ QueueSoundPlayer.cpp
+ QueueSoundPlayer.h
+ ShopController.cpp
+ ShopController.h
+ SmartChatAntiSpam.h
+ SmartChatController.cpp
+ SmartChatController.h
+ StatisticsController.cpp
+ StatisticsController.h
+ TalentPanelNew.cpp
+ TalentPanelNew.h
+ TeamInfoNew.cpp
+ TeamInfoNew.h
+ UIEventHandler.h
+ UnitInfoNew.cpp
+ UnitInfoNew.h
+ VotingForSurrenderController.cpp
+ VotingForSurrenderController.h
+ AdventureScreenFacets/GameOverEffect.cpp
+ AdventureScreenFacets/GameOverEffect.h
+PFAnimController.cpp
+PFAnimController.h
+PFAuraEffect.cpp
+PFAuraEffect.h
+PFClientApplicators.cpp
+PFClientApplicators.h
+PFClientBaseMovingUnit.cpp
+PFClientBaseMovingUnit.h
+PFClientBaseUnit.cpp
+PFClientBaseUnit.h
+PFClientBuilding.cpp
+PFClientBuilding.h
+PFClientChest.cpp
+PFClientChest.h
+PFClientCreature.cpp
+PFClientCreature.h
+PFClientCreep.cpp
+PFClientCreep.h
+PFClientDispatch.cpp
+PFClientDispatch.h
+PFClientFlagpole.cpp
+PFClientFlagpole.h
+PFClientHero.cpp
+PFClientHero.h
+PFClientLogicObject.cpp
+PFClientLogicObject.h
+PFClientMinigamePlace.cpp
+PFClientMinigamePlace.h
+PFClientObjectHelpers.h
+PFClientObjects.component
+PFClientSceneObjectsHolders.cpp
+PFClientSceneObjectsHolders.h
+PFClientSpawner.cpp
+PFClientSpawner.h
+PFClientSummoned.cpp
+PFClientSummoned.h
+PFClientTree.cpp
+PFClientTree.h
+PFClientVisibilityMap.cpp
+PFClientVisibilityMap.h
+PFClientVotingForSurrender.cpp
+PFClientVotingForSurrender.h
+PFDispatchCursorClient.cpp
+PFDispatchCursorClient.h
+PFEffectRandom.cpp
+PFEffectRandom.h
+PFEffectSwitcher.cpp
+PFEffectSwitcher.h
+PFInvisibilityEffect.cpp
+PFInvisibilityEffect.h
+PFMinimapEffect.cpp
+PFMinimapEffect.h
+PFPlayAnimEffect.cpp
+PFPlayAnimEffect.h
+PFPriestessSignEffect.cpp
+PFPriestessSignEffect.h
+PFSimpleObjectClient.cpp
+PFSimpleObjectClient.h
+PFUnitSceneObjectModify.cpp
+PFUnitSceneObjectModify.h
+ PFClientMultistateObject.cpp
+ PFClientMultistateObject.h
+ PFClientNatureSceneObjectsHolder.cpp
+ PFClientNatureSceneObjectsHolder.h
+ PFPureClientCritter.cpp
+ PFPureClientCritter.h
+ PFPureClientObject.cpp
+ PFPureClientObject.h
+DB.component
+DBAbility.cpp
+DBAbility.h
+DBAdvMap.cpp
+DBAdvMap.h
+DBAnimations.cpp
+DBAnimations.h
+DBConsumable.cpp
+DBConsumable.h
+DBDayNight.cpp
+DBDayNight.h
+DBGameLogic.cpp
+DBGameLogic.h
+DBGuild.cpp
+DBGuild.h
+DBHeroesList.cpp
+DBHeroesList.h
+DBHeroRanks.cpp
+DBHeroRanks.h
+DBImpulsiveBuffs.component
+DBImpulsiveBuffs.cpp
+DBImpulsiveBuffs.h
+DbMapList.cpp
+DbMapList.h
+DBMinigamesTypes.cpp
+DBMinigamesTypes.h
+DBPFEffect.cpp
+DBPFEffect.h
+DBResources.cpp
+DBResources.h
+DBServer.cpp
+DBServer.h
+DBSessionMessages.cpp
+DBSessionMessages.h
+DBSessionRoots.cpp
+DBSessionRoots.h
+DBSmartChat.cpp
+DBSmartChat.h
+DBStats.cpp
+DBStats.h
+DBTalent.cpp
+DBTalent.h
+DBUnit.cpp
+DBUnit.h
+DBVisualRoots.cpp
+DBVisualRoots.h
+ AStarPathFinder.cpp
+ AStarPathFinder.h
+ CommonPathFinder.cpp
+ CommonPathFinder.h
+ ImportedStruct.h
+ Path.h
+ PathFinder.component
+ PathTools.cpp
+ PathTools.h
+ PointChecking.h
+ RoutePathFinder.cpp
+ RoutePathFinder.h
+ StandartPath2.cpp
+ StandartPath2.h
+ StaticPathInternal.cpp
+ StaticPathInternal.h
+ PathMap.cpp
+ PathMap.h
+ TileMap.component
+ TileMap.cpp
+ TileMap.h
+ TileMapDebug.cpp
+AsyncMapStartup.cpp
+AsyncMapStartup.h
+GameMaps.h
+MapCollection.cpp
+MapCollection.h
+MapDescriptionLoader.cpp
+MapDescriptionLoader.h
+MapLoadingUtility.hpp
+MapStartup.cpp
+MapStartup.h
+PFAdvMap.component
+PFAdvMap.cpp
+PFAdvMap.h
+PFAdvMapObject.cpp
+PFAdvMapObject.h
+World.component
+BadBehaviourComplaintCmd.hpp
+HeroActions.cpp
+HeroActions.h
+PFPlayer.component
+PFPlayer.cpp
+PFPlayer.h
+PlayerBehaviourTracker.cpp
+PlayerBehaviourTracker.h
+PlayerBehaviourTracking.cpp
+PlayerBehaviourTracking.h
+AdventureCameraController.cpp
+AdventureCameraController.hpp
+MoveToCameraController.cpp
+MoveToCameraController.h
+SplineCameraController.cpp
+SplineCameraController.h
+WarCraftCameraController.cpp
+WarCraftCameraController.h
+ InventoryInterface.h
+ PFEaselPlayer.cpp
+ PFEaselPlayer.h
+ PFHero.cpp
+ PFHero.h
+ PFHeroClone.cpp
+ PFHeroesFactory.cpp
+ PFHeroStates.cpp
+ PFHeroStates.h
+ PFHighlander.cpp
+ PFHighlander.h
+ PFMaleHero.cpp
+ PFMaleHero.h
+ DayNightController.cpp
+ DayNightController.h
+ ForceCalc.cpp
+ ForceCalc.h
+ FPUState.cpp
+ FPUState.h
+ HeroSpawn.cpp
+ HeroSpawn.h
+ PFAICommon.h
+ PFAIWorld.cpp
+ PFAIWorld.h
+ PFClientObjectBase.h
+ PFVoxelMap.cpp
+ PFVoxelMap.h
+ PFWorld.component
+ PFWorld.cpp
+ PFWorld.h
+ PFWorldDummyProtection.hpp
+ PFWorldObjectBase.cpp
+ PFWorldObjectBase.h
+ PFWorldProtection.cpp
+ PFWorldProtection.h
+ PFWorldRealProtection.hpp
+ PFWorldRealProtectionUtility.hpp
+ PointersHolder.cpp
+ PointersHolder.h
+ TriggerMarkerHandler.cpp
+ TriggerMarkerHandler.h
+ WarFog.component
+ WarFog.cpp
+ WarFog.h
+ WorldChecker.cpp
+ WorldChecker.h
+  AIWorldFacets/FemaleMaleAssistEffect.cpp
+  AIWorldFacets/FemaleMaleAssistEffect.h
+  AIWorldFacets/VotingForSurrenderLogic.cpp
+  AIWorldFacets/VotingForSurrenderLogic.h
+ PFApplAura.cpp
+ PFApplAura.h
+ PFApplBounce.cpp
+ PFApplBounce.h
+ PFApplBuff.cpp
+ PFApplBuff.h
+ PFApplChainLightning.cpp
+ PFApplChainLightning.h
+ PFApplChannelling.cpp
+ PFApplChannelling.h
+ PFApplDelegateDamage.cpp
+ PFApplDelegateDamage.h
+ PFApplFx.cpp
+ PFApplFx.h
+ PFApplHelper.cpp
+ PFApplHelper.h
+ PFApplicator.cpp
+ PFApplicator.h
+ PFApplicatorHistoryAnalysis.cpp
+ PFApplicatorHistoryAnalysis.h
+ PFApplInstant.cpp
+ PFApplInstant.h
+ PFApplMod.cpp
+ PFApplMod.h
+ PFApplMove.cpp
+ PFApplMove.h
+ PFApplSpecial.cpp
+ PFApplSpecial.h
+ PFApplSummon.cpp
+ PFApplSummon.h
+ PFApplUtils.cpp
+ PFApplUtils.h
+ PFDBLinker.h
+ PFTargetSelector.cpp
+ PFTargetSelector.h
+ PFTriggerApplicator.cpp
+ PFTriggerApplicator.h
+ TargetSelectorFormulaPars.h
+ TargetSelectorHelper.hpp
+  PFAbilityData.cpp
+  PFAbilityData.h
+  PFAbilityDataNamemaps.cpp
+  PFAbilityInstance.cpp
+  PFAbilityInstance.h
+  PFAITargetSelectors.cpp
+  PFAITargetSelectors.h
+  PFBaseAttackData.cpp
+  PFBaseAttackData.h
+  PFCastLimitations.cpp
+  PFCastLimitations.h
+  PFMicroAI.cpp
+  PFMicroAI.h
+ NatureMap.component
+ PFClientNatureMap.cpp
+ PFClientNatureMap.h
+ PFWorldNatureMap.cpp
+ PFWorldNatureMap.h
+ Rasterizer.cpp
+ Rasterizer.h
+ PFDispatch.cpp
+ PFDispatch.h
+ PFDispatchCursor.cpp
+ PFDispatchCursor.h
+ PFDispatchFactory.cpp
+ PFDispatchFactory.h
+ PFDispatchStrike1.cpp
+ PFDispatchStrike1.h
+ CircleRays.cpp
+ CircleRays.h
+ RayPixels.cpp
+ RayPixels.h
+# VisibilityMap.component not found
+ DebugStateDump.cpp
+ DebugStateDump.h
+ PFBaseUnit.cpp
+ PFBaseUnit.h
+ PFBaseUnitAppl.cpp
+ PFBaseUnitEvent.cpp
+ PFBaseUnitEvent.h
+ PFBaseUnitStates.cpp
+ PFBaseUnitStates.h
+ PFBaseUnitUpdate.h
+ PFBaseUseState.cpp
+ PFBaseUseState.h
+ PFBehaviour.cpp
+ PFBehaviour.h
+ PFCreature.cpp
+ PFCreature.h
+ PFLogicObject.cpp
+ PFLogicObject.h
+ PFSimpleObject.cpp
+ PFSimpleObject.h
+ PFUnitAbilities.cpp
+ PFUnitAbilities.h
+ PFUniTarget.cpp
+ PFUniTarget.h
+ PFChest.cpp
+ PFChest.h
+ PFConsumable.cpp
+ PFConsumable.h
+ PFGlyph.cpp
+ PFGlyph.h
+ PFGlyphManager.cpp
+ PFGlyphManager.h
+ PFPickupable.cpp
+ PFPickupable.h
+ Pickupable.component
+ PFBattleBuilding.cpp
+ PFBattleBuilding.h
+ PFBuildings.cpp
+ PFBuildings.h
+ PFMainBuilding.cpp
+ PFMainBuilding.h
+ PFMinigamePlace.cpp
+ PFMinigamePlace.h
+ PFTower.cpp
+ PFTower.h
+ PFAdvancedSummon.cpp
+ PFAdvancedSummon.h
+ PFBaseSpawner.cpp
+ PFBaseSpawner.h
+ PFCommonCreep.cpp
+ PFCommonCreep.h
+ PFCreep.cpp
+ PFCreep.h
+ PFNeutralCreep.cpp
+ PFNeutralCreep.h
+ PFNeutralCreepBehavior.cpp
+ PFNeutralCreepBehavior.h
+ PFSummoned.cpp
+ PFSummoned.h
+ PFSummonState.cpp
+ PFSummonState.h
+ PFDeadBody.cpp
+ PFDeadBody.h
+ PFFlagpole.cpp
+ PFFlagpole.h
+ PFPet.cpp
+ PFPet.h
+ PFRoadFlagpole.cpp
+ PFRoadFlagpole.h
+ PFScriptedFlagpole.cpp
+ PFScriptedFlagpole.h
+ PFTree.cpp
+ PFTree.h
+ Tree.component
+ HeroScoreWrapper.cpp
+ HeroScoreWrapper.h
+ HeroTitleCalculator.cpp
+ HeroTitleCalculator.h
+ PFAchievement.cpp
+ PFAchievement.h
+ PFFactionStatistics.cpp
+ PFFactionStatistics.h
+ PFHeroStatistics.cpp
+ PFHeroStatistics.h
+ PFStatistics.cpp
+ PFStatistics.h
+ PFStatisticsImpl.h
+ PFStatisticsStuff.cpp
+ PFStatisticsStuff.h
+ StatisticsStreak.h
+ PFImpulsiveBuffs.cpp
+ PFImpulsiveBuffs.h
+ PFImpulsiveEvents.cpp
+ PFImpulsiveEvents.h
+ PFTalent.cpp
+ PFTalent.h
+ CollisionResolver.cpp
+ CollisionResolver.h
+ PathChecker.h
+ PFBaseMovingUnit.cpp
+ PFBaseMovingUnit.h
+ PFBaseMovingUnitDebug.cpp
+ RegionPointChecker.cpp
+ RegionPointChecker.h
+ PFAIController.cpp
+ PFAIController.h
+ PFAIControllerInterfaces.h
+ PFAIHelper.cpp
+ PFAIHelper.h
+ PFAIStates.cpp
+ PFAIStates.h
+ PFBaseAIController.cpp
+ PFBaseAIController.h
+ PFSeriesAIController.cpp
+ PFSeriesAIController.h
+ SmartRandom.cpp
+ SmartRandom.h
+PFPostFXFader.cpp
+PFPostFXFader.h
+PFPostFXParams.cpp
+PFPostFXParams.h
+PFRenderInterface.cpp
+PFRenderInterface.h
+PFRenderUtils.cpp
+PFRenderUtils.h
+PFRenderWater.cpp
+PFRenderWater.h
+Render.component
+DefaultFormulaStorage.cpp
+DefaultFormulaStorage.h
+FormulaExecutor.cpp
+FormulaExecutor.h
+../../Data/GameLogic/FormulaPars.h
+StringExecutor.cpp
+StringExecutor.h
+PFPredefinedUnitVariables.cpp
+PFPredefinedUnitVariables.h
+Stat.cpp
+Stat.hpp
+ValueWithModifiers.hpp
+PFFsm.cpp
+PFFsm.h
+PFState.cpp
+PFState.h
+GenericAbuseController.cpp
+GenericAbuseController.h
+ObjectSelector.cpp
+ObjectSelector.h
+PFCheat.cpp
+PFCheat.h
+PFGameLogicDebugVisual.cpp
+PFGameLogicDebugVisual.h
+PFGameLogicLog.cpp
+PFGameLogicLog.h
+PFLogicDebug.cpp
+PFLogicDebug.h
+ReplayInfo.h
+GameMenuInterfaces.h
+SessionEventType.cpp
+SessionEventType.h
+SessionEventTypeDef.h
+ GameLogicStatisticsTypes.cpp
+ GameLogicStatisticsTypes.h
+ ../Game/PF/Server/Statistic/StatisticsCommonTypes.cpp
+ ../Game/PF/Server/Statistic/StatisticsCommonTypes.h
+AdventureScreenEvents.cpp
+AdventureScreenEvents.h
+AdventureTooltip.cpp
+AdventureTooltip.h
+AI.component
+all.component
+AnnouncementParams.h
+ClientVisibilityFlags.hpp
+ClientVisibilityHelper.cpp
+ClientVisibilityHelper.h
+DBSound.cpp
+DBSound.h
+DerStatsNameMap.cpp
+DerStatsNameMap.h
+Effects.component
+PFDebug.cpp
+PFDebug.h
+PFDebugCommands.cpp
+PFDebugImpl.h
+PFResourcesCollection.cpp
+PFResourcesCollection.h
+PFResourcesCollectionClient.h
+PFUIEvent.cpp
+PFUIEvent.h
+PlayerData.cpp
+PlayerData.h
+PlayerInfoHelper.hpp
+ResourcesCollection.h
+TutorialSplash.cpp
+TutorialSplash.h
+UnitNameMap.cpp
+UnitNameMap.h
+VisibilityHelper.cpp
+VisibilityHelper.h
+#../Version.rc ExcludedFromBuild
+LuaScript.cpp
+LuaScript.h
+LuaValueSettable.h
+PFAIContainer.cpp
+PFAIContainer.h
+WorldScript.cpp
+GuildEmblem.cpp
+GuildEmblem.h
+HttpStuff.cpp
+HttpStuff.h
+ISocialConnection.h
+SocialBootstrap.cpp
+SocialBootstrap.h
+SocialConnection.cpp
+SocialConnection.h
+DI/DI.cpp
+DI/DI.hpp
+DI/TypeInfo.hpp
+StarForce/zzz_StarForce.cpp
+pf_gamelogic.refs
+)
+target_include_directories(PF_GameLogic PRIVATE
+${CMAKE_CURRENT_SOURCE_DIR}
+${SRCROOT}
+${SRCROOT}/Server
+${SRCROOT}/Game/PF
+${SRCROOT}/..)
+target_link_libraries(PF_GameLogic PRIVATE Boost::headers ZLIB::ZLIB OpenSSL::Crypto JsonCpp::JsonCpp CURL::libcurl)

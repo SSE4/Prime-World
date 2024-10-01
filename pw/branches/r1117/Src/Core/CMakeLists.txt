@@ -1,0 +1,42 @@
+add_library(Core
+specific.h
+stdafx.cpp
+stdafx.h
+RemoteCommandScheduler.cpp
+RemoteCommandScheduler.h
+Scheduler.h
+SessionRunner.h
+Transceiver.component
+Transceiver.cpp
+Transceiver.h
+ CommandSerializer.cpp
+ CommandSerializer.h
+ GameCommand.cpp
+ GameCommand.h
+ WorldCommand.cpp
+ WorldCommand.h
+ Replay.cpp
+ Replay.h
+CoreFSM.component
+CoreFSM.cpp
+CoreFSM.h
+CoreFSMState.cpp
+CoreFSMState.h
+ BaseFSM.cpp
+ BaseFSM.h
+ BaseState.cpp
+ BaseState.h
+WorldBase.h
+ AdventureScriptMachine.cpp
+ AdventureScriptMachine.h
+BinStatsCollector.cpp
+BinStatsCollector.h
+GameTypes.component
+GameTypes.cpp
+GameTypes.h
+all.component
+#PlayerAdapters.component not found
+#../Version.rc ExcludedFromBuild
+World.component
+)
+target_include_directories(Core PRIVATE ${SRCROOT})

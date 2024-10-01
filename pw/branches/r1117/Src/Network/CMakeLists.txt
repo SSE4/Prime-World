@@ -1,0 +1,150 @@
+add_library(Network
+Address.cpp
+Address.h
+Connection.cpp
+Connection.h
+ConnectionManager.cpp
+ConnectionManager.h
+ConnectionsContainer.cpp
+ConnectionsContainer.h
+ConnectionState.component
+ConnectionState.cpp
+ConnectionState.h
+Driver.cpp
+Driver.h
+DriverSettings.cpp
+DriverSettings.h
+Errors.cpp
+Errors.h
+Initializer.cpp
+Initializer.h
+Interfaces.component
+Network.cpp
+Network.h
+#network.test.cpp ExcludedFromBuild
+NetworkBuffers.h
+RealDriver.component
+SSLEncoder.cpp
+SSLEncoder.h
+StreamAllocator.component
+StreamAllocator.cpp
+StreamAllocator.h
+AddressTranslator.h
+Message.cpp
+Message.h
+Transport.component
+Transport.h
+TransportAddress.cpp
+TransportAddress.h
+TransportBase.cpp
+TransportBase.h
+TransportChannel.cpp
+TransportChannel.h
+TransportChannelListener.cpp
+TransportChannelListener.h
+TransportChannelType.cpp
+TransportChannelType.h
+TransportDefaults.cpp
+TransportDefaults.h
+TransportError.cpp
+TransportError.h
+TransportInitializer.h
+TransportMessages.component
+TransportMessages.cpp
+TransportMessages.h
+TransportMulticastChannel.h
+TransportMux.cpp
+TransportMux.h
+TransportSystem.cpp
+TransportSystem.h
+ClusterConfiguration.component
+ClusterConfiguration.cpp
+ClusterConfiguration.h
+LoginClient.component
+LoginClient.cpp
+LoginClient.h
+ LoginTypes.component
+ LoginTypes.cpp
+ LoginTypes.h
+specific.h
+stdafx.cpp
+stdafx.h
+FreePortsFinder.component
+FreePortsFinder.cpp
+FreePortsFinder.h
+  RUDP/IRdp.h
+  RUDP/Rdp.component
+  RUDP/Rdp.cpp
+  RUDP/Rdp.h
+  RUDP/RdpCommon.h
+  RUDP/RdpCongestionControl.cpp
+  RUDP/RdpCongestionControl.h
+  RUDP/RdpConnDescriptor.h
+  RUDP/RdpConnection.cpp
+  RUDP/RdpConnection.h
+  RUDP/RdpEphMux.cpp
+  RUDP/RdpEphMux.h
+  RUDP/RdpHandshake.cpp
+  RUDP/RdpHandshake.h
+  RUDP/RdpInPktQueue.cpp
+  RUDP/RdpInPktQueue.h
+  RUDP/RdpListenContext.cpp
+  RUDP/RdpListenContext.h
+  RUDP/RdpLogic.cpp
+  RUDP/RdpLogic.h
+  RUDP/RdpOutPktQueue.cpp
+  RUDP/RdpOutPktQueue.h
+  RUDP/RdpPacket.cpp
+  RUDP/RdpPacket.h
+  RUDP/RdpPacketPool.cpp
+  RUDP/RdpPacketPool.h
+  RUDP/RdpPing.cpp
+  RUDP/RdpPing.h
+  RUDP/RdpPktQueue.h
+  RUDP/RdpProto.cpp
+  RUDP/RdpProto.h
+  RUDP/RdpStats.h
+  RUDP/RdpWriter.cpp
+  RUDP/RdpWriter.h
+  RUDP/ISockSrv.h
+  RUDP/SockSrv.component
+  RUDP/SockSrvWinsock.component
+  RUDP/SockSrvWinsockAsync.cpp
+  RUDP/SockSrvWinsockAsync.h
+  RUDP/SockSrvWinsockBlocking.cpp
+  RUDP/SockSrvWinsockBlocking.h
+  RUDP/UdpAddr.cpp
+  RUDP/UdpAddr.h
+  RUDP/UdpSocket.component
+  RUDP/UdpSocket.cpp
+  RUDP/UdpSocket.h
+ ../Server/RdpTransport/RdpSocketFactory.h
+ ../Server/RdpTransport/RdpTransportMsg.cpp
+ ../Server/RdpTransport/RdpTransportMsg.h
+ ../Server/RdpTransport/RdpTransportUtils.component
+ ../Server/RdpTransport/RdpTransportUtils.cpp
+ ../Server/RdpTransport/RdpTransportUtils.h
+ RdpClientTransport/RdpClientChannel.cpp
+ RdpClientTransport/RdpClientChannel.h
+ RdpClientTransport/RdpClientTransport.component
+ RdpClientTransport/RdpClientTransport.cpp
+ RdpClientTransport/RdpClientTransport.h
+ RdpClientTransport/RdpLoginClient.cpp
+ RdpClientTransport/RdpLoginClient.h
+ ../Server/RdpTransport/RdpTransportChannel.component
+ ../Server/RdpTransport/RdpTransportChannel.cpp
+ ../Server/RdpTransport/RdpTransportChannel.h
+ ../Server/NewLogin/NewLoginTypes.component
+ ../Server/NewLogin/NewLoginTypes.cpp
+ ../Server/NewLogin/NewLoginTypes.h
+ PacketDispatcher.component
+ PacketDispatcher.cpp
+ PacketDispatcher.h
+all.component
+TransportInterface.component
+TransportUtils.cpp
+TransportUtils.h
+#../Version.rc ExcludedFromBuild
+)
+target_include_directories(Network PRIVATE ${SRCROOT})
+target_link_libraries(Network PRIVATE ZLIB::ZLIB OpenSSL::SSL)

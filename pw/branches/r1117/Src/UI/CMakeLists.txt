@@ -1,0 +1,364 @@
+add_library(UI
+specific.h
+stdafx.cpp
+stdafx.h
+Core.component
+Defines.h
+Root.cpp
+Root.h
+ScreenLogicBase.cpp
+ScreenLogicBase.h
+Scripts.cpp
+Scripts.h
+User.cpp
+User.h
+Button.cpp
+Button.h
+CheckBox.cpp
+CheckBox.h
+CommonControl.cpp
+CommonControl.h
+EditBox.cpp
+EditBox.h
+Elements.component
+HealthBar.cpp
+HealthBar.h
+ImageLabel.cpp
+ImageLabel.h
+LuaEventResult.cpp
+LuaEventResult.h
+NameMappedWindow.cpp
+NameMappedWindow.h
+PageTabControl.cpp
+PageTabControl.h
+ProgressBar.cpp
+ProgressBar.h
+RadioButton.cpp
+RadioButton.h
+RadioPanel.cpp
+RadioPanel.h
+ScrollableWindow.cpp
+ScrollableWindow.h
+ScrollArea.cpp
+ScrollArea.h
+ScrollBar.cpp
+ScrollBar.h
+ScrollList.cpp
+ScrollList.h
+View.cpp
+View.h
+Window.cpp
+Window.h
+WindowPointJob.cpp
+WindowPointJob.h
+Cursor.cpp
+Cursor.h
+DebugDraw.cpp
+DebugDraw.h
+DebugVarsRender.cpp
+DebugVarsRender.h
+FrameTimeRender.cpp
+FrameTimeRender.h
+ImageComponent.cpp
+ImageComponent.h
+Render.component
+Resolution.cpp
+Resolution.h
+SkinStyles.cpp
+SkinStyles.h
+Flash.component
+FlashContainer2.cpp
+FlashContainer2.h
+FlashFontsRender.cpp
+FlashFontsRender.h
+FlashInterface.cpp
+FlashInterface.h
+FSCommandListner.h
+IStageFocusHandler.h
+ Flash/GameSWFIntegration/ButtonCharacter.cpp
+ Flash/GameSWFIntegration/ButtonCharacter.h
+ Flash/GameSWFIntegration/Characters.cpp
+ Flash/GameSWFIntegration/Characters.h
+ Flash/GameSWFIntegration/DisplayList.h
+ Flash/GameSWFIntegration/DisplayTags.cpp
+ Flash/GameSWFIntegration/DisplayTags.h
+ Flash/GameSWFIntegration/FlashBaseClasses.cpp
+ Flash/GameSWFIntegration/FlashBaseClasses.h
+ Flash/GameSWFIntegration/FlashClassesCache.h
+ Flash/GameSWFIntegration/FlashEnterFunction.cpp
+ Flash/GameSWFIntegration/FlashEnterFunction.h
+ Flash/GameSWFIntegration/FlashMovie.cpp
+ Flash/GameSWFIntegration/FlashMovie.h
+ Flash/GameSWFIntegration/FlashMovieAvmCore.cpp
+ Flash/GameSWFIntegration/FlashMovieAvmCore.h
+ Flash/GameSWFIntegration/FlashPlayer.cpp
+ Flash/GameSWFIntegration/FlashPlayer.h
+ Flash/GameSWFIntegration/GameSWFIntegration.component
+ Flash/GameSWFIntegration/GCRootWrapper.h
+ Flash/GameSWFIntegration/Image.cpp
+ Flash/GameSWFIntegration/Image.h
+ Flash/GameSWFIntegration/ImageData.cpp
+ Flash/GameSWFIntegration/ImageData.h
+ Flash/GameSWFIntegration/JPEGReader.cpp
+ Flash/GameSWFIntegration/JPEGReader.h
+ Flash/GameSWFIntegration/MorphCharacter.cpp
+ Flash/GameSWFIntegration/MorphCharacter.h
+ Flash/GameSWFIntegration/MorphData.cpp
+ Flash/GameSWFIntegration/MorphData.h
+ Flash/GameSWFIntegration/SafeGCRoot.h
+ Flash/GameSWFIntegration/ShapeData.cpp
+ Flash/GameSWFIntegration/ShapeData.h
+ Flash/GameSWFIntegration/SoundData.cpp
+ Flash/GameSWFIntegration/SoundData.h
+ Flash/GameSWFIntegration/TamarinPCH.cpp
+ Flash/GameSWFIntegration/TamarinPCH.h
+  Flash/GameSWFIntegration/builtins/accessibility.h
+  Flash/GameSWFIntegration/builtins/accessibility_builtin.cpp
+  Flash/GameSWFIntegration/builtins/BuiltinPools.h
+  Flash/GameSWFIntegration/builtins/ByteArray_builtin.h
+  Flash/GameSWFIntegration/builtins/ByteArray_builtin_Wrapper.cpp
+  Flash/GameSWFIntegration/builtins/display.h
+  Flash/GameSWFIntegration/builtins/display_builtin.cpp
+  Flash/GameSWFIntegration/builtins/events.h
+  Flash/GameSWFIntegration/builtins/events_builtin.cpp
+  Flash/GameSWFIntegration/builtins/filters.h
+  Flash/GameSWFIntegration/builtins/filters_builtin.cpp
+  Flash/GameSWFIntegration/builtins/geom.h
+  Flash/GameSWFIntegration/builtins/geom_builtin.cpp
+  Flash/GameSWFIntegration/builtins/NativesBuiltins.h
+  Flash/GameSWFIntegration/builtins/net.h
+  Flash/GameSWFIntegration/builtins/net_builtin.cpp
+  Flash/GameSWFIntegration/builtins/sound.h
+  Flash/GameSWFIntegration/builtins/sound_builtin.cpp
+  Flash/GameSWFIntegration/builtins/system.h
+  Flash/GameSWFIntegration/builtins/system_builtin.cpp
+  Flash/GameSWFIntegration/builtins/testing.h
+  Flash/GameSWFIntegration/builtins/testing_builtin.cpp
+  Flash/GameSWFIntegration/builtins/text.h
+  Flash/GameSWFIntegration/builtins/text_builtin.cpp
+  Flash/GameSWFIntegration/builtins/ui.h
+  Flash/GameSWFIntegration/builtins/ui_builtin.cpp
+  Flash/GameSWFIntegration/builtins/utils.h
+  Flash/GameSWFIntegration/builtins/utils_builtin.cpp
+  Flash/GameSWFIntegration/builtins/xml.h
+  Flash/GameSWFIntegration/builtins/xml_builtin.cpp
+  Flash/GameSWFIntegration/Natives/ClassMacros.h
+  Flash/GameSWFIntegration/Natives/Natives.component
+   Flash/GameSWFIntegration/Natives/accessibility/Accessibility.h
+   Flash/GameSWFIntegration/Natives/display/AVM1Movie.h
+   Flash/GameSWFIntegration/Natives/display/Bitmap.cpp
+   Flash/GameSWFIntegration/Natives/display/Bitmap.h
+   Flash/GameSWFIntegration/Natives/display/BitmapData.cpp
+   Flash/GameSWFIntegration/Natives/display/BitmapData.h
+   Flash/GameSWFIntegration/Natives/display/BlendMode.cpp
+   Flash/GameSWFIntegration/Natives/display/BlendMode.h
+   Flash/GameSWFIntegration/Natives/display/DisplayObject.cpp
+   Flash/GameSWFIntegration/Natives/display/DisplayObject.h
+   Flash/GameSWFIntegration/Natives/display/DisplayObjectContainer.cpp
+   Flash/GameSWFIntegration/Natives/display/DisplayObjectContainer.h
+   Flash/GameSWFIntegration/Natives/display/ear_clip_triangulate.h
+   Flash/GameSWFIntegration/Natives/display/ear_clip_triangulate_float.cpp
+   Flash/GameSWFIntegration/Natives/display/ear_clip_triangulate_impl.h
+   Flash/GameSWFIntegration/Natives/display/FlashMeshCollection.cpp
+   Flash/GameSWFIntegration/Natives/display/FlashMeshCollection.h
+   Flash/GameSWFIntegration/Natives/display/Geometry.cpp
+   Flash/GameSWFIntegration/Natives/display/Geometry.h
+   Flash/GameSWFIntegration/Natives/display/Graphics.cpp
+   Flash/GameSWFIntegration/Natives/display/Graphics.h
+   Flash/GameSWFIntegration/Natives/display/grid_index.h
+   Flash/GameSWFIntegration/Natives/display/InteractiveObject.cpp
+   Flash/GameSWFIntegration/Natives/display/InteractiveObject.h
+   Flash/GameSWFIntegration/Natives/display/Loader.cpp
+   Flash/GameSWFIntegration/Natives/display/Loader.h
+   Flash/GameSWFIntegration/Natives/display/LoaderInfo.cpp
+   Flash/GameSWFIntegration/Natives/display/LoaderInfo.h
+   Flash/GameSWFIntegration/Natives/display/MeshSet.cpp
+   Flash/GameSWFIntegration/Natives/display/MeshSet.h
+   Flash/GameSWFIntegration/Natives/display/MorphShape.cpp
+   Flash/GameSWFIntegration/Natives/display/MorphShape.h
+   Flash/GameSWFIntegration/Natives/display/MovieClip.cpp
+   Flash/GameSWFIntegration/Natives/display/MovieClip.h
+   Flash/GameSWFIntegration/Natives/display/Shader.h
+   Flash/GameSWFIntegration/Natives/display/ShaderData.h
+   Flash/GameSWFIntegration/Natives/display/ShaderInput.h
+   Flash/GameSWFIntegration/Natives/display/ShaderJob.h
+   Flash/GameSWFIntegration/Natives/display/ShaderParameter.h
+   Flash/GameSWFIntegration/Natives/display/Shape.cpp
+   Flash/GameSWFIntegration/Natives/display/Shape.h
+   Flash/GameSWFIntegration/Natives/display/SimpleButton.cpp
+   Flash/GameSWFIntegration/Natives/display/SimpleButton.h
+   Flash/GameSWFIntegration/Natives/display/Sprite.cpp
+   Flash/GameSWFIntegration/Natives/display/Sprite.h
+   Flash/GameSWFIntegration/Natives/display/Stage.cpp
+   Flash/GameSWFIntegration/Natives/display/Stage.h
+   Flash/GameSWFIntegration/Natives/display/StageEnums.cpp
+   Flash/GameSWFIntegration/Natives/display/StageEnums.h
+   Flash/GameSWFIntegration/Natives/display/StageProvider.h
+   Flash/GameSWFIntegration/Natives/display/Tesselate.cpp
+   Flash/GameSWFIntegration/Natives/display/Tesselate.h
+   Flash/GameSWFIntegration/Natives/display/vert_types.h
+   Flash/GameSWFIntegration/Natives/events/Event.cpp
+   Flash/GameSWFIntegration/Natives/events/Event.h
+   Flash/GameSWFIntegration/Natives/events/EventDispatcher.cpp
+   Flash/GameSWFIntegration/Natives/events/EventDispatcher.h
+   Flash/GameSWFIntegration/Natives/events/EventTypes.h
+   Flash/GameSWFIntegration/Natives/events/KeyboardEvent.cpp
+   Flash/GameSWFIntegration/Natives/events/KeyboardEvent.h
+   Flash/GameSWFIntegration/Natives/events/MouseEvent.cpp
+   Flash/GameSWFIntegration/Natives/events/MouseEvent.h
+   Flash/GameSWFIntegration/Natives/events/TimerEvent.cpp
+   Flash/GameSWFIntegration/Natives/events/TimerEvent.h
+   Flash/GameSWFIntegration/Natives/events/WeakMethodClosure.h
+   Flash/GameSWFIntegration/Natives/filters/BevelFilter.h
+   Flash/GameSWFIntegration/Natives/filters/BitmapFilter.h
+   Flash/GameSWFIntegration/Natives/filters/BlurFilter.h
+   Flash/GameSWFIntegration/Natives/filters/ColorMatrixFilter.cpp
+   Flash/GameSWFIntegration/Natives/filters/ColorMatrixFilter.h
+   Flash/GameSWFIntegration/Natives/filters/ConvolutionFilter.h
+   Flash/GameSWFIntegration/Natives/filters/DisplacementMapFilter.h
+   Flash/GameSWFIntegration/Natives/filters/DropShadowFilter.h
+   Flash/GameSWFIntegration/Natives/filters/GlowFilter.h
+   Flash/GameSWFIntegration/Natives/filters/GradientBevelFilter.h
+   Flash/GameSWFIntegration/Natives/filters/GradientGlowFilter.h
+   Flash/GameSWFIntegration/Natives/filters/ShaderFilter.h
+   Flash/GameSWFIntegration/Natives/geom/Matrix3D.cpp
+   Flash/GameSWFIntegration/Natives/geom/Matrix3D.h
+   Flash/GameSWFIntegration/Natives/geom/PerspectiveProjection.cpp
+   Flash/GameSWFIntegration/Natives/geom/PerspectiveProjection.h
+   Flash/GameSWFIntegration/Natives/geom/Transform.cpp
+   Flash/GameSWFIntegration/Natives/geom/Transform.h
+   Flash/GameSWFIntegration/Natives/geom/Utils3D.h
+   Flash/GameSWFIntegration/Natives/media/Camera.h
+   Flash/GameSWFIntegration/Natives/media/Microphone.h
+   Flash/GameSWFIntegration/Natives/media/Sound.cpp
+   Flash/GameSWFIntegration/Natives/media/Sound.h
+   Flash/GameSWFIntegration/Natives/media/SoundChannel.h
+   Flash/GameSWFIntegration/Natives/media/SoundMixer.h
+   Flash/GameSWFIntegration/Natives/media/SoundTransform.h
+   Flash/GameSWFIntegration/Natives/net/DynamicPropertyOutput.h
+   Flash/GameSWFIntegration/Natives/net/FileFilter.h
+   Flash/GameSWFIntegration/Natives/net/FileReference.h
+   Flash/GameSWFIntegration/Natives/net/FileReferenceList.h
+   Flash/GameSWFIntegration/Natives/net/LocalConnection.h
+   Flash/GameSWFIntegration/Natives/net/NetConnection.h
+   Flash/GameSWFIntegration/Natives/net/NetStream.h
+   Flash/GameSWFIntegration/Natives/net/ObjectEncoding.h
+   Flash/GameSWFIntegration/Natives/net/Responder.h
+   Flash/GameSWFIntegration/Natives/net/SharedObject.h
+   Flash/GameSWFIntegration/Natives/net/Socket.h
+   Flash/GameSWFIntegration/Natives/net/URLRequest.h
+   Flash/GameSWFIntegration/Natives/net/URLStream.h
+   Flash/GameSWFIntegration/Natives/system/ApplicationDomain.cpp
+   Flash/GameSWFIntegration/Natives/system/ApplicationDomain.h
+   Flash/GameSWFIntegration/Natives/system/Capabilities.h
+   Flash/GameSWFIntegration/Natives/system/FSCommand.cpp
+   Flash/GameSWFIntegration/Natives/system/FSCommand.h
+   Flash/GameSWFIntegration/Natives/system/IME.h
+   Flash/GameSWFIntegration/Natives/system/Security.h
+   Flash/GameSWFIntegration/Natives/system/SecurityDomain.h
+   Flash/GameSWFIntegration/Natives/system/System.h
+   Flash/GameSWFIntegration/Natives/testing/CoreWrapper.cpp
+   Flash/GameSWFIntegration/Natives/testing/CoreWrapper.h
+   Flash/GameSWFIntegration/Natives/testing/TestingFacility.cpp
+   Flash/GameSWFIntegration/Natives/testing/TestingFacility.h
+   Flash/GameSWFIntegration/Natives/text/Font.h
+   Flash/GameSWFIntegration/Natives/text/StaticText.cpp
+   Flash/GameSWFIntegration/Natives/text/StaticText.h
+   Flash/GameSWFIntegration/Natives/text/StyleSheet.h
+   Flash/GameSWFIntegration/Natives/text/TextField.cpp
+   Flash/GameSWFIntegration/Natives/text/TextField.h
+   Flash/GameSWFIntegration/Natives/text/TextFieldAutoSize.cpp
+   Flash/GameSWFIntegration/Natives/text/TextFieldAutoSize.h
+   Flash/GameSWFIntegration/Natives/text/TextFormat.h
+   Flash/GameSWFIntegration/Natives/text/TextRenderer.h
+   Flash/GameSWFIntegration/Natives/text/TextSnapshot.h
+    Flash/GameSWFIntegration/Natives/text/engine/ContentElement.h
+    Flash/GameSWFIntegration/Natives/text/engine/EastAsianJustifier.h
+    Flash/GameSWFIntegration/Natives/text/engine/ElementFormat.h
+    Flash/GameSWFIntegration/Natives/text/engine/FontDescription.h
+    Flash/GameSWFIntegration/Natives/text/engine/GraphicElement.h
+    Flash/GameSWFIntegration/Natives/text/engine/GroupElement.h
+    Flash/GameSWFIntegration/Natives/text/engine/SpaceJustifier.h
+    Flash/GameSWFIntegration/Natives/text/engine/TabStop.h
+    Flash/GameSWFIntegration/Natives/text/engine/TextBlock.h
+    Flash/GameSWFIntegration/Natives/text/engine/TextElement.h
+    Flash/GameSWFIntegration/Natives/text/engine/TextJustifier.h
+    Flash/GameSWFIntegration/Natives/text/engine/TextLine.h
+    Flash/GameSWFIntegration/Natives/text/engine/TextLineMirrorRegion.h
+   Flash/GameSWFIntegration/Natives/ui/ContextMenu.h
+   Flash/GameSWFIntegration/Natives/ui/ContextMenuItem.h
+   Flash/GameSWFIntegration/Natives/ui/Keyboard.h
+   Flash/GameSWFIntegration/Natives/ui/Mouse.h
+   Flash/GameSWFIntegration/Natives/utils/ByteArray.h
+   Flash/GameSWFIntegration/Natives/utils/ObjectInput.h
+   Flash/GameSWFIntegration/Natives/utils/ObjectOutput.h
+   Flash/GameSWFIntegration/Natives/utils/Proxy.h
+   Flash/GameSWFIntegration/Natives/utils/Timer.cpp
+   Flash/GameSWFIntegration/Natives/utils/Timer.h
+   Flash/GameSWFIntegration/Natives/utils/UtilsScripts.cpp
+   Flash/GameSWFIntegration/Natives/utils/UtilsScripts.h
+   Flash/GameSWFIntegration/Natives/xml/XMLNode.h
+   Flash/GameSWFIntegration/Natives/xml/XMLParser.h
+   Flash/GameSWFIntegration/Natives/xml/XMLTag.h
+  Flash/GameSWFIntegration/BasicTextCharacter.h
+  Flash/GameSWFIntegration/EditTextCharacter.cpp
+  Flash/GameSWFIntegration/EditTextCharacter.h
+  Flash/GameSWFIntegration/FontsDict.cpp
+  Flash/GameSWFIntegration/FontsDict.h
+  Flash/GameSWFIntegration/FontsRenderInterface.h
+  Flash/GameSWFIntegration/FontTags.cpp
+  Flash/GameSWFIntegration/FontTags.h
+  Flash/GameSWFIntegration/TextCharacter.cpp
+  Flash/GameSWFIntegration/TextCharacter.h
+  Flash/GameSWFIntegration/TextContainer.cpp
+  Flash/GameSWFIntegration/TextContainer.h
+  Flash/GameSWFIntegration/TextTagsData.cpp
+  Flash/GameSWFIntegration/TextTagsData.h
+  Flash/GameSWFIntegration/swf_parse.cpp
+  Flash/GameSWFIntegration/swf_parse.h
+  Flash/GameSWFIntegration/SwfStreamReader.cpp
+  Flash/GameSWFIntegration/SwfStreamReader.h
+  Flash/GameSWFIntegration/SwfTypes.cpp
+  Flash/GameSWFIntegration/SwfTypes.h
+DBPreferences.cpp
+DBPreferences.h
+DBUI.component
+DBUI.cpp
+DBUI.h
+DBVotingForSurrender.cpp
+DBVotingForSurrender.h
+TextComponent.component
+TextComponent.cpp
+TextComponent.h
+TextComponentBasic.component
+TextComponentBasic.cpp
+TextComponentBasic.h
+TextMarkup.component
+TextMarkup.cpp
+TextMarkup.h
+TextMarkupCommon.h
+TextMarkupLexems.cpp
+TextMarkupLexems.h
+TextMarkupParser.cpp
+TextMarkupParser.h
+WindowNameMapInterface.h
+Alphabet.cpp
+Alphabet.h
+FontRender.cpp
+FontRender.h
+FontRender.hpp
+FontsRender.component
+FontStyle.cpp
+FontStyle.h
+PreferencesProcessor.cpp
+PreferencesProcessor.h
+all.component
+ui.refs
+#../Version.rc ExcludedFromBuild
+)
+target_include_directories(UI PRIVATE
+${SRCROOT}
+${SRCROOT}/port/dummy1/dummy2/dummy3
+${SRCROOT}/port/flash/avmglue)
+target_link_libraries(UI PRIVATE avmplus ZLIB::ZLIB JPEG::JPEG )
+target_compile_definitions(UI PRIVATE "-DAVMPLUS_INDIRECT_NATIVE_THUNKS=1")

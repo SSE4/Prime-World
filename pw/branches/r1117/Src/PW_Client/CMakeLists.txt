@@ -1,0 +1,136 @@
+add_library(PW_Client
+specific.h
+stdafx.cpp
+stdafx.h
+../App.ico
+../Application.manifest
+#../Application.rc ExcludedFromBuild
+../ApplicationResources.h
+../Version.h
+../Version.h.xslt
+#../Version.rc ExcludedFromBuild
+../Game/PF/Client/LobbyPvx/HybridClient.component
+../Game/PF/Client/LobbyPvx/HybridServerNodeImpl.cpp
+../Game/PF/Client/LobbyPvx/HybridServerNodeImpl.h
+../Game/PF/HybridServer/PeeredTypes.component
+../Game/PF/HybridServer/PeeredTypes.cpp
+../Game/PF/HybridServer/PeeredTypes.h
+ ../Game/PF/HybridServer/LPeered.auto.cpp
+ ../Game/PF/HybridServer/LPeered.auto.h
+ ../Game/PF/HybridServer/RPeered.auto.cpp
+ ../Game/PF/HybridServer/RPeered.auto.h
+LoadingFlashInterface.cpp
+LoadingFlashInterface.h
+LoadingHeroes.cpp
+LoadingHeroes.h
+LoadingScreen.component
+LoadingScreen.cpp
+LoadingScreen.h
+LoadingScreenLogic.cpp
+LoadingScreenLogic.h
+LoadingStatusHandler.cpp
+LoadingStatusHandler.h
+LobbyScreenInterface.h
+NetworkStatusScreen.cpp
+NetworkStatusScreen.h
+SelectGameModeLogic.cpp
+SelectGameModeLogic.h
+SelectGameModeScreen.cpp
+SelectGameModeScreen.h
+SelectHeroScreen.cpp
+SelectHeroScreen.h
+SelectHeroScreenLogic.cpp
+SelectHeroScreenLogic.h
+DebugVarsSender.cpp
+DebugVarsSender.h
+../Game/PF/Server/Statistic/GameStatClient.component
+../Game/PF/Server/Statistic/GameStatClient.cpp
+../Game/PF/Server/Statistic/GameStatClient.h
+GameStatistics.cpp
+GameStatistics.h
+../Game/PF/Server/Statistic/StatClientDiskDispatcher.cpp
+../Game/PF/Server/Statistic/StatClientDiskDispatcher.h
+../Game/PF/Server/Statistic/StatClientHttpDispatcher.component
+../Game/PF/Server/Statistic/StatClientHttpDispatcher.cpp
+../Game/PF/Server/Statistic/StatClientHttpDispatcher.h
+# ../Game/PF/Server/Statistic/GameStatServiceId.h not found
+ ../Game/PF/Server/Statistic/SpecialStatisticTypes.cpp
+ ../Game/PF/Server/Statistic/SpecialStatisticTypes.h
+ ../Game/PF/Server/Statistic/StatisticsClientTypes.component
+ ../Game/PF/Server/Statistic/StatisticsClientTypes.cpp
+ ../Game/PF/Server/Statistic/StatisticsClientTypes.h
+ ../Game/PF/Server/Statistic/StatisticsDebugTypes.cpp
+ ../Game/PF/Server/Statistic/StatisticsDebugTypes.h
+CpuTopology.cpp
+CpuTopology.h
+Game.cpp
+GameContext.component
+GameContext.cpp
+GameContext.h
+IGameContext.h
+LobbyConnection.cpp
+LobbyConnection.h
+LocalCmdScheduler.cpp
+LocalCmdScheduler.h
+LocalGameContext.cpp
+LocalGameContext.h
+PF_TypesHash.h
+RegistryToolbox.cpp
+RegistryToolbox.h
+ReplayRunner.cpp
+ReplayRunner.h
+ReplayTransceiver.cpp
+ReplayTransceiver.h
+TypesHash.h
+../Game/PF/Client/LobbyPvx/all.component
+../Game/PF/Client/LobbyPvx/ClientAccountingGadget.h
+../Game/PF/Client/LobbyPvx/FastReconnectCtx.h
+../Game/PF/Client/LobbyPvx/GameClient.component
+../Game/PF/Client/LobbyPvx/LobbyClientBase.cpp
+../Game/PF/Client/LobbyPvx/LobbyClientBase.h
+../Game/PF/Client/LobbyPvx/LobbyClientInterface.h
+../Game/PF/Client/LobbyPvx/LobbyClientLInterface.component
+../Game/PF/Client/LobbyPvx/LobbyClientRInterface.component
+../Game/PF/Client/LobbyPvx/LobbyGameClient.cpp
+../Game/PF/Client/LobbyPvx/LobbyGameClient.h
+../Game/PF/Client/LobbyPvx/stdafx.cpp
+../Game/PF/Client/LobbyPvx/stdafx.h
+ ../Game/PF/Client/LobbyPvx/LLobbyClientInterface.auto.cpp
+ ../Game/PF/Client/LobbyPvx/LLobbyClientInterface.auto.h
+ ../Game/PF/Server/Accounting/RLobbyAccounting.auto.cpp
+ ../Game/PF/Server/Accounting/RLobbyAccounting.auto.h
+ ../Game/PF/Client/LobbyPvx/RLobbyClientInterface.auto.cpp
+ ../Game/PF/Client/LobbyPvx/RLobbyClientInterface.auto.h
+ ../Game/PF/Server/LobbyPvx/RLobbyIEntrance.auto.cpp
+ ../Game/PF/Server/LobbyPvx/RLobbyIEntrance.auto.h
+ ../Game/PF/Server/LobbyPvx/RLobbyIServerInstance.auto.cpp
+ ../Game/PF/Server/LobbyPvx/RLobbyIServerInstance.auto.h
+ ../Game/PF/Server/LobbyPvx/CommonTypes.component
+ ../Game/PF/Server/LobbyPvx/CommonTypes.cpp
+ ../Game/PF/Server/LobbyPvx/CommonTypes.h
+FastReconnectCtxPW.h
+LobbyUIInterface.h
+NewLobbyClientPW.cpp
+NewLobbyClientPW.h
+NewLobbyGameClientPW.cpp
+NewLobbyGameClientPW.h
+../Game/PF/Server/Roll/RollTypes.component
+../Game/PF/Server/Roll/RollTypes.cpp
+../Game/PF/Server/Roll/RollTypes.h
+../Server/WebClient/WebClient.component
+../Server/WebClient/WebClient.cpp
+../Server/WebClient/WebClient.h
+../Game/PF/Client/LobbyPvx/base64.cpp
+../Game/PF/Client/LobbyPvx/base64.h
+../Game/PF/Client/LobbyPvx/NewReplay.cpp
+../Game/PF/Client/LobbyPvx/NewReplay.h
+pw_client.refs
+)
+target_include_directories(PW_Client PRIVATE
+${SRCROOT}
+${SRCROOT}/Server
+${SRCROOT}/Server/Chat
+${SRCROOT}/Server/NetworkAIO
+${SRCROOT}/Game/PF
+${SRCROOT}/..)
+target_link_libraries(PW_Client PRIVATE Boost::headers OpenSSL::Crypto wtl::wtl ace JsonCpp::JsonCpp CURL::libcurl steam)

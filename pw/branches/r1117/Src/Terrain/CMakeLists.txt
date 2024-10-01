@@ -1,0 +1,54 @@
+add_library(Terrain
+specific.h
+stdafx.cpp
+stdafx.h
+DB.component
+DBTerrain.cpp
+DBTerrain.h
+Terrain.cpp
+Terrain.h
+TerrainCollision.cpp
+TerrainElement.cpp
+TerrainElement.h
+TerrainElementManager.cpp
+TerrainElementManager.h
+TerrainGeometryManager.cpp
+TerrainGeometryManager.h
+TerrainHeightManager.cpp
+TerrainHeightManager.h
+TerrainLayerManager.cpp
+TerrainLayerManager.h
+TerrainMaterialCache.cpp
+TerrainMaterialCache.h
+TerrainTextureCache.cpp
+TerrainTextureCache.h
+ ArrayInVRAM.h
+ ArraySampler.h
+ BezierSurface.cpp
+ BezierSurface.h
+ SpeedGrass.cpp
+ SpeedGrass.h
+ GrassLayersManager.cpp
+ GrassLayersManager.h
+ GrassRegion.cpp
+ GrassRegion.h
+ GrassRenderManager.cpp
+ GrassRenderManager.h
+all.component
+Grass_OBSOLETE.component
+NatureAttackSpace.cpp
+NatureAttackSpace.h
+NatureMap.cpp
+NatureMap.h
+NatureMapVisual.cpp
+NatureMapVisual.h
+PatchCacheParams.h
+RoadGeometryVertex.h
+RoadPrimitive.cpp
+RoadPrimitive.h
+TEGetter.h
+TerrainManagers.component
+#../Version.rc ExcludedFromBuild
+Visual.component
+)
+target_include_directories(Terrain PRIVATE ${SRCROOT})

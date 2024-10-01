@@ -1,0 +1,507 @@
+add_library(Foundation
+specific.h
+stdafx.cpp
+stdafx.h
+systemStdAfx.h
+MiniDump.cpp
+MiniDump.h
+StackWalk.component
+StackWalk.cpp
+StackWalk.h
+StackWalker.cpp
+StackWalker.h
+helpdebugmacroses.h
+iterator.h
+nalgobase.h
+nalgoritm.h
+ncircular_buffer.h
+nfixed_string.h
+nhash_fun.h
+nhash_fun2.h
+nhash_map.h
+nhash_set.h
+nhash_table.h
+nheap.h
+nhelpdebug.h
+nlist.h
+nmap.h
+npair.h
+nqueue.h
+nset.h
+NSTL.component
+nstring.h
+nstrings_map.h
+ntree.cpp
+ntree.h
+nuninitialized.h
+nvector.h
+Dumpers.component
+Logging.component
+SystemLog.component
+SystemLog.cpp
+SystemLog.h
+ ChannelLogger.cpp
+ ChannelLogger.h
+ Logger.cpp
+ Logger.h
+ LogLevel.h
+ LogStreamBuffer.cpp
+ LogStreamBuffer.h
+ LogStreamHolder.cpp
+ LogStreamHolder.h
+ AsyncTextFileDumper.cpp
+ AsyncTextFileDumper.h
+ DebugTraceDumper.cpp
+ DebugTraceDumper.h
+ Dumper.cpp
+ Dumper.h
+ EditBoxDumper.cpp
+ EditBoxDumper.h
+ EventDumper.cpp
+ EventDumper.h
+ FileStreamDumper.cpp
+ FileStreamDumper.h
+ StdOutDumper.cpp
+ StdOutDumper.h
+ StringDumper.cpp
+ StringDumper.h
+ SyncTextFileDumper.cpp
+ SyncTextFileDumper.h
+ TextFileDumper.cpp
+ TextFileDumper.h
+ TextFileWorker.cpp
+ TextFileWorker.h
+ LogHelpers.cpp
+ LogHelpers.h
+AxisBoxGeometry.h
+BilinearSolver.cpp
+BilinearSolver.h
+BoundCalcer.h
+Bresenham.h
+Classify.h
+CompositeSpline.inl
+Decompose.cpp
+Decompose.h
+EulTools.h
+FastMath.cpp
+FastMath.h
+Geom.cpp
+Geom.h
+GeomMisc.h
+GeomStreamers.h
+Math/ieeehalfprecision.c
+Math/ieeehalfprecision.component
+Math/ieeehalfprecision.h
+Math.component
+MathTools.cpp
+MathTools.h
+matrix43.h
+Placement.h
+PlacementSpline.cpp
+PlacementSpline.h
+PlaneGeometry.cpp
+PlaneGeometry.h
+Polynomial.h
+Span.h
+Spline.cpp
+Spline.h
+Transform.cpp
+Transform.h
+#Vec2_Base.h not found
+FlashWindow.cpp
+FlashWindow.h
+MainFrame.component
+MainFrame.cpp
+MainFrame.h
+SplashScreen.cpp
+SplashScreen.h
+Base64.cpp
+Base64.h
+Compatibility.cpp
+Compatibility.h
+hwbreak.cpp
+hwbreak.h
+noncopyable.h
+ProfilingHelper.component
+ProfilingHelper.cpp
+ProfilingHelper.h
+RTTI.cpp
+RTTI.h
+SimpleSignalST.h
+SyncProcessorState.component
+SyncProcessorState.cpp
+SyncProcessorState.h
+ThreadLocal.cpp
+TimeHelpers.h
+BitData.h
+BitTools.h
+Crc32Checksum.cpp
+Crc32Checksum.h
+HPTimer.cpp
+HPTimer.h
+HPTimer_win.cpp
+NiTimer.h
+Time64.h
+Timer.component
+TimeUtils.h
+TimeUtils_win.cpp
+Commands.component
+Commands.cpp
+Commands.h
+ConfigFiles.component
+ConfigFiles.cpp
+ConfigFiles.h
+Random.component
+RandomGen.cpp
+RandomGen.h
+RandomGenerator.cpp
+RandomGenerator.h
+RandomInterface.component
+RandomInterface.h
+RandomInterfaceImpl.cpp
+RandomInterfaceImpl.h
+Win32Random.cpp
+Win32Random.h
+2Darray.h
+2DArrayRLEWrapper.h
+Array2DWrapper.h
+BiMap.h
+BiMultimap.h
+Heap.h
+OpenHashSet.h
+Pool.h
+PooledContainer.h
+Ring.h
+TSList.h
+FileSystem/FilePath.cpp
+FileSystem/FilePath.h
+FileSystem/FileTime.h
+FileSystem/FileUtils.component
+FileSystem/FileUtils.cpp
+FileSystem/FileUtils.h
+FileSystem/FileUtils_win.cpp
+BitStreams.cpp
+BitStreams.h
+DumpingStream.cpp
+DumpingStream.h
+FileSystem/FileStream.h
+FileSystem/FileStream_stdlib.cpp
+FileSystem/FileStream_stdlib.h
+FileSystem/FileStream_win.cpp
+FileSystem/FileWriteAsynchronousStream.h
+FileSystem/FileWriteAsynchronousStream_win.cpp
+FileSystem/FileWriteBufferedStream.cpp
+FileSystem/FileWriteBufferedStream.h
+FileSystem/FileWriteStream.cpp
+FileSystem/FileWriteStream.h
+FixedMemoryStream.cpp
+FixedMemoryStream.h
+MemoryStream.cpp
+MemoryStream.h
+ProtectedStream.cpp
+ProtectedStream.h
+Stream.cpp
+Stream.h
+Streams.component
+FileSystem/TinyFileWriteStream.cpp
+FileSystem/TinyFileWriteStream.h
+StrConvert.cpp
+StrConvert.h
+StrFormatter.cpp
+StrFormatter.h
+StrProc.cpp
+StrProc.h
+StrUtils.component
+StrUtils.h
+StrUtils_win.cpp
+CompileTimeAssert.h
+MetaProg.h
+TypeList.h
+BinChunkLoaderImpl.cpp
+BinChunkLoaderImpl.h
+BinChunkSaverImpl.cpp
+BinChunkSaverImpl.h
+BinChunkSerializer.cpp
+BinChunkSerializer.h
+BinChunkSerializerBase.cpp
+BinChunkSerializerBase.h
+BinSaver.h
+BinSaverStatsCollector.cpp
+BinSaverStatsCollector.h
+ChunklessSaver.cpp
+ChunklessSaver.h
+PointersCollector.h
+Savers.component
+TextDumpSerializer.cpp
+TextDumpSerializer.h
+Basic.cpp
+Basic.h
+#Basic.test.h ExcludedFromBuild
+CreateHelper.h
+DefaultTypes.h
+ObjectFactory.cpp
+ObjectFactory.h
+Ptr.component
+SimpleObjectsFactory.h
+FileSystem/CombinerFileSystem.cpp
+FileSystem/CombinerFileSystem.h
+FileSystem/FileActivitySimpleMonitor.cpp
+FileSystem/FileActivitySimpleMonitor.h
+FileSystem/FileExtensionStatisticsMonitor.cpp
+FileSystem/FileExtensionStatisticsMonitor.h
+FileSystem/FilePileFormat.h
+FileSystem/FilePileLoader.cpp
+FileSystem/FilePileLoader.h
+FileSystem/FilePileStream.h
+FileSystem/FileSystem.component
+FileSystem/FileSystem.cpp
+FileSystem/FileSystem.h
+FileSystem/FileSystemChangesProcessor.component
+FileSystem/FileSystemChangesProcessor.cpp
+FileSystem/FileSystemChangesProcessor.h
+FileSystem/FileSystemDebugMonitor.h
+FileSystem/PileFileSystem.component
+FileSystem/PileFileSystem.cpp
+FileSystem/PileFileSystem.h
+FileSystem/TestFileSystem.component
+FileSystem/WinFileSystem.cpp
+FileSystem/WinFileSystem.h
+FileSystem/WinFileSystemWatcher.cpp
+FileSystem/WinFileSystemWatcher.h
+FileSystem/WinFileUnbuffered.cpp
+FileSystem/WinFileUnbuffered.h
+LoadingProgress.cpp
+LoadingProgress.h
+Progress.component
+Progress.cpp
+Progress.h
+Functor.h
+Update.h
+UpdateProcessor.cpp
+UpdateProcessor.h
+Updater.component
+Updater.cpp
+Updater.h
+#UpdaterTest.cpp ExcludedFromBuild
+ProfileManager.cpp
+ProfileManager.h
+CmdLine.component
+CmdLine.cpp
+CmdLine.h
+CmdLineLite.component
+CmdLineLite.cpp
+CmdLineLite.h
+Float16.h
+Color.cpp
+Color.h
+Image.component
+ImageDDS.cpp
+ImageDDS.h
+ImageFormatDDS.h
+ImageInternal.cpp
+ImageInternal.h
+imageTGA.component
+ImageTGA.cpp
+ImageTGA.h
+ImageUnpackDXT.cpp
+ImageUnpackDXT.h
+dummyallocator.cpp
+dummyallocator.h
+fixedString.h
+fixedvector.h
+meminfo.cpp
+meminfo.h
+Memory.component
+MemoryBlockPool.component
+MemoryBlockPool.cpp
+MemoryBlockPool.h
+MemoryPool.component
+memorypool.cpp
+memorypool.h
+ssememcopy.cpp
+ssememcopy.h
+staticarray.h
+StaticArray2D.h
+StaticContainers.component
+staticstring.h
+staticvector.h
+StreamingContainers.component
+ThreadLocal.h
+Texts.component
+Texts.cpp
+Texts.h
+DebugVar.component
+DebugVar.cpp
+DebugVar.h
+EventFileLogger.component
+EventFileLogger.h
+Events.cpp
+Events.h
+AutoPtr.h
+IntrusivePtr.h
+RefCntObject.h
+ScopedArray.h
+ScopedPtr.h
+Asserts.component
+Asserts.cpp
+Asserts.h
+AssertDumper.cpp
+AssertDumper.h
+BSAssertDialog.cpp
+BSDialogFunctions.cpp
+BSDialogFunctions.h
+BSExceptionDialog.cpp
+BSResources.h
+#BSResources.rc ExcludedFromBuild
+BSUtil.cpp
+BSUtil.h
+CrashHandler.component
+error.ico
+exclamation.ico
+expreport.cpp
+expreport.h
+LogFileName.component
+LogFileName.cpp
+LogFileName.h
+NameMap.cpp
+NameMap.h
+NameMapImplementation.h
+DataExecutor.component
+DataExecutor.cpp
+DataExecutor.h
+ExecutionMemoryManager.cpp
+ExecutionMemoryManager.h
+AppInstancesLimit.cpp
+AppInstancesLimit.h
+Crc32Calculator.component
+Crc32Calculator.h
+Crc32Utils.component
+InlineProfiler.component
+InlineProfiler.h
+InlineProfilerUI.component
+WER.component
+WER.cpp
+WER.h
+AsyncInvoker.h
+CustomAtomics.h
+JobThread.cpp
+JobThread.h
+MultiReaderLock.cpp
+MultiReaderLock.h
+SpinLock.cpp
+SpinLock.h
+SyncPrimitives.component
+SyncPrimitives.cpp
+SyncPrimitives.h
+Thread.cpp
+Thread.h
+ThreadHelpers.cpp
+ThreadHelpers.h
+Threading.component
+ThreadNames.component
+ThreadNames.cpp
+ThreadNames.h
+ThreadPool.cpp
+ThreadPool.h
+TPJobIntf.h
+Win32Helper.h
+Pointers/BaseInterface.h
+Pointers/BaseObjectMT.cpp
+Pointers/BaseObjectMT.h
+Pointers/BaseObjectST.cpp
+Pointers/BaseObjectST.h
+Pointers/BasicFactory.cpp
+Pointers/BasicFactory.h
+Pointers/BasicType.cpp
+Pointers/BasicType.h
+Pointers/Pointers.component
+Pointers/Pointers.h
+Pointers/PointersDetail.h
+Pointers/PointersMacroses.h
+Pointers/Strong.h
+Pointers/Weak.h
+Pointers/WeakMT.h
+InlineProfiler3/Analyzer.component
+InlineProfiler3/InlineProfiler3.cpp
+InlineProfiler3/InlineProfiler3.h
+InlineProfiler3/InlineProfiler3CG.cpp
+InlineProfiler3/InlineProfiler3CG.h
+InlineProfiler3/InlineProfiler3Control.h
+InlineProfiler3/InlineProfiler3TestApp.application
+InlineProfiler3/InlineProfilerStorage.cpp
+InlineProfiler3/InlineProfilerStorage.h
+InlineProfiler3/InlineProfilerTLD.h
+InlineProfiler3/InlineProfilerTLD.inl
+InlineProfiler3/Sampler.component
+InlineProfiler3/SamplerStub.component
+ InlineProfiler3/Images.bmp
+ InlineProfiler3/Profiler3UI.cpp
+ InlineProfiler3/Profiler3UI.h
+ InlineProfiler3/Profiler3UI.ico
+ InlineProfiler3/Profiler3UI.rc
+ InlineProfiler3/Profiler3UIData.cpp
+ InlineProfiler3/Profiler3UIData.h
+ InlineProfiler3/Profiler3UIMainDlg.cpp
+ InlineProfiler3/Profiler3UIMainDlg.h
+ InlineProfiler3/Profiler3UIResource.h
+ InlineProfiler3/Profiler3UITimeline.cpp
+ InlineProfiler3/Profiler3UITimeline.h
+ InlineProfiler3/Profiler3UIWTL.h
+ InlineProfiler3/UI.component
+RegistryStorage.component
+RegistryStorage.cpp
+RegistryStorage.h
+CrashRptWrapper.component
+#CrashRptWrapper.cpp
+CrashRptWrapper.h
+EnumToString.component
+EnumToString.h
+SafeTextFormat.component
+SafeTextFormat.cpp
+SafeTextFormat.h
+SafeTextFormatBuffers.h
+SafeTextFormatCyclicBuffer.h
+SafeTextFormatEx.h
+SafeTextFormatHistogram.h
+SafeTextFormatNstl.h
+SafeTextFormatStl.h
+StarForce/HiddenVars.h
+StarForce/StarForce.cpp
+StarForce/StarForce.h
+#StarForce/StarForce_test.cpp
+StarForce/StarForce_test.h
+PersistEvents.cpp
+PersistEvents.h
+#../../Vendor/MD4/all.component not found
+#../../Vendor/MD4/global.h not found
+#../../Vendor/MD4/md4.h not found
+#../../Vendor/MD4/md4c.c not found
+#../../Vendor/MD4/md5.h not found
+#../../Vendor/MD4/md5c.c not found
+IniFiles.cpp
+IniFiles.h
+Math/MD.cpp
+Math/MD4.component
+Math/MD4.h
+Schedule.component
+Schedule.cpp
+Schedule.h
+DarkSide.component
+DarkSide.h
+Lifehacks.h
+Histogram.component
+Histogram.cpp
+Histogram.h
+CyclicBuffer.component
+CyclicBuffer.h
+foundation.refs
+IDGenerator.cpp
+IDGenerator.h
+Reminder.h
+ScopeGuards.h
+Singleton.h
+Singleton4DLL.h
+#../Version.rc ExcludedFromBuild
+)
+target_include_directories(Foundation PRIVATE ${SRCROOT})
+target_link_libraries(Foundation PRIVATE ZLIB::ZLIB wtl::wtl OpenSSL::Crypto detours)
