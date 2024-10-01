@@ -228,6 +228,11 @@ int __stdcall ConvertSkeletalAnimationSafe( const char* pAncherFileName, const c
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // convert geometry from intermediate (ancher's) format to game's one
 // return value is the "submesh" count on success or less than zero over wise
+
+int __stdcall ConvertSkeletalMeshFromMemory(const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght,
+	unsigned int& payloadSize, unsigned char jointsPerVertex, const void* pSkel, FileStream& writerStream,
+	unsigned int convertTagentAndBinormal, int numColorChannels);
+
 int __stdcall ConvertSkeletalMeshGeometrySafe( const char* pAncherFileName
 																							, const char* pGameFileName
 																							, const char* h6skeletonFileName
