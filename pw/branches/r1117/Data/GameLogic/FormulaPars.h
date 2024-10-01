@@ -75,16 +75,6 @@ inline bool isinbounds( float x, float left, float right )
 	return left <= x && x <= right;
 }
 
-#ifndef round
-__forceinline float round( float fVal )
-{
-  if (fVal >= 0.0f)
-    return (floor(fVal + 0.5f));
-  else
-    return (ceil(fVal - 0.5f));
-};
-#endif
-
 inline float t(int index, float neutral, float a, float b)
 {
 	switch (index)
