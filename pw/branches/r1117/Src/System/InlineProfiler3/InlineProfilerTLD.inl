@@ -34,11 +34,7 @@ TTime ThreadLocalData::GetCpuTickCount()
 {
   TTime register result;
 #if defined( NV_WIN_PLATFORM )
-  __asm {
-    rdtsc
-    mov DWORD PTR result, eax
-    mov DWORD PTR result[4], edx
-  };
+  result = __rdtsc();
 #elif defined( NV_LINUX_PLATFORM )  
   __asm__ __volatile__ ("rdtsc" : "=A" (result) );
 #endif
