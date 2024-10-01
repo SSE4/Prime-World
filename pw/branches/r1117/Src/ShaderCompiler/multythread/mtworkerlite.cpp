@@ -3,6 +3,8 @@
 #include <math.h>
 #include "mtworkerlite.h"
 
+#include <atomic>
+
 namespace
 {
 
@@ -158,7 +160,7 @@ void MTWorkerLite::ExecuteJob(void ** pUserData)
     SpinUntilZero(m_notReady2Start);
     // Start all threads
     m_endSem = SEM_CLOSED; // Close the end, so nobody will be able to loop twice
-    _asm mfence; //WriteBarrier(); 
+    std::atomic_thread_fence(std::memory_order_seq_cst);
     m_begSem = SEM_OPEN;   // Start all threads!
 
     // Call user function
@@ -168,7 +170,7 @@ void MTWorkerLite::ExecuteJob(void ** pUserData)
     SpinUntilZero(m_tasks2BeDone);
     // Open end semaphor to finish the cycle
     m_begSem = SEM_CLOSED;
-    _asm mfence; //WriteBarrier(); 
+    std::atomic_thread_fence(std::memory_order_seq_cst);
     m_endSem = SEM_OPEN;
   }
   else
