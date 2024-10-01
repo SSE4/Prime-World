@@ -4614,7 +4614,7 @@ TestTownMaterial::TestTownMaterial() :
 int TestTownMaterial::operator&( IBinSaver &saver )
 {
 	saver.Add( 1, (Material*)this );
-	saver.Add( 2, &RenderState );
+	saver.Add( 2, &renderState);
 	saver.Add( 3, &DiffuseMap );
 	saver.Add( 4, &UseDiffuse );
 	saver.Add( 5, &outputMul );
@@ -4643,7 +4643,7 @@ int TestTownMaterial::operator&( IXmlSaver &saver )
 void TestTownMaterial::SerializeSelf( IXmlSaver &saver )
 {
 	Material::SerializeSelf( saver );
-	saver.Add( "RenderState", &RenderState );
+	saver.Add( "RenderState", &renderState);
 	saver.Add( "DiffuseMap", &DiffuseMap );
 	saver.Add( "UseDiffuse", &UseDiffuse );
 	saver.Add( "outputMul", &outputMul );
@@ -4652,10 +4652,10 @@ void TestTownMaterial::SerializeSelf( IXmlSaver &saver )
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void TestTownMaterial::Assign( const TestTownMaterial& _testTownMaterial )
 {
-	RenderState.blendMode = _testTownMaterial.RenderState.blendMode;
-	RenderState.alphaTest = _testTownMaterial.RenderState.alphaTest;
-	RenderState.alphaTestRef = _testTownMaterial.RenderState.alphaTestRef;
-	RenderState.culling = _testTownMaterial.RenderState.culling;
+	renderState.blendMode = _testTownMaterial.renderState.blendMode;
+	renderState.alphaTest = _testTownMaterial.renderState.alphaTest;
+	renderState.alphaTestRef = _testTownMaterial.renderState.alphaTestRef;
+	renderState.culling = _testTownMaterial.renderState.culling;
 	DiffuseMap.samplerState.minFilter = _testTownMaterial.DiffuseMap.samplerState.minFilter;
 	DiffuseMap.samplerState.magFilter = _testTownMaterial.DiffuseMap.samplerState.magFilter;
 	DiffuseMap.samplerState.mipFilter = _testTownMaterial.DiffuseMap.samplerState.mipFilter;

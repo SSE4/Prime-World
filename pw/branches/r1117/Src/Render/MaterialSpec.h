@@ -3193,7 +3193,7 @@ private:
 	void FillMaterialInternal( const NDb::TestTownMaterial* pDbMaterial, void * texturePoolId )
 	{
 		MarkMaterialUpdated();
-		RenderState = pDbMaterial->RenderState;
+		RenderState = pDbMaterial->renderState;
 		FillSampler( pDbMaterial->DiffuseMap, &DiffuseMap, false, texturePoolId );
 		UseDiffuse = pDbMaterial->UseDiffuse;
 		outputMul = pDbMaterial->outputMul;

@@ -2310,7 +2310,7 @@ struct TestTownMaterial : public Material
 public:
 	enum { typeId = 0x9D66EBC0 };
 	virtual const DWORD GetObjectTypeID() const { return (DWORD)TestTownMaterial::typeId; }
-	RenderState RenderState;
+	RenderState renderState;
 	Sampler DiffuseMap;
 	BooleanPin UseDiffuse;
 	Render::HDRColor outputMul;
