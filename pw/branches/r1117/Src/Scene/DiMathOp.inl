@@ -8,6 +8,8 @@
 #include <math.h>
 #include <float.h>
 
+#include <cfenv>
+
 #include "DiTypes.h"
 
 ///eugbelNSCENE///namespace NScene {
@@ -538,32 +540,17 @@ diINLINE DiBool DiIsFinite(DiFloat rValue)
  * @see     
  */
 // *******************************************************************
-#define diFPU_ROUND_MODE_TRUNCATE   3<<10
 diINLINE DiInt32 DiF2L(DiFloat rValue)
 {
-  DiInt16 nOldMode, nNewMode;
+  DiInt16 nOldMode, nNewMode = FE_TOWARDZERO;
   DiInt32 nRet;
 
   DIFUNCTION("DiF2L");
   
-
-  __asm
-  {
-    // flag setting
-    fnstcw  WORD PTR nOldMode
-    mov     AX, nOldMode
-    and     AX, (~(3<<10))
-    or      AX, WORD PTR diFPU_ROUND_MODE_TRUNCATE
-    mov     nNewMode , AX
-    fldcw   WORD PTR nNewMode
-
-    // conversion
-    fld    rValue
-    fistp  nRet
-
-    // back old flag
-    fldcw   WORD PTR nOldMode
-  }
+  nOldMode = fegetround();
+  fesetround(nNewMode);
+  nRet = (DiInt32)rValue;
+  fesetround(nOldMode);
 
   DIRETURN(nRet);
 } // end of DiF2L
