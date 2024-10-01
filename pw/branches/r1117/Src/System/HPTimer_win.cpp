@@ -25,8 +25,8 @@ static MY_VOLATILE STime    gLastFreqQuery = 0;
 static MY_VOLATILE STime    gFreqQueryPeriod = 0;
 
 //Affinity stuff
-static  unsigned long       gProcMask = 0;
-static unsigned long        gSysMask = 0;
+static DWORD_PTR            gProcMask = 0;
+static DWORD_PTR            gSysMask = 0;
 static HANDLE               gThread = 0;
 static HANDLE               gProc = 0;
 
