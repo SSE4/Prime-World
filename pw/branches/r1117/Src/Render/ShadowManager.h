@@ -3,7 +3,7 @@
 #include "System/Singleton4DLL.h"
 #include "sceneconstants.h"
 #include "System/GeomMisc.h"
-#include "Vendor/DirectX/Include/d3dx9.h"
+#include "d3dx9.h"
 #include "GlobalMasks.h"
 #include "aabb.h"
 #include "ShadowReceiverVolume.h"

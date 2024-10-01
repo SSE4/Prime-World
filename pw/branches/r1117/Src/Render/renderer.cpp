@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Vendor/DirectX/Include/DxErr.h"
+#include "DxErr.h"
 
 #include "System/AssertDumper.h"
 #include "System/InlineProfiler.h"

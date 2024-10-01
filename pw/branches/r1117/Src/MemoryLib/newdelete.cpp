@@ -8,7 +8,7 @@
 
 #include "System/nvector.h"
 #include "System/nhash_map.h"
-#include "Vendor/DTW/inc/dbghelp.h"
+#include "dbghelp.h"
 
 // malloc implementation: 1 - CRT, 2 - nedmalloc
 #ifndef NI_MALLOC_IMPL

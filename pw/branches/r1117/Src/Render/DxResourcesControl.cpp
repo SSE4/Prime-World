@@ -7,7 +7,7 @@
 #include "System/FileSystem/FileUtils.h"
 #include "System/LogFileName.h"
 
-#include "Vendor/DTW/inc/dbghelp.h"
+#include "dbghelp.h"
 // 
 // #include "Vendor/DirectX/Include/d3d9.h"
 // #include "Vendor/DirectX/Include/d3dx9.h"

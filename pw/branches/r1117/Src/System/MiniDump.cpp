@@ -3,7 +3,7 @@
 
 #include "LogFileName.h"
 #include "FileSystem/FileUtils.h"
-#include "Vendor/DTW/inc/dbghelp.h"
+#include "dbghelp.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static const MINIDUMP_TYPE miniMiniDumpFlags = (MINIDUMP_TYPE)( MiniDumpWithIndirectlyReferencedMemory );
 static const MINIDUMP_TYPE fullMiniDumpFlags = (MINIDUMP_TYPE)( MiniDumpWithDataSegs | MiniDumpWithThreadInfo |
