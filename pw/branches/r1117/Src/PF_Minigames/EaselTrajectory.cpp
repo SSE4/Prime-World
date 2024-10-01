@@ -99,12 +99,12 @@ int  CBSplineTrajectory::FindXIntersectionPoint(SplinePoint pt1,SplinePoint pt2,
         return pt1.x+deltaX;
 }
 
-int64 CBSplineTrajectory::GetLenght()
+int64_t CBSplineTrajectory::GetLenght()
 {
     return splineLength;
 }
 
-int CBSplineTrajectory::GetCoordsByLenght(int64 length,
+int CBSplineTrajectory::GetCoordsByLenght(int64_t length,
                                           /*out*/SVector &refCoords)
 {
     // [@Pavel <GnoM> Cherniavski@] TODO: Данный метод будет вызываться чаще всего
@@ -129,8 +129,8 @@ int CBSplineTrajectory::GetCoordsByLenght(int64 length,
         if(length >= mapIterA->first && length < mapIterB->first)
         {
              // got interval
-             int64 lengthInside = length-mapIterA->first;
-             int64 lenghtInterval = mapIterB->first-mapIterA->first;
+             int64_t lengthInside = length-mapIterA->first;
+             int64_t lenghtInterval = mapIterB->first-mapIterA->first;
 
              int x1 = mapIterA->second.x;
              int y1 = mapIterA->second.y;
@@ -158,7 +158,7 @@ int CBSplineTrajectory::GetCoordsByLenght(int64 length,
     return LUX_LENGHT_TOO_BIG;
 }
 
-int CBSplineTrajectory::GetTangentByLenght(int64 length, /*out*/SVector &refTangent)
+int CBSplineTrajectory::GetTangentByLenght(int64_t length, /*out*/SVector &refTangent)
 {
   // [@Pavel <GnoM> Cherniavski@] TODO: Данный метод будет вызываться чаще всего
   // его нужно однозначно оптимизировать .....
@@ -206,7 +206,7 @@ void CBSplineTrajectory::InitInternalPointContainer()
   CVec2 coordSecond;
   CVec2 coordFirst = currCP[0].ToCVec2();	
 
-  int64 lenghtComplete = 0;    // complete spline lenght
+  int64_t lenghtComplete = 0;    // complete spline lenght
 
   for(double i=0; i<nodeVector[curveDegree+numControlPoints];i+=0.01)   // точность прохода 
   {
@@ -322,7 +322,7 @@ bool PolylineTrajectory::CreateFromBSpline(int _splineDegree, nstl::vector<SVect
   newPoint.pos.x = currentControlPoint->second.x;
   newPoint.pos.y = currentControlPoint->second.y;
   
-  int64 lastPointLength = deltaLength;
+  int64_t lastPointLength = deltaLength;
 
   CBSplineTrajectory::MPIter lastControlPoint = currentControlPoint;
   ++currentControlPoint;
@@ -428,12 +428,12 @@ int  PolylineTrajectory::FindXIntersectionPoint(SVector pt1, SVector pt2,int y)
     return pt1.x+deltaX;
 }
  
-int64 PolylineTrajectory::GetLenght()
+int64_t PolylineTrajectory::GetLenght()
 {
   return polylineLength;
 }
 
-int PolylineTrajectory::GetCoordsByLenght(int64 length,
+int PolylineTrajectory::GetCoordsByLenght(int64_t length,
                                           /*out*/SVector &refCoords)
 {
 
@@ -472,7 +472,7 @@ int PolylineTrajectory::GetCoordsByLenght(int64 length,
   return LUX_OK;
 }
 
-int PolylineTrajectory::GetTangentByLenght(int64 length, /*out*/SVector &refTangent)
+int PolylineTrajectory::GetTangentByLenght(int64_t length, /*out*/SVector &refTangent)
 {
   // polyline should have at least one point
   if(polyline.empty() || deltaLength == 0)

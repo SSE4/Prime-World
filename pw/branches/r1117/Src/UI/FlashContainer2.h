@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "Flash/GameSWFIntegration/Natives/display/StageProvider.h"
 
 #include "NameMappedWindow.h"
@@ -8,7 +10,6 @@
 namespace avmplus
 {
   class ScriptObject;
-  typedef __int32	int32_t;
   typedef int32_t Atom;
 }
 

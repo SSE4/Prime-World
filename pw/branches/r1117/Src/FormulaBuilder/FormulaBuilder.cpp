@@ -5,6 +5,8 @@
  *      Author: earnol
  */
 
+#include <cstdint>
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -581,7 +583,7 @@ float FormulaBuilder::Execute(void const *pFirst, void const *pSecond, void *pMi
 
 extern "C"
 {
-__declspec(dllexport) __int32 __stdcall BuildFormula(char const * cpFormula, char* cpBase64Code, int nEncodeBufferSize, char const * cpReturnType, int altSecond);
+__declspec(dllexport) int32_t __stdcall BuildFormula(char const * cpFormula, char* cpBase64Code, int nEncodeBufferSize, char const * cpReturnType, int altSecond);
 }
 
 int __stdcall BuildFormula(char const *cpFormula, char *cpBase64Code, int nEncodeBufferSize, char const *cpReturnType, int altSecond)

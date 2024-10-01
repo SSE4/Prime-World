@@ -54,7 +54,7 @@ private:
 
   void CreateNewPathTailEffect( LuxGameLogic* _gameLogic, bool visible );
 
-  void PlaceEffectOnPath( PF_Core::BasicEffectStandalone* _effect, int64 _pathPos );
+  void PlaceEffectOnPath( PF_Core::BasicEffectStandalone* _effect, int64_t _pathPos );
 
   CPtr<Easel> easel;
 
@@ -72,7 +72,7 @@ private:
   PathObjects pathObjects;
 
   bool firstRun;
-  int64 coveredPath;
+  int64_t coveredPath;
 
   CObj<PF_Core::BasicEffectStandalone> pathHeadEffect;
   PathTailObjects pathTail;

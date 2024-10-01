@@ -28,7 +28,7 @@ struct MemoryBlock
   MemoryBlock():memory(0), size(0) {}
   MemoryBlock(void* _memory, uint _size):memory(_memory), size(_size) {}
   void* memory;
-  nival::uint32_t size;
+  uint32_t size;
 };
 
 struct CachedMemoryBlock : MemoryBlock

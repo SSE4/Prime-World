@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "NewLobbyGameClientPW.h"
 #include "NewLobbyClientPW.h"
 
@@ -690,7 +692,7 @@ void GameClientPW::SendTeam()
   if ( !player )
     return;
 
-  nstl::vector<__int64> auids;
+  nstl::vector<int64_t> auids;
   for(int i = 0; i< world->GetPlayersCount(); ++i)
   {
     NWorld::PFPlayer* p = world->GetPlayer( i );

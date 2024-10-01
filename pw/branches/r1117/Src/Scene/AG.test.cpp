@@ -2,6 +2,9 @@
 //!Component('Scene/AGTestHelpers')
 //!Component('System/FileSystem/TestFileSystem')
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include <cxxtest/TestSuite.h>
 
 #include "System/FileSystem/TestFileSystem.h"
@@ -292,12 +295,12 @@ struct Test_AG : public CxxTest::TestSuite
     deathNode.speed.value = 0.5f;
     Create(data, &creator);
     g->SetTargetNode( 1 );
-    unsigned __int64 starttime = __rdtsc();
+    uint64_t starttime = __rdtsc();
     for ( int i = 0; i < 100; i++ )
     {
       g->Update(0.01f);
     }
-    unsigned __int64 time = __rdtsc() - starttime;
+    uint64_t time = __rdtsc() - starttime;
 
     tearDown();
 
@@ -309,12 +312,12 @@ struct Test_AG : public CxxTest::TestSuite
     deathNode2.speed.value = 0.5f;
     Create(data, &creator2);
     g->SetTargetNode( 1 );
-    unsigned __int64 starttime2 = __rdtsc();
+    uint64_t starttime2 = __rdtsc();
     for ( int i = 0; i < 100; i++ )
     {
       g->Update(0.01f);
     }
-    unsigned __int64 time2 = __rdtsc() - starttime2;
+    uint64_t time2 = __rdtsc() - starttime2;
 
     double ratio = (double)time/(double)time2;
 

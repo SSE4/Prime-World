@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "Commands.h"
 #include "StrProc.h"
 
@@ -206,7 +208,7 @@ bool VariantValue::IsConvertibleImpl( Type toType, const VariantValue &from )
     case INT:   
     {
       wchar_t *endptr;
-      const __int64 rez = _wcstoi64( from.szVal.c_str(), &endptr, 10 );
+      const int64_t rez = _wcstoi64( from.szVal.c_str(), &endptr, 10 );
       
       return endptr == from.szVal.c_str() + from.szVal.size() && 
              rez > _I64_MIN && rez < _I64_MAX;
@@ -214,7 +216,7 @@ bool VariantValue::IsConvertibleImpl( Type toType, const VariantValue &from )
     case UINT:  
     {
       wchar_t *endptr;
-      const __int64 rez = _wcstoui64( from.szVal.c_str(), &endptr, 10 );
+      const int64_t rez = _wcstoui64( from.szVal.c_str(), &endptr, 10 );
       
       return endptr == from.szVal.c_str() + from.szVal.size() && 
              rez < _UI64_MAX;

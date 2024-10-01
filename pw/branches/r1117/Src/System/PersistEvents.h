@@ -1,6 +1,8 @@
 #ifndef SYSTEM_PERSISTEVENTS_H_INCLUDED
 #define SYSTEM_PERSISTEVENTS_H_INCLUDED
 
+#include <cstdint>
+
 namespace persistentEvents
 {
 
@@ -32,7 +34,7 @@ struct EventId
 };
 
 
-typedef unsigned __int64 TAuxParam;
+typedef uint64_t TAuxParam;
 
 struct Event
 {

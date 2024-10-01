@@ -69,7 +69,7 @@ const NDb::AnimatedPlacement& LuxPath::GetEndOffset() const
   return dbPath->splineData.endPoint.placement; 
 };
 
-bool LuxPath::IsPointInsideTunnel( int64 _point, LuxGameLogic* _gameLogic ) const
+bool LuxPath::IsPointInsideTunnel(int64_t _point, LuxGameLogic* _gameLogic ) const
 {
   float startOffset =_gameLogic->GetGameData()->commonParams->tunnels.startPointOffset * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
   float endOffset = _gameLogic->GetGameData()->commonParams->tunnels.endPointOffset * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
@@ -79,8 +79,8 @@ bool LuxPath::IsPointInsideTunnel( int64 _point, LuxGameLogic* _gameLogic ) cons
 
   for ( ; it != last ; ++it )
   {
-    int64 _begin = it->begin * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
-    int64 _end   = it->end * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
+    int64_t _begin = it->begin * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
+    int64_t _end   = it->end * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
 
     if ( ( _begin + startOffset <= _point ) && ( _point <= _end + endOffset ) )
       return true;

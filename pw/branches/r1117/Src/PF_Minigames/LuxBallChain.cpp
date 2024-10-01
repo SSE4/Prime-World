@@ -35,7 +35,7 @@ namespace PF_Minigames
 class TunnelCheckPred : public unary_function<NDb::DBTunnel,bool>
 {
 public:
-  TunnelCheckPred(int64 _pos) : position(_pos/EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER()) {};
+  TunnelCheckPred(int64_t _pos) : position(_pos/EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER()) {};
   ~TunnelCheckPred() {};
 
   bool operator()(const NDb::DBTunnel &rhs) const
@@ -49,7 +49,7 @@ public:
 private:
   TunnelCheckPred();
   
-  int64 position;
+  int64_t position;
 
 protected:
 
@@ -82,7 +82,7 @@ LuxBallChain::~LuxBallChain()
 
 }
 
-int64 LuxBallChain::GetChainPosition() const 
+int64_t LuxBallChain::GetChainPosition() const
 { 
   if ( chainBalls.empty() )
     return 0;
@@ -92,7 +92,7 @@ int64 LuxBallChain::GetChainPosition() const
   return frontBall->GetCoveredPath() + (frontBall->Size()/2);
 }
 
-int64 LuxBallChain::GetChainLength() const
+int64_t LuxBallChain::GetChainLength() const
 { 
   if ( chainBalls.empty() )
     return 0;
@@ -103,7 +103,7 @@ int64 LuxBallChain::GetChainLength() const
 }
 
 
-int64 LuxBallChain::GetChainEnd() const 
+int64_t LuxBallChain::GetChainEnd() const
 { 
   return GetChainPosition() - GetChainLength(); 
 }
@@ -163,7 +163,7 @@ void LuxBallChain::ProcessTunnelsIntersection()
 
   for ( ; it != last; ++it )
   {
-    int64 ballPos = it->ball->GetCoveredPath();
+    int64_t ballPos = it->ball->GetCoveredPath();
 
     TunnelCheckPred pred(ballPos);
     TunnelCheckPred predNext(ballPos + nextTunnelOffset);
@@ -220,7 +220,7 @@ void LuxBallChain::ExplodeChainBalls()
   chainBalls.clear();
 }
 
-bool LuxBallChain::ExplodeBallAtPos(int64 _pos,/*out*/CPtr<LuxBallChain>& tearedOfftail)
+bool LuxBallChain::ExplodeBallAtPos(int64_t _pos,/*out*/CPtr<LuxBallChain>& tearedOfftail)
 {
   ChainBalls::iterator ballsIter = chainBalls.begin();
   for(; ballsIter != chainBalls.end(); ++ballsIter)
@@ -261,7 +261,7 @@ void LuxBallChain::SortChain()
 void LuxBallChain::AddChainBallInit( LuxBall* spBall )
 {
   int newBallRadius = spBall->Size() / 2;
-  int64 newBallPos = -GetChainLength() - newBallRadius;
+  int64_t newBallPos = -GetChainLength() - newBallRadius;
 
   spBall->SetCoveredPath( newBallPos);
 
@@ -301,7 +301,7 @@ void LuxBallChain::NotifyNewBallAdded(LuxBall* _ball)
 void LuxBallChain::RunTimeAddBallFront(LuxBall* spBall, bool& fColorMatched)
 {
   int newBallRadius = spBall->Size() / 2;
-  int64 newBallPosition = spBall->GetCoveredPath();
+  int64_t newBallPosition = spBall->GetCoveredPath();
 
   spBall->SetCoveredPath(newBallPosition);
   spBall->SetSpeed(0);
@@ -330,7 +330,7 @@ void LuxBallChain::RunTimeAddBallFront(LuxBall* spBall, bool& fColorMatched)
 void LuxBallChain::RunTimeAddBallEnd(LuxBall* spBall, bool& fColorMatched)
 {
   int newBallRadius = spBall->Size()/2;
-  int64 newBallPos = spBall->GetCoveredPath();
+  int64_t newBallPos = spBall->GetCoveredPath();
 
   spBall->SetSpeed(0);
 
@@ -360,9 +360,9 @@ void LuxBallChain::RunTimeAddBallEnd(LuxBall* spBall, bool& fColorMatched)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void LuxBallChain::RunTimeAddBallMiddle(LuxBall* spBall, bool& fColorMatched)
 {
-    static int64 nextTunnelOffset = EaselConst::Get_BALL_DEF_DIAMETER();
+    static int64_t nextTunnelOffset = EaselConst::Get_BALL_DEF_DIAMETER();
 
-    int64 newBallPos = spBall->GetCoveredPath();
+    int64_t newBallPos = spBall->GetCoveredPath();
 
     fColorMatched = true;
 
@@ -372,7 +372,7 @@ void LuxBallChain::RunTimeAddBallMiddle(LuxBall* spBall, bool& fColorMatched)
     ChainBalls::iterator ballsIter = chainBalls.begin();
     for(; ballsIter != chainBalls.end(); ballsIter++)
     {
-        int64 currballPos = ballsIter->ball->GetCoveredPath();
+        int64_t currballPos = ballsIter->ball->GetCoveredPath();
         BallState state = ballsIter->ball->State();
         
         bool inTunnel = (state == BALL_STATE_IN_TUNNEL);
@@ -430,11 +430,11 @@ void LuxBallChain::RunTimeAddBallMiddle(LuxBall* spBall, bool& fColorMatched)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool LuxBallChain::IsIntersects(const LuxBallChain& otherChain)
 {
-  int64 positionHead1 = GetChainPosition();
-  int64 positionTail1 = GetChainEnd();
+  int64_t positionHead1 = GetChainPosition();
+  int64_t positionTail1 = GetChainEnd();
 
-  int64 positionHead2 = otherChain.GetChainPosition();
-  int64 positionTail2 = otherChain.GetChainEnd();
+  int64_t positionHead2 = otherChain.GetChainPosition();
+  int64_t positionTail2 = otherChain.GetChainEnd();
 
   return ( (positionHead1 > positionTail2) && (positionHead2 > positionTail1) );
 
@@ -548,7 +548,7 @@ bool LuxBallChain::MergeTail( LuxBallChain* other )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-LuxBallChain* LuxBallChain::ExplodePaintBlastWave(const SVector &_refBlastPos,int64 _radius)
+LuxBallChain* LuxBallChain::ExplodePaintBlastWave(const SVector &_refBlastPos, int64_t _radius)
 {
   if ( chainBalls.empty() )
     return 0;
@@ -595,12 +595,12 @@ LuxBallChain* LuxBallChain::ExplodePaintBlastWave(const SVector &_refBlastPos,in
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool LuxBallChain::IsInsidePaintBlast(const SVector &_refballPos,const SVector &_refblastPos,int64 blastRadius)
+bool LuxBallChain::IsInsidePaintBlast(const SVector &_refballPos,const SVector &_refblastPos, int64_t blastRadius)
 {
   double deltaX = abs(_refballPos.x-_refblastPos.x);
   double deltaY = abs(_refballPos.y-_refblastPos.y);
 
-  int64 length = sqrt(deltaX*deltaX+deltaY*deltaY);
+  int64_t length = sqrt(deltaX*deltaX+deltaY*deltaY);
 
   if(length <= blastRadius)
     return true;
@@ -820,7 +820,7 @@ LuxBallChain* LuxBallChain::ProcessTailTearOff(const ChainBalls::iterator& _From
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int LuxBallChain::SetChainPosition(int64 newPosition)
+int LuxBallChain::SetChainPosition(int64_t newPosition)
 {
     SetBallsPositions( newPosition );   // chain position has changed, recalculation
 
@@ -840,7 +840,7 @@ void LuxBallChain::UpdateChainSpeed(bool lastChain)
   {
     int mult = 3;
 
-    int64 newSpeed = (chainDefaultSpeed * mult * GetChainPosition()) / GetChainLength();
+    int64_t newSpeed = (chainDefaultSpeed * mult * GetChainPosition()) / GetChainLength();
     newSpeed = max(0, newSpeed);
     newSpeed = chainDefaultSpeed * (mult + 1) - newSpeed;
     SetSpeed(newSpeed);
@@ -850,9 +850,9 @@ void LuxBallChain::UpdateChainSpeed(bool lastChain)
     state = STATE_ROLL_OUT;
 
     int mult = 6;
-    int64 accelerationDistance = 1000 * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
+    int64_t accelerationDistance = 1000 * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
 
-    int64 newSpeed =  (chainDefaultSpeed * mult * (GetChainPosition() - chainPath->GetTrajectory()->GetLenght() ) ) / accelerationDistance;
+    int64_t newSpeed =  (chainDefaultSpeed * mult * (GetChainPosition() - chainPath->GetTrajectory()->GetLenght() ) ) / accelerationDistance;
     newSpeed = min(newSpeed, chainDefaultSpeed * mult);
     newSpeed = max(0, newSpeed);
     newSpeed = chainDefaultSpeed + newSpeed;
@@ -873,7 +873,7 @@ void LuxBallChain::UpdateChainSpeed(bool lastChain)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-float LuxBallChain::CalculateEdgeAcceleration(int64 start, int64 current, int64 end, int deltaTime)
+float LuxBallChain::CalculateEdgeAcceleration(int64_t start, int64_t current, int64_t end, int deltaTime)
 {
   static float kc = 6.0e-6f;
   static float fr_max = 0.0f;
@@ -972,7 +972,7 @@ void LuxBallChain::MoveChainBallsByVelocity(int deltaTime)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void LuxBallChain::CalculateOffset(int64 start, int64 end, int deltaTime,float& offset, int64& currentPoint, float& currentVelocity)
+void LuxBallChain::CalculateOffset(int64_t start, int64_t end, int deltaTime,float& offset, int64_t& currentPoint, float& currentVelocity)
 {        
 
   static float dumping = 0.0001f;
@@ -984,12 +984,12 @@ void LuxBallChain::CalculateOffset(int64 start, int64 end, int deltaTime,float& 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void LuxBallChain::RecalculatePoint(float previous, float offset, int64& currentPoint, float& currentVelocity)
+void LuxBallChain::RecalculatePoint(float previous, float offset, int64_t& currentPoint, float& currentVelocity)
 {
   static float maxSize = 2.5f;
   static float minSize = 1.5f;
 
-  int64 newPoint = currentPoint + offset;
+  int64_t newPoint = currentPoint + offset;
 
   if(newPoint > previous + EaselConst::Get_BALL_DEF_RADIUS() * maxSize)
   {
@@ -1009,7 +1009,7 @@ void LuxBallChain::RecalculatePoint(float previous, float offset, int64& current
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void LuxBallChain::RecalculateBallsSize()
 {
-  int64 lastEdgePoint = firstEdgePoint;
+  int64_t lastEdgePoint = firstEdgePoint;
 
   ChainBalls::iterator beginBallIter = chainBalls.begin();
   ChainBalls::iterator currentBalIter = chainBalls.end();
@@ -1042,7 +1042,7 @@ void LuxBallChain::MoveBallsAndChangeSizes( int deltaTime )
   ChainBalls::iterator beginBallIter = chainBalls.begin();
   ChainBalls::iterator endBallIter = chainBalls.end();
 
-  int64 lastEdgePoint = firstEdgePoint;
+  int64_t lastEdgePoint = firstEdgePoint;
 
   // move balls' edge points
   ChainBalls::iterator currentBalIter = endBallIter;
@@ -1050,15 +1050,15 @@ void LuxBallChain::MoveBallsAndChangeSizes( int deltaTime )
   while(currentBalIter != beginBallIter)
   {
     
-    int64& currentPoint = currentBalIter->edgePoint;
+    int64_t& currentPoint = currentBalIter->edgePoint;
     float& currentVelocity = currentBalIter->edgeVelocity;
     float& offset = currentBalIter->offset;
 
     --currentBalIter;
 
-    int64 nextEdgePoint =  currentBalIter->edgePoint; 
+    int64_t nextEdgePoint =  currentBalIter->edgePoint;
 
-    int64 lastEdgePoint2 = lastEdgePoint;
+    int64_t lastEdgePoint2 = lastEdgePoint;
     lastEdgePoint = currentPoint;
 
     CalculateOffset(lastEdgePoint2, nextEdgePoint, deltaTime, offset, currentPoint, currentVelocity);
@@ -1067,7 +1067,7 @@ void LuxBallChain::MoveBallsAndChangeSizes( int deltaTime )
   } 
 
   {
-    int64& currentPoint = currentBalIter->edgePoint;
+    int64_t& currentPoint = currentBalIter->edgePoint;
     float& currentVelocity = currentBalIter->edgeVelocity;
     float& offset = currentBalIter->offset;
 
@@ -1122,7 +1122,7 @@ void LuxBallChain::RecalculateBallsPositionsOnMove()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void LuxBallChain::RecalculateBallPosition( LuxBall* refBall )
 {
-  int64 ballPath = refBall->GetCoveredPath();
+  int64_t ballPath = refBall->GetCoveredPath();
 
   SVector ballDirection;
   int iRes = chainPath->GetTrajectory()->GetTangentByLenght(ballPath, ballDirection);
@@ -1154,7 +1154,7 @@ void LuxBallChain::RecalculateBallPosition( LuxBall* refBall )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void LuxBallChain::SetBallsPositions( int64 newPos )
+void LuxBallChain::SetBallsPositions(int64_t newPos )
 {
   ChainBalls::iterator ballsIter = chainBalls.begin();
   for(int i=0; ballsIter != chainBalls.end(); ballsIter++,i++)

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "AdventureScreenBase.h"
 #include "PFUIEvent.h"
 #include "UIEventHandler.h"
@@ -950,7 +952,7 @@ struct GSClientSettings
     void AddToComplList(const CPtr<NWorld::PFPlayer>& player);
     bool InComplList(const CPtr<NWorld::PFPlayer>& player) const;
   private:
-    typedef nstl::vector<__int64> ComplList;
+    typedef nstl::vector<int64_t> ComplList;
     ComplList  playerComplList;
 
     void MoveCameraByMinimap( float x, float y );

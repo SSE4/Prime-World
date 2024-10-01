@@ -112,7 +112,7 @@ void SocialConnection::GenerateRequest(Http::HttpRequest& request)
   ++rid;
 }
 
-bool SocialConnection::AddFriend(__int64 auid)
+bool SocialConnection::AddFriend(int64_t auid)
 {
   Http::HttpRequest request(serverName);
 
@@ -125,7 +125,7 @@ bool SocialConnection::AddFriend(__int64 auid)
   return true;
 }
 
-bool SocialConnection::CreateComplaint(__int64 toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists, int points, int prime, int leave, int distance, int afks)
+bool SocialConnection::CreateComplaint(int64_t toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists, int points, int prime, int leave, int distance, int afks)
 {
   nstl::string res;
   NStr::UnicodeToUTF8(&res, text);
@@ -173,7 +173,7 @@ bool SocialConnection::CreateComplaint(__int64 toauid, int category, const nstl:
   return true;
 }
 
-bool SocialConnection::ChoosePartyAgain(const nstl::vector<__int64>& auids, const unsigned __int64 sessionId, const unsigned __int64 timeLeft, const bool agreed)
+bool SocialConnection::ChoosePartyAgain(const nstl::vector<int64_t>& auids, const uint64_t sessionId, const uint64_t timeLeft, const bool agreed)
 {
   Json::Value allies(Json::arrayValue);
 
@@ -209,7 +209,7 @@ bool SocialConnection::ChoosePartyAgain(const nstl::vector<__int64>& auids, cons
   return true;
 }
 
-void SocialConnection::parseAuids(const nstl::vector<__int64>& auids, std::string& res )
+void SocialConnection::parseAuids(const nstl::vector<int64_t>& auids, std::string& res )
 {
   std::ostringstream ss;
 
@@ -228,7 +228,7 @@ void SocialConnection::parseAuids(const nstl::vector<__int64>& auids, std::strin
 
 }
 
-bool SocialConnection::SendTeam(__int64 auid, const nstl::vector<__int64>& team_auids)
+bool SocialConnection::SendTeam(int64_t auid, const nstl::vector<int64_t>& team_auids)
 {
 
   Http::HttpRequest request(serverName);
@@ -309,7 +309,7 @@ void SocialConnection::Step()
             return;
           }
 
-          __int64 auidInt = advLogic->GetPlayerAuid();
+          int64_t auidInt = advLogic->GetPlayerAuid();
           char auidBuff[65];
           _i64toa(auidInt, auidBuff, 10);
           string auid(auidBuff);

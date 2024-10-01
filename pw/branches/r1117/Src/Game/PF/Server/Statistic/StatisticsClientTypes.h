@@ -1,4 +1,7 @@
 #pragma once
+
+#include <cstdint>
+
 #include <Server/RPC/all.h>
 #include "PF_GameLogic/GameLogicStatisticsTypes.h"
 
@@ -12,7 +15,7 @@ struct CommonSessionEventInfo : rpc::Data
 {
   SERIALIZE_ID();
   ZDATA
-  __int64 sessionId;
+  int64_t sessionId;
   int playerId;
   int step;
 
@@ -24,7 +27,7 @@ struct CommonSessionEventInfo : rpc::Data
   step( 0 )
   {}
 
-  CommonSessionEventInfo( __int64 _sessionId, int _playerId, int _step ) :
+  CommonSessionEventInfo( int64_t _sessionId, int _playerId, int _step ) :
   sessionId( _sessionId ),
   playerId( _playerId ),
   step( _step )

@@ -76,7 +76,7 @@ namespace Transport
 #if defined( NV_WIN_PLATFORM )
       return sizeof(seqnum);
 #elif defined( NV_LINUX_PLATFORM )
-      return sizeof( nival::uint32_t );
+      return sizeof( uint32_t );
 #endif
     }
   };

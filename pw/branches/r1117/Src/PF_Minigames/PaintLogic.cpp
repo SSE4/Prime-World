@@ -164,7 +164,7 @@ bool PaintLogic::FillNearestPoint( const SVector & refpaintPosition, NDb::EColor
     return false;
 
   // checker data
-  int64  closestDist = 0;
+  int64_t  closestDist = 0;
   CPainterPoint * closestPoint = 0;
   CPaintFragment * closestFrag = 0;
 
@@ -172,7 +172,7 @@ bool PaintLogic::FillNearestPoint( const SVector & refpaintPosition, NDb::EColor
   PaintFragments::iterator currFragment = paintFragments.begin();
   for( ; currFragment != paintFragments.end(); currFragment++ )
   {
-    int64 distance = 0;
+    int64_t distance = 0;
     CPainterPoint * point = (*currFragment)->GetClosestPoint( refpaintPosition, true, refpaintColor, distance, true );
     if ( !point )
       continue;

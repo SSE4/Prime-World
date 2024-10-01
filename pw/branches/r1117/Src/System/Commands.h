@@ -47,8 +47,8 @@ class VariantValue
   ZDATA
     float           fVal;
     mutable wstring szVal;
-    int64           nSIntVal;
-    uint64          nUIntVal;
+    int64_t          nSIntVal;
+    uint64_t         nUIntVal;
     Type            type;
 public:
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&fVal); f.Add(3,&szVal); f.Add(4,&nSIntVal); f.Add(5,&nUIntVal); f.Add(6,&type); return 0; }
@@ -69,8 +69,8 @@ public:
   VariantValue( float _fVal )            {InitVars(); fVal = _fVal;                                 type = FLOAT ;}
   VariantValue( int   _n )               {InitVars(); nSIntVal = _n;                                type = INT   ;}
   VariantValue( unsigned int _n )        {InitVars(); nUIntVal = _n;                                type = UINT  ;}
-  VariantValue( int64 _n )               {InitVars(); nSIntVal = _n;                                type = INT   ;}
-  VariantValue( uint64 _n )              {InitVars(); nUIntVal = _n;                                type = UINT  ;}
+  VariantValue( int64_t _n )               {InitVars(); nSIntVal = _n;                                type = INT   ;}
+  VariantValue( uint64_t _n )              {InitVars(); nUIntVal = _n;                                type = UINT  ;}
   VariantValue( const wstring &_szVal )  {InitVars(); szVal = _szVal;                               type = STRING;}
   VariantValue( const wchar_t *pszVal )  {InitVars(); szVal = pszVal;                               type = STRING;}
 #if defined( NV_WIN_PLATFORM )
@@ -93,11 +93,11 @@ public:
     }
     return fVal; 
   }
-  const int64 GetInt64() const 
+  const int64_t GetInt64() const
   { 
     switch(type)
     {
-      case FLOAT:  return (int64)fVal;
+      case FLOAT:  return (int64_t)fVal;
       case INT:    return nSIntVal; 
       case UINT:   return nUIntVal;
       case STRING: return
@@ -110,11 +110,11 @@ public:
     }
     return nSIntVal; 
   }
-  const uint64 GetUInt64() const 
+  const uint64_t GetUInt64() const
   { 
     switch(type)
     {
-      case FLOAT:  return (uint64)fVal;
+      case FLOAT:  return (uint64_t)fVal;
       case INT:    return nSIntVal; 
       case UINT:   return nUIntVal;
       case STRING: return
@@ -187,12 +187,12 @@ template<> inline const unsigned int VariantValue::GetImpl() const
 	return GetUInt64();
 }
 
-template<> inline const int64 VariantValue::GetImpl() const
+template<> inline const int64_t VariantValue::GetImpl() const
 {
 	return GetInt64();
 }
 
-template<> inline const uint64 VariantValue::GetImpl() const
+template<> inline const uint64_t VariantValue::GetImpl() const
 {
 	return GetUInt64();
 }

@@ -63,9 +63,9 @@ public:
     return _min + t * ( _max - _min );
   }
 
-  QWORD Next64()
+  uint64_t Next64()
   {
-    return ( QWORD(Next()) << 32 ) | QWORD(Next());
+    return (uint64_t(Next()) << 32 ) | uint64_t(Next());
   }
 
   template <class TStlContainer>

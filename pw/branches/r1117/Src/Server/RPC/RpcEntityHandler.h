@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "Interfaces.h"
 #include "RpcArgs.h"
 #include "RpcUtils.h"
@@ -13,7 +15,7 @@ struct LocalEntityInstanceInfo
 {
   union
   {
-    __int64 key;
+    int64_t key;
     struct  
     {
       void* instance;

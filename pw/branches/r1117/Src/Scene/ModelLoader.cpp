@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "ModelLoader.h"
 
 #include "AIGeometry.h"
@@ -52,9 +55,9 @@ bool MakeModelFromAIGeometryInstances( Render::StaticModel *pRes,	const AIGeomet
 	}
 	vertexBuffer->Unlock();
 
-	const int ibsize = 3 * sizeof(unsigned __int32) * totalTris;
+	const int ibsize = 3 * sizeof(uint32_t) * totalTris;
 	IIndexBuffer* indexBuffer = RenderResourceManager::CreateIndexBuffer( ibsize, RENDER_POOL_MANAGED );
-	unsigned __int32* ibLockData = reinterpret_cast<unsigned __int32*>(indexBuffer->Lock( 0, ibsize, LOCK_DEFAULT ));
+	uint32_t* ibLockData = reinterpret_cast<uint32_t*>(indexBuffer->Lock( 0, ibsize, LOCK_DEFAULT ));
 
 	int iindex = 0;
 	for ( int inst = 0; inst < instances.size(); ++inst )
@@ -165,9 +168,9 @@ bool MakeModelFromAIGeometryInstances( Render::StaticMesh *pRes,	const AIGeometr
 	}
 	vertexBuffer->Unlock();
 
-	const int ibsize = 3 * sizeof(unsigned __int32) * totalTris;
+	const int ibsize = 3 * sizeof(uint32_t) * totalTris;
 	IIndexBuffer* indexBuffer = RenderResourceManager::CreateIndexBuffer( ibsize, RENDER_POOL_MANAGED );
-	unsigned __int32* ibLockData = reinterpret_cast<unsigned __int32*>(indexBuffer->Lock( 0, ibsize, LOCK_DEFAULT ));
+	uint32_t* ibLockData = reinterpret_cast<uint32_t*>(indexBuffer->Lock( 0, ibsize, LOCK_DEFAULT ));
 
 	int iindex = 0;
 	for ( int inst = 0; inst < instances.size(); ++inst )

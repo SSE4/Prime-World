@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "LogFileName.h"
 #include "FileSystem/FileUtils.h"
 #include "FileSystem/FilePath.h"
@@ -35,9 +38,9 @@ struct CodeAnalystStarter
       preferredGroup = -1;
     };
     /** Performance event as created by \ref fnMakeProfileEvent*/
-    unsigned __int64 performanceEvent;
+    uint64_t performanceEvent;
     /** Sample period for sampling or starting count for counting */
-    unsigned __int64 value; 
+    uint64_t value;
     /** Which other events this should be grouped with */
     int preferredGroup;
   }; 
@@ -57,12 +60,12 @@ struct CodeAnalystStarter
 
   HRESULT ( *fnSetProfileOutputFile ) (wchar_t * pFileName);
   HRESULT ( *fnSetFilterProcesses ) (uint * pProcessIds, uint count);
-  HRESULT ( *fnSetTimerConfiguration ) (int64 cpuCoreMask, uint *puSPeriod);
+  HRESULT ( *fnSetTimerConfiguration ) (int64_t cpuCoreMask, uint *puSPeriod);
   HRESULT ( *fnSetCallStackSampling ) (uint processId, uint unwindLevel, uint samplePeriod);
 
   HRESULT ( *fnMakeProfileEvent) ( uint eventSelect, uint unitMask, bool edgeDetect, bool usrEvents, bool osEvents, bool guestOnlyEvents, bool hostOnlyEvents
-    , bool countingEvent, unsigned __int64 *pPerformanceEvent);
-  HRESULT ( *fnSetEventConfiguration) ( EventConfiguration * pPerformanceEvents, uint count, int64 mSMultiplexInterval, int64 cpuCoreMask );
+    , bool countingEvent, uint64_t *pPerformanceEvent);
+  HRESULT ( *fnSetEventConfiguration) ( EventConfiguration * pPerformanceEvents, uint count, int64_t mSMultiplexInterval, int64_t cpuCoreMask );
 
   CodeAnalystStarter() : inited( false ), codeAnalystPresent( false ) {}
   ~CodeAnalystStarter() { Cleanup(); }
@@ -89,11 +92,11 @@ struct CodeAnalystStarter
 
       fnSetProfileOutputFile = (HRESULT (*)(wchar_t *) )GetProcAddress( module, "?fnSetProfileOutputFile@@YAJPAG@Z" );
       fnSetFilterProcesses = (HRESULT (*)(uint *, uint) )GetProcAddress( module, "?fnSetFilterProcesses@@YAJPAII@Z" );
-      fnSetTimerConfiguration = (HRESULT (*)(__int64, uint *) )GetProcAddress( module, "?fnSetTimerConfiguration@@YAJ_KPAI@Z" );
+      fnSetTimerConfiguration = (HRESULT (*)(int64_t, uint *) )GetProcAddress( module, "?fnSetTimerConfiguration@@YAJ_KPAI@Z" );
       fnSetCallStackSampling = (HRESULT (*)(uint, uint, uint) )GetProcAddress( module, "?fnSetCallStackSampling@@YAJIII@Z" );
 
-      fnMakeProfileEvent = (HRESULT (*)(uint, uint, bool, bool, bool, bool, bool, bool, unsigned __int64 *) )GetProcAddress( module, "?fnMakeProfileEvent@@YAJII_N00000PA_K@Z" );
-      fnSetEventConfiguration = (HRESULT (*)(EventConfiguration *, uint, int64, int64) )GetProcAddress( module, "?fnSetEventConfiguration@@YAJPAUEventConfiguration@@I_K1@Z" );
+      fnMakeProfileEvent = (HRESULT (*)(uint, uint, bool, bool, bool, bool, bool, bool, uint64_t *) )GetProcAddress( module, "?fnMakeProfileEvent@@YAJII_N00000PA_K@Z" );
+      fnSetEventConfiguration = (HRESULT (*)(EventConfiguration *, uint, int64_t, int64_t) )GetProcAddress( module, "?fnSetEventConfiguration@@YAJPAUEventConfiguration@@I_K1@Z" );
 
       string fileName = NDebug::GenerateDebugFileName( "prof", "prd" );
       NFile::CFilePath filePath = NFile::GetFilePath( fileName );

@@ -15,26 +15,13 @@
 namespace rpc
 {
 
+typedef int16_t                 Int16T;
+typedef uint16_t                UInt16T;
+typedef int32_t                 Int32T;
+typedef uint32_t                UInt32T;
+typedef int64_t                 Int64T;
+typedef uint64_t                UInt64T;
 
-#if defined( NV_WIN_PLATFORM )
-
-typedef short                          Int16T;
-typedef ushort                         UInt16T;
-typedef int                            Int32T;
-typedef uint                           UInt32T;
-typedef long long                      Int64T;
-typedef unsigned long long             UInt64T;
-
-#elif defined( NV_LINUX_PLATFORM )
-
-typedef nival::int16_t                 Int16T;
-typedef nival::uint16_t                UInt16T;
-typedef nival::int32_t                 Int32T;
-typedef nival::uint32_t                UInt32T;
-typedef nival::int64_t                 Int64T;
-typedef nival::uint64_t                UInt64T;
-
-#endif
 
 
   
@@ -1075,7 +1062,7 @@ void ArgWriter::_PushStringContent( const void* start, uint size, bool isWide )
 #elif defined( NV_LINUX_PLATFORM )
       if ( isWide )
       {
-        nival::uint16_t * p = ( nival::uint16_t* ) dest;
+        uint16_t * p = ( uint16_t* ) dest;
         const wchar_t * s = static_cast< const wchar_t * >( start );
         std::copy( s, s + size + 1, p );
       }

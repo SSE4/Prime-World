@@ -34,7 +34,7 @@ void BinChunkSaverBase::ClearBase()
 
 static unsigned long ReadLength( Stream &pStream )
 {
-  nival::uint32_t result = 0;
+	uint32_t result = 0;
 	pStream.Read( &result, 1 );
 	if ( result & 1 )
 		pStream.Read( ((char*)&result)+1, sizeof( result ) - 1 );

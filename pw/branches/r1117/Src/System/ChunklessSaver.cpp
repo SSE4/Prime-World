@@ -56,7 +56,7 @@ void ChunklessSaver::DataChunkString( string &data )
 #if defined ( NV_WIN_PLATFORM )
   int nSize;
 #elif defined( NV_LINUX_PLATFORM )
-  nival::int32_t nSize;
+  int32_t nSize;
 #endif
   if ( IsReading() )
   {
@@ -83,7 +83,7 @@ void ChunklessSaver::DataChunkString( wstring &data )
 #if defined ( NV_WIN_PLATFORM )
   int nSize;
 #elif defined( NV_LINUX_PLATFORM )
-  nival::int32_t nSize;
+  int32_t nSize;
 #endif
   if ( IsReading() )
   {
@@ -96,7 +96,7 @@ void ChunklessSaver::DataChunkString( wstring &data )
 #if defined( NV_WIN_PLATFORM )
       READ_VERIFY( &data[ 0 ], nSize * 2, return; )
 #elif defined( NV_LINUX_PLATFORM )
-      std::basic_string< nival::uint16_t > sp( nSize, 0 );
+      std::basic_string< uint16_t > sp( nSize, 0 );
       READ_VERIFY( &sp[ 0 ], nSize * 2, return; )
       std::copy( sp.begin(), sp.end(), data.begin() );
 #endif
@@ -114,7 +114,7 @@ void ChunklessSaver::DataChunkString( wstring &data )
 #if defined( NV_WIN_PLATFORM )
       pResult->Write( &data[ 0 ], nSize * 2 );
 #elif defined( NV_LINUX_PLATFORM )
-      std::basic_string< nival::uint16_t > sp( nSize, 0 );
+      std::basic_string< uint16_t > sp( nSize, 0 );
       std::copy( data.begin(), data.end(), sp.begin() );
       pResult->Write( &sp[ 0 ], nSize * 2 );
 #endif
@@ -124,8 +124,8 @@ void ChunklessSaver::DataChunkString( wstring &data )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ChunklessSaver::DataChunkString( nstl::fixed_string_base<char> &data )
 {
-  nival::int16_t nSize;
-  nival::int16_t nLength;
+  int16_t nSize;
+  int16_t nLength;
 
   if ( IsReading() )
   {
@@ -148,8 +148,8 @@ void ChunklessSaver::DataChunkString( nstl::fixed_string_base<char> &data )
     if ( !pResult )
       return;
 
-    nSize = nival::int16_t(data.GetStorageSize());
-    nLength = nival::int16_t(data.GetLength());
+    nSize = int16_t(data.GetStorageSize());
+    nLength = int16_t(data.GetLength());
 
     // kinda overflow check
     NI_VERIFY( data.GetStorageSize() == int(nSize), "Invalid serialized string", return );
@@ -166,8 +166,8 @@ void ChunklessSaver::DataChunkString( nstl::fixed_string_base<char> &data )
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ChunklessSaver::DataChunkString( nstl::fixed_string_base<wchar_t> &data )
 {
-  nival::int16_t nSize;
-  nival::int16_t nLength;
+  int16_t nSize;
+  int16_t nLength;
 
   if ( IsReading() )
   {
@@ -190,8 +190,8 @@ void ChunklessSaver::DataChunkString( nstl::fixed_string_base<wchar_t> &data )
     if ( !pResult )
       return;
 
-    nSize = nival::int16_t(data.GetStorageSize());
-    nLength = nival::int16_t(data.GetLength());
+    nSize = int16_t(data.GetStorageSize());
+    nLength = int16_t(data.GetLength());
 
     // kinda overflow check
     NI_VERIFY( data.GetStorageSize() == int(nSize), "Invalid serialized string", return );

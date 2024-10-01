@@ -150,7 +150,7 @@ namespace NWorld
     if ( maxActionsCount > 0 && actionsCount >= maxActionsCount )
       return 0;
 
-    int64 eventType = (int64)1 << pEvent->GetType();
+    int64_t eventType = (int64_t)1 << pEvent->GetType();
     if ( eventProcessor && ( eventType & eventProcessor->GetAccessibleEventsMask() ) )
     {
       CPtr<PFAbilityData> pAbilityData;
@@ -396,7 +396,7 @@ namespace NWorld
 
     for( vector<CObj<PFEventProcessorBase>>::const_iterator iProcessor = processors.begin(), iEnd = processors.end(); iProcessor != iEnd; ++iProcessor )
     {
-      int64 eventType = (int64)1 << pEvent->GetType();
+      int64_t eventType = (int64_t)1 << pEvent->GetType();
       if ( eventType & (*iProcessor)->GetAccessibleEventsMask() )
         result = (*iProcessor)->ProcessEvent(pEvent) || result;
     }

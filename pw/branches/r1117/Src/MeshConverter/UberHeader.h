@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cstdint>
+
 #include "port/align.h"
 
-static const unsigned __int32 VERTEX_PER_TRIANGLE = 3;
+static const uint32_t VERTEX_PER_TRIANGLE = 3;
 static const int MAX_BONE_NAME_LENGTH = 1024;
 static const int MAX_FILE_NAME_LENGTH = 1024;
 static const int UV_SET_SIZE = 8;
@@ -125,7 +127,7 @@ void PushChilds( nstl::vector<unsigned short>& jointTree, unsigned short jointID
 }
 
 //////////////////////////////////////////////////////////////////////////
-unsigned __int32 MakeColor(CVec4 const &mayaColor)
+uint32_t MakeColor(CVec4 const &mayaColor)
 {
 	Render::Color c = Render::Color((unsigned char)(mayaColor.r * 255.0f), (unsigned char)(mayaColor.g * 255.0f), 
 																	(unsigned char)(mayaColor.b * 255.0f), (unsigned char)(mayaColor.a * 255.0f));

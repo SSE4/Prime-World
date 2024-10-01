@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "AdventureScreen.h"
 #include "GameControl.h"
 #include "PFRenderInterface.h"
@@ -6600,7 +6602,7 @@ void AdventureScreen::PlaySameTeamSocial(const bool agreed)
 
   NI_VERIFY(!!localPlayer, "Local player must be valid!", return);
 
-  vector<__int64> teamPlayers;
+  vector<int64_t> teamPlayers;
 
   for (int i = 0, count = GetWorld()->GetPlayersCount(); i < count; ++i)
   {

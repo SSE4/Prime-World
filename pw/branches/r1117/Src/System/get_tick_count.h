@@ -55,12 +55,12 @@ namespace nival
 
 #if defined(NV_LINUX_PLATFORM)
 
-	inline nival::uint32_t GetTickCount()
+	inline uint32_t GetTickCount()
 	{
 		return nival::get_tick_count();
 	}
 
-	inline nival::uint64_t GetTickCount64()
+	inline uint64_t GetTickCount64()
 	{
 		return nival::get_tick_count_64();
 	}

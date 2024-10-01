@@ -445,12 +445,12 @@ struct thread_test_suite_t: CppUnit::TestFixture {
 	{
 		size_t sleep_time = size_t( 100 ) + std::rand() % 100;
 
-		nival::uint32_t start_time = nival::get_tick_count();
+		uint32_t start_time = nival::get_tick_count();
 
 		threading::Sleep( sleep_time );
 
-		nival::uint32_t real_sleep_time = nival::get_tick_count() - start_time;
-		CPPUNIT_ASSERT( abs( nival::int64_t( real_sleep_time ) - nival::int64_t( sleep_time ) ) < 30 );
+		uint32_t real_sleep_time = nival::get_tick_count() - start_time;
+		CPPUNIT_ASSERT( abs( int64_t( real_sleep_time ) - int64_t( sleep_time ) ) < 30 );
 	}
 
 };

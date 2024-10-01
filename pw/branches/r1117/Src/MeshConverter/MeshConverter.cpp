@@ -26,28 +26,28 @@
 extern "C"
 {
 	//geometry
-	__declspec( dllexport ) __int32 __stdcall ConvertStaticMeshGeometry( const void* mayaFileData, int mayaFileDataSize, void* h6FileBuffer, int h6BufferSize, int* h6FileActualLength, unsigned int _ConvertTagentAndBinormal, int _ConvertColors, unsigned char _UVChannels, NDb::AABB* pAABB );
+	__declspec( dllexport ) int32_t __stdcall ConvertStaticMeshGeometry( const void* mayaFileData, int mayaFileDataSize, void* h6FileBuffer, int h6BufferSize, int* h6FileActualLength, unsigned int _ConvertTagentAndBinormal, int _ConvertColors, unsigned char _UVChannels, NDb::AABB* pAABB );
 
 	//collision geometry
-	__declspec( dllexport ) __int32 __stdcall ConvertCollisionGeometry( const void* mayaFileData, int mayaFileDataSize, void* geometryFileBuffer, int geometryBufferSize, int* geometryFileActualLength );
+	__declspec( dllexport ) int32_t __stdcall ConvertCollisionGeometry( const void* mayaFileData, int mayaFileDataSize, void* geometryFileBuffer, int geometryBufferSize, int* geometryFileActualLength );
 
 	// work with skeletal mesh only, break material into fragments if it has more than 70 joints
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletalMeshGeometrySafe( const char* mayaFileName, const char* h6fileName, const char* skeletonName, unsigned int _ConvertTagentAndBinormal, int _NumColorChannels, unsigned char _UVChannels, unsigned int jointsCountPerVertex, float* pAABB );
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletalMeshFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, 
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletalMeshGeometrySafe( const char* mayaFileName, const char* h6fileName, const char* skeletonName, unsigned int _ConvertTagentAndBinormal, int _NumColorChannels, unsigned char _UVChannels, unsigned int jointsCountPerVertex, float* pAABB );
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletalMeshFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter,
 			unsigned int writerMaxLenght, unsigned int& payloadSize, unsigned char jointsPerVertex, const void* pSkel, 
 			FileStream& writerStream, unsigned int _ConvertTagentAndBinormal, int _NumColorChannels );
 
 	//skeleton
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletonSafe( const char* pAncherFileName, const char* pGameFileName );
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletonFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, unsigned int& payloadSize, FileStream& filestream  );
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletonSafe( const char* pAncherFileName, const char* pGameFileName );
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletonFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, unsigned int& payloadSize, FileStream& filestream  );
 
 	//skeletal animation
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletalAnimationSafe( const char* pAncherFileName, const char* pGameFileName );
-	__declspec( dllexport ) __int32 __stdcall ConvertSkeletalAnimationFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, unsigned int& payloadSize );
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletalAnimationSafe( const char* pAncherFileName, const char* pGameFileName );
+	__declspec( dllexport ) int32_t __stdcall ConvertSkeletalAnimationFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, unsigned int& payloadSize );
 
 	//particle fx
-	__declspec( dllexport ) __int32 __stdcall ConvertParticleSafe( const char* pAncherFileName, const char* pGameFileName );
-	__declspec( dllexport ) __int32 __stdcall ConvertParticleFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, int& payloadSize, unsigned int& maxSpriteID );
+	__declspec( dllexport ) int32_t __stdcall ConvertParticleSafe( const char* pAncherFileName, const char* pGameFileName );
+	__declspec( dllexport ) int32_t __stdcall ConvertParticleFromMemory( const void* const pReader, unsigned int readerLength, void* const pWriter, unsigned int writerMaxLenght, int& payloadSize, unsigned int& maxSpriteID );
 }
 #endif
 
@@ -405,7 +405,7 @@ int __stdcall ConvertSkeletalMeshFromMemory( const void* const pReader, unsigned
 	const MayaIndexHeader* pMayaSkeletalIndexHeader = reinterpret_cast<const MayaIndexHeader*>(pSkeletalVertexStride + pMayaHeader->vertexCount);
 	const unsigned int maxMaterials = 8;
 	const MayaIndexBufferHeader* pIndexBufferHeaders[maxMaterials];
-	const unsigned __int32* ptr = reinterpret_cast<const unsigned __int32*>(pMayaSkeletalIndexHeader+1);
+	const uint32_t* ptr = reinterpret_cast<const uint32_t*>(pMayaSkeletalIndexHeader+1);
 	const unsigned int subMeshCount = pMayaSkeletalIndexHeader->subMeshCount;
 	NI_VERIFY( subMeshCount < maxMaterials, "too many fragments", return -1; );
 	unsigned int indexCount = 0;
@@ -895,7 +895,7 @@ int __stdcall ConvertSkeletonFromMemory( const void* const pReader, unsigned int
 
 	unsigned int curPos = 8;
 
-	nstl::vector< unsigned __int32 > mayaParentID;
+	nstl::vector< uint32_t > mayaParentID;
 	nstl::vector< NameIndexPair > bonesNames;
 	nstl::vector< Matrix43 > bindMatricies;
 
@@ -1157,7 +1157,7 @@ int ConvertStaticMeshGeometryTemplate( const unsigned char* pMayaBuffer, int may
 	const MayaIndexHeader* pMayaStaticIndexHeader = reinterpret_cast<const MayaIndexHeader*>(pStaticVertex + pMayaHeader->vertexCount);
 
 	const MayaIndexBufferHeader* pIndexBufferHeaders[16];
-	const unsigned __int32* ptr = reinterpret_cast<const unsigned __int32*>(pMayaStaticIndexHeader+1);
+	const uint32_t* ptr = reinterpret_cast<const uint32_t*>(pMayaStaticIndexHeader+1);
 	const unsigned int subMeshCount = pMayaStaticIndexHeader->subMeshCount ;
 	NI_VERIFY( subMeshCount < 16, "too many fragments", return -1);
 	unsigned int indexCount = 0;

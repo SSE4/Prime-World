@@ -1,6 +1,7 @@
 #ifndef RUDP_RDPSTATS_H_INCLUDED
 #define RUDP_RDPSTATS_H_INCLUDED
 
+#include <cstdint>
 
 #include <intrin.h>
 #pragma intrinsic(_InterlockedCompareExchange64)
@@ -8,9 +9,9 @@
 namespace
 {
   // This function will work on WinXP 32 bit (Unlike the InterlockedExchangeAdd64 which also isn't intrinsic)
-  void NiInterlockedExchangeAdd64(__int64 volatile *Addend, __int64 Value)
+  void NiInterlockedExchangeAdd64(int64_t volatile *Addend, int64_t Value)
   {
-      __int64 Comperand;
+      int64_t Comperand;
       do 
       {
           Comperand = *Addend;

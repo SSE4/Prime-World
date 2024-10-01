@@ -2,6 +2,9 @@
 //!Component("System/Commands")
 
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "types.h"
 #include "SafeTextFormatBuffers.h"
 #include "SafeTextFormatEx.h"
@@ -83,7 +86,7 @@ public:
     {
       char buf[256] = "";
 #if defined( NV_WIN_PLATFORM )
-      sprintf( buf, "%llI32lllI64lllli", (__int64)i );
+      sprintf( buf, "%llI32lllI64lllli", (int64_t)i );
 #elif defined( NV_LINUX_PLATFORM )
       sprintf( buf, "%lld", (long long)i );
 #endif
@@ -271,7 +274,7 @@ public:
   void test_int32() {
     text::StaticBuffer<64> B;
     text::PrintfFormatterBufferPtr fmtr( &B );
-    fmtr.Trace( "Signed: %i", static_cast< nival::int32_t >( -5 ) );
+    fmtr.Trace( "Signed: %i", static_cast< int32_t >( -5 ) );
     TS_ASSERT_EQUALS( B, "Signed: -5" );
   }
 
@@ -285,8 +288,8 @@ public:
   void test_int64() {
     text::StaticBuffer<64> B;
     text::PrintfFormatterBufferPtr fmtr( &B );
-    nival::int64_t i = -1024ll * 1024ll * 1024ll * 34ll;
-    nival::uint64_t ui = 1024ull * 1024ull * 1024ull * 17ull;
+    int64_t i = -1024ll * 1024ll * 1024ll * 34ll;
+    uint64_t ui = 1024ull * 1024ull * 1024ull * 17ull;
     fmtr.Trace( "Signed: %i, Unsigned: %i", i, ui );
     TS_ASSERT_EQUALS( B, "Signed: -36507222016, Unsigned: 18253611008" );
   }

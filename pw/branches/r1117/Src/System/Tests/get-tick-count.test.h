@@ -26,12 +26,12 @@ public:
 
   void test_1()
   {
-    nival::uint32_t first_tick = get_tick_count();
+    uint32_t first_tick = get_tick_count();
 
     int sleep_time = 1000 + std::rand() % 2000;
     nival::sleep( sleep_time );
 
-    nival::uint32_t last_tick = get_tick_count();
+    uint32_t last_tick = get_tick_count();
     const int diff = last_tick - first_tick;
     TS_ASSERT( abs( diff - sleep_time ) <= 30 );
   }
@@ -42,12 +42,12 @@ public:
   */
   void test_2()
   {
-    nival::uint64_t first_tick = get_tick_count_64();
+    uint64_t first_tick = get_tick_count_64();
 
     int sleep_time = 1000 + std::rand() % 2000;
     nival::sleep( sleep_time );
 
-    nival::uint64_t last_tick = get_tick_count();
+    uint64_t last_tick = get_tick_count();
     const int diff = static_cast< int >( last_tick - first_tick );
     TS_ASSERT( abs( diff - sleep_time ) <= 30 );
   }

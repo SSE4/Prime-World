@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "mesh.h"
 #include "renderresourcemanager.h"
 
@@ -264,7 +267,7 @@ void Mesh::LoadFromFile(const nstl::string& file)
 	const int ibsize = fileHeader.commonIndexBufferSizeInBytes;
 	IIndexBuffer* indexBuffer = RenderResourceManager::CreateIndexBuffer( ibsize, RENDER_POOL_MANAGED );
 	void* ibLockData = indexBuffer->Lock( 0, ibsize, LOCK_DEFAULT );
-	fread(ibLockData, sizeof(unsigned __int32), fileHeader.commonIndexCount, stream );
+	fread(ibLockData, sizeof(uint32_t), fileHeader.commonIndexCount, stream );
 	indexBuffer->Unlock();
 
 	DipDescriptor dipDescr;

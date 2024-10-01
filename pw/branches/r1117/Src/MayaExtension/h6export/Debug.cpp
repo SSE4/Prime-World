@@ -33,7 +33,7 @@ MStatus h6export::debugOutputInfo( const char* filename ) const
   {
     const animTrack& t = animData[nI];
     fprintf_s( f, "---%s---\n", skeleton[nI].name.data() );
-    for ( uint timeIdx = 0; timeIdx < t.pos.size() || timeIdx < t.rot.size() || timeIdx < t.scl.size(); timeIdx++ )
+    for ( size_t timeIdx = 0; timeIdx < t.pos.size() || timeIdx < t.rot.size() || timeIdx < t.scl.size(); timeIdx++ )
     {
       fprintf_s( f, "%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\t%5.2f\n", (float)timeIdx/30.0f,
         t.pos[timeIdx][0], t.pos[timeIdx][1], t.pos[timeIdx][2],

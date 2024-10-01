@@ -151,10 +151,10 @@ ScorpionCoordsConverter::~ScorpionCoordsConverter()
 }
 
 CVec3 ScorpionCoordsConverter::GetClientCoords(LuxPath* _path,
-                                               int64 currDistance,
+                                               int64_t currDistance,
                                                const SVector &worldCoords)
 {
-  int64 completeLenght = _path->GetTrajectory()->GetLenght();
+  int64_t completeLenght = _path->GetTrajectory()->GetLenght();
   if(currDistance > completeLenght)
     return CalculateBForRollOut(worldCoords);
   else if(currDistance < 0)

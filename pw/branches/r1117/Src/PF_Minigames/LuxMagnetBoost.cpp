@@ -146,7 +146,7 @@ CPainterPoint* LuxMagnetBoost::LocateClosestPainterPoint( const SVector& _currPo
   if ( painterPoints.empty()  )
     return 0;
 
-  int64 dest = 0;
+  int64_t dest = 0;
 
   return CPaintFragment::GetClosestPoint( painterPoints, _currPos, true, NDb::COLOR_ANY, dest );
 }

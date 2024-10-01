@@ -85,7 +85,7 @@ public:
   ~ScorpionCoordsConverter();
 
   CVec3 GetClientCoords(LuxPath* _path,
-                        int64 currDistance,
+                        int64_t currDistance,
                         const SVector &worldCoords);
 
 private:

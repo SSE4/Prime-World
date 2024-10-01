@@ -1,6 +1,8 @@
 #ifndef _DEFAULT_TYPES_H_
 #define _DEFAULT_TYPES_H_
 
+#include <cstdint>
+
 #include "System/config.h"
 
 #include <stdio.h>
@@ -13,30 +15,20 @@ typedef unsigned int uint;
 typedef unsigned char uchar;
 typedef unsigned char byte;
 
-#ifdef WIN32
-	typedef __int64 int64;			// due to lack of 'long long' type support
-	typedef unsigned __int64 QWORD;		// quad word
-#else
-	typedef long long int64;		// due to lack of 'long long' type support
-	typedef unsigned long long QWORD;	// quad word
-#endif
-
-typedef QWORD uint64;
-
 namespace ni_detail
 {
 
   typedef unsigned char		Byte;
 
-  typedef char			SInt8;
-  typedef short			SInt16;
-  typedef int			SInt32;
-  typedef int64			SInt64;
+  typedef int8_t            SInt8;
+  typedef int16_t           SInt16;
+  typedef int32_t           SInt32;
+  typedef int64_t           SInt64;
 
-  typedef unsigned char		UInt8;
-  typedef unsigned short	UInt16;
-  typedef unsigned int		UInt32;
-  typedef QWORD			UInt64;
+  typedef uint8_t           UInt8;
+  typedef uint16_t          UInt16;
+  typedef uint32_t          UInt32;
+  typedef uint64_t          UInt64;
 
 } //namespace detail
 
@@ -61,30 +53,30 @@ typedef unsigned short ushort;
 
 #if defined( NV_WIN_PLATFORM )
 
-	inline uint64 wcstoi64(wchar_t const *str)
+	inline uint64_t wcstoi64(wchar_t const *str)
 	{
 		return _wcstoi64(str, NULL, 10);
 	}
 
-	inline uint64 wcstoui64(wchar_t const *str)
+	inline uint64_t wcstoui64(wchar_t const *str)
 	{
 		return _wcstoui64(str, NULL, 10);
 	}
 
 #elif defined( NV_LINUX_PLATFORM )
 
-	static int64 wcstoi64(wchar_t const *str)
+	static int64_t wcstoi64(wchar_t const *str)
 	{
-		int64 value = 0;
+		int64_t value = 0;
 		if (swscanf(str, L"%I64i", &value) > 0)
 			return value;
 
 		return 0;
 	}
 
-	static uint64 wcstoui64(wchar_t const *str)
+	static uint64_t wcstoui64(wchar_t const *str)
 	{
-		uint64 value = 0;
+		uint64_t value = 0;
 		if (swscanf(str, L"%I64u", &value) > 0)
 			return value;
 

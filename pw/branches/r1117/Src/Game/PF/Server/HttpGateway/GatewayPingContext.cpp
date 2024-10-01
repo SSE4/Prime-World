@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "GatewayPingContext.h"
 #include "Server/LobbySocial/RISocialLobby.auto.h"
 #include "Server/LobbySocial/RISocialLobbyNotify.auto.h"
@@ -349,7 +352,7 @@ void PingContext::HandlePingRequest( Json::Value & pvxReply )
   FillGameResults( gameResults, data );
   progress_list.append( gameResults );
 
-  progress_list.append( NI_STRFMT( "%lld", (__int64)data.gameId ) ); 
+  progress_list.append( NI_STRFMT( "%lld", (int64_t)data.gameId ) );
 
   progress_list.append( data.sessionContextId.c_str() );
 

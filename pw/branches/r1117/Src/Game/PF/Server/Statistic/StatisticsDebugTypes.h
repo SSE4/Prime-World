@@ -1,4 +1,7 @@
 #pragma once
+
+#include <cstdint>
+
 #include <Server/RPC/all.h>
 
 namespace StatisticService
@@ -10,7 +13,7 @@ namespace RPC
   {
     SERIALIZE_ID();
     ZDATA
-    __int64 sessionId;
+    int64_t sessionId;
     int playerId;
     int step;
     wstring debugVarName;
@@ -45,12 +48,12 @@ namespace RPC
     SERIALIZE_ID();
     ZDATA
     int typeId;
-    __int64 sessionId;
+    int64_t sessionId;
     int playerId;
     int startStep;
     int finishStep;
-    __int64 startTime;
-    __int64 finishTime;
+    int64_t startTime;
+    int64_t finishTime;
     int stepCount;
     int stepTimeMin;
     int stepTimeMax;
@@ -73,10 +76,10 @@ namespace RPC
     SERIALIZE_ID();
     ZDATA
     int typeId;
-    __int64 sessionId;
+    int64_t sessionId;
     int playerId;
-    __int64 startTime;
-    __int64 finishTime;
+    int64_t startTime;
+    int64_t finishTime;
     int pingLCount;
     int pingLTimeMin;
     int pingLTimeMax;
@@ -94,9 +97,9 @@ namespace RPC
     SERIALIZE_ID();
     ZDATA
     int playerId;
-    __int64 persistentId;
+    int64_t persistentId;
     int code;
-    __int64 auxData;
+    int64_t auxData;
     int eventTimestamp;
     int clientTimestampForSync;
     ZEND int operator&( IBinSaver &f ) { f.Add(2,&playerId); f.Add(3,&persistentId); f.Add(4,&code); f.Add(5,&auxData); f.Add(6,&eventTimestamp); f.Add(7,&clientTimestampForSync); return 0; }
@@ -111,13 +114,13 @@ namespace RPC
   {
     SERIALIZE_ID();
     ZDATA
-    __int64 sessionId;
+    int64_t sessionId;
     int playerId;
     wstring relayAddress;
     ZEND int operator&( IBinSaver &f ) { f.Add(2,&sessionId); f.Add(3,&playerId); f.Add(4,&relayAddress); return 0; }
 
     PvxLoginInfo() : sessionId(0), playerId(0) {}
-    PvxLoginInfo(__int64 _sessionId, int _playerId, const wstring & _relayAddress) 
+    PvxLoginInfo(int64_t _sessionId, int _playerId, const wstring & _relayAddress)
       : sessionId(_sessionId), playerId(_playerId), relayAddress(_relayAddress) {}
   };
 
@@ -126,14 +129,14 @@ namespace RPC
   {
     SERIALIZE_ID();
     ZDATA
-    __int64 sessionId;
+    int64_t sessionId;
     int playerId;
     int width;
     int height;
     ZEND int operator&( IBinSaver &f ) { f.Add(2,&sessionId); f.Add(3,&playerId); f.Add(4,&width); f.Add(5,&height); return 0; }
 
     PvxScreenResolutionInfo() : playerId( 0 ), width( 0 ), height( 0 ) {}
-    PvxScreenResolutionInfo( __int64 _sessionId, int _playerId, int _w, int _h ) :
+    PvxScreenResolutionInfo( int64_t _sessionId, int _playerId, int _w, int _h ) :
     sessionId( _sessionId ),
     playerId( _playerId ),
     width( _w ),

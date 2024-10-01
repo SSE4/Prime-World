@@ -1,6 +1,8 @@
 #ifndef __cxxtest__Flags_h__
 #define __cxxtest__Flags_h__
 
+#include <cstdint>
+
 //
 // These are the flags that control CxxTest
 //
@@ -83,14 +85,14 @@
 #           define _CXXTEST_NO_COPY_CONST
 #       endif
 #       ifndef _CXXTEST_LONGLONG
-#           define _CXXTEST_LONGLONG __int64
+#           define _CXXTEST_LONGLONG int64_t
 #       endif
 #   endif
 #endif // __BORLANDC__
 
 #ifdef _MSC_VER // Visual C++
 #   ifndef _CXXTEST_LONGLONG
-#       define _CXXTEST_LONGLONG __int64
+#       define _CXXTEST_LONGLONG int64_t
 #   endif
 #   if (_MSC_VER >= 0x51E)
 #       ifndef _CXXTEST_PARTIAL_TEMPLATE_SPECIALIZATION

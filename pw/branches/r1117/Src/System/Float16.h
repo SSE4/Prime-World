@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #define FP16_MIN_NORMAL_VALUE (1.e-4) //2^-14 
 //#define FP16_MIN_SUBNORMAL_VALUE (1.e-7) //2^-24
 
@@ -27,9 +29,9 @@ class Float16
 	{
 		struct 
 		{
-			unsigned __int32 Mantissa : 23;		// intel
-			unsigned __int32 Exponent : 8;		// byte		
-			unsigned __int32 Sign : 1;				// order
+			uint32_t Mantissa : 23;		// intel
+			uint32_t Exponent : 8;		// byte
+			uint32_t Sign : 1;				// order
 		};
 		float Encoded;
 	} __float32;
@@ -62,8 +64,8 @@ public:
 		
 		fp16_value.Sign = fp32_value.Sign;
 
-		fp16_value.Exponent = __int32(fp32_value.Exponent) - 127 + 15;
-		fp16_value.Mantissa = unsigned short(fp32_value.Mantissa >> 13);
+		fp16_value.Exponent = int32_t(fp32_value.Exponent) - 127 + 15;
+		fp16_value.Mantissa = (unsigned short)(fp32_value.Mantissa >> 13);
 	}
 
 	Float16& operator=(const float _float32_value)
@@ -86,8 +88,8 @@ public:
 
 		fp16_value.Sign = fp32_value.Sign;
 
-		fp16_value.Exponent = __int32(fp32_value.Exponent) - 127 + 15;
-		fp16_value.Mantissa = unsigned short(fp32_value.Mantissa >> 13);
+		fp16_value.Exponent = int32_t(fp32_value.Exponent) - 127 + 15;
+		fp16_value.Mantissa = (unsigned short)(fp32_value.Mantissa >> 13);
 		
 		
 		return *this;
@@ -112,7 +114,7 @@ public:
 		else
 		{
 			// Normal number.
-			fp32_result.Exponent = __int32(fp16_value.Exponent) - 15 + 127; // Stored exponents are biased by half their range.
+			fp32_result.Exponent = int32_t(fp16_value.Exponent) - 15 + 127; // Stored exponents are biased by half their range.
 			fp32_result.Mantissa = DWORD(fp16_value.Mantissa) << 13;
 		}
 

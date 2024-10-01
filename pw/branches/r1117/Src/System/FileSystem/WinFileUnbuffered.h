@@ -1,6 +1,8 @@
 #ifndef WINFILEUNBUFFERED_H_4175FD63_E274_4C
 #define WINFILEUNBUFFERED_H_4175FD63_E274_4C
 
+#include <cstdint>
+
 #include "FileSystem.h"
 #include "System/Thread.h"
 
@@ -10,8 +12,6 @@
 	{
 	private:
 
-		typedef unsigned __int64 uint64;
-
 		OBJECT_METHODS( 0x1E4A8BBB, WinFileUnbuffered );
 
 		ZDATA
@@ -19,10 +19,10 @@
 
 		HANDLE fileHandle;
 		string filePath;
-		uint64 expectedSize;
+		uint64_t expectedSize;
 		DWORD  sectorSize;
 		DWORD  pageSize;
-		uint64 filePointer;
+		uint64_t filePointer;
 
 	public:
 

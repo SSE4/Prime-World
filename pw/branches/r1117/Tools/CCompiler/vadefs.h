@@ -14,6 +14,8 @@
 #pragma once
 #endif
 
+#include <stdint.h>
+
 #ifndef _INC_VADEFS
 #define _INC_VADEFS
 
@@ -47,7 +49,7 @@ extern "C" {
 
 #ifndef _UINTPTR_T_DEFINED
 #ifdef  _WIN64
-typedef unsigned __int64    uintptr_t;
+typedef unsigned int64_t    uintptr_t;
 #else
 typedef _W64 unsigned int   uintptr_t;
 #endif
@@ -126,9 +128,9 @@ extern void __cdecl __va_start(va_list *, ...);
 
 #define _crt_va_start(ap, x) ( __va_start(&ap, x) )
 #define _crt_va_arg(ap, t)   \
-    ( ( sizeof(t) > sizeof(__int64) || ( sizeof(t) & (sizeof(t) - 1) ) != 0 ) \
-        ? **(t **)( ( ap += sizeof(__int64) ) - sizeof(__int64) ) \
-        :  *(t  *)( ( ap += sizeof(__int64) ) - sizeof(__int64) ) )
+    ( ( sizeof(t) > sizeof(int64_t) || ( sizeof(t) & (sizeof(t) - 1) ) != 0 ) \
+        ? **(t **)( ( ap += sizeof(int64_t) ) - sizeof(int64_t) ) \
+        :  *(t  *)( ( ap += sizeof(int64_t) ) - sizeof(int64_t) ) )
 #define _crt_va_end(ap)      ( ap = (va_list)0 )
 
 #else

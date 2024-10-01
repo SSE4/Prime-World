@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "Types.h"
 #include "Calls.h"
 #include "IEntityMap.h"
@@ -206,7 +208,7 @@ class EntityMap : public IEntityMap, public BaseObjectMT
 {
   NI_DECLARE_REFCOUNT_CLASS_2( EntityMap, IEntityMap, BaseObjectMT );
   typedef nstl::map<GUID, WeakMT<IRemoteEntity>, GUIDIsLess> EntityPtrContainer;
-  typedef nstl::map<__int64, Original2LocalEntityInfo> LocalEntityInfoContainer;
+  typedef nstl::map<int64_t, Original2LocalEntityInfo> LocalEntityInfoContainer;
   typedef nstl::map<nstl::string, LocalEntityInfo*> LocalEntityNamedContainer;
 
 public:

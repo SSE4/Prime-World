@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "FileWriteBufferedStream.h"
 #include "FileWriteAsynchronousStream.h"
 
@@ -8,14 +11,14 @@ namespace
 {
   const int COMMON_SECTOR_SIZE = 1024 * 4;
 
-  inline unsigned __int32 LODWORD(unsigned __int64 dw)
+  inline uint32_t LODWORD(uint64_t dw)
   {
-    return (unsigned __int32)(dw & 0xFFFFFFFF);
+    return (uint32_t)(dw & 0xFFFFFFFF);
   }
 
-  inline unsigned __int32 HIDWORD(unsigned __int64 dw)
+  inline uint32_t HIDWORD(uint64_t dw)
   {
-    return (unsigned __int32)(((dw & 0xFFFFFFFF00000000) >> 32) & 0xFFFFFFFF);
+    return (uint32_t)(((dw & 0xFFFFFFFF00000000) >> 32) & 0xFFFFFFFF);
   }
 }
 

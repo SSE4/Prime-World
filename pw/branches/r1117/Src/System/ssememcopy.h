@@ -5,11 +5,13 @@
 #define BUS_SEGMENT_SIZE 1024
 #endif
 
+#include <cstdint>
+
 void CompileTimeCheck();
 
-void GuardedSSEMemCopy(void* _pDestination, void* _pSource, unsigned __int32 _size);
+void GuardedSSEMemCopy(void* _pDestination, void* _pSource, uint32_t _size);
 
-void __stdcall ssememcopy(void* _pDestination, void* _pSource, unsigned __int32 _size);
+void __stdcall ssememcopy(void* _pDestination, void* _pSource, uint32_t _size);
 
 #endif
 

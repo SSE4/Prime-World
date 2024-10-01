@@ -23,12 +23,12 @@ void MeshVertexColors::InitializeBuffer(const MeshGeometry &mesh, bool fake)
   {
     static bool InitializeBuffer(DXVertexBufferRef& vb, const unsigned numVertices, const bool fake)
     {
-      vb = CreateVB(numVertices * sizeof(nival::uint32_t), RENDER_POOL_MANAGED);
+      vb = CreateVB(numVertices * sizeof(uint32_t), RENDER_POOL_MANAGED);
 
       if (!vb)
         return false;
 
-      nival::uint32_t* pColors = LockVB<nival::uint32_t>(Get(vb), 0U);
+      uint32_t* pColors = LockVB<uint32_t>(Get(vb), 0U);
 
       NI_VERIFY(pColors != NULL, "Unable to lock vertex buffer when assigning vertex colors.", return false);
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "NetDriver.h"
 #include "NetLowest.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +13,7 @@ namespace NNet
 class CLoginSupport
 {
 public:
-	typedef __int64 TServerID;
+	typedef int64_t TServerID;
 	enum EState
 	{
 		INACTIVE,

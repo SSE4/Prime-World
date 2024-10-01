@@ -37,12 +37,12 @@ private:
   void SFLB2_InitVariables();
 #endif
 public:
-	nival::uint32_t randcnt;
-	nival::uint32_t randrsl[RANDSIZ];
-	nival::uint32_t randmem[RANDSIZ];
-	nival::uint32_t randa;
-	nival::uint32_t randb;
-	nival::uint32_t randc;
+	uint32_t randcnt;
+	uint32_t randrsl[RANDSIZ];
+	uint32_t randmem[RANDSIZ];
+	uint32_t randa;
+	uint32_t randb;
+	uint32_t randc;
 
 	SSeed();
 	

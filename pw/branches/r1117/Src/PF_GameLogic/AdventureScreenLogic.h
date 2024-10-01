@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "../Client/Messages.h"
 #include "../Client/ScreenUILogicBase.h"
 #include "QuestsController.h"
@@ -251,7 +253,7 @@ namespace NGameX
 
 		void SetFirstWinVisual( NWorld::PFBaseHero * ourHero );
 	  void SetComplains(int complaintsToday, int complaintsMax, NCore::TComplaintInfo const&  complaintsInfo);
-    __int64 GetPlayerAuid() const;
+    int64_t GetPlayerAuid() const;
 
     void UpdateTooltipsSaturation();
  

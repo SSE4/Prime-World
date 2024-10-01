@@ -1,6 +1,8 @@
 #ifndef GAMESTATISTICS_H_INCLUDED
 #define GAMESTATISTICS_H_INCLUDED
 
+#include <cstdint>
+
 #include "PF_GameLogic/IGameStatistics.h"
 #include "Server/Statistic/GameStatClient.h"
 #include "Server/Statistic/StatisticsCommonTypes.h"
@@ -130,7 +132,7 @@ public:
 
 
 
-  void SetSessionId(__int64 _sessionId) { sessionId = _sessionId; }
+  void SetSessionId(int64_t _sessionId) { sessionId = _sessionId; }
   void SetUserId(int _userId) { userId = _userId; }
   void SetLastWorldRequestStep(int _lastWorldRequestStep) { lastWorldRequestStep = _lastWorldRequestStep; }
   void SetTimeDelta(int _timeDelta) { timeDelta = _timeDelta; }
@@ -151,7 +153,7 @@ private:
   StrongMT<GameStatClient>  gameStatistics;
   StrongMT<GameStatClient>  gameStatisticsDebug;
 
-  __int64 sessionId;
+  int64_t sessionId;
   int userId;
   int lastWorldRequestStep;
   int timeDelta;
@@ -174,7 +176,7 @@ struct PingStatisticsContainer : NonCopyable
     int pingMin;
     int pingMax;
     int pingCnt;
-    __int64 pingAvg;
+    int64_t pingAvg;
 
     PingStatistics()
     {

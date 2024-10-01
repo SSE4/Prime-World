@@ -1,6 +1,8 @@
 #ifndef SOCIALCONNECTION_H_B249AEE3_6DAF
 #define SOCIALCONNECTION_H_B249AEE3_6DAF
 
+#include <cstdint>
+
 #include "System/JobThread.h"
 #include "ISocialConnection.h"
 
@@ -35,18 +37,18 @@ class SocialConnection : public BaseObjectST, public ISocialConnection
 
   void GenerateRequest(Http::HttpRequest& request);
   void SendRequest(const Http::HttpRequest& request, const nstl::string& data = nstl::string());
-  void parseAuids(const nstl::vector<__int64>& auids, std::string& res );
+  void parseAuids(const nstl::vector<int64_t>& auids, std::string& res );
 
 public:
   explicit SocialConnection(const SocialBootstrap::Session& ss);
   SocialConnection( const char* _serverName, const char* _uid, const char* _serverKey, const char* _serverSecret );
   ~SocialConnection();
 
-  virtual bool AddFriend( __int64 auid );
-  virtual bool CreateComplaint( __int64 toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists, 
+  virtual bool AddFriend( int64_t auid );
+  virtual bool CreateComplaint( int64_t toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists,
                                        int points, int prime, int leave, int distance, int afks );
-  virtual bool ChoosePartyAgain(const nstl::vector<__int64>& auids, const unsigned __int64 sessionId, const unsigned __int64 timeLeft, const bool agreed);
-  virtual bool SendTeam(__int64 auid, const nstl::vector<__int64>& team_auids);
+  virtual bool ChoosePartyAgain(const nstl::vector<int64_t>& auids, const uint64_t sessionId, const uint64_t timeLeft, const bool agreed);
+  virtual bool SendTeam(int64_t auid, const nstl::vector<int64_t>& team_auids);
   virtual void Step();
   virtual void Share();
   virtual void Share( int _x, int _y, int _width, int _height );
@@ -61,11 +63,11 @@ class DummySocialConnection : public SocialConnection
 public:
   DummySocialConnection() : SocialConnection("", "", "", "") {}
 
-  virtual bool AddFriend( __int64 auid ) { return true; }
-  virtual bool CreateComplaint( __int64 toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists, 
+  virtual bool AddFriend( int64_t auid ) { return true; }
+  virtual bool CreateComplaint( int64_t toauid, int category, const nstl::wstring& text, const nstl::wstring& _logs, int kills, int deaths, int assists,
                                        int points, int prime, int leave, int distance, int afks ) { return true; }
-  virtual bool ChoosePartyAgain(const nstl::vector<__int64>&, const unsigned __int64, const unsigned __int64, const bool) { return true; }
-  virtual bool SendTeam(__int64 auid, const nstl::vector<__int64>& team_auids){return true;};
+  virtual bool ChoosePartyAgain(const nstl::vector<int64_t>&, const uint64_t, const uint64_t, const bool) { return true; }
+  virtual bool SendTeam(int64_t auid, const nstl::vector<int64_t>& team_auids){return true;};
 
   virtual void OnProtectionError() {}
 };

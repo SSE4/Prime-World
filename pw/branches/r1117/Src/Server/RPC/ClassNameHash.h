@@ -10,7 +10,7 @@ namespace rpc
 {
 
 // Cross-platform class name hash type
-typedef nival::int32_t class_name_hash_t;
+typedef int32_t class_name_hash_t;
 
 /**
   Get hash of class name

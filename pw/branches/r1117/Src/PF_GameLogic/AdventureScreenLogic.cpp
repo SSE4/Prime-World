@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include <algorithm>
 
 #include "PFImpulsiveBuffs.h"
@@ -559,7 +562,7 @@ void AdventureScreenLogic::SetComplains(int complaintsToday,int complaintsMax, N
 	complainController->Init( complaintsToday, complaintsMax, complaintsInfo );
 }
 
-__int64 AdventureScreenLogic::GetPlayerAuid() const
+int64_t AdventureScreenLogic::GetPlayerAuid() const
 {
   for (int i = 0; i< playerStartInfos.size(); i++)    
 	{
@@ -1563,7 +1566,7 @@ bool ChoosePartyAgain(const char *name, const vector<wstring> &params)
   if (mainPartId == 0)
       return false; 
   
-  nstl::vector<__int64> auids;
+  nstl::vector<int64_t> auids;
   for(int i = 0; i< world->GetPlayersCount(); ++i)
   {
     NWorld::PFPlayer* p = world->GetPlayer( i );

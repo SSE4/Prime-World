@@ -48,7 +48,7 @@ public:
     Reset(INVALID_ENTITY, INVALID_TRANSACTION, 0);
   }
 
-  void Prepare( uint methodId, nival::uint32_t classCrc, bool isConnected) 
+  void Prepare( uint methodId, uint32_t classCrc, bool isConnected)
   {
     info.header.Prepare(methodId); 
     info.header.transactionId = transactionId;

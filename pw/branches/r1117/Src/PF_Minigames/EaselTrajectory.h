@@ -39,17 +39,17 @@ class CBSplineTrajectory
 public:
 
   // paths leght typedef
-  typedef nstl::map<int64,SplinePoint> MapPoints;
+  typedef nstl::map<int64_t,SplinePoint> MapPoints;
   typedef MapPoints::iterator          MPIter;
 
   CBSplineTrajectory(int iDegree,const SVector *pCP,int numCPs);
   ~CBSplineTrajectory();
 
   // length operations
-  virtual int64 GetLenght();
-  virtual int   GetCoordsByLenght(int64 length,
+  virtual int64_t GetLenght();
+  virtual int   GetCoordsByLenght(int64_t length,
                                   /*out*/SVector &refCoords);
-  virtual int   GetTangentByLenght(int64 length, /*out*/SVector &refTangent);
+  virtual int   GetTangentByLenght(int64_t length, /*out*/SVector &refTangent);
 
   const MapPoints& GetSplinePoints() const {return splinePointsMap;}
 
@@ -69,7 +69,7 @@ private:
   
   // calculated map points
   MapPoints splinePointsMap;
-  int64     splineLength;
+  int64_t     splineLength;
 
   //////////////////////////////////////////////////////////////////////////
   // UNDONE !!!! возможно стоит вынести в отдельный класс
@@ -138,10 +138,10 @@ public:
   bool CreateFromBSpline(int _splineDegree, nstl::vector<SVector> _controlPoints, int _deltaLength);
 
   // length operations
-  virtual int64 GetLenght();
-  virtual int   GetCoordsByLenght(int64 length,
+  virtual int64_t GetLenght();
+  virtual int   GetCoordsByLenght(int64_t length,
                                   /*out*/SVector &refCoords);
-  virtual int   GetTangentByLenght(int64 length, /*out*/SVector &refTangent);
+  virtual int   GetTangentByLenght(int64_t length, /*out*/SVector &refTangent);
 
 private:
   PolylineTrajectory() {}
@@ -161,8 +161,8 @@ private:
   ZDATA_(PF_Core::WorldObjectBase)
 
   VecPoints polyline;
-  int64     polylineLength;
-  int64     deltaLength;
+  int64_t     polylineLength;
+  int64_t     deltaLength;
 
 public:
   ZEND int operator&( IBinSaver &f ) { f.Add(1,(PF_Core::WorldObjectBase*)this); f.Add(2,&polyline); f.Add(3,&polylineLength); f.Add(4,&deltaLength); return 0; }

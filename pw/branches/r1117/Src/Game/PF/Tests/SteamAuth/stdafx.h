@@ -47,18 +47,14 @@
 #include <winsock2.h>
 #pragma comment(lib, "ws2_32.lib" )
 
-typedef __int16 int16;
-typedef unsigned __int16 uint16;
-typedef __int32 int32;
-typedef unsigned __int32 uint32;
-typedef __int64 int64;
-typedef unsigned __int64 uint64;
+#include <cstdint>
 
 #include "steam/steam_api.h"
 #include "steam/isteamuserstats.h"
 #include "steam/isteamremotestorage.h"
 #include "steam/isteammatchmaking.h"
 #include "steam/steam_gameserver.h"
+
 
 #elif defined(POSIX)
 
@@ -81,19 +77,12 @@ typedef unsigned __int64 uint64;
 
 #define ARRAYSIZE(A) ( sizeof(A)/sizeof(A[0]) )
 // Need to define some types on POSIX
-typedef short int16;
-typedef unsigned short uint16;
-typedef int int32;
-typedef unsigned int uint32;
-typedef long long int64;
-typedef unsigned long long uint64;
-typedef uint32 DWORD;
+typedef uint32_t DWORD;
 typedef DWORD HWND;
 typedef DWORD HINSTANCE;
 typedef short SHORT;
 typedef long LONG;
 typedef unsigned char byte;
-typedef unsigned char uint8;
 
 /* Font Weights */
 #define FW_DONTCARE         0

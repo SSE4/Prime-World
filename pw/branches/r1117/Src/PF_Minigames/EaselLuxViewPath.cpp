@@ -96,7 +96,7 @@ bool EaselLuxViewPath::InitEndPos(const CPtr<Easel>& _easel, LuxPath* _path)
   CObj<EaselLuxViewWellObject> endPoint = new EaselLuxViewWellObject();
 
   SVector pointCoords;
-  int64 lenght = _path->GetTrajectory()->GetLenght();
+  int64_t lenght = _path->GetTrajectory()->GetLenght();
   _path->GetTrajectory()->GetCoordsByLenght(lenght,pointCoords);
 
   Placement placement = _easel->GetPlacement();
@@ -198,7 +198,7 @@ void EaselLuxViewPath::Step( float deltaTime, LuxGameLogic* _gameLogic )
       {
         for ( int i = pathTail.size(); i <= needToPlace; ++i )
         {
-          int64 nextPoint = i * int( effectInterval );
+          int64_t nextPoint = i * int( effectInterval );
 
           bool isPointVisible = !path->IsPointInsideTunnel( nextPoint, _gameLogic );
 
@@ -212,7 +212,7 @@ void EaselLuxViewPath::Step( float deltaTime, LuxGameLogic* _gameLogic )
   }
 }
 
-void EaselLuxViewPath::PlaceEffectOnPath( PF_Core::BasicEffectStandalone* _effect, int64 _pathPos )
+void EaselLuxViewPath::PlaceEffectOnPath( PF_Core::BasicEffectStandalone* _effect, int64_t _pathPos )
 {
   SVector worldPos;
   path->GetTrajectory()->GetCoordsByLenght( _pathPos, worldPos );

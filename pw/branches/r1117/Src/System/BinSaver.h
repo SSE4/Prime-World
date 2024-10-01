@@ -143,7 +143,7 @@ private:
 		int i, nSize;
 #elif defined( NV_LINUX_PLATFORM )
         int i;
-        nival::int32_t nSize;
+        int32_t nSize;
 #endif
 		if ( IsReading() )
 		{
@@ -168,7 +168,7 @@ private:
 #if defined( NV_WIN_PLATFORM )
 		int nSize = data.size();
 #elif defined( NV_LINUX_PLATFORM )
-        nival::int32_t nSize = data.size();
+        int32_t nSize = data.size();
 #endif
 		Add( 1, &nSize );
 		if ( IsReading() )

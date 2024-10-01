@@ -7,13 +7,15 @@
 
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "FormulaExecutor.h"
 #include "StringExecutor.h"  
 #include "../System/ScopedArray.h"
 #include "../libdb/XmlChunkSaver.h"
 #include "../libdb/XMLReader.h"
 
-typedef __int32 (__stdcall * CompileCallType)(char const *, char *, int , char const *) ;
+typedef int32_t (__stdcall * CompileCallType)(char const *, char *, int , char const *) ;
 ScopedPtr<IDefaultFormulaStorage> ExecutableString::formulaCache;
 
 ExecutableString::ExecutableString()

@@ -32,7 +32,7 @@ public:
   const NDb::AnimatedPlacement&    GetStartOffset() const;
   const NDb::AnimatedPlacement&    GetEndOffset() const;
 
-  bool IsPointInsideTunnel( int64 _point, LuxGameLogic* _gameLogic ) const;
+  bool IsPointInsideTunnel(int64_t _point, LuxGameLogic* _gameLogic ) const;
 
 private:
   LuxPath() {}

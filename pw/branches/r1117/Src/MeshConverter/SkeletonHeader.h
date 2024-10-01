@@ -1,20 +1,23 @@
 #pragma once
+
+#include <cstdint>
+
 #include "../System/staticvector.h"
 #include "../System/staticstring.h"
 
 struct MayaSkeletonHeader
 {
 	unsigned char signature[4];
-	unsigned __int32 boneCount;
+	uint32_t boneCount;
 };
 
 struct H6SkeletonHeader
 {
 	unsigned char signature[4];
-	unsigned __int32 boneCount;
-	unsigned __int32 fragmentCount;
-	unsigned __int32 strSizeInBytes;
-	unsigned __int32 rpSkeletonInBytes;
+	uint32_t boneCount;
+	uint32_t fragmentCount;
+	uint32_t strSizeInBytes;
+	uint32_t rpSkeletonInBytes;
 };
 
 struct SkeletonData

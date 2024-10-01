@@ -1,10 +1,12 @@
 #pragma once
 
+#include <cstdint>
+
 /////////////////////////////////////////////////////////////////////////////////////
 namespace nstl
 {
-	template<> struct hash<__int64> {
-		size_t operator()(__int64 __x) const { return __x; }
+	template<> struct hash<int64_t> {
+		size_t operator()(int64_t __x) const { return __x; }
 	};
 }
 

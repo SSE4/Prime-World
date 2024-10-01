@@ -14,12 +14,12 @@ class ArgReader;
   {
     MethodCallInfo():writer(0) {}
 
-    void SetEntityInfo(uint entityId, nival::uint32_t _classCrc)
+    void SetEntityInfo(uint entityId, uint32_t _classCrc)
     {
       header.entityId = entityId;
       classCrc = _classCrc;
     }
-    void Reset(uint entityId, ArgWriter* _writer, nival::uint32_t classCrc)
+    void Reset(uint entityId, ArgWriter* _writer, uint32_t classCrc)
     {
       SetEntityInfo(entityId, classCrc);
       writer = _writer;
@@ -35,7 +35,7 @@ class ArgReader;
     MethodCallHeader header;
     nstl::vector<byte> data;
     ArgWriter* writer;
-    nival::uint32_t classCrc;
+    uint32_t classCrc;
   };
 
 } // rpc

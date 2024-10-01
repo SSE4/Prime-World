@@ -271,7 +271,7 @@ bool EaselBallView::InitAnimations(NScene::SceneObject& sceneObject, const NDb::
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int64 EaselBallView::GetJumpInDistance()
+int64_t EaselBallView::GetJumpInDistance()
 {
   NI_VERIFY(animationGraph, "animation graph should be valid", return INT_MAX);
 
@@ -286,9 +286,9 @@ bool EaselBallView::IsNowInTunnel()
 {
   BallState ballState = logicBall->State();
   bool isInTunnel = (ballState == BALL_STATE_IN_TUNNEL);
-  int64 disnanceToTunnel = logicBall->GetNextTunnelPoint()-logicBall->GetCoveredPath();
+  int64_t disnanceToTunnel = logicBall->GetNextTunnelPoint()-logicBall->GetCoveredPath();
 
-  int64 jumpInDistance = GetJumpInDistance();
+  int64_t jumpInDistance = GetJumpInDistance();
   isInTunnel |= disnanceToTunnel<jumpInDistance && disnanceToTunnel>0;
 
   return isInTunnel;

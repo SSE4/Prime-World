@@ -10,6 +10,8 @@
 #ifndef _DIANGRUTILS_H_
 #define _DIANGRUTILS_H_
 
+#include <cstdint>
+
 #include "../System/Asserts.h"
 #include "../System/SystemLog.h"
 
@@ -20,25 +22,17 @@
 //////////////////////////////////////////////////////////////////////////
 typedef char                      DiTChar;
 
-typedef unsigned  char            DiByte;
+typedef uint8_t                   DiByte;
 
-typedef char                      DiInt8;
-typedef short  int                DiInt16;
-typedef long   int                DiInt32;
-#if defined(_MSC_VER)
-typedef __int64                  DiInt64;
-#else
-typedef long  int                DiInt64;
-#endif
+typedef int8_t                    DiInt8;
+typedef int16_t                   DiInt16;
+typedef int32_t                   DiInt32;
+typedef int64_t                   DiInt64;
 
-typedef unsigned char             DiUInt8;
-typedef unsigned short  int       DiUInt16;
-typedef unsigned long   int       DiUInt32;
-#if defined (_MSC_VER)
-typedef unsigned __int64          DiUInt64;
-#else
-typedef unsigned long int         DiUInt64;
-#endif
+typedef uint8_t                   DiUInt8;
+typedef uint16_t                  DiUInt16;
+typedef uint32_t                  DiUInt32;
+typedef uint64_t                  DiUInt64;
 
 typedef long  int                 DiBool;
 typedef void                      DiVoid;

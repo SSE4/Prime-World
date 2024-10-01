@@ -47,7 +47,7 @@ public:
     bool insertedBall;
     int explosionCountdown;
 
-    int64 edgePoint;                         //< edge point of the ball. The one from end of trajectory side
+    int64_t edgePoint;                         //< edge point of the ball. The one from end of trajectory side
     float edgeVelocity;
     float currentVelocity;
     float offset;
@@ -85,7 +85,7 @@ public:
   void ExplodeChainBalls();
 
   // ball explosion at position
-  bool ExplodeBallAtPos(int64 _pos,/*out*/CPtr<LuxBallChain>& tearedOfftail);
+  bool ExplodeBallAtPos(int64_t _pos,/*out*/CPtr<LuxBallChain>& tearedOfftail);
 
   // chain sort methods
   void SortChain();
@@ -98,11 +98,11 @@ public:
   void AddChainBallRunTime( LuxBall* spBall, bool& fColorMatched );
 
   // chain position set/get (based on chain first element)
-  int64 GetChainPosition() const; 
-  int64 GetChainEnd() const;
-  int64 GetChainLength() const;
+  int64_t GetChainPosition() const;
+  int64_t GetChainEnd() const;
+  int64_t GetChainLength() const;
 
-  int   SetChainPosition(int64 newPosition); 
+  int   SetChainPosition(int64_t newPosition);
 
   // getters
   int   GetNumChainBalls() const { return chainBalls.size(); };
@@ -129,7 +129,7 @@ public:
   LuxBallChain* BackwardTearOffTonnel();
 
   // explodes all paint blast balls within the ball radius (just one wave)
-  LuxBallChain* ExplodePaintBlastWave(const SVector &_refBlastPos,int64 _radius);
+  LuxBallChain* ExplodePaintBlastWave(const SVector &_refBlastPos, int64_t _radius);
 
   // tunnels
   void ProcessTunnelsIntersection();
@@ -165,7 +165,7 @@ private:
   void RunTimeAddBallEnd(LuxBall* spBall, /*out*/bool &fColorMatched);
 
   // Paintblast area methos
-  bool IsInsidePaintBlast(const SVector &_refballPos,const SVector &_refblastPos,int64 blastRadius);
+  bool IsInsidePaintBlast(const SVector &_refballPos,const SVector &_refblastPos, int64_t blastRadius);
   LuxBallChain* PaintBlastExplodeBalls(const ChainBalls::iterator& _explodeFrom, const ChainBalls::iterator& _explodeTo);
 
   bool CheckCanExplodeBalls( const ChainBalls::iterator & explodeFrom, const ChainBalls::iterator & explodeTo, int numBalls ) const;
@@ -187,14 +187,14 @@ private:
   void SendChainSlideLowNotification();
 
   // internal helper methods
-  void CalculateOffset(int64 start, int64 end, int deltaTime, float& offset, int64& currentPoint, float& currentVelocity);
-  void RecalculatePoint(float previous, float offset, int64& currentPoint, float& currentVelocity);
+  void CalculateOffset(int64_t start, int64_t end, int deltaTime, float& offset, int64_t& currentPoint, float& currentVelocity);
+  void RecalculatePoint(float previous, float offset, int64_t& currentPoint, float& currentVelocity);
   void RecalculateBallsSize();
 
   void MoveBallsAndChangeSizes(int deltaTime );
   void MoveChainBallsByVelocity(int deltaTime );
 
-  float CalculateEdgeAcceleration(int64 start, int64 curretn, int64 end, int deltaTime);
+  float CalculateEdgeAcceleration(int64_t start, int64_t curretn, int64_t end, int deltaTime);
   bool StepVelocity(int desiredBallVelocity, int deltaTime, float& currentBallVelocity);
 
   ZDATA_(PF_Core::WorldObjectBase)
@@ -205,7 +205,7 @@ private:
 
   int        chainDefaultSpeed;
   int        chainSpeed;        // current chain speed
-  int64      firstEdgePoint;    // first point of chain.
+  int64_t      firstEdgePoint;    // first point of chain.
   float      firstEdgePointVelocity;
   ChainBalls chainBalls;        // all balls in chain
   CPtr<Easel> easel;
@@ -223,7 +223,7 @@ protected:
   void RecalculateBallPosition( LuxBall* refBall );
 
   // set all balls positions anew, based on hear pos
-  void SetBallsPositions( int64 newPos );
+  void SetBallsPositions(int64_t newPos );
   
 public:
   void OnReconnect();

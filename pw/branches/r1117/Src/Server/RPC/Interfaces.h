@@ -273,7 +273,7 @@ private:
   StrongMT<rpc::ILocalEntity> entity;
   WeakMT<rpc::ILocalEntity> parent;
   uint classId;
-  nival::uint32_t classCrc;
+  uint32_t classCrc;
   GUID entityGUID;
   unsigned long password;
   nstl::vector<LocalHandlerInfo> handled_members;

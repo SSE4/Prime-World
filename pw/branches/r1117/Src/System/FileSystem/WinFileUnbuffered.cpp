@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "WinFileSystem.h"
 #include "FilePath.h"
 #include "FileUtils.h"
@@ -23,7 +25,7 @@ WinFileUnbuffered::WinFileUnbuffered(char const *_filePath, int _expectedFileSiz
     disk = disk.substr(0, 3);
     DWORD dwBytesPerSect = GetSectorSize(disk.c_str());
     //align size
-    unsigned __int64 addition = ~(dwBytesPerSect - 1);
+    uint64_t addition = ~(dwBytesPerSect - 1);
     if((expectedSize & (dwBytesPerSect - 1)) != 0)
     {
       //alignment needed

@@ -178,9 +178,9 @@ namespace Transport
     sz += sizeof( address.sender );
     sz += address.GetSeqNumSize();
 #elif defined( NV_LINUX_PLATFORM )
-    int sz = sizeof( nival::uint16_t );
-    sz += sizeof( nival::int32_t );
-    sz += sizeof( nival::int32_t );
+    int sz = sizeof( uint16_t );
+    sz += sizeof( int32_t );
+    sz += sizeof( int32_t );
     sz += address.GetSeqNumSize();
 #endif
     return sz;

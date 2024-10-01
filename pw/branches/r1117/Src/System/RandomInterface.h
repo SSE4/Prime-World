@@ -32,8 +32,8 @@ public:
     return _min + t * ( _max - _min );
   }
 
-  nival::uint64_t Next64() {
-    return ( ( (nival::uint64_t)Next() ) << 32 ) | (nival::uint64_t)Next();
+  uint64_t Next64() {
+    return ( ( (uint64_t)Next() ) << 32 ) | (uint64_t)Next();
   }
 
   bool Roll( float _probabilityInPercents ) {

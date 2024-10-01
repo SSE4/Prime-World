@@ -235,7 +235,7 @@ unsigned int PFApplChannelling::OnEvent(const PFBaseUnitEvent *pEvent)
   if ( state == STATE_CANCEL || state == STATE_INTERRUPT )
     return PFBaseUnitEventListener::FLAGS_REMOVE;
 
-	if ( (GetDB().interruptEvents & ((int64)1 << eventType)) != 0 || eventType == NDb::BASEUNITEVENT_CHANNELINGCANCELED )
+	if ( (GetDB().interruptEvents & ((int64_t)1 << eventType)) != 0 || eventType == NDb::BASEUNITEVENT_CHANNELINGCANCELED )
 	{
     switch ( eventType )
     {

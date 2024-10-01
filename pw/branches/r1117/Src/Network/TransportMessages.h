@@ -15,10 +15,10 @@ namespace Transport
   typedef TPipeId                      PipeIdT;
   typedef Transport::TClientId         ClientIdT;
 #elif defined( NV_LINUX_PLATFORM )
-  typedef nival::uint64_t              SendTimeT;
-  typedef nival::uint32_t              SeqNumT;
-  typedef nival::uint16_t              PipeIdT;
-  typedef nival::int32_t               ClientIdT;
+  typedef uint64_t              SendTimeT;
+  typedef uint32_t              SeqNumT;
+  typedef uint16_t              PipeIdT;
+  typedef int32_t               ClientIdT;
 #endif
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -143,7 +143,7 @@ namespace Transport
 
     ZDATA
     ZNOPARENT(NetLogicMessage)
-    nival::int32_t keepAliveInterval; // Just for debug only!
+    int32_t keepAliveInterval; // Just for debug only!
     ZEND int operator&( IBinSaver &f ) { if (!f.GetError()) f.Add(2,&keepAliveInterval); return 0; }
 
     KeepAliveMessage() : keepAliveInterval(0) {}

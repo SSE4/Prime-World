@@ -28,9 +28,9 @@ AutoPtr<MeshVertexColors> MeshVertexColorsManager::RequestVertexColorStream(int 
   {
     static bool FillBuffer(DXVertexBufferRef& vb, const vector<Render::Color>& colors)
     {
-      NI_VERIFY(sizeof(Render::Color) == sizeof(nival::uint32_t), "Color size mismatch", return false);
+      NI_VERIFY(sizeof(Render::Color) == sizeof(uint32_t), "Color size mismatch", return false);
 
-      const int size = sizeof(nival::uint32_t) * colors.size();
+      const int size = sizeof(uint32_t) * colors.size();
 
       vb = CreateVB(size, RENDER_POOL_MANAGED);
 

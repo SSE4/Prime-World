@@ -1,6 +1,8 @@
 #ifndef FILEWRITEASYNCHRONOUSSTREAM_H_3F
 #define FILEWRITEASYNCHRONOUSSTREAM_H_3F
 
+#include <cstdint>
+
 #include <System/config.h>
 
 #include "FileWriteBufferedStream.h"
@@ -18,7 +20,7 @@ class FileWriteAsynchronousStream : public FileWriteBufferedStream
 protected:
 
   unsigned int sectorSize;
-  uint64 filePosition;
+  uint64_t filePosition;
 #ifdef WIN32
   OVERLAPPED overlapped;
 #endif

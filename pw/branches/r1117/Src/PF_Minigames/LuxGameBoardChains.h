@@ -79,7 +79,7 @@ public:
   // sort methods
   void SortAllChainsElements();
 
-  bool CheckChainReachedEnd(int64 _endOffset) const;
+  bool CheckChainReachedEnd(int64_t _endOffset) const;
 
   void ForceNewChainGeneration( LuxGameLogic* _gameLogic );          // forced mechanism
   void GenerateNewChains( int deltaTime, LuxGameLogic* _gameLogic );   // неудачный метод
@@ -105,7 +105,7 @@ public:
   void DestroyAllChains();
 
   // paintblast ball processing method ...
-  void ProcessPaintBlast(const SVector &_refBlastPos,int64 _radius);
+  void ProcessPaintBlast(const SVector &_refBlastPos, int64_t _radius);
 
   void ValidateChains();
 
@@ -144,7 +144,7 @@ private:
 
   int nextChainTimeLeft;
   int newChainOffset;
-  int64 killAfterEndOffset;
+  int64_t killAfterEndOffset;
 
   CPtr<EaselNotifier> pNotifier;
 public:
@@ -158,6 +158,6 @@ public:
 //////////////////////////////////////////////////////////////////////////
 
 // bullet-chains collision handling
-void AddHittedBallToChain(LuxBallChain& chain, int64 ballPos, LuxBall* bullet, /*out*/bool &fColorMatched);
+void AddHittedBallToChain(LuxBallChain& chain, int64_t ballPos, LuxBall* bullet, /*out*/bool &fColorMatched);
 
 } // PF_Minigames

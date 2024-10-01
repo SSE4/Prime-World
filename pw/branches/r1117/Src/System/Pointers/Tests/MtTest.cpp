@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
@@ -122,8 +124,8 @@ public:
   void RandomizePos( const Point & field )
   {
     Point p;
-    p.x = (__int64)rand() * (__int64)FieldSize.x / (__int64)RAND_MAX;
-    p.y = (__int64)rand() * (__int64)FieldSize.y / (__int64)RAND_MAX;
+    p.x = (int64_t)rand() * (int64_t)FieldSize.x / (int64_t)RAND_MAX;
+    p.y = (int64_t)rand() * (int64_t)FieldSize.y / (int64_t)RAND_MAX;
     pos = p;
   }
 

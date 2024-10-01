@@ -33,7 +33,7 @@ REGISTER_DEV_VAR("easel_forbid_chains_generation",EASEL_FORBID_CHAINS_GENERATION
 const int RANDOM_RETRIES  = 100;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void AddHittedBallToChain(LuxBallChain& chain, int64 ballPos, LuxBall* bullet, /*out*/bool &fColorMatched)
+void AddHittedBallToChain(LuxBallChain& chain, int64_t ballPos, LuxBall* bullet, /*out*/bool &fColorMatched)
 {
   bullet->SetCoveredPath( ballPos );
   chain.AddChainBallRunTime( bullet, fColorMatched );
@@ -229,7 +229,7 @@ void LuxGameBoardChain::RemoveSameColorSequences( LuxGameBoard* _gameBoard )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void LuxGameBoardChain::ProcessPaintBlast(const SVector &_refBlastPos,int64 _radius)
+void LuxGameBoardChain::ProcessPaintBlast(const SVector &_refBlastPos, int64_t _radius)
 {
   if(chains.empty())
     return;
@@ -401,7 +401,7 @@ void LuxGameBoardChain::RemoveChainsCameToEnd( int _afterExitDistance )
       continue;
     }
 
-    int64 chainTailPos = (*itCurrent)->GetChainPosition() - (*itCurrent)->GetChainLength() - killAfterEndOffset;
+    int64_t chainTailPos = (*itCurrent)->GetChainPosition() - (*itCurrent)->GetChainLength() - killAfterEndOffset;
     if( chainTailPos > chainPath->GetTrajectory()->GetLenght() + (_afterExitDistance * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER() ) )
     {
       itCurrent = chains.erase(itCurrent);
@@ -426,7 +426,7 @@ void LuxGameBoardChain::SortAllChainsElements()
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool LuxGameBoardChain::CheckChainReachedEnd(int64 _endOffset) const
+bool LuxGameBoardChain::CheckChainReachedEnd(int64_t _endOffset) const
 {
   if ( chains.empty()  )
     return false;

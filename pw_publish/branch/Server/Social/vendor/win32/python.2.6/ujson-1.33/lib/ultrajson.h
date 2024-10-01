@@ -81,15 +81,17 @@ Dictates and limits how much stack space for buffers UltraJSON will use before r
 
 #ifdef _WIN32
 
-typedef __int64 JSINT64;
-typedef unsigned __int64 JSUINT64;
+#include <stdint.h>
 
-typedef __int32 JSINT32;
-typedef unsigned __int32 JSUINT32;
-typedef unsigned __int8 JSUINT8;
-typedef unsigned __int16 JSUTF16;
-typedef unsigned __int32 JSUTF32;
-typedef __int64 JSLONG;
+typedef int64_t JSINT64;
+typedef uint64_t JSUINT64;
+
+typedef int32_t JSINT32;
+typedef uint32_t JSUINT32;
+typedef uint8_t JSUINT8;
+typedef uint16_t JSUTF16;
+typedef uint32_t JSUTF32;
+typedef int64_t JSLONG;
 
 #define EXPORTFUNCTION __declspec(dllexport)
 

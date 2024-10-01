@@ -62,7 +62,7 @@
 #include <iconv.h>
 #include <typeinfo>
 
-typedef long LONG;
+typedef int32_t LONG;
 
 #ifndef ASSERT
 #define ASSERT(a)

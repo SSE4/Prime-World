@@ -9,6 +9,6 @@ namespace PF_Minigames
 //
 //////////////////////////////////////////////////////////////////////////
 
-int64 CalculateDistance(const SVector &refA,const SVector &refB);
+int64_t CalculateDistance(const SVector &refA,const SVector &refB);
 
 }

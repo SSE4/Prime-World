@@ -69,7 +69,7 @@ private:
   void UpdateShadowOpacity(float deltaTime);
   void UpdateShadowRotation();
 
-  int64 GetJumpInDistance();
+  int64_t GetJumpInDistance();
   bool IsNowInTunnel();
 
   NDb::DBEaselDropState currentState; 

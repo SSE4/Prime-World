@@ -10,7 +10,7 @@
 
 class DiAnimGraph;
 struct DiAnGrCallbackParams;
-typedef long int (*AnimationCallback)(DiAnGrCallbackParams const &cpParams);
+typedef int32_t (*AnimationCallback)(DiAnGrCallbackParams const &cpParams);
 
 #ifndef _SHIPPING
 #define SCENECOMPONENT_STATS

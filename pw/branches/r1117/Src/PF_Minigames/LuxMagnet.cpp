@@ -34,14 +34,14 @@ namespace PF_Minigames
       int _externalRad,
       NDb::EColor _color,
       /*out*/CPtr<LuxBall>& _closestBall,
-      /*out*/int64& _closestDist)
+      /*out*/int64_t& _closestDist)
     {
       if ( balls.empty()  )
         return false;
 
       bool fGotBall = false;   // if at least one mathc found;
       CPtr<LuxBall> _foundBall;
-      int64 _foundDist = 0;   
+      int64_t _foundDist = 0;
 
       Balls::iterator ballsIter = balls.begin();
       for(; ballsIter != balls.end(); ++ballsIter)
@@ -56,7 +56,7 @@ namespace PF_Minigames
 
         if( _ball->Color() == _color )
         {
-          int64 _dist = CalculateDistance(_zeroPoint,_ball->Position()); // определить расстояние до точки ...
+            int64_t _dist = CalculateDistance(_zeroPoint,_ball->Position()); // определить расстояние до точки ...
           // сравнить расстояние с радиусами
           if(_dist <= _externalRad)
           {
@@ -112,7 +112,7 @@ namespace PF_Minigames
       NDb::EColor _color,
       /*out*/CPtr<LuxBallChain>& _closestChain,
       /*out*/CPtr<LuxBall>& _closestBall,
-      /*out*/int64& _closestDist)
+      /*out*/int64_t& _closestDist)
     {
       if ( chains.empty()  )
         return false;
@@ -120,14 +120,14 @@ namespace PF_Minigames
       bool fGotRes = false;
       CPtr<LuxBallChain> _foundChain;
       CPtr<LuxBall>  _foundBall;
-      int64             _foundDist = 0;
+      int64_t             _foundDist = 0;
 
       Chains::iterator chainsIter = chains.begin();
       for(; chainsIter != chains.end(); ++chainsIter)
       {
         CPtr<LuxBallChain> _chain = *chainsIter;
         CPtr<LuxBall>  _chainBall;
-        int64             _chainDist = 0;
+        int64_t             _chainDist = 0;
 
         ClosestBallSeeker2 _seeker;   
         _chain->GetBalls(_seeker);
@@ -230,7 +230,7 @@ void LuxMagnet::ProcessMagnetOperation( LuxGameLogic* _gameLogic )
   CPtr<LuxGameBoardChain> _nearestBoardChain;
   CPtr<LuxBallChain> _nearestBallChain;
   CPtr<LuxBall> _nearestBall;
-  int64 _nearestDest = 0;
+  int64_t _nearestDest = 0;
 
   BoardChains::iterator it = _gameLogic->GetGameBoard()->GetChains().begin();
   BoardChains::iterator last = _gameLogic->GetGameBoard()->GetChains().end();
@@ -244,7 +244,7 @@ void LuxMagnet::ProcessMagnetOperation( LuxGameLogic* _gameLogic )
 
     CPtr<LuxBallChain> _chain;
     CPtr<LuxBall> _ball;
-    int64 _dest = 0;
+    int64_t _dest = 0;
 
     if(seeker.FindClosestBall( Position(),
       radInternal,radExternal,

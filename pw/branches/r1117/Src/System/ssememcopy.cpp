@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "ssememcopy.h"
 
 void CompileTimeCheck()
@@ -7,16 +10,16 @@ void CompileTimeCheck()
 	NI_STATIC_ASSERT( !( BUS_SEGMENT_SIZE & (BUS_SEGMENT_SIZE-1) ), BUS_SEGMENT_SIZE_SHOULD_BE_POWER_OF_TWO );
 }
 
-void GuardedSSEMemCopy(void* _pDestination, void* _pSource, unsigned __int32 _size)
+void GuardedSSEMemCopy(void* _pDestination, void* _pSource, uint32_t _size)
 {
-	NI_ASSERT( !((unsigned __int32) _pDestination & 0xF), "destination memory is NOT 16-byte aligned" );
-	NI_ASSERT( !((unsigned __int32) _pSource & 0xF), "source memory is NOT 16-byte aligned" );
+	NI_ASSERT( !((uint32_t) _pDestination & 0xF), "destination memory is NOT 16-byte aligned" );
+	NI_ASSERT( !((uint32_t) _pSource & 0xF), "source memory is NOT 16-byte aligned" );
 	NI_ASSERT( _size > BUS_SEGMENT_SIZE, "size should be more than BUS_SEGMENT_SIZE" );
 	NI_ASSERT( !(_size % BUS_SEGMENT_SIZE), "size should be divisible by BUS_SEGMENT_SIZE" );	
 	ssememcopy(_pDestination, _pSource, _size);
 }
 
-__declspec(naked) void __stdcall ssememcopy(void* _pDestination, void* _pSource, unsigned __int32 _size)
+__declspec(naked) void __stdcall ssememcopy(void* _pDestination, void* _pSource, uint32_t _size)
 {
 	__asm
 	{

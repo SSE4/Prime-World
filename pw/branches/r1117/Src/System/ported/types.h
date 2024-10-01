@@ -8,14 +8,12 @@
 
 	#include <limits.h>
 
-	typedef nival::uint8_t	BYTE;
-	typedef nival::uint16_t	WORD;
-	typedef nival::uint32_t	DWORD;
+	typedef uint8_t	BYTE;
+	typedef uint16_t	WORD;
+	typedef uint32_t	DWORD;
 	typedef int				BOOL;
-	typedef nival::uint_t	UINT;
-	typedef nival::uint64_t	UINT64;
-
-	typedef nival::int64_t	__int64;
+	typedef unsigned	UINT;
+	typedef uint64_t	UINT64;
 
 	typedef char			TCHAR;
 

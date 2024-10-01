@@ -7,6 +7,9 @@
 // P.S.: Я к этому мусору отношения не имею. Не виноватый я. Аслан.
 //--------------------------------------------------------------------------------------
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include <tchar.h>
 //#include "dxut.h"
 #pragma warning(disable: 4995)
@@ -1421,8 +1424,8 @@ char* CConfigDatabase::GetCondition()
     if( result == -1 )
       return "Invalid driver number";
 
-    __int64 rhs = *( __int64* )&Driver;
-    __int64 lhs = *( __int64* )&m_AdapterId.DriverVersion;
+    int64_t rhs = *( int64_t* )&Driver;
+      int64_t lhs = *( int64_t* )&m_AdapterId.DriverVersion;
 
     switch( Compare )
     {

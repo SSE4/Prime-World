@@ -42,10 +42,10 @@ namespace rpc
       };
     };
     EntityId entityId;
-    nival::uint32_t dataSize;
-    nival::uint16_t preAllocatedSize;     // filled from ArgWriter
+    uint32_t dataSize;
+    uint16_t preAllocatedSize;     // filled from ArgWriter
     TransactionId transactionId;
-    nival::uint32_t membersSize;
+    uint32_t membersSize;
     union
     {
       byte dataFlags;
@@ -113,7 +113,7 @@ namespace rpc
 
   struct PacketHeader
   {
-    PacketHeader(nival::uint32_t _classCrc = 0xFFFFFFFF, uint _methodId = 0xFFFFFFFF)
+    PacketHeader(uint32_t _classCrc = 0xFFFFFFFF, uint _methodId = 0xFFFFFFFF)
       :classCrc(_classCrc),
       methodId(_methodId)
     {}

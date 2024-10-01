@@ -1,6 +1,8 @@
 #ifndef __CWFN_H_INCLUDED__925380__
 #define __CWFN_H_INCLUDED__925380__
 
+#include <cstdint>
+
 #include "System/ported/types.h"
 #include "System/DefaultTypes.h"
 
@@ -83,18 +85,18 @@
 		return _ultoa_s( value, str, size, radix );
 	}
 
-	inline __int64 _atoi64( const char *str )
+	inline int64_t _atoi64( const char *str )
 	{
 		return strtol( str, NULL, 10 );
 	}
 
 	enum { CP_ACP = 0 };
 
-	static __int64 _wcstoi64( const wchar_t *nptr, wchar_t **endptr, int base )
+	static int64_t _wcstoi64( const wchar_t *nptr, wchar_t **endptr, int base )
 	{
 		char buffer[ 24 ];
 		char *end = NULL;
-		__int64 result = wcstombs( buffer, nptr, sizeof( buffer ) ) == 0 ? 0 : strtol( buffer, &end, base );
+		int64_t result = wcstombs( buffer, nptr, sizeof( buffer ) ) == 0 ? 0 : strtol( buffer, &end, base );
 
 		if ( endptr )
 			*endptr = const_cast< wchar_t * >( nptr + ( end - &buffer[ 0 ] ) );
@@ -102,11 +104,11 @@
 		return result;
 	}
 
-	static nival::uint64_t _wcstoui64( const wchar_t *nptr, wchar_t **endptr, int base  )
+	static uint64_t _wcstoui64( const wchar_t *nptr, wchar_t **endptr, int base  )
 	{
 		char buffer[ 24 ];
 		char *end = NULL;
-		__int64 result = wcstombs( buffer, nptr, sizeof( buffer ) ) == 0 ? 0 : strtoul( buffer, &end, base );
+		int64_t result = wcstombs( buffer, nptr, sizeof( buffer ) ) == 0 ? 0 : strtoul( buffer, &end, base );
 
 		if ( endptr )
 			*endptr = const_cast< wchar_t * >( nptr + ( end - &buffer[ 0 ] ) );

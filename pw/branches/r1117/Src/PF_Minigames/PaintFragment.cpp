@@ -129,10 +129,10 @@ int CPaintFragment::GetPointColorAmount( NDb::EColor color, int point ) const
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-CPainterPoint* CPaintFragment::GetClosestPoint( FragmentPoints & points, const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64 & refDist, bool ignoreMagent )
+CPainterPoint* CPaintFragment::GetClosestPoint( FragmentPoints & points, const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64_t& refDist, bool ignoreMagent )
 {
   CPainterPoint * closest = 0;
-  int64 closestRange = 0;
+  int64_t closestRange = 0;
 
   for( FragmentPoints::iterator pointsIter = points.begin(); pointsIter != points.end(); pointsIter++ )
   {
@@ -149,7 +149,7 @@ CPainterPoint* CPaintFragment::GetClosestPoint( FragmentPoints & points, const S
       if ( point->GetColor() != color )
         continue;
 
-    int64 range = CalculateDistance( destCoord, point->GetCoord() );
+    int64_t range = CalculateDistance( destCoord, point->GetCoord() );
 
     if ( closest )
       if( range > closestRange )
@@ -171,7 +171,7 @@ CPainterPoint* CPaintFragment::GetClosestPoint( FragmentPoints & points, const S
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-CPainterPoint * CPaintFragment::GetClosestPoint( const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64 & refDist, bool ignoreMagent )
+CPainterPoint * CPaintFragment::GetClosestPoint( const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64_t& refDist, bool ignoreMagent )
 {
   return GetClosestPoint( fragmentPoints, destCoord, notFilledOnly, color, refDist, ignoreMagent );
 }

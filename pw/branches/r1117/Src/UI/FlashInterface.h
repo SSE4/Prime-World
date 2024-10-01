@@ -1,8 +1,9 @@
 #pragma once
 
+#include <cstdint>
+
 namespace avmplus
 {
-  typedef __int32	int32_t;
   typedef int32_t Atom;
 
   class ScriptObject;

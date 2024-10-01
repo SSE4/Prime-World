@@ -46,9 +46,9 @@ public:
   // calculation methods
 
   //Ugly static
-  static CPainterPoint* GetClosestPoint( FragmentPoints & points, const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64 & refDist, bool ignoreMagent = false ); //color can be NDb::COLOR_ANY
+  static CPainterPoint* GetClosestPoint( FragmentPoints & points, const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64_t& refDist, bool ignoreMagent = false ); //color can be NDb::COLOR_ANY
 
-  CPainterPoint* GetClosestPoint( const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64 & refDist, bool ignoreMagent = false ); //color can be NDb::COLOR_ANY
+  CPainterPoint* GetClosestPoint( const SVector & destCoord, bool notFilledOnly, NDb::EColor color, int64_t& refDist, bool ignoreMagent = false ); //color can be NDb::COLOR_ANY
   CPainterPoint* GetLeastFilledPoint();
 
   template <typename Func>

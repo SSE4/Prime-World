@@ -233,8 +233,8 @@ void EaselLuxView::CreateTunnels( LuxGameLogic* _gameLogic )
 
     for ( ; tunnelIter != tunnels.end(); ++tunnelIter )
     {
-      int64 _begin = tunnelIter->begin * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
-      int64 _end   = tunnelIter->end * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
+      int64_t _begin = tunnelIter->begin * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
+      int64_t _end   = tunnelIter->end * EaselConst::Get_LUX_LOGIC_TIME_MULTIPLIER();
 
       SVector beginPoint;
       SVector endPoint;

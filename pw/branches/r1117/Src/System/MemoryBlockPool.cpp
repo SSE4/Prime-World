@@ -17,7 +17,7 @@ _pooledBlocks( 0 ), _pooledMemory( 0 )
   size_t blockSize = _baseSize;
   for ( int i = 0; i < subPoolsCount; ++i ) {
     _subPools[i].blockSize = blockSize;
-    blockSize = ( (QWORD)( blockSize + sizeGrowAdd ) * (QWORD)sizeGrowPercent ) / (QWORD)100;
+    blockSize = ( (uint64_t)( blockSize + sizeGrowAdd ) * (uint64_t)sizeGrowPercent ) / (uint64_t)100;
 
     _subPools[i].blocks.reserve( reserveBlocks );
   }

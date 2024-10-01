@@ -125,7 +125,7 @@ void LuxBall::SetState(BallState _state)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool LuxBall::SetCoveredPath(int64 _coveredPath)
+bool LuxBall::SetCoveredPath(int64_t _coveredPath)
 {
   coveredPath = _coveredPath;
   return true;
@@ -382,8 +382,8 @@ bool LuxBall::CanCollide() const
   if ( ( state == BALL_STATE_ROLL_IN ) || ( state == BALL_STATE_ROLL_OUT ))
     return false;
 
-  int64 tunnelOffset = EaselConst::Get_BALL_DEF_DIAMETER();
-  int64 diffWithTunnel = coveredPath - lastTunnelPoint;
+  int64_t tunnelOffset = EaselConst::Get_BALL_DEF_DIAMETER();
+  int64_t diffWithTunnel = coveredPath - lastTunnelPoint;
 
   if ( state == BALL_STATE_IN_TUNNEL && (diffWithTunnel > tunnelOffset) )
     return false;

@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #ifdef WIN32
   #include <tchar.h>
 #endif  
@@ -162,7 +164,7 @@ double GetFreeDiskSpace( const char *pszDrive )
 	 ULARGE_INTEGER i64FreeBytesToCaller, i64TotalBytes, i64FreeBytes;
 	 bRetVal = (*pfnGetDiskFreeSpaceEx)( pszDrive, &i64FreeBytesToCaller,
 																			 &i64TotalBytes, &i64FreeBytes );
-	 fRetVal = double( __int64(i64FreeBytesToCaller.QuadPart) );
+	 fRetVal = double( int64_t(i64FreeBytesToCaller.QuadPart) );
 	} 
 	else 
 	{

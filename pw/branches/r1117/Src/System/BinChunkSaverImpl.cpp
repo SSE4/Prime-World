@@ -5,7 +5,7 @@
 
 static void WriteLength( Stream &pStream, const unsigned long length )
 {
-  nival::uint32_t temp = static_cast< nival::uint32_t >( length );
+  uint32_t temp = static_cast< uint32_t >( length );
   temp <<= 1;
   if ( temp > 0xFF )
   {
@@ -111,7 +111,7 @@ void BinChunkSaverImpl::DataChunkString( wstring &str )
   WriteRawData( str.data(), str.size() * 2 );
 #elif defined( NV_LINUX_PLATFORM )
   const size_t dataSize = str.size() * 2;
-  std::basic_string< nival::uint16_t > tmp( str.length(), 0 );
+  std::basic_string< uint16_t > tmp( str.length(), 0 );
   std::copy( str.begin(), str.end(), tmp.begin() );
   WriteRawData( &tmp[ 0 ], dataSize );
 #endif
@@ -121,8 +121,8 @@ void BinChunkSaverImpl::DataChunkString( wstring &str )
 
 void BinChunkSaverImpl::DataChunkString( nstl::fixed_string_base<char> &str )
 {
-  const nival::int16_t nSize = str.GetStorageSize();
-  const nival::int16_t nLength = str.GetLength();
+  const int16_t nSize = str.GetStorageSize();
+  const int16_t nLength = str.GetLength();
 
   NI_VERIFY( str.GetStorageSize() == int(nSize), "Invalid serialized string", return );
   NI_VERIFY( str.GetLength() == int(nLength), "Invalid serialized string", return );
@@ -140,8 +140,8 @@ void BinChunkSaverImpl::DataChunkString( nstl::fixed_string_base<char> &str )
 
 void BinChunkSaverImpl::DataChunkString( nstl::fixed_string_base<wchar_t> &str )
 {
-  const nival::int16_t nSize = str.GetStorageSize();
-  const nival::int16_t nLength = str.GetLength();
+  const int16_t nSize = str.GetStorageSize();
+  const int16_t nLength = str.GetLength();
 
   NI_VERIFY( str.GetStorageSize() == int(nSize), "Invalid serialized string", return );
   NI_VERIFY( str.GetLength() == int(nLength), "Invalid serialized string", return );

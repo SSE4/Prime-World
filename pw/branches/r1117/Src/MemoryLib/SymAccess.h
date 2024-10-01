@@ -53,7 +53,7 @@ public:
   void Lock();
   void Unlock();
   
-  bool GetSymbol( QWORD dwAddress, CSymString *pszModule, CSymString *pszFile, int *pnLine, CSymString *pszFunc );
+  bool GetSymbol( uint64_t dwAddress, CSymString *pszModule, CSymString *pszFile, int *pnLine, CSymString *pszFunc );
 
   int QuickCollectCallStack( DWORD *addresses, int maxEntries, int skipEntries );
 

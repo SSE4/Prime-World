@@ -1,4 +1,7 @@
 #include "stdafx.h"
+
+#include <cstdint>
+
 #include "StarForce.h"
 
 #pragma code_seg(push, "~")
@@ -41,7 +44,7 @@ static AsyncInvokerPriority g_invoker;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static STARFORCE_FORCE_INLINE void CheckForTerminate( int line, bool result, unsigned __int32 status = PSC_STATUS_SUCCESS )
+static STARFORCE_FORCE_INLINE void CheckForTerminate( int line, bool result, uint32_t status = PSC_STATUS_SUCCESS )
 {
   if( status != PSC_STATUS_SUCCESS || !result )
   {
@@ -54,7 +57,7 @@ static STARFORCE_FORCE_INLINE void CheckForTerminate( int line, bool result, uns
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static STARFORCE_FORCE_INLINE void CheckForLog( int line, bool result, unsigned __int32 status = PSC_STATUS_SUCCESS )
+static STARFORCE_FORCE_INLINE void CheckForLog( int line, bool result, uint32_t status = PSC_STATUS_SUCCESS )
 {
   if( status != PSC_STATUS_SUCCESS || !result )
     WarningTrace( "Protection Warning. Status: 0x%08X, line: %d", status, line );
@@ -70,7 +73,7 @@ STARFORCE_EXPORT void CheckReadOnlyAndExecutableImpl( const void * )
   //http://www.jrsoftware.org/striprlc.php
 
   bool checkResult = false;
-  const unsigned __int32 status  = PSA_CheckProtectedModulesReadOnlyMem( &checkResult );
+  const uint32_t status  = PSA_CheckProtectedModulesReadOnlyMem( &checkResult );
 
   // NUM_TASK вызов CheckForTerminate заменен на CheckForLog
   // проверка может запуститься одновременно обоими способами. если проверка провалится, должна быть возможности отправить что-то на сервер,
@@ -101,20 +104,20 @@ STARFORCE_EXPORT void CheckSystemDllsImpl( const void * )
   // вызвать ложное срабатывание, при наличии системного ПО (например, антивирус).
   {
     bool systemLibLocationChanged = true;
-    const unsigned __int32 status  = PSA_CheckSystemLibsLocation( NULL, NULL, &systemLibLocationChanged );
+    const uint32_t status  = PSA_CheckSystemLibsLocation( NULL, NULL, &systemLibLocationChanged );
     CheckForLog( __LINE__, !systemLibLocationChanged, status ); 
   }
   
   {
     bool systemLibIatModifiedPtr = true;
-    const unsigned __int32 status  = PSA_CheckSystemLibsIat( NULL, NULL, &systemLibIatModifiedPtr );
+    const uint32_t status  = PSA_CheckSystemLibsIat( NULL, NULL, &systemLibIatModifiedPtr );
     CheckForLog( __LINE__, !systemLibIatModifiedPtr, status ); 
   }
   
   #ifdef OPTION_ENABLE_SYSTEM_LIBS_CODE_SECTION_CHECK
   {
     bool readOnlySectionsModified = true;
-    const unsigned __int32 status  = PSA_CheckSystemLibsReadOnlySections( NULL, NULL, &readOnlySectionsModified );
+    const uint32_t status  = PSA_CheckSystemLibsReadOnlySections( NULL, NULL, &readOnlySectionsModified );
     CheckForLog( __LINE__, !readOnlySectionsModified, status ); 
   } 
   #endif
@@ -145,7 +148,7 @@ STARFORCE_EXPORT bool CheckReadOnlyAndExecutableImmediate()
 
   bool checkResult = false;
 
-  const unsigned __int32 status  = PSA_CheckProtectedModulesReadOnlyMem( &checkResult );
+  const uint32_t status  = PSA_CheckProtectedModulesReadOnlyMem( &checkResult );
 
   CheckForLog(__LINE__, checkResult, status);
 

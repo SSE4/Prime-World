@@ -1,4 +1,7 @@
 #pragma once
+
+#include <cstdint>
+
 #include "Server/RPC/Base.h"
 #include "StatisticsCommonTypes.h"
 
@@ -69,7 +72,7 @@ struct SessionStartEvent : rpc::Data
 {
   SERIALIZE_ID();
   ZDATA
-  __int64 sessionid;
+  int64_t sessionid;
   TMMakingGameId persistentId;
   nstl::wstring map;
   nstl::wstring server;
@@ -105,7 +108,7 @@ struct SessionResultEvent : rpc::Data
   ZDATA
 
   int result;
-  __int64 sessionid;
+  int64_t sessionid;
   SessionClientResults clientData;
   vector<SessionServerResultsPlayer> serverPlayersInfo;
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&result); f.Add(3,&sessionid); f.Add(4,&clientData); f.Add(5,&serverPlayersInfo); return 0; }
@@ -204,10 +207,10 @@ struct ExceedingStepTimeInfoServer : rpc::Data
   SERIALIZE_ID();
 
   ZDATA
-  __int64 sessionId;
+  int64_t sessionId;
   int currentStep;
-  __int64 startTime;
-  __int64 finishTime;
+  int64_t startTime;
+  int64_t finishTime;
   int stepCount;
   int stepTimeMin;
   int stepTimeMax;
@@ -233,7 +236,7 @@ struct ReconnectAttemptInfo : rpc::Data
   SERIALIZE_ID();
 
   ZDATA
-  __int64 sessionId;
+  int64_t sessionId;
   int userId;
   int currentStep;
   int reconnectType;
@@ -256,7 +259,7 @@ struct SessionTrafficInfo : rpc::Data
   SERIALIZE_ID();
 
   ZDATA
-  __int64 sessionId;
+  int64_t sessionId;
   int totalIn;
   int totalOut;
   float avgOutPerStep;
@@ -291,7 +294,7 @@ struct SessionUserContext : rpc::Data
   SERIALIZE_ID();
 
   ZDATA
-  __int64 sessionid;
+  int64_t sessionid;
   int userid;
   ZEND int operator&( IBinSaver &f ) { f.Add(2,&sessionid); f.Add(3,&userid); return 0; }
 
@@ -300,7 +303,7 @@ struct SessionUserContext : rpc::Data
   userid( 0 )
   {}
 
-  SessionUserContext( __int64 _sessionid, int _userid ) :
+  SessionUserContext( int64_t _sessionid, int _userid ) :
   sessionid( _sessionid ),
   userid( _userid )
   {}

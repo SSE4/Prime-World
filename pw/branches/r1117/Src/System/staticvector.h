@@ -1,14 +1,16 @@
 #ifndef _STATICVECTOR_H_
 #define _STATICVECTOR_H_
 
+#include <cstdint>
+
 #include "dummyallocator.h"
 
 // in-game allowed only constant methods
 template< typename T > 
 class StaticVector
 {
-	unsigned __int32 count;
-	unsigned __int32 offset;
+	uint32_t count;
+	uint32_t offset;
 
 #ifndef TOOLSET_IS_PRESENT
 	StaticVector();

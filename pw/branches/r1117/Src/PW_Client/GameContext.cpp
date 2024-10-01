@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <cstdint>
+
 #include "GameContext.h"
 
 #include "NewLobbyGameClientPW.h"
@@ -806,7 +808,7 @@ void GameContext::ReportPersistentEvents()
     {
       StatisticService::RPC::OfflineClientEvent data;
       data.playerId = clientTransportSystem->GetUserId();
-      data.persistentId = ( (unsigned __int64)evt.id.timestamp << 32 ) | (unsigned __int64)evt.id.index;
+      data.persistentId = ( (uint64_t)evt.id.timestamp << 32 ) | (uint64_t)evt.id.index;
       data.code = (int)evt.code;
       data.auxData = evt.aux;
       data.eventTimestamp = evt.eventTimestamp;

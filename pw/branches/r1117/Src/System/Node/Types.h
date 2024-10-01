@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <assert.h>
 #include <sstream>
+#include <cstdint>
 
 namespace nvl {
 
@@ -13,26 +14,6 @@ namespace nvl {
 	typedef unsigned long		ulong_t;
 	typedef unsigned char		uchar_t;
 	typedef unsigned char		byte_t;
-
-	typedef char				int8_t;
-	typedef short				int16_t;
-	typedef int					int32_t;
-
-	typedef unsigned char		uint8_t;
-	typedef unsigned short		uint16_t;
-	typedef unsigned int		uint32_t;
-
-	#if defined( NV_WIN_PLATFORM )
-
-		typedef __int64				int64_t;
-		typedef unsigned __int64	uint64_t;
-
-	#elif defined ( NV_LINUX_PLATFORM )
-
-		typedef long long 			int64_t;
-		typedef unsigned long long	uint64_t;
-
-	#endif
 
 	typedef char *				str_t;
 	typedef char const *		cstr_t;

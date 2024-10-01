@@ -10,7 +10,7 @@ static int NUM_STEPS = 100;
 
 static unsigned long ReadLength( Stream &pStream )
 {
-  nival::uint32_t result = 0;
+  uint32_t result = 0;
   pStream.Read( &result, 1 );
   if ( result & 1 )
     pStream.Read( ((char*)&result)+1, sizeof( result ) - 1 );
@@ -160,7 +160,7 @@ void BinChunkLoaderImpl::DataChunkString( wstring &str )
   const wchar_t *pStr = (wchar_t*) ( data.GetBuffer() + res.nStart );
   str.assign( pStr, res.nLength / 2 );
 #elif defined( NV_LINUX_PLATFORM )
-  nival::uint16_t * pStr = ( nival::uint16_t * ) ( data.GetBuffer() + res.nStart );
+  uint16_t * pStr = ( uint16_t * ) ( data.GetBuffer() + res.nStart );
   str.resize( res.nLength / 2 );
   std::copy( pStr, pStr + res.nLength / 2, str.begin() );
 #endif
@@ -170,8 +170,8 @@ void BinChunkLoaderImpl::DataChunkString( wstring &str )
 
 void BinChunkLoaderImpl::DataChunkString( nstl::fixed_string_base<char> &str )
 {
-  nival::int16_t nSize;
-  nival::int16_t nLength;
+  int16_t nSize;
+  int16_t nLength;
 
   const int chunkSize = sizeof(nSize) + sizeof(nLength) + str.GetStorageSize();
 
@@ -181,8 +181,8 @@ void BinChunkLoaderImpl::DataChunkString( nstl::fixed_string_base<char> &str )
 
   const unsigned char* const p = reinterpret_cast<const unsigned char*>(data.GetBuffer() + res.nStart);
 
-  nSize = reinterpret_cast<const nival::uint16_t*>(p)[0];
-  nLength = reinterpret_cast<const nival::uint16_t*>(p)[1];
+  nSize = reinterpret_cast<const uint16_t*>(p)[0];
+  nLength = reinterpret_cast<const uint16_t*>(p)[1];
 
   NI_VERIFY( str.GetStorageSize() == int(nSize), "Invalid serialized string", return );
 
@@ -198,8 +198,8 @@ void BinChunkLoaderImpl::DataChunkString( nstl::fixed_string_base<char> &str )
 
 void BinChunkLoaderImpl::DataChunkString( nstl::fixed_string_base<wchar_t> &str )
 {
-  nival::int16_t nSize;
-  nival::int16_t nLength;
+  int16_t nSize;
+  int16_t nLength;
 
   const int chunkSize = sizeof(nSize) + sizeof(nLength) + str.GetStorageSize();
 
@@ -209,8 +209,8 @@ void BinChunkLoaderImpl::DataChunkString( nstl::fixed_string_base<wchar_t> &str 
 
   const unsigned char* const p = reinterpret_cast<const unsigned char*>(data.GetBuffer() + res.nStart);
 
-  nSize = reinterpret_cast<const nival::uint16_t*>(p)[0];
-  nLength = reinterpret_cast<const nival::uint16_t*>(p)[1];
+  nSize = reinterpret_cast<const uint16_t*>(p)[0];
+  nLength = reinterpret_cast<const uint16_t*>(p)[1];
 
   NI_VERIFY( str.GetStorageSize() == int(nSize), "Invalid serialized string", return );
 

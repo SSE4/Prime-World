@@ -175,7 +175,7 @@ private:
 #if defined( NV_WIN_PLATFORM )
   static __time32_t Timestamp();
 #elif defined( NV_LINUX_PLATFORM )
-  static nival::uint32_t Timestamp();
+  static uint32_t Timestamp();
 #endif
 
   StrongMT<IConfigProvider>       config;

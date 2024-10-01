@@ -67,13 +67,13 @@ public:
   virtual void        SetState( BallState _state );
   BallState           State() const { return state; };
 
-  void                SetLastTunelPoint(int64 _tunnelPoint) { lastTunnelPoint = _tunnelPoint; }
-  void                SetNextTunelPoint(int64 _tunnelPoint) { nextTunnelPoint = _tunnelPoint; }
-  int64               GetLastTunnelPoint() const { return lastTunnelPoint; }
-  int64               GetNextTunnelPoint() const { return nextTunnelPoint; }
+  void                SetLastTunelPoint(int64_t _tunnelPoint) { lastTunnelPoint = _tunnelPoint; }
+  void                SetNextTunelPoint(int64_t _tunnelPoint) { nextTunnelPoint = _tunnelPoint; }
+  int64_t               GetLastTunnelPoint() const { return lastTunnelPoint; }
+  int64_t               GetNextTunnelPoint() const { return nextTunnelPoint; }
 
-  int64               GetCoveredPath() const { return coveredPath; };
-  bool                SetCoveredPath(int64 _coveredPath);
+  int64_t               GetCoveredPath() const { return coveredPath; };
+  bool                SetCoveredPath(int64_t _coveredPath);
 
   //ICollidable:
   virtual void        SetPosition( const SVector & _coord ) { position = _coord; }
@@ -113,10 +113,10 @@ protected:
   SVector       direction; // current ball direction
 
   // path already covered by spline
-  int64         coveredPath;
+  int64_t         coveredPath;
 
-  int64 lastTunnelPoint;
-  int64 nextTunnelPoint;
+  int64_t lastTunnelPoint;
+  int64_t nextTunnelPoint;
 
   CPtr<IEaselNotifier> pNotifier; 
 
