@@ -1,5 +1,7 @@
 #include "string.h"
 
+#include <mutex>
+
 #include "thread_specific.h"
 
 #if defined( NV_LINUX_PLATFORM )
@@ -43,17 +45,6 @@
 
 		};
 
-		struct scoped_lock
-		{
-			scoped_lock( pthread_mutex_t &_lock ): lock( _lock ) {
-				pthread_mutex_lock( &lock );
-			}
-			~scoped_lock() {
-				pthread_mutex_unlock( &lock );
-			}
-			pthread_mutex_t &lock;
-		};
-
 		class tls_values_t
 		{
 		public:
@@ -68,13 +59,11 @@
 					m_indexes_map[ counter ] = false;
 
 				}
-
-				pthread_mutex_init( &m_protector, NULL );
 			}
 
 			DWORD alloc()
 			{
-				scoped_lock lock( m_protector );
+				std::scoped_lock lock( m_protector );
 
 				if ( m_free_indexes.empty() ) {
 					return TLS_OUT_OF_INDEXES;
@@ -90,7 +79,7 @@
 
 			BOOL free( DWORD index )
 			{
-				scoped_lock lock( m_protector );
+				std::scoped_lock lock( m_protector );
 
 				if ( index > m_indexes_map.size() || false == m_indexes_map[ index ] ) {
 					return FALSE;
@@ -128,7 +117,7 @@
 			typedef std::vector< size_t >	indexes_t;
 			indexes_t						m_free_indexes;
 			std::vector< bool >				m_indexes_map;
-			pthread_mutex_t					m_protector;			//boost::mutex m_protector;
+			std::mutex   					m_protector;
 		};
 
 		tls_values_t g_tls_values; // TODO: Need to wrap the var to thread-safe singleton

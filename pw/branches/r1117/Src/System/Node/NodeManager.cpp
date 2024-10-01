@@ -3,6 +3,8 @@
 #include <map>
 #include <list>
 
+#include <mutex>
+
 #include <boost/thread.hpp>
 #include <boost/optional.hpp>
 
@@ -47,7 +49,7 @@ namespace nvl {
 			{
 				assert( NULL != pFactory );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				size_t nServicesCount = pFactory->GetServiceTypesCount();
 				for ( size_t i = 0; i < nServicesCount; ++i ) {
@@ -135,7 +137,7 @@ namespace nvl {
 				cpService->SetOwnThread( static_cast< IEventsThread * >( cpThread.Get() ) );
 
 				{
-					boost::mutex::scoped_lock Protector( m_ServicesMutex );
+					std::scoped_lock Protector( m_ServicesMutex );
 					NV_CRR( ProcessSubscribes( cpService ) );
 				}
 
@@ -148,7 +150,7 @@ namespace nvl {
 				assert( NULL != csServiceTypeID );
 				assert( NULL != csServiceIdentififer );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				CServiceTypes::const_iterator iServiceType = m_ServiceTypes.find( csServiceTypeID );
 				if ( m_ServiceTypes.end() == iServiceType )
@@ -197,7 +199,7 @@ namespace nvl {
 				assert( NULL != csGlobalSettings );
 				assert( NULL != csSettings );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				if ( m_Services.find( pService->GetIdentifier() ) != m_Services.end() )
 					return result_inv_args;
@@ -240,7 +242,7 @@ namespace nvl {
 			{
 				assert( NULL != pService );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				if ( IService::STARTING != pService->GetServiceState() && IService::WORKING != pService->GetServiceState() )
 					return result_wrong_state;
@@ -256,7 +258,7 @@ namespace nvl {
 			{
 				assert( NULL != csServiceIdentifier );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				CServicesList::const_iterator iService = m_Services.find( csServiceIdentifier );
 				if ( m_Services.end() == iService )
@@ -269,7 +271,7 @@ namespace nvl {
 
 			result_t ServiceReport( IService * pService, OperationID_t ID, result_t Result, cstr_t csResultDescription )
 			{
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				COperationsInProgress::iterator iOperation = m_OperationsInProgress.find( ID );
 				if ( m_OperationsInProgress.end() == iOperation )
@@ -314,7 +316,7 @@ namespace nvl {
 			{
 				assert( NULL != pProcessor );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				if ( std::find( m_StateProcessors.begin(), m_StateProcessors.end(), pProcessor ) != m_StateProcessors.end() )
 					return result_already_done;
@@ -331,7 +333,7 @@ namespace nvl {
 			{
 				assert( NULL != pProcessor );
 
-				boost::mutex::scoped_lock Protector( m_ServicesMutex );
+				std::scoped_lock Protector( m_ServicesMutex );
 
 				CStateProcessors::iterator iProcessor = std::find( m_StateProcessors.begin(), m_StateProcessors.end(), pProcessor );
 				if ( m_StateProcessors.end() == iProcessor )
@@ -388,7 +390,7 @@ namespace nvl {
 		private:
 
 			CThreadManagerPtr m_cpThreadManager;
-			mutable boost::mutex m_ServicesMutex;
+			mutable std::mutex m_ServicesMutex;
 
 			struct CServiceTypeInfo {
 

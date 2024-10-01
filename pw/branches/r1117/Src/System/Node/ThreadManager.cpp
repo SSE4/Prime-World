@@ -448,7 +448,7 @@ namespace node {
 
         result_t Finish()
         {
-            boost::mutex::scoped_lock Locker( m_FinishProtector );
+            std::scoped_lock Locker( m_FinishProtector );
 
             if ( GetThreadState() == WORKING ) {
 
@@ -549,7 +549,7 @@ namespace node {
         {
             assert( NULL != pThread );
 
-            boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+            std::scoped_lock Locker( m_ThreadsProtector );
 
             if (( std::find( m_Threads.begin(), m_Threads.end(), pThread ) != m_Threads.end() ) ||
                 ( pThread->GetIdentifier() && m_Identifiers.find( pThread->GetIdentifier() ) != m_Identifiers.end() ))
@@ -580,7 +580,7 @@ namespace node {
             long nFlag = 0;
             if ( m_IsFinishing.compare_exchange_strong( nFlag, 1 ) ) {
 
-                boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+                std::scoped_lock Locker( m_ThreadsProtector );
 
                 for ( CThreadsList::iterator iThread = m_Threads.begin(); m_Threads.end() != iThread; ++iThread )
                     ( *iThread )->Finish();
@@ -595,7 +595,7 @@ namespace node {
 
         size_t GetThreadsCount()
         {
-            boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+            std::scoped_lock Locker( m_ThreadsProtector );
             return m_Threads.size();
         }
 
@@ -603,7 +603,7 @@ namespace node {
         {
             assert( NULL != csIdentifier );
 
-            boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+            std::scoped_lock Locker( m_ThreadsProtector );
 
             CIdentifiersList::iterator iID = m_Identifiers.find( csIdentifier );
             if ( m_Identifiers.end() != iID )
@@ -616,7 +616,7 @@ namespace node {
         {
             assert( NULL != csIdentifier );
 
-            boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+            std::scoped_lock Locker( m_ThreadsProtector );
 
             CIdentifiersList::iterator iID = m_Identifiers.find( csIdentifier );
             if ( m_Identifiers.end() != iID ) {
@@ -652,7 +652,7 @@ namespace node {
 
             pThread->SetThreadState( IThread::FINISHED );
 
-            boost::mutex::scoped_lock Locker( m_ThreadsProtector );
+            std::scoped_lock Locker( m_ThreadsProtector );
 
             if ( pThread->GetIdentifier() )
                 m_Identifiers.erase( pThread->GetIdentifier() );
@@ -750,7 +750,7 @@ namespace node {
 
     private:
 
-        boost::mutex m_ThreadsProtector;
+        std::mutex m_ThreadsProtector;
 
         typedef std::list< CThreadPtr > CThreadsList;
 

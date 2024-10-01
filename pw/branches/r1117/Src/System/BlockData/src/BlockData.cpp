@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <mutex>
 
 #include <json/reader.h>
 #include <json/writer.h>
@@ -94,7 +95,7 @@ namespace bds {
 		{
 			assert( NULL != csBlockIdentifier );
 
-			boost::mutex::scoped_lock Protector( m_BlockTypesMutex );
+			std::scoped_lock Protector( m_BlockTypesMutex );
 
 			std::string sIdentifier = csBlockIdentifier;
 			BlockTypes_t::const_iterator iBlockType = m_BlockTypes.find( sIdentifier );
@@ -119,7 +120,7 @@ namespace bds {
 		{
 			assert( NULL != csBlockIdentifier );
 
-			boost::mutex::scoped_lock Protector( m_BlockTypesMutex );
+			std::scoped_lock Protector( m_BlockTypesMutex );
 
 			BlockTypes_t::const_iterator iBlockTypeID = m_BlockTypes.find( csBlockIdentifier );
 			if ( m_BlockTypes.end() == iBlockTypeID )
@@ -131,7 +132,7 @@ namespace bds {
 
 		result_t GetBlockTypeIdentifier( BlockTypeID_t BlockTypeID, cstr_t &csBlockIdentifier ) const
 		{
-			boost::mutex::scoped_lock Protector( m_BlockTypesMutex );
+			std::scoped_lock Protector( m_BlockTypesMutex );
 
 			if ( m_BlockIdentifiers.size() <= BlockTypeID )
 				return result_inv_args;
@@ -143,7 +144,7 @@ namespace bds {
 
 		size_t GetBlockTypesCount() const
 		{
-			boost::mutex::scoped_lock Protector( m_BlockTypesMutex );
+			std::scoped_lock Protector( m_BlockTypesMutex );
 			return m_BlockIdentifiers.size();
 		}
     
@@ -252,7 +253,7 @@ namespace bds {
 
 		CCollectors m_Collectors;
 
-		mutable boost::mutex m_BlockTypesMutex;
+		mutable std::mutex m_BlockTypesMutex;
 
 		typedef std::map< std::string, BlockTypeID_t > BlockTypes_t;
 		BlockTypes_t m_BlockTypes;
