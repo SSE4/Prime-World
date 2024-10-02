@@ -106,7 +106,7 @@ Quat Qt_FromMatrix(HMatrix mat)
     qu.x = 0.0f;
     qu.y = 0.0f;
     qu.z = 0.0f;
-    register double tr, s;
+    double tr, s;
 
     tr = mat[X][X] + mat[Y][Y]+ mat[Z][Z];
     if (tr >= 0.0) {

@@ -32,7 +32,7 @@ void ThreadLocalData::FlushBeforeDestruction()
 __forceinline
 TTime ThreadLocalData::GetCpuTickCount()
 {
-  TTime register result;
+  TTime result;
 #if defined( NV_WIN_PLATFORM )
   result = __rdtsc();
 #elif defined( NV_LINUX_PLATFORM )  
