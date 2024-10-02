@@ -2,8 +2,8 @@
 
 #include "System/JobThread.h"
 
-#include <Vendor/libcurl/include/curl/curl.h>
-#include <Vendor/JsonCpp/include/json/json.h>
+#include <curl/curl.h>
+#include <json/json.h>
 
 #include <sstream>
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Vendor/Tamarin/source/core/avmplus.h>
+#include <core/avmplus.h>
 
 namespace flash
 {

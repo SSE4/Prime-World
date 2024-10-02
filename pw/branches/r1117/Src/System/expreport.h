@@ -21,8 +21,8 @@
 // engine
 // standard
 #include <atlbase.h>
-#include "Vendor/wtl/include/atlapp.h"
-#include "Vendor/wtl/include/atlmisc.h"
+#include "atlapp.h"
+#include "atlmisc.h"
 #include <Imagehlp.h>
 #include "nvector.h"
 #include <MsXml.h>

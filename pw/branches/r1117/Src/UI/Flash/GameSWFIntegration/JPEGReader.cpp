@@ -3,7 +3,7 @@
 #include "SwfStreamReader.h"
 #include "JPEGReader.h"
 
-#include <Vendor/jpeglib/include/jpeglib.h>
+#include <jpeglib.h>
 
 namespace jpegreader
 {

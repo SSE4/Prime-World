@@ -1,6 +1,6 @@
 #include "TamarinPCH.h"
 
-#include <Vendor/zlib/include/zlib.h>
+#include <zlib.h>
 #include <Render/FlashRendererInterface.h>
 
 #include "Image.h"

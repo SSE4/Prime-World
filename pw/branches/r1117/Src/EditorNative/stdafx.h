@@ -55,5 +55,5 @@ struct FMOD_EVENTSYSTEM{};      // define structure from fmod.h to prevent C4339
 
 #include "../Sound/SoundScene.h"
 
-#include "Vendor/fmod/api/inc/fmod.hpp"
+#include "fmod.hpp"
 #include "Vendor/fmod/fmoddesignerapi/api/inc/fmod_event.hpp"

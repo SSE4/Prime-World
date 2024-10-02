@@ -1,10 +1,10 @@
 #pragma once
 
-#include <Vendor/Tamarin/source/platform/system-selection.h>
-#include <Vendor/Tamarin/source/platform/win32/win32-platform.h>
-#include <Vendor/Tamarin/source/Core/avmplus.h>
-#include <Vendor/Tamarin/source/MMgc/MMgc.h>
-#include <Vendor/Tamarin/source/Core/AvmCore.h>
+#include <platform/system-selection.h>
+#include <platform/win32/win32-platform.h>
+#include <Core/avmplus.h>
+#include <MMgc/MMgc.h>
+#include <core/AvmCore.h>
 
 #include "FlashClassesCache.h"
 #include "builtins/BuiltinPools.h"

@@ -4,7 +4,7 @@
 #include "meminfo.h"
 #include "LogFileName.h"
 
-#include "Vendor/Detour/include/detours.h"
+#include "detours.h"
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //uncomment DETOUR_MEMORY_HOOK_ENABLED to collect allocation through detour. Check Game.cpp for corresponded debug variable
 //better to disable collecting memory leaks via newdelete.h (comment CHECK_MEMORY_LEAKS, set MAX_STACK_SIZE to -1 and NI_MALLOC_IMPL to 1)
