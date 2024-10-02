@@ -19,7 +19,7 @@ public:
 
 private:
   class MultiReaderLockImpl;
-  const std::auto_ptr< MultiReaderLockImpl > impl_;
+  const std::unique_ptr< MultiReaderLockImpl > impl_;
 };
 
 

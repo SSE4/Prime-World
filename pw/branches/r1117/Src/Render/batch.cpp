@@ -1,5 +1,8 @@
 #include "stdafx.h"
+
 #include <algorithm>
+#include <memory>
+
 #include "renderer.h"
 #include "batch.h"
 #include "DXManager.h"
@@ -367,7 +370,7 @@ void BatchQueue::EnableResourceManagment(bool _enable)
   if( _enable && resourceManager.get() )
     return;
 
-  resourceManager = std::auto_ptr<DXManager>(_enable ? new DeviceLostWrapper<DXManager> : 0);
+  resourceManager = std::unique_ptr<DXManager>(_enable ? new DeviceLostWrapper<DXManager> : 0);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

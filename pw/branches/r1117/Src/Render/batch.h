@@ -2,6 +2,8 @@
 
 #include "port/align.h"
 
+#include <memory>
+
 #include "MaterialSpec.h"
 #include "RenderComponent.h"
 #include "renderableprimitive.h"
@@ -77,7 +79,7 @@ private:
 	const SHShaderConstants   *pCurSHConsts;
 	int                       index;
 
-  std::auto_ptr<class DXManager>  resourceManager;
+  std::unique_ptr<class DXManager>  resourceManager;
 
 	static void RenderBatchesList(Batch *pBatch);
   static void RenderBatchesPtrArray(UINT numBatches, Batch **pBatches);
