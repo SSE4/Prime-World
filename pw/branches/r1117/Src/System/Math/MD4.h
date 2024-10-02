@@ -1,12 +1,8 @@
 #ifndef SYSTEM_MD4_H_INCLUDED
 #define SYSTEM_MD4_H_INCLUDED
 
-extern "C"
-{
-#include <Vendor/MD4/global.h>
-#include <Vendor/MD4/md4.h>
-#include <Vendor/MD4/md5.h>
-}
+#include <openssl/md4.h>
+#include <openssl/md5.h>
 
 #include <System/DefaultTypes.h>
 #include <assert.h>
@@ -74,7 +70,7 @@ struct MD4
     nstl::string ToString() const;
 };
 
-template <typename CONTEXT, void INIT(CONTEXT*), void UPDATE(CONTEXT*, unsigned char*, unsigned int), void FINAL(unsigned char [16], CONTEXT*)>
+template <typename CONTEXT, int INIT(CONTEXT*), int UPDATE(CONTEXT*, const void*, size_t), int FINAL(unsigned char [16], CONTEXT*)>
 struct MDGenerator
 {
   MDGenerator()
@@ -110,8 +106,8 @@ private:
   MD4 result;
 };
 
-typedef math::MDGenerator<MD4_CTX, MD4Init, MD4Update, MD4Final> MD4Generator;
-typedef math::MDGenerator<MD5_CTX, MD5Init, MD5Update, MD5Final> MD5Generator;
+typedef math::MDGenerator<MD4_CTX, MD4_Init, MD4_Update, MD4_Final> MD4Generator;
+typedef math::MDGenerator<MD5_CTX, MD5_Init, MD5_Update, MD5_Final> MD5Generator;
 
 math::MD4 GenerateMD5(const byte* buffer, uint size);
 math::MD4 GenerateMD5(const nstl::vector<byte>& buffer);
