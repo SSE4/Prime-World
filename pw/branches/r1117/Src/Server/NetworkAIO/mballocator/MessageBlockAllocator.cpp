@@ -1,6 +1,8 @@
 #include "mballocator/stdafx.h"
 #include "mballocator/MessageBlockAllocator.h"
 
+#include "ace/Guard_T.h"
+
 namespace TransportLayer
 {
   MessageBlockAllocator::MessageBlockAllocator(char const * _name)
