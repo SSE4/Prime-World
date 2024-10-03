@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "StatClientDiskDispatcher.h"
 #include "System/Math/MD4.h"
-
+#include "System/FileSystem/FilePath.h"
 
 namespace StatisticService
 {
