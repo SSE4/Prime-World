@@ -18,9 +18,11 @@
 //#define USE_FREE_EXECUTOR  //define for maximum performance
 
 class FormulaBuilder;
+class OffsetHelper;
 
 class DataExecutor
 {
+  friend class OffsetHelper;
   //template black magic to have something like isFloat
   template<typename _Tp, _Tp __v> struct integral_constant
   {

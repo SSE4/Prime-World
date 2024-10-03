@@ -146,13 +146,19 @@ ToNext:
   }
   
 }
+
+class OffsetHelper
+{
+public:
+    static constexpr unsigned binaryCode = offsetof(DataExecutor, pBinaryCode);
+    static constexpr unsigned entryPointOffset = offsetof(DataExecutor, nEntryPointOffset);
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void __declspec(naked) __cdecl DataExecutor::ExecuteFreeStackless() const
 {
   //the stack here is: ret_addr(ExecuteFreeStackless), this, epb, ret_addr(ExecuteFree), this, desired stack
   //we want stack like: ret_addr(ExecuteFree), desired stack and we need to calculate call address
-  static unsigned const binaryCode       =  offsetof(DataExecutor, pBinaryCode);
-  static unsigned const entryPointOffset =  offsetof(DataExecutor, nEntryPointOffset);
   //call address is binaryCode + entryPointOffset
   __asm 
   {
@@ -167,9 +173,9 @@ void __declspec(naked) __cdecl DataExecutor::ExecuteFreeStackless() const
     add esp, 8
     //find call address
     mov ecx , dword ptr [esp + 4] //this
-    mov eax , binaryCode
+    mov eax , OffsetHelper::binaryCode
     mov eax , dword ptr [ecx + eax] 
-    mov edx , entryPointOffset
+    mov edx , OffsetHelper::entryPointOffset
     mov edx , dword ptr [ecx + edx] 
     add eax , edx                    //eax now have call address
     //modify stack to have our epilogue called
