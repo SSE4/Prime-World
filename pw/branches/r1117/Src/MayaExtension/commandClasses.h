@@ -42,7 +42,7 @@ private:
 
 	MStatus	reader(
 		MString filename,
-		MFnSkinCluster	skinCluster,
+		MFnSkinCluster	&skinCluster,
 		MDagPath	meshPath,
 		MObject meshComponent,
 		double	tolerance);
@@ -55,7 +55,7 @@ private:
 
 	MStatus	readerIDX(
 		MString	filename,
-		MFnSkinCluster skinCluster,
+		MFnSkinCluster &skinCluster,
 		MDagPath meshPath,
 		MObject	meshComponent);
 

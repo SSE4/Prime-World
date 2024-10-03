@@ -2,7 +2,7 @@
 #include "BNFL.h"
 
 MStatus bindFile::reader(MString filename,
-				 MFnSkinCluster skinCluster,
+				 MFnSkinCluster & skinCluster,
 				 MDagPath meshPath,
 				 MObject meshComponent,
 				 double tolerance)

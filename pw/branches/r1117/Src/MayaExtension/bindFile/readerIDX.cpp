@@ -2,7 +2,7 @@
 #include "BNFL.h"
 
 MStatus bindFile::readerIDX(MString filename,
-				 MFnSkinCluster skinCluster,
+				 MFnSkinCluster & skinCluster,
 				 MDagPath meshPath,
 				 MObject meshComponent)
 {
