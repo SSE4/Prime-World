@@ -1,5 +1,8 @@
+#define _USE_MATH_DEFINES 1
+
 #include "../commandClasses.h"
 
+#include <cmath>
 
 
 //===============================================
