@@ -373,12 +373,12 @@ namespace naio
           {
             if (poutmb)
             {
-              unsigned int qlen = 0;
+              size_t qlen = 0;
               unsigned int qlen_in_bytes = 0;
               unsigned int total_msg_size = poutmb->total_length();
               {
                 NI_PROFILE_BLOCK("start_write");
-                rc = channel->start_write(*poutmb, qlen, qlen_in_bytes);
+                rc = channel->start_write(poutmb->base(), total_msg_size);
               }
               if (rc < 0)
               {

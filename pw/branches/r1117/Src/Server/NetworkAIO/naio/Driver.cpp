@@ -8,6 +8,7 @@
 #include "naio/Connector.h"
 #include "naio/ThreadPool.h"
 #include "naio/Acceptor.h"
+#include "ace/Init_ACE.h"
 
 namespace naio
 {

@@ -9,6 +9,7 @@
 #include "transport/TLDefaultLogCallback.h"
 #include "transport/TLMulticastChannel.h"
 #include <Network/TransportMessages.h>
+#include <ace/Init_ACE.h>
 
 namespace TransportLayer
 {

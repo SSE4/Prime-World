@@ -8,7 +8,7 @@ namespace naio
   // Channel
   // ***************************************************
   Channel::Channel (int id)
-    : Terabit::TcpChannel (id, 0),
+    : Terabit::TcpChannel (id),
     protocol_(0)
   {
   }
